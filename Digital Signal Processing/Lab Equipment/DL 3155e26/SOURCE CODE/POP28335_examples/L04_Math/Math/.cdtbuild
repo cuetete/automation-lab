@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?fileVersion 3.1.0?>
+
+<ManagedProjectBuildInfo>
+<project id="Math.com.ti.ccstudio.buildDefinitions.C2000.ProjectType.1874841351" name="C2000" projectType="com.ti.ccstudio.buildDefinitions.C2000.ProjectType">
+<configuration artifactExtension="out" artifactName="${EXT_ROOT__Math}/Debug/Math" description="" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1888944734" name="Debug" parent="com.ti.ccstudio.buildDefinitions.C2000.Debug">
+<toolChain id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.DebugToolchain.191924317" name="TI Code Generation Tools" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.DebugToolchain" targetTool="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.749184811">
+<option id="com.ti.ccstudio.buildDefinitions.core.OPT_TAGS.915407746" superClass="com.ti.ccstudio.buildDefinitions.core.OPT_TAGS" valueType="stringList">
+<listOptionValue builtIn="false" value="DEVICE_CONFIGURATION_ID=TMS320C28XX"/>
+<listOptionValue builtIn="false" value="DEVICE_ENDIANNESS=none"/>
+<listOptionValue builtIn="false" value="OUTPUT_FORMAT=COFF"/>
+<listOptionValue builtIn="false" value="CCS_MBS_VERSION=4.2.4"/>
+<listOptionValue builtIn="false" value="LINKER_COMMAND_FILE="/>
+<listOptionValue builtIn="false" value="RUNTIME_SUPPORT_LIBRARY="/>
+<listOptionValue builtIn="false" value="OUTPUT_TYPE=executable"/>
+<listOptionValue builtIn="false" value="RTSC_PRODUCTS=com.ti.rtsc.XDAIS:latest;"/>
+<listOptionValue builtIn="false" value="LINK_ORDER="/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.core.OPT_CODEGEN_VERSION.600362334" superClass="com.ti.ccstudio.buildDefinitions.core.OPT_CODEGEN_VERSION" value="6.0.1" valueType="string"/>
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.1484626266" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug">
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIAG_WARNING.365162832" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIAG_WARNING" valueType="stringList">
+<listOptionValue builtIn="false" value="225"/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.INCLUDE_PATH.565789715" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.INCLUDE_PATH" valueType="includePath">
+<listOptionValue builtIn="false" value="&quot;${CG_TOOL_ROOT}/include&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${XDAIS_CG_ROOT}/packages/ti/xdais&quot;"/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIRECTORY_MODE.354301481" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIRECTORY_MODE" value="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIRECTORY_MODE.manual" valueType="enumerated"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.OBJ_DIRECTORY.490709294" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.OBJ_DIRECTORY" value="&quot;${EXT_ROOT__Math}/Debug&quot;" valueType="string"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DEFINE.811132024" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DEFINE" valueType="definedSymbols">
+<listOptionValue builtIn="false" value="&quot;_DEBUG&quot;"/>
+<listOptionValue builtIn="false" value="&quot;LARGE_MODEL&quot;"/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.LARGE_MEMORY_MODEL.1854830384" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.LARGE_MEMORY_MODEL" value="true" valueType="boolean"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.SILICON_VERSION.1325113167" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.SILICON_VERSION" value="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.SILICON_VERSION.28" valueType="enumerated"/>
+</tool>
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.749184811" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug">
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.OUTPUT_FILE.399267735" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.OUTPUT_FILE" value="&quot;${EXT_ROOT__Math}/Debug/Math.out&quot;" valueType="string"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.MAP_FILE.604775315" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.MAP_FILE" value="&quot;${EXT_ROOT__Math}/Debug/Math.map&quot;" valueType="string"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.SEARCH_PATH.441654536" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.SEARCH_PATH" valueType="stringList">
+<listOptionValue builtIn="false" value="&quot;${CG_TOOL_ROOT}/lib&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${CG_TOOL_ROOT}/include&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${PROJECT_ROOT}&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${EXT_ROOT__Math}&quot;"/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.STACK_SIZE.1401813402" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.STACK_SIZE" value="800" valueType="string"/>
+</tool>
+<macros/>
+</toolChain>
+</configuration>
+<configuration artifactExtension="out" artifactName="${EXT_ROOT__Math}/Release/Math" description="" id="com.ti.ccstudio.buildDefinitions.C2000.Release.1514602924" name="Release" parent="com.ti.ccstudio.buildDefinitions.C2000.Release">
+<toolChain id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.ReleaseToolchain.1133255609" name="TI Code Generation Tools" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.ReleaseToolchain" targetTool="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.377375728">
+<option id="com.ti.ccstudio.buildDefinitions.core.OPT_TAGS.1499908149" superClass="com.ti.ccstudio.buildDefinitions.core.OPT_TAGS" valueType="stringList">
+<listOptionValue builtIn="false" value="DEVICE_CONFIGURATION_ID=TMS320C28XX"/>
+<listOptionValue builtIn="false" value="DEVICE_ENDIANNESS=none"/>
+<listOptionValue builtIn="false" value="OUTPUT_FORMAT=COFF"/>
+<listOptionValue builtIn="false" value="CCS_MBS_VERSION=4.2.4"/>
+<listOptionValue builtIn="false" value="LINKER_COMMAND_FILE="/>
+<listOptionValue builtIn="false" value="RUNTIME_SUPPORT_LIBRARY="/>
+<listOptionValue builtIn="false" value="OUTPUT_TYPE=executable"/>
+<listOptionValue builtIn="false" value="RTSC_PRODUCTS=com.ti.rtsc.XDAIS:latest;"/>
+<listOptionValue builtIn="false" value="LINK_ORDER="/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.core.OPT_CODEGEN_VERSION.1332603680" superClass="com.ti.ccstudio.buildDefinitions.core.OPT_CODEGEN_VERSION" value="6.0.1" valueType="string"/>
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.557830546" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease">
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIAG_WARNING.39603109" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIAG_WARNING" valueType="stringList">
+<listOptionValue builtIn="false" value="225"/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.INCLUDE_PATH.2080444053" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.INCLUDE_PATH" valueType="includePath">
+<listOptionValue builtIn="false" value="&quot;${CG_TOOL_ROOT}/include&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${XDAIS_CG_ROOT}/packages/ti/xdais&quot;"/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.OPT_LEVEL.release.1402580777" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.OPT_LEVEL.release" value="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.OPT_LEVEL.3" valueType="enumerated"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIRECTORY_MODE.1065642529" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIRECTORY_MODE" value="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIRECTORY_MODE.manual" valueType="enumerated"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.OBJ_DIRECTORY.1521403242" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.OBJ_DIRECTORY" value="&quot;${EXT_ROOT__Math}/Release&quot;" valueType="string"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DEFINE.327935170" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DEFINE" valueType="definedSymbols">
+<listOptionValue builtIn="false" value="&quot;LARGE_MODEL&quot;"/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.LARGE_MEMORY_MODEL.1240339051" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.LARGE_MEMORY_MODEL" value="true" valueType="boolean"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.SILICON_VERSION.1694349225" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.SILICON_VERSION" value="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.SILICON_VERSION.28" valueType="enumerated"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DEBUGGING_MODEL.1048539658" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DEBUGGING_MODEL" value="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DEBUGGING_MODEL._none" valueType="enumerated"/>
+</tool>
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.377375728" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease">
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.OUTPUT_FILE.2058270006" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.OUTPUT_FILE" value="&quot;${EXT_ROOT__Math}/Release/Math.out&quot;" valueType="string"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.MAP_FILE.54895988" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.MAP_FILE" value="&quot;${EXT_ROOT__Math}/Release/Math.map&quot;" valueType="string"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.SEARCH_PATH.150826637" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.SEARCH_PATH" valueType="stringList">
+<listOptionValue builtIn="false" value="&quot;${CG_TOOL_ROOT}/lib&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${CG_TOOL_ROOT}/include&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${PROJECT_ROOT}&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${EXT_ROOT__Math}&quot;"/>
+</option>
+</tool>
+</toolChain>
+</configuration>
+</project>
+</ManagedProjectBuildInfo>

@@ -1,0 +1,159 @@
+******************************************************************************
+  TMS320C2000 Evaluation Linker PC v6.0.1                      
+******************************************************************************
+>> Linked Wed Jan 31 16:44:54 2018
+
+OUTPUT FILE NAME:   <C.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 003f81dd
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+PAGE 0:
+  PRAMH0                003f8000   00001200  0000030f  00000ef1  RWIX
+
+PAGE 1:
+  RAMM0                 00000000   00000400  00000000  00000400  RWIX
+  RAMM1                 00000400   00000400  00000320  000000e0  RWIX
+  DRAMH0                003f9200   00000a00  00000808  000001f8  RWIX
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.text      0    003f8000    000002f7     
+                  003f8000    00000088     rts2800_ml.lib : sin.obj (.text)
+                  003f8088    00000083                    : fs_div.obj (.text)
+                  003f810b    00000078                    : fs_add.obj (.text)
+                  003f8183    0000005a                    : fs_mpy.obj (.text)
+                  003f81dd    00000044                    : boot.obj (.text)
+                  003f8221    00000040     test.obj (.text)
+                  003f8261    00000025     rts2800_ml.lib : fs_toi.obj (.text)
+                  003f8286    0000001a                    : i_tofs.obj (.text)
+                  003f82a0    00000019                    : args_main.obj (.text)
+                  003f82b9    00000019                    : exit.obj (.text)
+                  003f82d2    00000017                    : fs_cmp.obj (.text)
+                  003f82e9    00000009                    : _lock.obj (.text)
+                  003f82f2    00000005                    : fs_neg.obj (.text)
+
+.cinit     0    003f82f7    00000016     
+                  003f82f7    0000000a     rts2800_ml.lib : _lock.obj (.cinit)
+                  003f8301    0000000a                    : exit.obj (.cinit)
+                  003f830b    00000002     --HOLE-- [fill = 0]
+
+.reset     0    003f830e    00000002     
+                  003f830e    00000002     rts2800_ml.lib : boot.obj (.reset)
+
+.stack     1    00000400    00000320     UNINITIALIZED
+                  00000400    00000320     --HOLE--
+
+.bss       1    003f9200    00000000     UNINITIALIZED
+
+.ebss      1    003f9200    00000808     UNINITIALIZED
+                  003f9200    00000800     test.obj (.ebss)
+                  003f9a00    00000004     rts2800_ml.lib : _lock.obj (.ebss)
+                  003f9a04    00000004                    : exit.obj (.ebss)
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address    name
+--------   ----
+003f9200   .bss
+003f8000   .text
+003f82b9   C$$EXIT
+003f8110   FS$$ADD
+003f82d2   FS$$CMP
+003f8088   FS$$DIV
+003f8183   FS$$MPY
+003f82f2   FS$$NEG
+003f810b   FS$$SUB
+003f8261   FS$$TOI
+003f8286   I$$TOFS
+00000720   __STACK_END
+00000320   __STACK_SIZE
+00000001   __TI_args_main
+ffffffff   ___binit__
+003f9200   ___bss__
+ffffffff   ___c_args__
+003f82f7   ___cinit__
+003f9200   ___end__
+003f82f7   ___etext__
+ffffffff   ___pinit__
+003f8000   ___text__
+003f82a0   __args_main
+003f9a04   __cleanup_ptr
+003f9a06   __dtors_ptr
+003f9a02   __lock
+003f82f1   __nop
+003f82ed   __register_lock
+003f82e9   __register_unlock
+00000400   __stack
+003f9a00   __unlock
+003f82b9   _abort
+003f81dd   _c_int00
+003f82bb   _exit
+003f8248   _main
+003f8000   _sin
+003f8221   _sin_fun
+003f9200   _sindat
+ffffffff   binit
+003f82f7   cinit
+003f9200   end
+003f82f7   etext
+ffffffff   pinit
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address    name
+--------   ----
+00000001   __TI_args_main
+00000320   __STACK_SIZE
+00000400   __stack
+00000720   __STACK_END
+003f8000   .text
+003f8000   ___text__
+003f8000   _sin
+003f8088   FS$$DIV
+003f810b   FS$$SUB
+003f8110   FS$$ADD
+003f8183   FS$$MPY
+003f81dd   _c_int00
+003f8221   _sin_fun
+003f8248   _main
+003f8261   FS$$TOI
+003f8286   I$$TOFS
+003f82a0   __args_main
+003f82b9   C$$EXIT
+003f82b9   _abort
+003f82bb   _exit
+003f82d2   FS$$CMP
+003f82e9   __register_unlock
+003f82ed   __register_lock
+003f82f1   __nop
+003f82f2   FS$$NEG
+003f82f7   ___cinit__
+003f82f7   ___etext__
+003f82f7   cinit
+003f82f7   etext
+003f9200   .bss
+003f9200   ___bss__
+003f9200   ___end__
+003f9200   _sindat
+003f9200   end
+003f9a00   __unlock
+003f9a02   __lock
+003f9a04   __cleanup_ptr
+003f9a06   __dtors_ptr
+ffffffff   ___binit__
+ffffffff   ___c_args__
+ffffffff   ___pinit__
+ffffffff   binit
+ffffffff   pinit
+
+[43 symbols]

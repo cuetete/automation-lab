@@ -1,0 +1,3 @@
+-z -m"./Debug/asm.map" -o"./Debug/asm.out" -w -x -i"C:/CCStudio_v3.3/C2000/xdais/lib" -i"C:/CCStudio_v3.3/bios_5_31_02/packages/ti/bios/lib" -i"C:/CCStudio_v3.3/bios_5_31_02/packages/ti/rtdx/lib/c2000" -i"C:/CCStudio_v3.3/C2000/cgtools/lib"
+"C:\DSP_EXP\asm\Debug\test.obj"
+"C:\DSP_EXP\asm\SRAM.CMD"

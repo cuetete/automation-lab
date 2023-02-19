@@ -1,0 +1,4 @@
+!WARNING: Source file 'rts2800.lib' has been linked into the project relative to version-specific Code-generation Tool variable 'CCS_C2000_6_0_1_CG_ROOT'.  It is recommended, however, that you do not link any resources from the Code-generation Tool directory - consider using build-options to reference include-files and libraries, or linking the resource into your project using a new version-independent variable.
+
+!WARNING: Source file 'rts2800.lib' has been linked into the project relative to version-specific Code-generation Tool variable 'CCS_C2000_6_0_1_CG_ROOT'.  It is recommended, however, that you do not link any resources from the Code-generation Tool directory - consider using build-options to reference include-files and libraries, or linking the resource into your project using a new version-independent variable.
+

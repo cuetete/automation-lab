@@ -1,0 +1,314 @@
+XNFMERGE Ver. 5.2.0 
+Copyright (c) 1987-1995 Xilinx Inc. All rights reserved
+
+List of files read
+    Read file ev02.xnf
+    Read file m4_1e.xnf
+    Read file m2_1e.xnf
+    Read file m2_1.xnf
+    Read file m2_1.xnf
+    Read file d2_4e.xnf
+    Read file m4_1e.xnf
+    Read file m2_1e.xnf
+    Read file m2_1.xnf
+    Read file m2_1.xnf
+    Read file m4_1e.xnf
+    Read file m2_1e.xnf
+    Read file m2_1.xnf
+    Read file m2_1.xnf
+    Read file x74_162.xnf
+    Read file ftrsle.xnf
+    Read file fdre.xnf
+    Read file fd.xnf
+    Read file m2_1.xnf
+    Read file ftrsle.xnf
+    Read file fdre.xnf
+    Read file fd.xnf
+    Read file m2_1.xnf
+    Read file ftrsle.xnf
+    Read file fdre.xnf
+    Read file fd.xnf
+    Read file m2_1.xnf
+    Read file ftrsle.xnf
+    Read file fdre.xnf
+    Read file fd.xnf
+    Read file m2_1.xnf
+    Read file x74_162.xnf
+    Read file ftrsle.xnf
+    Read file fdre.xnf
+    Read file fd.xnf
+    Read file m2_1.xnf
+    Read file ftrsle.xnf
+    Read file fdre.xnf
+    Read file fd.xnf
+    Read file m2_1.xnf
+    Read file ftrsle.xnf
+    Read file fdre.xnf
+    Read file fd.xnf
+    Read file m2_1.xnf
+    Read file ftrsle.xnf
+    Read file fdre.xnf
+    Read file fd.xnf
+    Read file m2_1.xnf
+    Read file m4_1e.xnf
+    Read file m2_1e.xnf
+    Read file m2_1.xnf
+    Read file m2_1.xnf
+    Read file fdc.xnf
+    Read file x74_162.xnf
+    Read file ftrsle.xnf
+    Read file fdre.xnf
+    Read file fd.xnf
+    Read file m2_1.xnf
+    Read file ftrsle.xnf
+    Read file fdre.xnf
+    Read file fd.xnf
+    Read file m2_1.xnf
+    Read file ftrsle.xnf
+    Read file fdre.xnf
+    Read file fd.xnf
+    Read file m2_1.xnf
+    Read file ftrsle.xnf
+    Read file fdre.xnf
+    Read file fd.xnf
+    Read file m2_1.xnf
+    Read file x74_162.xnf
+    Read file ftrsle.xnf
+    Read file fdre.xnf
+    Read file fd.xnf
+    Read file m2_1.xnf
+    Read file ftrsle.xnf
+    Read file fdre.xnf
+    Read file fd.xnf
+    Read file m2_1.xnf
+    Read file ftrsle.xnf
+    Read file fdre.xnf
+    Read file fd.xnf
+    Read file m2_1.xnf
+    Read file ftrsle.xnf
+    Read file fdre.xnf
+    Read file fd.xnf
+    Read file m2_1.xnf
+    Read file x74_162.xnf
+    Read file ftrsle.xnf
+    Read file fdre.xnf
+    Read file fd.xnf
+    Read file m2_1.xnf
+    Read file ftrsle.xnf
+    Read file fdre.xnf
+    Read file fd.xnf
+    Read file m2_1.xnf
+    Read file ftrsle.xnf
+    Read file fdre.xnf
+    Read file fd.xnf
+    Read file m2_1.xnf
+    Read file ftrsle.xnf
+    Read file fdre.xnf
+    Read file fd.xnf
+    Read file m2_1.xnf
+    Read file x74_162.xnf
+    Read file ftrsle.xnf
+    Read file fdre.xnf
+    Read file fd.xnf
+    Read file m2_1.xnf
+    Read file ftrsle.xnf
+    Read file fdre.xnf
+    Read file fd.xnf
+    Read file m2_1.xnf
+    Read file ftrsle.xnf
+    Read file fdre.xnf
+    Read file fd.xnf
+    Read file m2_1.xnf
+    Read file ftrsle.xnf
+    Read file fdre.xnf
+    Read file fd.xnf
+    Read file m2_1.xnf
+    Read file x74_162.xnf
+    Read file ftrsle.xnf
+    Read file fdre.xnf
+    Read file fd.xnf
+    Read file m2_1.xnf
+    Read file ftrsle.xnf
+    Read file fdre.xnf
+    Read file fd.xnf
+    Read file m2_1.xnf
+    Read file ftrsle.xnf
+    Read file fdre.xnf
+    Read file fd.xnf
+    Read file m2_1.xnf
+    Read file ftrsle.xnf
+    Read file fdre.xnf
+    Read file fd.xnf
+    Read file m2_1.xnf
+    Read file x74_162.xnf
+    Read file ftrsle.xnf
+    Read file fdre.xnf
+    Read file fd.xnf
+    Read file m2_1.xnf
+    Read file ftrsle.xnf
+    Read file fdre.xnf
+    Read file fd.xnf
+    Read file m2_1.xnf
+    Read file ftrsle.xnf
+    Read file fdre.xnf
+    Read file fd.xnf
+    Read file m2_1.xnf
+    Read file ftrsle.xnf
+    Read file fdre.xnf
+    Read file fd.xnf
+    Read file m2_1.xnf
+    Read file fdc.xnf
+
+Signal Binding Report:
+   $I76/S1 bound to $Net00063_
+   $I76/S0 bound to $Net00061_
+    $I76/O bound to $Net00055_
+    $I76/E bound to VCC
+   $I76/D3 bound to $Net00013_
+   $I76/D2 bound to $Net00002_
+   $I76/D1 bound to $Net00001_
+   $I76/D0 bound to $Net00017_
+    $I65/E bound to VCC
+   $I65/D3 bound to $Net00071_
+   $I65/D2 bound to $Net00070_
+   $I65/D1 bound to $Net00069_
+   $I65/D0 bound to $Net00068_
+   $I65/A1 bound to $Net00063_
+   $I65/A0 bound to $Net00061_
+   $I77/S1 bound to $Net00063_
+   $I77/S0 bound to $Net00061_
+    $I77/O bound to $Net00057_
+    $I77/E bound to $Net00033_
+   $I77/D3 bound to $Net00024_
+   $I77/D2 bound to $Net00023_
+   $I77/D1 bound to $Net00022_
+   $I77/D0 bound to $Net00018_
+   $I74/S1 bound to $Net00063_
+   $I74/S0 bound to $Net00061_
+    $I74/O bound to $Net00058_
+    $I74/E bound to VCC
+   $I74/D3 bound to $Net00028_
+   $I74/D2 bound to $Net00027_
+   $I74/D1 bound to $Net00026_
+   $I74/D0 bound to $Net00025_
+    $I47/R bound to $Net00019_
+   $I47/QD bound to $Net00025_
+   $I47/QC bound to $Net00018_
+   $I47/QB bound to $Net00014_
+   $I47/QA bound to $Net00017_
+ $I47/LOAD bound to VCC
+  $I47/ENT bound to $Net00016_
+  $I47/ENP bound to VCC
+    $I47/D bound to GND
+   $I47/CK bound to CK
+    $I47/C bound to GND
+    $I47/B bound to GND
+    $I47/A bound to GND
+  $I45/RCO bound to $Net00016_
+    $I45/R bound to VCC
+   $I45/QD bound to $Net00026_
+   $I45/QC bound to $Net00022_
+   $I45/QB bound to $Net00015_
+   $I45/QA bound to $Net00001_
+ $I45/LOAD bound to VCC
+  $I45/ENT bound to $Net00003_
+  $I45/ENP bound to VCC
+    $I45/D bound to GND
+   $I45/CK bound to CK
+    $I45/C bound to GND
+    $I45/B bound to GND
+    $I45/A bound to GND
+   $I75/S1 bound to $Net00063_
+   $I75/S0 bound to $Net00061_
+    $I75/O bound to $Net00056_
+    $I75/E bound to VCC
+   $I75/D3 bound to $Net00021_
+   $I75/D2 bound to $Net00020_
+   $I75/D1 bound to $Net00015_
+   $I75/D0 bound to $Net00014_
+    $I28/Q bound to $Net00063_
+    $I28/D bound to $Net00064_
+  $I28/CLR bound to GND
+    $I28/C bound to $Net00061_
+   $I8/RCO bound to CK5
+     $I8/R bound to VCC
+    $I8/QD bound to $Net00028_
+    $I8/QC bound to $Net00024_
+    $I8/QB bound to $Net00021_
+    $I8/QA bound to $Net00013_
+  $I8/LOAD bound to VCC
+   $I8/ENT bound to CK4
+   $I8/ENP bound to VCC
+     $I8/D bound to GND
+    $I8/CK bound to CK
+     $I8/C bound to GND
+     $I8/B bound to GND
+     $I8/A bound to GND
+   $I7/RCO bound to $Net00003_
+     $I7/R bound to VCC
+    $I7/QD bound to $Net00027_
+    $I7/QC bound to $Net00023_
+    $I7/QB bound to $Net00020_
+    $I7/QA bound to $Net00002_
+  $I7/LOAD bound to VCC
+   $I7/ENT bound to CK5
+   $I7/ENP bound to VCC
+     $I7/D bound to GND
+    $I7/CK bound to CK
+     $I7/C bound to GND
+     $I7/B bound to GND
+     $I7/A bound to GND
+   $I6/RCO bound to CK4
+     $I6/R bound to VCC
+  $I6/LOAD bound to VCC
+   $I6/ENT bound to $Net00059_
+   $I6/ENP bound to VCC
+     $I6/D bound to GND
+    $I6/CK bound to CK
+     $I6/C bound to GND
+     $I6/B bound to GND
+     $I6/A bound to GND
+   $I5/RCO bound to $Net00059_
+     $I5/R bound to VCC
+    $I5/QC bound to $Net00060_
+  $I5/LOAD bound to VCC
+   $I5/ENT bound to CK2
+   $I5/ENP bound to VCC
+     $I5/D bound to GND
+    $I5/CK bound to CK
+     $I5/C bound to GND
+     $I5/B bound to GND
+     $I5/A bound to GND
+   $I4/RCO bound to CK2
+     $I4/R bound to VCC
+  $I4/LOAD bound to VCC
+   $I4/ENT bound to CK1
+   $I4/ENP bound to VCC
+     $I4/D bound to GND
+    $I4/CK bound to CK
+     $I4/C bound to GND
+     $I4/B bound to GND
+     $I4/A bound to GND
+   $I3/RCO bound to CK1
+     $I3/R bound to VCC
+  $I3/LOAD bound to VCC
+   $I3/ENT bound to VCC
+   $I3/ENP bound to VCC
+     $I3/D bound to GND
+    $I3/CK bound to CK
+     $I3/C bound to GND
+     $I3/B bound to GND
+     $I3/A bound to GND
+    $I29/Q bound to $Net00061_
+    $I29/D bound to $Net00062_
+  $I29/CLR bound to GND
+    $I29/C bound to $Net00060_
+
+
+
+List of sets created by XNFMERGE:
+
+Items in network:
+   561 signals
+   475 primitive symbols
+   0 unresolved symbols

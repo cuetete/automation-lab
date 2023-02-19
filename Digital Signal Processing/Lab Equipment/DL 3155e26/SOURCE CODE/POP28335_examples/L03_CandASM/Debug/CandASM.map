@@ -1,0 +1,138 @@
+******************************************************************************
+  TMS320C2000 Evaluation Linker PC v6.0.1                      
+******************************************************************************
+>> Linked Wed Jan 31 16:50:39 2018
+
+OUTPUT FILE NAME:   <CandASM.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 003f8000
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+PAGE 0:
+  PRAMH0                003f8000   00001200  000000ad  00001153  RWIX
+
+PAGE 1:
+  RAMM0                 00000000   00000400  00000000  00000400  RWIX
+  RAMM1                 00000400   00000400  00000320  000000e0  RWIX
+  DRAMH0                003f9200   00000a00  0000000a  000009f6  RWIX
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.text      0    003f8000    00000091     
+                  003f8000    00000044     rts2800_ml.lib : boot.obj (.text)
+                  003f8044    00000019                    : args_main.obj (.text)
+                  003f805d    00000019                    : exit.obj (.text)
+                  003f8076    0000000e     testc.obj (.text)
+                  003f8084    00000009     rts2800_ml.lib : _lock.obj (.text)
+                  003f808d    00000004     tests.obj (.text)
+
+.cinit     0    003f8091    0000001a     
+                  003f8091    0000000a     rts2800_ml.lib : _lock.obj (.cinit)
+                  003f809b    0000000a                    : exit.obj (.cinit)
+                  003f80a5    00000004     testc.obj (.cinit)
+                  003f80a9    00000002     --HOLE-- [fill = 0]
+
+.reset     0    003f80ac    00000002     
+                  003f80ac    00000002     rts2800_ml.lib : boot.obj (.reset)
+
+.stack     1    00000400    00000320     UNINITIALIZED
+                  00000400    00000320     --HOLE--
+
+.ebss      1    003f9200    00000009     UNINITIALIZED
+                  003f9200    00000004     rts2800_ml.lib : _lock.obj (.ebss)
+                  003f9204    00000004                    : exit.obj (.ebss)
+                  003f9208    00000001     testc.obj (.ebss)
+
+.bss       1    003f9209    00000001     UNINITIALIZED
+                  003f9209    00000001     tests.obj (.bss)
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address    name
+--------   ----
+003f9209   .bss
+003f8000   .text
+003f805d   C$$EXIT
+00000720   __STACK_END
+00000320   __STACK_SIZE
+00000001   __TI_args_main
+ffffffff   ___binit__
+003f9209   ___bss__
+ffffffff   ___c_args__
+003f8091   ___cinit__
+003f920a   ___end__
+003f8091   ___etext__
+ffffffff   ___pinit__
+003f8000   ___text__
+003f8044   __args_main
+003f9204   __cleanup_ptr
+003f9206   __dtors_ptr
+003f9202   __lock
+003f808c   __nop
+003f8088   __register_lock
+003f8084   __register_unlock
+00000400   __stack
+003f9200   __unlock
+003f805d   _abort
+003f808d   _asmfunc
+003f8000   _c_int00
+003f805f   _exit
+003f9208   _gvar
+003f8076   _main
+003f9209   _var
+ffffffff   binit
+003f8091   cinit
+003f920a   end
+003f8091   etext
+ffffffff   pinit
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address    name
+--------   ----
+00000001   __TI_args_main
+00000320   __STACK_SIZE
+00000400   __stack
+00000720   __STACK_END
+003f8000   .text
+003f8000   ___text__
+003f8000   _c_int00
+003f8044   __args_main
+003f805d   C$$EXIT
+003f805d   _abort
+003f805f   _exit
+003f8076   _main
+003f8084   __register_unlock
+003f8088   __register_lock
+003f808c   __nop
+003f808d   _asmfunc
+003f8091   ___cinit__
+003f8091   ___etext__
+003f8091   cinit
+003f8091   etext
+003f9200   __unlock
+003f9202   __lock
+003f9204   __cleanup_ptr
+003f9206   __dtors_ptr
+003f9208   _gvar
+003f9209   .bss
+003f9209   ___bss__
+003f9209   _var
+003f920a   ___end__
+003f920a   end
+ffffffff   ___binit__
+ffffffff   ___c_args__
+ffffffff   ___pinit__
+ffffffff   binit
+ffffffff   pinit
+
+[35 symbols]

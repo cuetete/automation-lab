@@ -1,0 +1,19 @@
+[general]
+bbox=240,440
+long_comment=4-Bit Counter with Parallel and Trickle Enables and Active-Low Load Enable and Synchronous Reset
+
+[ports]
+A=INPUT,L360
+B=INPUT,L320
+C=INPUT,L280
+CK=INPUT,L80
+D=INPUT,L240
+ENP=INPUT,L160
+ENT=INPUT,L120
+LOAD=INPUT,L200
+QA=OUTPUT,R360
+QB=OUTPUT,R320
+QC=OUTPUT,R280
+QD=OUTPUT,R240
+R=INPUT,L20
+RCO=OUTPUT,R160

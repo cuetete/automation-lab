@@ -1,0 +1,109 @@
+// DESCRIPTION:
+//
+//    Press K1 to accelerate the motor
+//	  Press K2 to decelerate the motor
+//	  Press K3 to change the direction of the motor
+//###########################################################################
+
+#include "DSP2833x_Device.h"     // DSP2833x Headerfile Include File
+#include "DSP2833x_Examples.h"   // DSP2833x Examples Include File
+
+void delay_loop(Uint32 a);
+void Gpio_select(void);
+
+unsigned char Step_table[]={0x0004,0x0008,0x0010,0x0020};
+unsigned char Step_table1[]={0x0020,0x0010,0x0008,0x0004};
+
+/////////////////////////////////////////////////////////////////////////////////////////
+void main(void)
+{
+   unsigned int i,j;
+   InitSysCtrl();
+   Gpio_select();	  
+// Step 3. Clear all interrupts and initialize PIE vector table:
+// Disable CPU interrupts 
+   DINT;
+
+// Initialize PIE control registers to their default state.
+// The default state is all PIE interrupts disabled and flags
+// are cleared.  
+// This function is found in the DSP2833x_PieCtrl.c file.
+   InitPieCtrl();
+
+// Disable CPU interrupts and clear all CPU interrupt flags:
+   IER = 0x0000;
+   IFR = 0x0000;
+
+// Initialize the PIE vector table with pointers to the shell Interrupt 
+// Service Routines (ISR).  
+// This will populate the entire table, even if the interrupt
+// is not used in this example.  This is useful for debug purposes.
+// The shell ISR routines are found in DSP2833x_DefaultIsr.c.
+// This function is found in DSP2833x_PieVect.c.
+   InitPieVectTable();
+
+	
+// Step 4. Initialize all the Device Peripherals:
+// This function is found in DSP2833x_InitPeripherals.c
+// InitPeripherals(); // Not required for this example
+ 
+  j=512; //改变这个值可以控制转动周数。
+   while(j--)
+   {
+      for(i=0;i<4;i++)
+      {
+       GpioDataRegs.GPADAT.all=Step_table[i]; //set GPIO2-GPIO5 High one by one
+       delay_loop(80000);
+
+      }
+    }
+	
+	
+//反转
+	j=512;
+	GpioDataRegs.GPADAT.all=0x0000;
+	 while(j--)
+   {
+      for(i=0;i<4;i++)
+      {
+       GpioDataRegs.GPADAT.all=Step_table1[i]; //GPIO2-GPIO5依次输出高电平
+       delay_loop(80000);
+
+      }
+    }
+	while(1);
+
+} 	
+
+
+void delay_loop(Uint32 a)
+{
+   while(a--);
+}
+
+void Gpio_select(void)
+{
+    EALLOW;
+    //GPIO2-5
+	GpioCtrlRegs.GPAMUX1.all = 0x00000000;  // All GPIO
+    GpioCtrlRegs.GPADIR.all = 0x3C;   		// set GPIO2-5 as output
+    
+    //74244 EN pin
+	GpioCtrlRegs.GPAPUD.bit.GPIO25 = 0;   									// Enable pullup on GPIO27
+    GpioDataRegs.GPASET.bit.GPIO25 = 1;   									// Load output latch
+    GpioCtrlRegs.GPAMUX2.bit.GPIO25 = 0;  									// GPIO25 = GPIO
+    GpioCtrlRegs.GPADIR.bit.GPIO25 = 1;   									// GPIO25 = output  
+	GpioDataRegs.GPACLEAR.bit.GPIO25 = 1;
+	
+	//GPIO2-5 all low
+   	GpioDataRegs.GPACLEAR.bit.GPIO2 = 1;
+   	GpioDataRegs.GPACLEAR.bit.GPIO3 = 1;
+   	GpioDataRegs.GPACLEAR.bit.GPIO4 = 1;
+   	GpioDataRegs.GPACLEAR.bit.GPIO5 = 1;
+    EDIS;
+     
+}     
+//===========================================================================
+// No more.
+//===========================================================================
+

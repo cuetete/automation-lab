@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="CCS.ImportCCSProjectWizard">
+		<item key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID" value="false"/>
+	</section>
+	<section name="CCS.ImportLegacyProjectWizard">
+		<item key="LegacyProjectSelectionPage.CREATE_SUBDIRECTORY" value="false"/>
+		<item key="LegacyProjectSelectionPage.SELECT_DIRECTORY" value="false"/>
+		<item key="AdvancedOptionsPage.USE_COMMON_ROOT" value="false"/>
+		<item key="LegacyProjectSelectionPage.BROWSE_FILE_FILTER" value="F:\project\EE_OEM\DL 3155E26\DISK\SOURCE CODE\POP28335_examples\ecan_a_to_b_xmit\Example_2833xEcanA_to_B_Xmit.pjt"/>
+		<item key="AdvancedOptionsPage.COMMON_ROOT_PATH" value=""/>
+		<item key="AdvancedOptionsPage.COMMON_ROOT_VAR_NAME" value=""/>
+	</section>
+	<section name="CCE.ImportLegacyProjectWizard">
+		<item key="DSPBIOSEnablementPage.DSPBIOS_ENABLEMENT" value="AUTO"/>
+		<item key="LegacyProjectSelectionPage.SELECT_DIRECTORY" value="false"/>
+		<item key="LegacyProjectSelectionPage.BROWSE_FILE_FILTER" value="F:\project\EE_OEM\DL 3155E26\ref\00IC POP28335\00IC POP28335\POP28335_CODE\POP28335_examples\Ex12_POP28335_ADC_8SEG\POP28335_ADC_8SEG.pjt"/>
+		<item key="AdvancedOptionsPage.USE_COMMON_ROOT" value="false"/>
+		<item key="AdvancedOptionsPage.COMMON_ROOT_PATH" value=""/>
+		<item key="AdvancedOptionsPage.COMMON_ROOT_VAR_NAME" value=""/>
+	</section>
+</section>

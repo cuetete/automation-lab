@@ -1,0 +1,29 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectDir="F:\project\EE_OEM\DL 3155E26\DISK\SOURCE CODE\POP28335_examples\L01_ASM"
+ProjectType=Executable
+CPUFamily=TMS320C28XX
+Tool="Compiler"
+Tool="CustomBuilder"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+Config="Release"
+
+[Source Files]
+Source="test.s"
+Source="SRAM.CMD"
+
+["Compiler" Settings: "Debug"]
+Options=-g -fr"$(Proj_dir)\Debug" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28
+
+["Compiler" Settings: "Release"]
+Options=-o3 -fr"$(Proj_dir)\Release" -d"LARGE_MODEL" -ml -v28
+
+["Linker" Settings: "Debug"]
+Options=-m".\Debug\asm.map" -o".\Debug\asm.out" -w -x
+
+["Linker" Settings: "Release"]
+Options=-c -m".\Release\asm.map" -o".\Release\asm.out" -w -x
+

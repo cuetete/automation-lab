@@ -1,0 +1,160 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Each subdirectory must supply rules for building sources it contributes
+DSP2833x_ADC_cal.obj: F:/project/EE_OEM/DL\ 3155E26/DISK/SOURCE\ CODE/DSP2833x_common/source/DSP2833x_ADC_cal.asm $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -v28 -mt -ml -g --define="_DEBUG" --define="LARGE_MODEL" --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --include_path="/packages/ti/xdais" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_headers/include" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/include" --diag_warning=225 --issue_remarks --float_support=fpu32 --preproc_with_compile --preproc_dependency="DSP2833x_ADC_cal.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_Adc.obj: ../DSP2833x_Adc.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -v28 -mt -ml -g --define="_DEBUG" --define="LARGE_MODEL" --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --include_path="/packages/ti/xdais" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_headers/include" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/include" --diag_warning=225 --issue_remarks --float_support=fpu32 --preproc_with_compile --preproc_dependency="DSP2833x_Adc.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_CodeStartBranch.obj: F:/project/EE_OEM/DL\ 3155E26/DISK/SOURCE\ CODE/DSP2833x_common/source/DSP2833x_CodeStartBranch.asm $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -v28 -mt -ml -g --define="_DEBUG" --define="LARGE_MODEL" --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --include_path="/packages/ti/xdais" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_headers/include" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/include" --diag_warning=225 --issue_remarks --float_support=fpu32 --preproc_with_compile --preproc_dependency="DSP2833x_CodeStartBranch.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_CpuTimers.obj: ../DSP2833x_CpuTimers.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -v28 -mt -ml -g --define="_DEBUG" --define="LARGE_MODEL" --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --include_path="/packages/ti/xdais" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_headers/include" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/include" --diag_warning=225 --issue_remarks --float_support=fpu32 --preproc_with_compile --preproc_dependency="DSP2833x_CpuTimers.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_DefaultIsr.obj: F:/project/EE_OEM/DL\ 3155E26/DISK/SOURCE\ CODE/DSP2833x_common/source/DSP2833x_DefaultIsr.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -v28 -mt -ml -g --define="_DEBUG" --define="LARGE_MODEL" --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --include_path="/packages/ti/xdais" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_headers/include" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/include" --diag_warning=225 --issue_remarks --float_support=fpu32 --preproc_with_compile --preproc_dependency="DSP2833x_DefaultIsr.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_ECan.obj: ../DSP2833x_ECan.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -v28 -mt -ml -g --define="_DEBUG" --define="LARGE_MODEL" --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --include_path="/packages/ti/xdais" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_headers/include" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/include" --diag_warning=225 --issue_remarks --float_support=fpu32 --preproc_with_compile --preproc_dependency="DSP2833x_ECan.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_EPwm.obj: ../DSP2833x_EPwm.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -v28 -mt -ml -g --define="_DEBUG" --define="LARGE_MODEL" --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --include_path="/packages/ti/xdais" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_headers/include" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/include" --diag_warning=225 --issue_remarks --float_support=fpu32 --preproc_with_compile --preproc_dependency="DSP2833x_EPwm.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_GlobalVariableDefs.obj: F:/project/EE_OEM/DL\ 3155E26/DISK/SOURCE\ CODE/DSP2833x_headers/source/DSP2833x_GlobalVariableDefs.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -v28 -mt -ml -g --define="_DEBUG" --define="LARGE_MODEL" --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --include_path="/packages/ti/xdais" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_headers/include" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/include" --diag_warning=225 --issue_remarks --float_support=fpu32 --preproc_with_compile --preproc_dependency="DSP2833x_GlobalVariableDefs.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_Gpio.obj: ../DSP2833x_Gpio.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -v28 -mt -ml -g --define="_DEBUG" --define="LARGE_MODEL" --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --include_path="/packages/ti/xdais" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_headers/include" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/include" --diag_warning=225 --issue_remarks --float_support=fpu32 --preproc_with_compile --preproc_dependency="DSP2833x_Gpio.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_I2C.obj: ../DSP2833x_I2C.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -v28 -mt -ml -g --define="_DEBUG" --define="LARGE_MODEL" --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --include_path="/packages/ti/xdais" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_headers/include" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/include" --diag_warning=225 --issue_remarks --float_support=fpu32 --preproc_with_compile --preproc_dependency="DSP2833x_I2C.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_Mcbsp1.obj: ../DSP2833x_Mcbsp1.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -v28 -mt -ml -g --define="_DEBUG" --define="LARGE_MODEL" --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --include_path="/packages/ti/xdais" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_headers/include" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/include" --diag_warning=225 --issue_remarks --float_support=fpu32 --preproc_with_compile --preproc_dependency="DSP2833x_Mcbsp1.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_MemCopy.obj: ../DSP2833x_MemCopy.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -v28 -mt -ml -g --define="_DEBUG" --define="LARGE_MODEL" --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --include_path="/packages/ti/xdais" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_headers/include" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/include" --diag_warning=225 --issue_remarks --float_support=fpu32 --preproc_with_compile --preproc_dependency="DSP2833x_MemCopy.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_PieCtrl.obj: F:/project/EE_OEM/DL\ 3155E26/DISK/SOURCE\ CODE/DSP2833x_common/source/DSP2833x_PieCtrl.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -v28 -mt -ml -g --define="_DEBUG" --define="LARGE_MODEL" --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --include_path="/packages/ti/xdais" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_headers/include" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/include" --diag_warning=225 --issue_remarks --float_support=fpu32 --preproc_with_compile --preproc_dependency="DSP2833x_PieCtrl.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_PieVect.obj: F:/project/EE_OEM/DL\ 3155E26/DISK/SOURCE\ CODE/DSP2833x_common/source/DSP2833x_PieVect.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -v28 -mt -ml -g --define="_DEBUG" --define="LARGE_MODEL" --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --include_path="/packages/ti/xdais" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_headers/include" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/include" --diag_warning=225 --issue_remarks --float_support=fpu32 --preproc_with_compile --preproc_dependency="DSP2833x_PieVect.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_Sci.obj: F:/project/EE_OEM/DL\ 3155E26/DISK/SOURCE\ CODE/DSP2833x_common/source/DSP2833x_Sci.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -v28 -mt -ml -g --define="_DEBUG" --define="LARGE_MODEL" --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --include_path="/packages/ti/xdais" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_headers/include" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/include" --diag_warning=225 --issue_remarks --float_support=fpu32 --preproc_with_compile --preproc_dependency="DSP2833x_Sci.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_Spi.obj: ../DSP2833x_Spi.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -v28 -mt -ml -g --define="_DEBUG" --define="LARGE_MODEL" --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --include_path="/packages/ti/xdais" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_headers/include" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/include" --diag_warning=225 --issue_remarks --float_support=fpu32 --preproc_with_compile --preproc_dependency="DSP2833x_Spi.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_SysCtrl.obj: F:/project/EE_OEM/DL\ 3155E26/DISK/SOURCE\ CODE/DSP2833x_common/source/DSP2833x_SysCtrl.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -v28 -mt -ml -g --define="_DEBUG" --define="LARGE_MODEL" --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --include_path="/packages/ti/xdais" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_headers/include" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/include" --diag_warning=225 --issue_remarks --float_support=fpu32 --preproc_with_compile --preproc_dependency="DSP2833x_SysCtrl.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_Xintf.obj: ../DSP2833x_Xintf.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -v28 -mt -ml -g --define="_DEBUG" --define="LARGE_MODEL" --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --include_path="/packages/ti/xdais" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_headers/include" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/include" --diag_warning=225 --issue_remarks --float_support=fpu32 --preproc_with_compile --preproc_dependency="DSP2833x_Xintf.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_usDelay.obj: F:/project/EE_OEM/DL\ 3155E26/DISK/SOURCE\ CODE/DSP2833x_common/source/DSP2833x_usDelay.asm $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -v28 -mt -ml -g --define="_DEBUG" --define="LARGE_MODEL" --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --include_path="/packages/ti/xdais" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_headers/include" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/include" --diag_warning=225 --issue_remarks --float_support=fpu32 --preproc_with_compile --preproc_dependency="DSP2833x_usDelay.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+I2cEeprom.obj: ../I2cEeprom.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -v28 -mt -ml -g --define="_DEBUG" --define="LARGE_MODEL" --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --include_path="/packages/ti/xdais" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_headers/include" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/include" --diag_warning=225 --issue_remarks --float_support=fpu32 --preproc_with_compile --preproc_dependency="I2cEeprom.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+Main_SelftestALL.obj: ../Main_SelftestALL.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -v28 -mt -ml -g --define="_DEBUG" --define="LARGE_MODEL" --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --include_path="/packages/ti/xdais" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_headers/include" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/include" --diag_warning=225 --issue_remarks --float_support=fpu32 --preproc_with_compile --preproc_dependency="Main_SelftestALL.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+W5500.obj: ../W5500.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -v28 -mt -ml -g --define="_DEBUG" --define="LARGE_MODEL" --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --include_path="/packages/ti/xdais" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_headers/include" --include_path="F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/include" --diag_warning=225 --issue_remarks --float_support=fpu32 --preproc_with_compile --preproc_dependency="W5500.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+

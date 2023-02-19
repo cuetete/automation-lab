@@ -1,0 +1,7 @@
+#Fri Jan 26 15:31:13 CST 2018
+com.ti.ccstudio.buildDefinitions.C2000.Debug.2144650227/internalBuilder/enabled=false
+com.ti.ccstudio.buildDefinitions.C2000.Debug.2144650227/internalBuilder/ignoreErr=true
+com.ti.ccstudio.buildDefinitions.C2000.Release.1509940321/internalBuilder/enabled=false
+com.ti.ccstudio.buildDefinitions.C2000.Release.1509940321/internalBuilder/ignoreErr=true
+eclipse.preferences.version=1
+environment/project/com.ti.ccstudio.buildDefinitions.C2000.Debug.2144650227=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<environment/>\r\n

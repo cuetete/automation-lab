@@ -1,0 +1,174 @@
+******************************************************************************
+  TMS320C2000 Evaluation Linker PC v6.0.1                      
+******************************************************************************
+>> Linked Wed Jan 31 16:57:16 2018
+
+OUTPUT FILE NAME:   <Math.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 003f8254
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+PAGE 0:
+  PRAMH0                003f8000   00001200  00000354  00000eac  RWIX
+
+PAGE 1:
+  RAMM0                 00000000   00000400  00000000  00000400  RWIX
+  RAMM1                 00000400   00000400  00000320  000000e0  RWIX
+  DRAMH0                003f9200   00000a00  00000008  000009f8  RWIX
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.text      0    003f8000    0000033c     
+                  003f8000    000000ff     test.obj (.text)
+                  003f80ff    00000083     rts2800_ml.lib : fs_div.obj (.text)
+                  003f8182    00000078                    : fs_add.obj (.text)
+                  003f81fa    0000005a                    : fs_mpy.obj (.text)
+                  003f8254    00000044                    : boot.obj (.text)
+                  003f8298    0000002a                    : l_div.obj (.text)
+                  003f82c2    00000025                    : fs_toi.obj (.text)
+                  003f82e7    0000001a                    : i_tofs.obj (.text)
+                  003f8301    00000019                    : args_main.obj (.text)
+                  003f831a    00000019                    : exit.obj (.text)
+                  003f8333    00000009                    : _lock.obj (.text)
+
+.cinit     0    003f833c    00000016     
+                  003f833c    0000000a     rts2800_ml.lib : _lock.obj (.cinit)
+                  003f8346    0000000a                    : exit.obj (.cinit)
+                  003f8350    00000002     --HOLE-- [fill = 0]
+
+.reset     0    003f8352    00000002     
+                  003f8352    00000002     rts2800_ml.lib : boot.obj (.reset)
+
+.stack     1    00000400    00000320     UNINITIALIZED
+                  00000400    00000320     --HOLE--
+
+.bss       1    003f9200    00000000     UNINITIALIZED
+
+.ebss      1    003f9200    00000008     UNINITIALIZED
+                  003f9200    00000004     rts2800_ml.lib : _lock.obj (.ebss)
+                  003f9204    00000004                    : exit.obj (.ebss)
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address    name
+--------   ----
+003f9200   .bss
+003f8000   .text
+003f831a   C$$EXIT
+003f8187   FS$$ADD
+003f80ff   FS$$DIV
+003f81fa   FS$$MPY
+003f8182   FS$$SUB
+003f82c2   FS$$TOI
+003f82e7   I$$TOFS
+003f8298   L$$DIV
+003f82a7   L$$MOD
+003f82b5   UL$$DIV
+003f82bc   UL$$MOD
+00000720   __STACK_END
+00000320   __STACK_SIZE
+00000001   __TI_args_main
+ffffffff   ___binit__
+003f9200   ___bss__
+ffffffff   ___c_args__
+003f833c   ___cinit__
+003f9200   ___end__
+003f833c   ___etext__
+ffffffff   ___pinit__
+003f8000   ___text__
+003f8301   __args_main
+003f9204   __cleanup_ptr
+003f9206   __dtors_ptr
+003f9202   __lock
+003f833b   __nop
+003f8337   __register_lock
+003f8333   __register_unlock
+00000400   __stack
+003f9200   __unlock
+003f831a   _abort
+003f8254   _c_int00
+003f831c   _exit
+003f8000   _fixed_add
+003f802a   _fixed_div
+003f8085   _fixed_float
+003f801c   _fixed_mul
+003f800e   _fixed_sub
+003f8039   _float_add
+003f8060   _float_div
+003f806d   _float_fixed
+003f8053   _float_mul
+003f8046   _float_sub
+003f809d   _main
+ffffffff   binit
+003f833c   cinit
+003f9200   end
+003f833c   etext
+ffffffff   pinit
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address    name
+--------   ----
+00000001   __TI_args_main
+00000320   __STACK_SIZE
+00000400   __stack
+00000720   __STACK_END
+003f8000   .text
+003f8000   ___text__
+003f8000   _fixed_add
+003f800e   _fixed_sub
+003f801c   _fixed_mul
+003f802a   _fixed_div
+003f8039   _float_add
+003f8046   _float_sub
+003f8053   _float_mul
+003f8060   _float_div
+003f806d   _float_fixed
+003f8085   _fixed_float
+003f809d   _main
+003f80ff   FS$$DIV
+003f8182   FS$$SUB
+003f8187   FS$$ADD
+003f81fa   FS$$MPY
+003f8254   _c_int00
+003f8298   L$$DIV
+003f82a7   L$$MOD
+003f82b5   UL$$DIV
+003f82bc   UL$$MOD
+003f82c2   FS$$TOI
+003f82e7   I$$TOFS
+003f8301   __args_main
+003f831a   C$$EXIT
+003f831a   _abort
+003f831c   _exit
+003f8333   __register_unlock
+003f8337   __register_lock
+003f833b   __nop
+003f833c   ___cinit__
+003f833c   ___etext__
+003f833c   cinit
+003f833c   etext
+003f9200   .bss
+003f9200   ___bss__
+003f9200   ___end__
+003f9200   __unlock
+003f9200   end
+003f9202   __lock
+003f9204   __cleanup_ptr
+003f9206   __dtors_ptr
+ffffffff   ___binit__
+ffffffff   ___c_args__
+ffffffff   ___pinit__
+ffffffff   binit
+ffffffff   pinit
+
+[52 symbols]

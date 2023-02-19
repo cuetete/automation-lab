@@ -1,0 +1,83 @@
+--------------------------------------------------------------------------------
+Xilinx TRACE, Version D.19
+Copyright (c) 1995-2000 Xilinx, Inc.  All rights reserved.
+
+trce provaxil.ncd provaxil.pcf -e 3 -o provaxil.twr
+
+Design file:              provaxil.ncd
+Physical constraint file: provaxil.pcf
+Device,speed:             xc3020a,-7 (C  )
+Report level:             error report
+--------------------------------------------------------------------------------
+
+WARNING:Timing:2491 - No timing constraints found, doing default enumeration.
+
+================================================================================
+Timing constraint: Default period analysis
+ 29 items analyzed, 0 timing errors detected.
+ Minimum period is  16.487ns.
+ Maximum delay is  24.358ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: Default net enumeration
+ 11 items analyzed, 0 timing errors detected.
+ Maximum net delay is  10.522ns.
+--------------------------------------------------------------------------------
+
+
+All constraints were met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Setup/Hold to clock $Net00002_
+---------------+------------+------------+
+               |  Setup to  |  Hold to   |
+Source Pad     | clk (edge) | clk (edge) |
+---------------+------------+------------+
+$Net00001_     |    1.965(R)|    4.582(R)|
+---------------+------------+------------+
+
+Clock $Net00002_ to Pad
+---------------+------------+
+               | clk (edge) |
+Destination Pad|   to PAD   |
+---------------+------------+
+$Net00008_     |   36.856(R)|
+$Net00009_     |   36.659(R)|
+$Net00010_     |   36.814(R)|
+$Net00011_     |   36.684(R)|
+$Net00016_     |   36.568(R)|
+$Net00017_     |   38.626(R)|
+$Net00022_     |   38.880(R)|
+$Net00023_     |   37.715(R)|
+---------------+------------+
+
+Clock to Setup on destination clock $Net00002_
+---------------+---------+---------+---------+---------+
+               | Src/Dest| Src/Dest| Src/Dest| Src/Dest|
+Source Clock   |Rise/Rise|Fall/Rise|Rise/Fall|Fall/Fall|
+---------------+---------+---------+---------+---------+
+$Net00002_     |   12.620|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0
+
+Constraints cover 29 paths, 11 nets, and 27 connections (100.0% coverage)
+
+Design statistics:
+   Minimum period:  16.487ns (Maximum frequency:  60.654MHz)
+   Maximum combinational path delay:  24.358ns
+   Maximum net delay:  10.522ns
+
+
+Analysis completed Fri Apr 20 12:58:48 2001
+--------------------------------------------------------------------------------
+

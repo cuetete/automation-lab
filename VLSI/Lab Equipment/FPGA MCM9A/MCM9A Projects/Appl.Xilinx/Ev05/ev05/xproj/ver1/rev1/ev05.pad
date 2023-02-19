@@ -1,0 +1,140 @@
+Release 3.3.06i_V2_SE2 - Par D.19
+Fri Mar 30 13:29:38 2001
+
+Xilinx PAD Specification File
+*****************************
+
+Input file:       map.ncd
+Output file:      ev05.ncd
+Part type:        xc3020a
+Speed grade:      -7
+Package:          pc68
+
+Pinout by Pin Name:
++------------------------------------------------+-----------+--------------+
+|                    Pin Name                    | Direction |  Pin Number  |
++------------------------------------------------+-----------+--------------+
+| $Net00004_                                     | OUTPUT    | P7           |
+| $Net00005_                                     | OUTPUT    | P9           |
+| $Net00006_                                     | OUTPUT    | P6           |
+| $Net00007_                                     | OUTPUT    | P4           |
+| $Net00008_                                     | OUTPUT    | P2           |
+| $Net00009_                                     | OUTPUT    | P8           |
+| $Net00010_                                     | OUTPUT    | P67          |
+| $Net00011_                                     | OUTPUT    | P30          |
+| $Net00012_                                     | OUTPUT    | P50          |
+| $Net00065_                                     | OUTPUT    | P59          |
+| $Net00066_                                     | OUTPUT    | P57          |
+| $Net00067_                                     | OUTPUT    | P28          |
+| $Net00072_                                     | OUTPUT    | P65          |
+| $Net00073_                                     | INPUT     | P46          |
+| $Net00074_                                     | INPUT     | P11          |
+| $Net00075_                                     | OUTPUT    | P54          |
+| $Net00080_                                     | INPUT     | P64          |
+| $Net00081_                                     | INPUT     | P61          |
+| $Net00087_                                     | INPUT     | P68          |
+| $Net00088_                                     | INPUT     | P3           |
+| $Net00089_                                     | INPUT     | P5           |
+| $Net00090_                                     | INPUT     | P63          |
+| $Net00091_                                     | INPUT     | P62          |
+| $Net00092_                                     | INPUT     | P66          |
+| $Net00098_                                     | OUTPUT    | P47          |
++------------------------------------------------+-----------+--------------+
+
+Pinout by Pin Number:
++--------------+-----------------------------------+-----------+------------+
+|  Pin Number  |             Pin Name              | Direction | Constraint |
++--------------+-----------------------------------+-----------+------------+
+| P2           | $Net00008_                        | OUTPUT    | LOCATED    |
+| P3           | $Net00088_                        | INPUT     | LOCATED    |
+| P4           | $Net00007_                        | OUTPUT    | LOCATED    |
+| P5           | $Net00089_                        | INPUT     | LOCATED    |
+| P6           | $Net00006_                        | OUTPUT    | LOCATED    |
+| P7           | $Net00004_                        | OUTPUT    | LOCATED    |
+| P8           | $Net00009_                        | OUTPUT    | LOCATED    |
+| P9           | $Net00005_                        | OUTPUT    | LOCATED    |
+| P11          | $Net00074_                        | INPUT     | LOCATED    |
+| P12          | ---                               | UNUSED    |            |
+| P13          | ---                               | UNUSED    |            |
+| P14          | ---                               | UNUSED    |            |
+| P15          | ---                               | UNUSED    |            |
+| P16          | ---                               | UNUSED    |            |
+| P17          | ---                               | UNUSED    |            |
+| P19          | ---                               | UNUSED    |            |
+| P20          | ---                               | UNUSED    |            |
+| P21          | ---                               | UNUSED    |            |
+| P22          | ---                               | UNUSED    |            |
+| P23          | ---                               | UNUSED    |            |
+| P24          | ---                               | UNUSED    |            |
+| P27          | ---                               | UNUSED    |            |
+| P28          | $Net00067_                        | OUTPUT    | LOCATED    |
+| P29          | ---                               | UNUSED    |            |
+| P30          | $Net00011_                        | OUTPUT    | LOCATED    |
+| P31          | ---                               | UNUSED    |            |
+| P32          | ---                               | UNUSED    |            |
+| P33          | ---                               | UNUSED    |            |
+| P34          | ---                               | UNUSED    |            |
+| P36          | ---                               | UNUSED    |            |
+| P37          | ---                               | UNUSED    |            |
+| P38          | ---                               | UNUSED    |            |
+| P39          | ---                               | UNUSED    |            |
+| P40          | ---                               | UNUSED    |            |
+| P41          | ---                               | UNUSED    |            |
+| P42          | ---                               | UNUSED    |            |
+| P43          | ---                               | UNUSED    |            |
+| P46          | $Net00073_                        | INPUT     | LOCATED    |
+| P47          | $Net00098_                        | OUTPUT    | LOCATED    |
+| P48          | ---                               | UNUSED    |            |
+| P49          | ---                               | UNUSED    |            |
+| P50          | $Net00012_                        | OUTPUT    | LOCATED    |
+| P51          | ---                               | UNUSED    |            |
+| P53          | ---                               | UNUSED    |            |
+| P54          | $Net00075_                        | OUTPUT    | LOCATED    |
+| P55          | ---                               | UNUSED    |            |
+| P56          | ---                               | UNUSED    |            |
+| P57          | $Net00066_                        | OUTPUT    | LOCATED    |
+| P58          | ---                               | UNUSED    |            |
+| P59          | $Net00065_                        | OUTPUT    | LOCATED    |
+| P61          | $Net00081_                        | INPUT     | LOCATED    |
+| P62          | $Net00091_                        | INPUT     | LOCATED    |
+| P63          | $Net00090_                        | INPUT     | LOCATED    |
+| P64          | $Net00080_                        | INPUT     | LOCATED    |
+| P65          | $Net00072_                        | OUTPUT    | LOCATED    |
+| P66          | $Net00092_                        | INPUT     | LOCATED    |
+| P67          | $Net00010_                        | OUTPUT    | LOCATED    |
+| P68          | $Net00087_                        | INPUT     | LOCATED    |
++--------------+-----------------------------------+-----------+------------+
+
+#
+# To preserve the pinout above for future design iterations,
+# simply run "Lock Pins..." from the Design Manager's Design 
+# menu, or invoke PIN2UCF from the command line. The location constraints
+# above will be written into your specified UCF file. (The constraints
+# listed below are in PCF format and cannot be directly used in the UCF file).
+#
+COMP "$Net00004_" LOCATE = SITE "P7" ; 
+COMP "$Net00005_" LOCATE = SITE "P9" ; 
+COMP "$Net00006_" LOCATE = SITE "P6" ; 
+COMP "$Net00007_" LOCATE = SITE "P4" ; 
+COMP "$Net00008_" LOCATE = SITE "P2" ; 
+COMP "$Net00009_" LOCATE = SITE "P8" ; 
+COMP "$Net00010_" LOCATE = SITE "P67" ; 
+COMP "$Net00011_" LOCATE = SITE "P30" ; 
+COMP "$Net00012_" LOCATE = SITE "P50" ; 
+COMP "$Net00065_" LOCATE = SITE "P59" ; 
+COMP "$Net00066_" LOCATE = SITE "P57" ; 
+COMP "$Net00067_" LOCATE = SITE "P28" ; 
+COMP "$Net00072_" LOCATE = SITE "P65" ; 
+COMP "$Net00073_" LOCATE = SITE "P46" ; 
+COMP "$Net00074_" LOCATE = SITE "P11" ; 
+COMP "$Net00075_" LOCATE = SITE "P54" ; 
+COMP "$Net00080_" LOCATE = SITE "P64" ; 
+COMP "$Net00081_" LOCATE = SITE "P61" ; 
+COMP "$Net00087_" LOCATE = SITE "P68" ; 
+COMP "$Net00088_" LOCATE = SITE "P3" ; 
+COMP "$Net00089_" LOCATE = SITE "P5" ; 
+COMP "$Net00090_" LOCATE = SITE "P63" ; 
+COMP "$Net00091_" LOCATE = SITE "P62" ; 
+COMP "$Net00092_" LOCATE = SITE "P66" ; 
+COMP "$Net00098_" LOCATE = SITE "P47" ; 
+#

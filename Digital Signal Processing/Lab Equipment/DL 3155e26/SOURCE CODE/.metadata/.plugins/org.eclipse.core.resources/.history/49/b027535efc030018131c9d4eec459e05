@@ -1,0 +1,2163 @@
+#include "DSP2833x_Device.h"     // DSP2833x Headerfile Include File
+#include "DSP2833x_Examples.h"   // DSP2833x Examples Include File
+#include "W5500.h" 
+#include "stdio.h"
+#include "string.h"
+// Prototype statements for functions found within this file.
+Uint16 SCIBOK=0;
+Uint16 RS485OK=0;
+Uint16 SEGADOK=0;
+Uint16 DACOK=0;
+Uint16 RTCLCDOK=0;
+Uint16 EEROK=0;
+Uint16 BUZZOK=0;
+Uint16 PWMOK=0;
+Uint16 CANOK=0;
+Uint16 KEYINTOK=0;
+Uint16 DCMOK=0;
+Uint16 STPMOK=0;
+Uint16 AUDOK=0;
+Uint16 NETOK=0;
+Uint16 USBOK=0;
+// Global counts used in this example
+extern void delay(Uint16 time);
+//--------------------------------------------------------------------------------------------------------SCI A&B
+// Test 1,SCIA  DLB, 8-bit word, baud rate 0x000F, default, 1 STOP bit, no parity
+void scia_echoback_init()
+{
+    // Note: Clocks were turned on to the SCIA peripheral
+    // in the InitSysCtrl() function
+
+ 	SciaRegs.SCICCR.all =0x0007;   // 1 stop bit,  No loopback
+                                   // No parity,8 char bits,
+                                   // async mode, idle-line protocol
+	SciaRegs.SCICTL1.all =0x0003;  // enable TX, RX, internal SCICLK,
+                                   // Disable RX ERR, SLEEP, TXWAKE
+	SciaRegs.SCICTL2.all =0x0003;
+	SciaRegs.SCICTL2.bit.TXINTENA =1;
+	SciaRegs.SCICTL2.bit.RXBKINTENA =1;
+	#if (CPU_FRQ_150MHZ)
+	      SciaRegs.SCIHBAUD    =0x0001;  // 9600 baud @LSPCLK = 37.5MHz.
+	      SciaRegs.SCILBAUD    =0x00E7;
+	#endif
+	#if (CPU_FRQ_100MHZ)
+      SciaRegs.SCIHBAUD    =0x0001;  // 9600 baud @LSPCLK = 20MHz.
+      SciaRegs.SCILBAUD    =0x0044;
+	#endif
+	SciaRegs.SCICTL1.all =0x0023;  // Relinquish SCI from Reset
+}
+
+// Transmit a character from the SCI
+void scia_xmit(int a)
+{
+    while (SciaRegs.SCIFFTX.bit.TXFFST != 0) {}
+    SciaRegs.SCITXBUF=a;
+
+}
+
+void scia_msg(char * msg)
+{
+    int i;
+    i = 0;
+    while(msg[i] != '\0')
+    {
+        scia_xmit(msg[i]);
+        i++;
+    }
+}
+
+// Initalize the SCI FIFO
+void scia_fifo_init()
+{
+    SciaRegs.SCIFFTX.all=0xE040;
+    SciaRegs.SCIFFRX.all=0x204f;
+    SciaRegs.SCIFFCT.all=0x0;
+
+}
+// Test 1,SCIA  DLB, 8-bit word, baud rate 0x000F, default, 1 STOP bit, no parity
+void scib_echoback_init()
+{
+    // Note: Clocks were turned on to the Scib peripheral
+    // in the InitSysCtrl() function
+
+ 	ScibRegs.SCICCR.all =0x0007;   // 1 stop bit,  No loopback
+                                   // No parity,8 char bits,
+                                   // async mode, idle-line protocol
+	ScibRegs.SCICTL1.all =0x0003;  // enable TX, RX, internal SCICLK,
+                                   // Disable RX ERR, SLEEP, TXWAKE
+	ScibRegs.SCICTL2.all =0x0003;
+	ScibRegs.SCICTL2.bit.TXINTENA =1;
+	ScibRegs.SCICTL2.bit.RXBKINTENA =1;
+	#if (CPU_FRQ_150MHZ)
+	      ScibRegs.SCIHBAUD    =0x0001;  // 9600 baud @LSPCLK = 37.5MHz.
+	      ScibRegs.SCILBAUD    =0x00E7;
+	#endif
+	#if (CPU_FRQ_100MHZ)
+      ScibRegs.SCIHBAUD    =0x0001;  // 9600 baud @LSPCLK = 20MHz.
+      ScibRegs.SCILBAUD    =0x0044;
+	#endif
+	ScibRegs.SCICTL1.all =0x0023;  // Relinquish SCI from Reset
+}
+
+// Transmit a character from the SCI
+void scib_xmit(int a)
+{
+    while (ScibRegs.SCIFFTX.bit.TXFFST != 0) {}
+    ScibRegs.SCITXBUF=a;
+
+}
+
+void scib_msg(char * msg)
+{
+    int i;
+    i = 0;
+    while(msg[i] != '\0')
+    {
+        scib_xmit(msg[i]);
+        i++;
+    }
+}
+
+// Initalize the SCI FIFO
+void scib_fifo_init()
+{
+    ScibRegs.SCIFFTX.all=0xE040;
+    ScibRegs.SCIFFRX.all=0x204f;
+    ScibRegs.SCIFFCT.all=0x0;
+
+}
+//--------------------------------------------------------------------------------------------------------RS485
+#define InitDIR()                                          \
+                     EALLOW;                               \
+                     GpioCtrlRegs.GPBPUD.bit.GPIO61 = 0;   \
+                     GpioCtrlRegs.GPBDIR.bit.GPIO61 = 1;   \
+                     GpioDataRegs.GPBCLEAR.bit.GPIO61 = 1; \
+                     EDIS;                                 					 
+#define RX_EN       GpioDataRegs.GPBCLEAR.bit.GPIO61 = 1;
+#define TX_EN       GpioDataRegs.GPBSET.bit.GPIO61 = 1;
+
+void scic_echoback_init()
+{
+    ScicRegs.SCICTL1.bit.SWRESET =0;
+ 	ScicRegs.SCICCR.all =0x0007;   // 1 stop bit,  No loopback
+                                   // No parity,8 char bits,
+                                   // async mode, idle-line protocol
+	ScicRegs.SCICTL1.all =0x0003;  // enable TX, RX, internal SCICLK,
+                                   // Disable RX ERR, SLEEP, TXWAKE
+	#if (CPU_FRQ_150MHZ)
+	      ScicRegs.SCIHBAUD    =0x0001;  // 9600 baud @LSPCLK = 37.5MHz.
+	      ScicRegs.SCILBAUD    =0x00E7;
+	#endif
+	#if (CPU_FRQ_100MHZ)
+      ScicRegs.SCIHBAUD    =0x0001;  // 9600 baud @LSPCLK = 20MHz.
+      ScicRegs.SCILBAUD    =0x0044;
+	#endif
+	ScicRegs.SCICTL1.all =0x0023;  // Relinquish SCI from Reset
+}
+
+
+// Transmit a character from the SCI
+void scic_xmit(int a)
+{
+    while (ScicRegs.SCICTL2.bit.TXRDY == 0) {}
+    ScicRegs.SCITXBUF=a;
+
+}
+
+void scic_msg(char * msg)
+{
+    int i;
+    i = 0;
+	TX_EN;
+    while(msg[i] != '\0')
+    {
+        scic_xmit(msg[i]);
+        i++;
+    }
+	RX_EN;
+}
+//--------------------------------------------------------------------------------------------------------SEG&AD
+void s_delay(void)
+{
+    long      i;
+    for (i = 0; i < 45000; i++) {} //
+}
+
+void loopdelay()
+{
+    long      i;
+    for (i = 0; i < 4500000; i++) {} 
+}
+
+void spi_init()
+{    
+	SpiaRegs.SPICCR.all =0x004F;// SPI软件复位, 极性位为1（下降沿发送数据）, 每次移
+	                            //进和移出16位字长度；禁止SPI内部回送（LOOKBACK）功能；
+	SpiaRegs.SPICTL.all =0x0006; // 使能主机模式，正常相位，使能主机发送，禁止接收
+	                            //溢出中断，禁止SPI中断；
+                                   
+	SpiaRegs.SPIBRR =0x007F;	//SPI波特率=25M/128	=195.3KHZ；							
+    SpiaRegs.SPICCR.all =0x00CF;//停止SPI软件复位准备接收或发送；禁止回送模式； 
+    SpiaRegs.SPIPRI.bit.FREE = 1;  // 自由运行     
+}
+void spi_xmit(Uint16 a)
+{
+    SpiaRegs.SPITXBUF=a;
+}    
+
+void spi_fifo_init()										
+{
+    SpiaRegs.SPIFFTX.all=0xE040;//使能FIFO;清除发送中断标志位；禁止FIFO发送中断；
+                                //发送中断级别定义为0；
+    SpiaRegs.SPIFFRX.all=0x204f;//清除FF溢出标志位；清除溢出接受中断标志位；禁止
+	                            //FF接受中断；接受中断级别为16；
+    SpiaRegs.SPIFFCT.all=0x0;//SPITXBUF到移位寄存器传送不延迟；
+}  
+
+#define ADC_MODCLK 0x5   // HSPCLK = SYSCLKOUT/2*ADC_MODCLK2 = 150/(2*4)             = 15MHz
+                         //    for 60 MHz devices:    HSPCLK =  60/(2*4)             = 7.5 MHz
+#define ADC_CKPS   0x1   // ADC module clock = HSPCLK/2*ADC_CKPS   = 15MHz/(1*2)   = 7.5MHz
+                         
+#define ADC_SHCLK  0xf   // S/H width in ADC module periods                          = 16 ADC clocks
+#define AVG        100  // Average sample limit
+#define ZOFFSET    0x00  // Average Zero offset
+#define BUF_SIZE   256  // Sample buffer size
+
+Uint16 SampleTable[BUF_SIZE];
+
+void InitSegCS(void)
+{                                         
+	EALLOW;                               
+	GpioCtrlRegs.GPBPUD.bit.GPIO60 = 0;   
+	GpioCtrlRegs.GPBDIR.bit.GPIO60 = 1;   
+	GpioDataRegs.GPBCLEAR.bit.GPIO60 = 1; 
+	EDIS; 
+}
+
+//------------------------------------------------------------------------------------
+Uint16 SegData[16]=		//"0"~"F" code of common anode 7-SegmentLED
+{
+	0xC0,		//0
+	0xF9,		//1
+	0xA4,		//2
+	0xB0,		//3
+	0x99,		//4
+	0x92,		//5
+	0x82,		//6
+	0xF8,		//7
+	0x80,		//8
+	0x90,		//9
+	0x88,		//A
+	0x83,		//B
+	0xC6,		//C
+	0xA1,		//E
+	0x86,		//E
+	0x8E		//F
+};
+
+void ShowChar(Uint16 s1, Uint16 s2, Uint16 s3, Uint16 s4)
+{                                         
+	Uint16 sdata=0;
+	sdata=SegData[s1];
+	sdata &=0x007F;
+	sdata <<=8;
+	sdata |=SegData[s2];
+	spi_xmit(sdata);
+	
+	sdata=SegData[s3];
+	sdata <<=8;
+	sdata |=SegData[s4];
+	spi_xmit(sdata);
+	
+	GpioDataRegs.GPBCLEAR.bit.GPIO60 = 1;
+	s_delay();
+	GpioDataRegs.GPBSET.bit.GPIO60 = 1;
+}
+
+//--------------------------------------------------------------------------------------------------------DAC
+#define SetLOAD GpioDataRegs.GPBDAT.bit.GPIO49=1;	//将LOAD置高
+#define ClrLOAD GpioDataRegs.GPBDAT.bit.GPIO49=0;	//将LOAD置低
+
+/*void delay(unsigned int t)
+{
+ 
+ 	while(t>0)
+    	t--;
+}*/
+
+void WriteDAC(unsigned char add,unsigned char rng,unsigned char vol)
+{   
+	unsigned short int data;
+    data=0x0000;
+    ///大家要知道这里所定义的各个变量的含义,add是4个通道的地址（00，01，10，11）
+    ///                                     RNG是输出范围的倍数，可以是0或1。
+    ///                                     VOL是0~256数据
+    
+     data = ((add<<14) | (rng<<13) | (vol<<5));
+     //注意这里的有效数据是11位，SPI初始化中也进行了定义
+ 
+    while(SpiaRegs.SPISTS.bit.BUFFULL_FLAG ==1);			//判断SPI的发送缓冲区是否是空的,等于0可写数据
+     
+       SpiaRegs.SPITXBUF = data;	//把发送的数据写如SPI发送缓冲区
+
+    while( SpiaRegs.SPISTS.bit.BUFFULL_FLAG==1);		//当发送缓冲区出现满标志位时,开始琐存数据
+    	 
+	delay(1500);//同通过一负跳变琐存要发送的数据,看TLV5620数据手册即可得知
+    ClrLOAD;
+    
+	delay(150);
+    SetLOAD;
+    
+    delay(1500);	
+}
+//--------------------------------------------------------------------------------------------------------RTC&LCD
+#define uchar unsigned char
+#define LCD_RS GpioDataRegs.GPADAT.bit.GPIO0
+#define LCD_EN GpioDataRegs.GPADAT.bit.GPIO1
+#define LCD_DB GpioDataRegs.GPADAT.all
+extern void Init8563(void);
+extern void GetTime(void);
+extern uchar TAB_T[];
+void Init_Port(void)
+{
+	EALLOW;   
+// 用户根据需要可以使能内部上拉或禁止. 
+// 其他不需要的行注释掉；
+    GpioCtrlRegs.GPAPUD.bit.GPIO0 = 0;    // 使能GPIO1 引脚内部上拉
+    GpioCtrlRegs.GPAPUD.bit.GPIO1 = 1;   // 禁止GPIO1 引脚内部上拉
+   
+/* 通过I/O功能选择寄存器配置通用I/O功能*/
+    GpioCtrlRegs.GPAMUX1.all = 0;   // 配置GPIO0-GPIO15为通用I/O口
+	GpioCtrlRegs.GPAMUX2.bit.GPIO24 = 0;   // 配置GPIO24为通用I/O口
+
+/* 设置I/O口为输入引脚*/
+    GpioCtrlRegs.GPADIR.all = 0x10003FF;// 配置GPIO0-GPIO9  GPIO24为输出引脚
+	
+// 每个输入口可以有不同的输入限定
+   // a) 输入与系统时钟 SYSCLKOUT同步
+   // b) 输入被指定的采样窗口限定
+   // c) 输入异步 (仅对外设输入有效)
+   GpioCtrlRegs.GPAQSEL1.all = 0x0000;    // GPIO0-GPIO15与系统时钟SYSCLKOUT 同步
+   GpioCtrlRegs.GPAQSEL2.bit.GPIO24 = 0x0000;    // GPIO24与系统时钟SYSCLKOUT 同步
+//输出数据LCD_RS置1和LCD_EN清零  
+   GpioDataRegs.GPADAT.bit.GPIO0 = 1;
+   GpioDataRegs.GPADAT.bit.GPIO1 = 0;
+   GpioDataRegs.GPADAT.bit.GPIO24 = 0;  //cs=0
+   EDIS;
+} 
+
+/*-------------------------------------- 
+;模块名称:LCD_write_command(); 
+;功    能:LCD1602写指令函数 
+;参数说明:command为写命令参数
+;-------------------------------------*/ 
+void LCD_write_command(uchar command)
+{
+LCD_RS=0;         //指令
+LCD_EN=1;          //允许
+LCD_DB=(command<<2)|0x0002;//赋值给D0-D7对应的GPIO4-GPIO11引脚
+DELAY_US(10000); 
+LCD_EN=0;
+DELAY_US(100);
+
+}
+
+/*-------------------------------------- 
+;模块名称:LCD_write_data(); 
+;功    能:LCD1602写数据函数 
+;占用资源: P2.0--RS(LCD_RS),P2.1--RW(LCD_RW),P2.2--E(LCD_E).
+;参数说明:dat为写数据参数
+;-------------------------------------*/
+void LCD_write_data(uchar dat)
+{
+LCD_RS=1;         //指令
+LCD_EN=1;          //允许
+LCD_DB=(dat<<2)|0x0003;//赋值给D0-D7对应的GPIO4-GPIO11引脚
+DELAY_US(10000); 
+LCD_EN=0; 
+DELAY_US(100);
+}
+/*-------------------------------------- 
+;模块名称:LCD_init(); 
+;功    能:初始化LCD1602 
+;占用资源:--
+;参数说明:--
+;-------------------------------------*/ 
+void LCD_init(void)
+{
+DELAY_US(100000);//延迟100ms
+LCD_write_command(0x30);//功能设置
+DELAY_US(200);//延迟200us
+LCD_write_command(0x30);//功能设置
+DELAY_US(200);//延迟200us
+LCD_write_command(0x0c);//显示开关控制
+DELAY_US(200);//延迟200us
+LCD_write_command(0x01);//显示清除
+DELAY_US(12000);//延迟12ms
+LCD_write_command(0x06);//显示清除
+DELAY_US(500);//延迟500us
+}
+
+//--------------------------------------------------------------------------------------------------------EEPROM
+extern void Eerom_Gpio_Init(void);
+extern void writebyte(Uint16 addr,Uint16 data);
+extern Uint16 readbyte(Uint16 addr);
+Uint16 RecvBuf[16]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+Uint16 TranBuf[16]={0,1,2,3,4,5,6,7,8,9,0xA,0xB,0xC,0xD,0xE,0xF};
+
+//--------------------------------------------------------------------------------------------------------Buzz
+#define BUZZ_CLK_GENER			GpioDataRegs.GPATOGGLE.bit.GPIO10 = 1;		//蜂鸣器控制IO，IO电平翻转，产生控制脉冲
+#define DISABLE_TIMER1_INT		IER &= 0xFFFE;								//关闭定时器
+#define ENABLE_TIMER1_INT		IER |= M_INT1;								//打开定时器
+#define BUZZ_OFF				GpioDataRegs.GPASET.bit.GPIO10 = 1;			//关闭蜂鸣器
+
+void Buzz_Gpio_Init(void)
+{
+	EALLOW;
+    GpioCtrlRegs.GPAPUD.bit.GPIO10 = 0;   									// Enable pullup on GPIO35
+    GpioDataRegs.GPASET.bit.GPIO10 = 1;  									 // Load output latch
+    GpioCtrlRegs.GPAMUX1.bit.GPIO10 = 0;  									// GPIO10 = GPIO
+    GpioCtrlRegs.GPADIR.bit.GPIO10 = 1;   									// GPIO10 = output
+    EDIS;
+}
+Uint16 Musi[23]={		//单位 us，不同频率下，蜂鸣器发出不同音调的声音
+				0,
+				3816,	//L_do
+				3496,	//L_re
+				3215,	//L_mi
+				2865,	//L_fa
+				2551,	//L_so
+				2272,	//L_la
+				2024,	//L_xi
+				1912,	//do
+				1703,	//re
+				1517,	//mi
+				1432,	//fa
+				1275,	//so
+				1136,	//la
+				1013,	//xi
+				956,	//H_do
+				851,	//H_re
+				758,	//H_mi
+				716,	//H_fa
+				638,	//H_so
+				568,	//H_la
+				506,	//H_xi
+				0xFF	//STOP
+				};
+Uint16 Song[]=	{5,5,6,5,8,7,5,5,6,5,8,7,5,5,5,10,8,7,6,11,10,8,9,8,22	};	//《祝你生日快乐》简谱			
+Uint16 DT[]={2,2,5,4,6,8,2,2,5,6,6,9,4,2,5,4,6,12,2,2,5,6,8,12 };			//节拍
+
+void Buzz_Delay(Uint16 t)														//延时函数
+{
+	Uint32 i=0;
+	Uint32 gain = 200000;													//延时增益
+	Uint32 base=0;								
+	base=gain*t; 															
+	for(i=0;i<=base;i++);
+}
+
+interrupt void cpu_timer0_isr(void)
+{
+	CpuTimer0.InterruptCount++;
+	BUZZ_CLK_GENER; 
+   	PieCtrlRegs.PIEACK.all = PIEACK_GROUP1;
+}
+
+//--------------------------------------------------------------------------------------------------------PWM
+void HRPWM1_Config(period)
+{
+// ePWM1 register configuration with HRPWM
+// ePWM1A toggle low/high with MEP control on Rising edge
+
+	EPwm1Regs.TBCTL.bit.PRDLD = TB_IMMEDIATE;	        // set Immediate load
+	EPwm1Regs.TBPRD = period;		                    // PWM frequency = 1 / period
+	EPwm1Regs.CMPA.half.CMPA = period / 2;              // set duty 50% initially
+    EPwm1Regs.CMPA.half.CMPAHR = (1 << 8);              // initialize HRPWM extension
+	EPwm1Regs.CMPB = period / 2;	                    // set duty 50% initially
+	EPwm1Regs.TBPHS.all = 0;
+	EPwm1Regs.TBCTR = 0;
+
+	EPwm1Regs.TBCTL.bit.CTRMODE = TB_COUNT_UP;
+	EPwm1Regs.TBCTL.bit.PHSEN = TB_DISABLE;		       // EPWM1 is the Master
+	EPwm1Regs.TBCTL.bit.SYNCOSEL = TB_SYNC_DISABLE;
+	EPwm1Regs.TBCTL.bit.HSPCLKDIV = TB_DIV1;
+	EPwm1Regs.TBCTL.bit.CLKDIV = TB_DIV1;
+
+	EPwm1Regs.CMPCTL.bit.LOADAMODE = CC_CTR_ZERO;
+	EPwm1Regs.CMPCTL.bit.LOADBMODE = CC_CTR_ZERO;
+	EPwm1Regs.CMPCTL.bit.SHDWAMODE = CC_SHADOW;
+	EPwm1Regs.CMPCTL.bit.SHDWBMODE = CC_SHADOW;
+
+	EPwm1Regs.AQCTLA.bit.ZRO = AQ_CLEAR;               // PWM toggle low/high
+	EPwm1Regs.AQCTLA.bit.CAU = AQ_SET;
+	EPwm1Regs.AQCTLB.bit.ZRO = AQ_SET;
+	EPwm1Regs.AQCTLB.bit.CBU = AQ_CLEAR;
+
+	EALLOW;
+	EPwm1Regs.HRCNFG.all = 0x0;
+	EPwm1Regs.HRCNFG.bit.EDGMODE = HR_REP;				//MEP control on Rising edge
+	EPwm1Regs.HRCNFG.bit.CTLMODE = HR_CMP;
+	EPwm1Regs.HRCNFG.bit.HRLOAD  = HR_CTR_ZERO;
+	EDIS;
+}
+void HRPWM2_Config(period)
+{
+// ePWM2 register configuration with HRPWM
+// ePWM2A toggle low/high with MEP control on Rising edge
+
+	EPwm2Regs.TBCTL.bit.PRDLD = TB_IMMEDIATE;	        // set Immediate load
+	EPwm2Regs.TBPRD = period;		                    // PWM frequency = 1 / period
+	EPwm2Regs.CMPA.half.CMPA = period / 2;              // set duty 50% initially
+    EPwm2Regs.CMPA.half.CMPAHR = (1 << 8);              // initialize HRPWM extension
+	EPwm2Regs.CMPB = period / 2;	                    // set duty 50% initially
+	EPwm2Regs.TBPHS.all = 0;
+	EPwm2Regs.TBCTR = 0;
+
+	EPwm2Regs.TBCTL.bit.CTRMODE = TB_COUNT_UP;
+	EPwm2Regs.TBCTL.bit.PHSEN = TB_DISABLE;		         // ePWM2 is the Master
+	EPwm2Regs.TBCTL.bit.SYNCOSEL = TB_SYNC_DISABLE;
+	EPwm2Regs.TBCTL.bit.HSPCLKDIV = TB_DIV1;
+	EPwm2Regs.TBCTL.bit.CLKDIV = TB_DIV1;
+
+	EPwm2Regs.CMPCTL.bit.LOADAMODE = CC_CTR_ZERO;
+	EPwm2Regs.CMPCTL.bit.LOADBMODE = CC_CTR_ZERO;
+	EPwm2Regs.CMPCTL.bit.SHDWAMODE = CC_SHADOW;
+	EPwm2Regs.CMPCTL.bit.SHDWBMODE = CC_SHADOW;
+
+	EPwm2Regs.AQCTLA.bit.ZRO = AQ_CLEAR;                  // PWM toggle low/high
+	EPwm2Regs.AQCTLA.bit.CAU = AQ_SET;
+	EPwm2Regs.AQCTLB.bit.ZRO = AQ_SET;
+	EPwm2Regs.AQCTLB.bit.CBU = AQ_CLEAR;
+
+	EALLOW;
+	EPwm2Regs.HRCNFG.all = 0x0;
+	EPwm2Regs.HRCNFG.bit.EDGMODE = HR_REP;                //MEP control on Rising edge
+	EPwm2Regs.HRCNFG.bit.CTLMODE = HR_CMP;
+	EPwm2Regs.HRCNFG.bit.HRLOAD  = HR_CTR_ZERO;
+
+	EDIS;
+
+}
+
+//--------------------------------------------------------------------------------------------------------CAN
+Uint16  CANErCnt=0;
+
+Uint32  TestMbox1 = 0;
+Uint32  TestMbox2 = 0;
+Uint32  TestMbox3 = 0;
+struct ECAN_REGS ECanaShadow;
+
+void mailbox_read(int16 MBXnbr)
+{
+   volatile struct MBOX *Mailbox;
+   Mailbox = &ECanaMboxes.MBOX0 + MBXnbr;
+   TestMbox1 = Mailbox->MDL.all; // = 0x9555AAAn (n is the MBX number)
+   TestMbox2 = Mailbox->MDH.all; // = 0x89ABCDEF (a constant)
+   TestMbox3 = Mailbox->MSGID.all;// = 0x9555AAAn (n is the MBX number)
+
+} // MSGID of a rcv MBX is transmitted as the MDL data.
+
+
+void mailbox_check(int32 T1, int32 T2, int32 T3)
+{
+    if((T1 != T3) || ( T2 != 0x89ABCDEF))
+    {
+       CANErCnt++;
+    }
+}
+
+//--------------------------------------------------------------------------------------------------------KEY&EXTINT
+volatile Uint32 Xint1Count; //发生外部中断1的次数；
+volatile Uint32 Xint2Count; //发生外部中断2的次数；
+volatile Uint32 Xint2Loop; //给外部中断2的for循环变量
+
+#define keyon1 GpioDataRegs.GPADAT.bit.GPIO14
+#define keyon2 GpioDataRegs.GPADAT.bit.GPIO15
+
+interrupt void xint1_isr(void)
+{
+	Uint32 i;
+	for(i=0;i<1000000;i++);    //键盘消抖动
+	while(keyon1==0);
+	GpioDataRegs.GPATOGGLE.all = 0x000003FC;   // GPIO8-GPIO9输出电平取反
+	Xint1Count++;
+	PieCtrlRegs.PIEACK.all = PIEACK_GROUP1;
+}
+
+interrupt void xint2_isr(void)
+{
+	Uint32 i;
+	for(Xint2Loop=1;Xint2Loop<=8;Xint2Loop++)
+	{
+	  GpioDataRegs.GPATOGGLE.all = 0x000003FC;   // GPIO8-GPIO9输出电平取反
+      DELAY_US(100000);  //延时0.1s
+    }
+
+	Xint2Count++;
+	for(i=0;i<1000000;i++);    //键盘消抖动
+	while(keyon2==0);
+	PieCtrlRegs.PIEACK.all = PIEACK_GROUP1;
+}
+
+//--------------------------------------------------------------------------------------------------------USB
+#define	CH375_MAX_DATA_LEN	0x40
+#define	CMD_RESET_ALL		0x05
+#define	CMD_CHECK_EXIST		0x06
+#define	CMD_SET_USB_ID		0x12
+#define	CMD_SET_USB_ADDR	0x13
+#define	CMD_SET_USB_MODE	0x15
+#define	CMD_SET_ENDP2		0x18
+#define	CMD_SET_ENDP3		0x19
+#define	CMD_SET_ENDP4		0x1A
+#define	CMD_SET_ENDP5		0x1B
+#define	CMD_SET_ENDP6		0x1C
+#define	CMD_SET_ENDP7		0x1D
+#define	CMD_GET_TOGGLE		0x0A
+#define	CMD_GET_STATUS		0x22
+#define	CMD_UNLOCK_USB		0x23
+#define	CMD_RD_USB_DATA		0x28
+#define	CMD_WR_USB_DATA3	0x29
+#define	CMD_WR_USB_DATA5	0x2A
+#define	CMD_WR_USB_DATA7	0x2B
+#define	CMD_SET_BAUDRATE	0x02
+#define	CMD_ABORT_NAK		0x17
+#define	CMD_SET_RETRY		0x0B
+#define	CMD_ISSUE_TOKEN		0x4F
+#define	CMD_CLR_STALL		0x41
+#define	CMD_SET_ADDRESS		0x45
+#define	CMD_GET_DESCR		0x46
+#define	CMD_SET_CONFIG		0x49
+#define	CMD_DISK_INIT		0x51
+#define	CMD_DISK_RESET		0x52
+#define	CMD_DISK_SIZE		0x53
+#define	CMD_DISK_READ		0x54
+#define	CMD_DISK_RD_GO		0x55
+#define	CMD_DISK_WRITE		0x56
+#define	CMD_DISK_WR_GO		0x57
+#define	CMD_GET_IC_VER		0x01
+#define	CMD_ENTER_SLEEP		0x03
+#define	CMD_RD_USB_DATA0	0x27
+#define	CMD_DELAY_100US		0x0F
+#define	CMD_CHK_SUSPEND		0x0B
+#define	CMD_SET_SYS_FREQ	0x04
+#define	CMD_TEST_CONNECT	0x16
+#define	CMD_AUTO_SETUP		0x4D
+#define	CMD_ISSUE_TKN_X		0x4E
+#define	CMD_SET_DISK_LUN	0x0B
+#define	CMD_DISK_BOC_CMD	0x50
+#define	CMD_DISK_INQUIRY	0x58
+#define	CMD_DISK_READY		0x59
+#define	CMD_DISK_R_SENSE	0x5A
+#define	CMD_DISK_MAX_LUN	0x5D
+#define	CMD_RET_SUCCESS		0x51
+#define	CMD_RET_ABORT		0x5F
+#define	USB_INT_USB_SUSPEND	0x05
+#define	USB_INT_WAKE_UP		0x06
+#define	USB_INT_EP0_SETUP	0x0C
+#define	USB_INT_EP0_OUT		0x00
+#define	USB_INT_EP0_IN		0x08
+#define	USB_INT_EP1_OUT		0x01
+#define	USB_INT_EP1_IN		0x09
+#define	USB_INT_EP2_OUT		0x02
+#define	USB_INT_EP2_IN		0x0A
+#define	USB_INT_BUS_RESET1	0x03
+#define	USB_INT_BUS_RESET2	0x07
+#define	USB_INT_BUS_RESET3	0x0B
+#define	USB_INT_BUS_RESET4	0x0F
+#define	USB_INT_SUCCESS		0x14
+#define	USB_INT_CONNECT		0x15
+#define	USB_INT_DISCONNECT	0x16
+#define	USB_INT_BUF_OVER	0x17
+#define	USB_INT_DISK_READ	0x1D		
+#define	USB_INT_DISK_WRITE	0x1E			
+#define	USB_INT_DISK_ERR	0x1F			
+#define	DEF_USB_PID_NULL	0x00			
+#define	DEF_USB_PID_SOF		0x05
+#define	DEF_USB_PID_SETUP	0x0D
+#define	DEF_USB_PID_IN		0x09
+#define	DEF_USB_PID_OUT		0x01
+#define	DEF_USB_PID_ACK		0x02
+#define	DEF_USB_PID_NAK		0x0A
+#define	DEF_USB_PID_STALL	0x0E
+#define	DEF_USB_PID_DATA0	0x03
+#define	DEF_USB_PID_DATA1	0x0B
+#define	DEF_USB_PID_PRE		0x0C
+
+#define	DEF_USB_REQ_READ	0x80
+#define	DEF_USB_REQ_WRITE	0x00
+#define	DEF_USB_REQ_TYPE	0x60
+#define	DEF_USB_REQ_STAND	0x00
+#define	DEF_USB_REQ_CLASS	0x20
+#define	DEF_USB_REQ_VENDOR	0x40
+#define	DEF_USB_REQ_RESERVE	0x60
+#define	DEF_USB_CLR_FEATURE	0x01
+#define	DEF_USB_SET_FEATURE	0x03
+#define	DEF_USB_GET_STATUS	0x00
+#define	DEF_USB_SET_ADDRESS	0x05
+#define	DEF_USB_GET_DESCR	0x06
+#define	DEF_USB_SET_DESCR	0x07
+#define	DEF_USB_GET_CONFIG	0x08
+#define	DEF_USB_SET_CONFIG	0x09
+#define	DEF_USB_GET_INTERF	0x0A
+#define	DEF_USB_SET_INTERF	0x0B
+#define	DEF_USB_SYNC_FRAME	0x0C
+
+
+typedef	union _REQUEST_PACK
+{
+	unsigned char  buffer[8];
+	struct{
+		unsigned char	 bmReuestType;    	 
+		unsigned char	 bRequest;
+		unsigned int     wValue;
+		unsigned int     wIndx;
+		unsigned int     wLength;
+	}r;
+} mREQUEST_PACKET,	*mpREQUEST_PACKET;
+
+unsigned char DevDes[]={0x12,0x01,0x10,0x01,0x00,0x00,0x00,0x08,0x31,0x51,0x07,0x21,0x00,0x03,0x01,0x02,0x00,0x01};
+
+unsigned char ReportDescriptor0[]=
+{
+	0x05, 0x01 ,  //USAGE_PAGE -> Generic Desktop
+	0x09 ,0x06 ,  //USAGE -> Generic Desktop -> Keyboard 
+	
+	0xA1 ,0x01,    //Collection -> Application
+	
+	0x05 ,0x07  , //USAGE_PAGE -> Keyboard/Keypad   
+	0x19, 0xE0 ,  //USAGE_MINIMUM 
+	0x29 ,0xE7 ,  //USAGE_MAXIMUM 
+	0x15 ,0x00 ,  // LOGICAL_MINIMUM  0
+	0x25 ,0x01,   //LOGICAL_MAXIMUM  1
+	0x95 ,0x08 ,  //REPORT_COUNT    8bit  
+	0x75 ,0x01 ,  //REPORT_SIZE    1
+	0x81 ,0x02 ,  
+	
+	0x95 ,0x01  , //REPORT_COUNT    1bit 
+	0x75 ,0x08 ,  //REPORT_SIZE     8
+	0x81 ,0x01 ,  
+	
+	0x05 ,0x08 ,  //USAGE_PAGE -> LEDs
+	0x19 ,0x01,   //USAGE_MINIMUM (1) 
+	0x29 ,0x03 ,  //USAGE_MAXIMUM (3)
+	0x95 ,0x03 , //REPORT_COUNT    3bit     xxx
+	0x75 ,0x01 ,  //REPORT_SIZE    1
+	0x91 ,0x02  , //OUTPUT    Data,Var,Abs
+	
+	0x95 ,0x05 ,  //REPORT_COUNT    5bit 
+	0x75 ,0x01 ,  //REPORT_SIZE    1
+	0x91 ,0x01 , //OUTPUT    Data,Var,Abs   00000
+	
+	0x05 ,0x07,   //USAGE_PAGE -> Keyboard/Keypad
+	0x19 ,0x00 ,  //USAGE_MINIMUM (0) 
+	0x2A ,0xFF ,0x00 , //USAGE_MAXIMUM  
+	0x15 ,0x00 ,   //LOGICAL_MINIMUM  0
+	0x26 ,0xFF ,0x00 , //LOGICAL_MAXIMUM 
+	
+	0x95 ,0x06 ,  //REPORT_COUNT   6bit  
+	0x75 ,0x08 ,  //REPORT_SIZE    8
+	0x81 ,0x00,   //INPUT   Data,Var,Abs
+	0xC0 
+};
+
+unsigned char ReportDescriptor1[]=
+{		 
+	  0x05 , 0x01 , 0x09 , 0x02 , 0xA1 , 0x01 , 0x09 , 0x01 
+	, 0xA1 , 0x00 , 0x05 , 0x09 , 0x19 , 0x01 , 0x29 , 0x03 
+	, 0x15 , 0x00 , 0x25 , 0x01 , 0x95 , 0x08 , 0x75 , 0x01 
+	, 0x81 , 0x02 , 0x05 , 0x01 , 0x09 , 0x30 , 0x09 , 0x31 
+	, 0x09 , 0x38 , 0x15 , 0x81 , 0x25 , 0x7F , 0x75 , 0x08 
+	, 0x95 , 0x03 , 0x81 , 0x06 , 0xC0 , 0xC0 		 
+};
+
+
+unsigned char ConDes[]={			
+ 0x09,
+ 0x02,
+ 0x3b,
+ 0x00,
+ 0x02,
+ 0x01,
+ 0x04,
+ 0x80,
+ 0x23,
+ 0x09,
+ 0x04,
+ 0x00,
+ 0x00,
+ 0x01,
+ 0x03,
+ 0x01,
+ 0x01,
+ 0x00,
+ 0x09,
+ 0x21,
+ 0x10,
+ 0x01,
+ 0x00,
+ 0x01,
+ 0x22,
+ sizeof(ReportDescriptor0)&0xFF,
+ (sizeof(ReportDescriptor0)>>8)&0xFF,
+ 0x07,
+ 0x05,
+ 0x81,
+ 0x03,
+ 0x08,
+ 0x00,
+ 0x0A,
+ 0x09,
+ 0x04,
+ 0x01,
+ 0x00,
+ 0x01,
+ 0x03,
+ 0x01,
+ 0x02,
+ 0x00,
+ 0x09,
+ 0x21,
+ 0x10,
+ 0x01,
+ 0x00,
+ 0x01,
+ 0x22,
+ sizeof(ReportDescriptor1)&0xFF,
+ (sizeof(ReportDescriptor1)>>8)&0xFF,
+ 0x07,
+ 0x05,
+ 0x82,
+ 0x03,
+ 0x08,
+ 0x00,
+ 0x0A
+};	
+
+mREQUEST_PACKET  request;
+unsigned char LangDes[]={0x04,0x03,0x09,0x04};
+unsigned char SerDes[]={0x0A,0x03,0x5F,0x6C,0xCF,0x82,0x81,0x6C,0x52,0x60};		
+unsigned char mVarSetupRequest;						  
+unsigned char mVarSetupLength;				
+unsigned char *VarSetupDescr;      
+unsigned char buf1[8];                                     
+unsigned char VarUsbAddress	;	
+unsigned char CH375FLAGERR;			
+unsigned char CH375CONFLAG;
+unsigned char flag=0;
+Uint16 ep1_busy = 0;   
+Uint16 ep2_busy = 0;
+unsigned char down1 = 0;  
+unsigned char down2 = 0;
+unsigned char buf_key[8]; 
+unsigned char buf_mouse[4];
+
+Uint16 *USBCMD = (Uint16 *)0x4001;
+Uint16 *USBDAT = (Uint16 *)0x4000;
+
+void USB_delay(Uint16 time) 
+{
+    for(; time>0 ; time--)
+    {
+        asm(" nop");
+        asm(" nop");
+        asm(" nop");
+        asm(" nop");
+		asm(" nop");
+        asm(" nop");
+        asm(" nop");
+        asm(" nop");
+    }
+}
+
+void CH375_WR_CMD_PORT(Uint16 cmd)     
+{                  
+	*USBCMD=cmd;        
+	USB_delay(10);    
+}
+
+void CH375_WR_DAT_PORT(Uint16 dat )     
+{           
+	*USBDAT=dat;
+	USB_delay(10);
+} 
+
+Uint16 CH375_RD_DAT_PORT()   
+{ 
+	USB_delay(10);
+    return (*USBDAT&0x00FF);  
+}
+
+void CH375_Init()  
+{  
+	Uint16 i=0;  
+    CH375_WR_CMD_PORT(CMD_SET_USB_MODE); 
+	CH375_WR_DAT_PORT(1); 
+	                          
+   	for (;;)  
+    {  
+       i=CH375_RD_DAT_PORT();
+       if (i== CMD_RET_SUCCESS) break;
+    }  
+}
+
+void mCh375Ep0Up()
+{
+	unsigned char i,len;
+	if(mVarSetupLength){							
+		if(mVarSetupLength<=8)
+		{
+			len=mVarSetupLength;
+			mVarSetupLength=0;
+        }
+		else
+		{
+			len=8;
+			mVarSetupLength-=8;
+		}							                  
+	    CH375_WR_CMD_PORT(CMD_WR_USB_DATA3);					
+       	CH375_WR_DAT_PORT(len);									
+    	for(i=0;i!=len;i++)
+        CH375_WR_DAT_PORT(request.buffer[i]);
+    }
+	else
+	{
+		CH375_WR_CMD_PORT(CMD_WR_USB_DATA3);	
+		CH375_WR_DAT_PORT(0);	
+	}
+}
+
+void mCh375DesUp()
+{
+	unsigned char k;        
+	for (k=0; k!=8; k++ ) 
+	{
+		request.buffer[k]=*VarSetupDescr;  						
+		VarSetupDescr++;
+    }
+}
+
+interrupt void	mCH375Interrupt(void)
+{
+	unsigned char InterruptStatus;
+	unsigned char length, c1, len;
+	
+	PieCtrlRegs.PIEACK.all = PIEACK_GROUP12;
+	CH375_WR_CMD_PORT(CMD_GET_STATUS);
+	InterruptStatus =CH375_RD_DAT_PORT();  	     
+	
+	switch(InterruptStatus)
+	{  
+		case  USB_INT_EP1_IN:  										
+			ep1_busy = 0;
+			CH375_WR_CMD_PORT (CMD_UNLOCK_USB);
+			break;
+		case   USB_INT_EP2_IN:									
+			ep2_busy = 0;
+			CH375_WR_CMD_PORT (CMD_UNLOCK_USB);						
+			break;
+		case   USB_INT_EP0_SETUP: 							
+	    	CH375_WR_CMD_PORT(CMD_RD_USB_DATA);
+			length=CH375_RD_DAT_PORT();
+			for(len=0;len!=length;len++)request.buffer[len]=CH375_RD_DAT_PORT(); 
+			if(length==0x08){						                        
+				mVarSetupLength=(request.buffer[6] | (unsigned short)request.buffer[7]<<8);
+				mVarSetupRequest=request.r.bRequest;							  			
+				if((c1=request.r.bmReuestType)&0x40){         					 
+				}
+				if((c1=request.r.bmReuestType)&0x20){
+					if(request.buffer[1]==0x0a){
+						}												          //SET_IDLE
+					else if(request.buffer[1]==0x09){
+					}
+				}
+				if(!((c1=request.r.bmReuestType)&0x60)){          				  					
+					switch(request.r.bRequest){ 
+						case DEF_USB_CLR_FEATURE:								  
+							if((c1=request.r.bmReuestType&0x1F)==0X02){			  
+								switch(request.buffer[4]){
+									case 0x82:
+										CH375_WR_CMD_PORT(CMD_SET_ENDP7);		  
+										CH375_WR_DAT_PORT(0x8E);                 
+										break;
+									case 0x02:
+										CH375_WR_CMD_PORT(CMD_SET_ENDP6);
+										CH375_WR_DAT_PORT(0x80);				  
+										break;
+									case 0x81:
+										CH375_WR_CMD_PORT(CMD_SET_ENDP5);		
+										CH375_WR_DAT_PORT(0x8E);
+										break;
+									case 0x01:
+										CH375_WR_CMD_PORT(CMD_SET_ENDP4);	
+										CH375_WR_DAT_PORT(0x80);
+										break;
+									default:
+										break;
+								}
+							}
+							else{
+								CH375FLAGERR=1;								    
+							}
+							break;
+						case DEF_USB_GET_STATUS:								
+							request.buffer[0]=0;
+							request.buffer[1]=0;				
+							break;
+						case DEF_USB_SET_ADDRESS:								
+							VarUsbAddress=request.buffer[2];					
+							break;
+						case DEF_USB_GET_DESCR: 								
+							if(request.buffer[3]==1){							
+								VarSetupDescr=DevDes;
+								if(mVarSetupLength>sizeof(DevDes))
+									mVarSetupLength = sizeof(DevDes);
+								CH375FLAGERR=0;
+								}
+							else if(request.buffer[3]==2){		 				
+								VarSetupDescr=ConDes;
+								if(mVarSetupLength>sizeof(ConDes))
+									mVarSetupLength = sizeof(ConDes);
+								CH375FLAGERR=0;
+							
+								}
+							else if(request.buffer[3]==0x22) {
+								if(request.buffer[4]==0)
+								{
+									VarSetupDescr = ReportDescriptor0;
+									if(mVarSetupLength>sizeof(ReportDescriptor0))
+										mVarSetupLength = sizeof(ReportDescriptor0);									
+								}
+								else
+								{
+									VarSetupDescr = ReportDescriptor1;
+									if(mVarSetupLength>sizeof(ReportDescriptor1))
+										mVarSetupLength = sizeof(ReportDescriptor1);										
+								}						
+								CH375FLAGERR=0;
+								}
+							else if(request.buffer[3]==3) {
+								if ( request.buffer[4]== 0 ) 
+								{
+									VarSetupDescr=LangDes;
+									if(mVarSetupLength>sizeof(LangDes))
+										mVarSetupLength = sizeof(LangDes);										
+								}
+								else 
+								{
+									VarSetupDescr=SerDes;
+									if(mVarSetupLength>sizeof(SerDes))
+										mVarSetupLength = sizeof(SerDes);																		
+								} 						
+							}
+							
+							else CH375FLAGERR=1;
+								mCh375DesUp();															          							
+							break;
+						case DEF_USB_GET_CONFIG:									
+							request.buffer[0]=0;									
+							if(CH375CONFLAG) request.buffer[0]=1;					
+							break;
+						case DEF_USB_SET_CONFIG:                 					
+							CH375CONFLAG=0;
+							if ( request.buffer[2] != 0 ) {
+								CH375CONFLAG=1;										
+							}
+							break;
+						case DEF_USB_GET_INTERF:									
+							request.buffer[0]=1;									
+							break;
+						default :
+							CH375FLAGERR=1;											
+							break;
+					}
+				}
+			}
+			else {                                                                  
+				CH375FLAGERR=1;
+			}
+			if(!CH375FLAGERR) mCh375Ep0Up();										
+			else {
+				CH375_WR_CMD_PORT(CMD_SET_ENDP3);								    
+				CH375_WR_DAT_PORT(0x0F);
+			}
+			break;
+		case   USB_INT_EP0_IN:													   
+			if(mVarSetupRequest==DEF_USB_GET_DESCR){								
+				mCh375DesUp();
+				mCh375Ep0Up();															
+			}
+			else if(mVarSetupRequest==DEF_USB_SET_ADDRESS){							
+				CH375_WR_CMD_PORT(CMD_SET_USB_ADDR);
+				CH375_WR_DAT_PORT(VarUsbAddress);								    
+			}
+			CH375_WR_CMD_PORT (CMD_UNLOCK_USB);								        
+			break;
+		case   USB_INT_EP0_OUT:													   
+			CH375_WR_CMD_PORT(CMD_RD_USB_DATA0);									
+			if(length=CH375_RD_DAT_PORT()){										   
+				for(len=0;len!=length;len++){buf1[len]=CH375_RD_DAT_PORT();		   
+				   }
+				if(mVarSetupRequest==0x09)  
+				{
+//					buf1[0];                                                       
+					mVarSetupLength= 0;
+					mCh375Ep0Up();
+				}
+				   
+			}
+			CH375_WR_CMD_PORT (CMD_UNLOCK_USB);
+			break;
+		default:
+			if((InterruptStatus&0x03)==0x03){									
+				CH375FLAGERR=0;													
+				CH375CONFLAG=0;													
+				mVarSetupLength=0;
+				ep1_busy = 0;
+				ep2_busy = 0;
+			}
+			else{																
+				;
+			}
+			CH375_WR_CMD_PORT (CMD_UNLOCK_USB);									
+			CH375_RD_DAT_PORT();
+			break;
+	}
+}
+
+void SendKeyReport()
+{
+	unsigned char i;
+	memset(buf_key,0,8);
+	if(down1 == 1)
+		buf_key[2] = 0x18;
+	while(ep1_busy&0x00FF);                                                           
+	CH375_WR_CMD_PORT(CMD_WR_USB_DATA5);								      
+	CH375_WR_DAT_PORT(8);
+	for(i=0;i!=8;i++)
+		CH375_WR_DAT_PORT(buf_key[i]);
+	ep1_busy = 1;
+}
+
+void InitUSBGpio(void)
+{
+	EALLOW;
+	GpioCtrlRegs.GPAMUX2.bit.GPIO16 = 0;         // GPIO
+	GpioCtrlRegs.GPADIR.bit.GPIO16 = 0;          // input
+   
+	GpioCtrlRegs.GPBMUX2.bit.GPIO53 = 0;
+	GpioCtrlRegs.GPBDIR.bit.GPIO53 = 0;
+	GpioCtrlRegs.GPBCTRL.bit.QUALPRD2 = 1;
+	GpioCtrlRegs.GPBQSEL2.bit.GPIO53 = 1;
+	GpioCtrlRegs.GPBPUD.bit.GPIO53 = 0;
+	EDIS;
+}
+
+//--------------------------------------------------------------------------------------------------------STP MOTOR
+unsigned char Step_table[]={0x0004,0x0008,0x0010,0x0020};
+unsigned char Step_table1[]={0x0020,0x0010,0x0008,0x0004};
+void Gpio_select(void)
+{
+
+   
+    EALLOW;
+	GpioCtrlRegs.GPAMUX1.all = 0x00000000;  // All GPIO
+    GpioCtrlRegs.GPADIR.all = 0x0000003C;   // GPIO2-5
+    
+    //STEPMOTOR CS	
+	GpioCtrlRegs.GPAPUD.bit.GPIO25 = 0;   									// Enable pullup on GPIO27
+    GpioDataRegs.GPASET.bit.GPIO25 = 1;   									// Load output latch
+    GpioCtrlRegs.GPAMUX2.bit.GPIO25 = 0;  									// GPIO25 = GPIO
+    GpioCtrlRegs.GPADIR.bit.GPIO25 = 1;   									// GPIO25 = output  
+	GpioDataRegs.GPACLEAR.bit.GPIO25 = 1;
+
+	//GPIO0-GPIO31输出低电平
+    GpioDataRegs.GPACLEAR.bit.GPIO2 = 2;
+    GpioDataRegs.GPACLEAR.bit.GPIO2 = 3;
+    GpioDataRegs.GPACLEAR.bit.GPIO2 = 4;
+    GpioDataRegs.GPACLEAR.bit.GPIO2 = 5;
+    EDIS;   
+} 
+
+//--------------------------------------------------------------------------------------------------------AUDIO
+void I2CA_Init(void)
+{
+   // Initialize I2C
+   I2caRegs.I2CSAR = 0x001A;		// Slave address - EEPROM control code
+
+   #if (CPU_FRQ_150MHZ)             // Default - For 150MHz SYSCLKOUT
+        I2caRegs.I2CPSC.all = 14;   // Prescaler - need 7-12 Mhz on module clk (150/15 = 10MHz)
+   #endif
+   #if (CPU_FRQ_100MHZ)             // For 100 MHz SYSCLKOUT
+     I2caRegs.I2CPSC.all = 9;	    // Prescaler - need 7-12 Mhz on module clk (100/10 = 10MHz)
+   #endif
+
+   I2caRegs.I2CCLKL = 100;			// NOTE: must be non zero
+   I2caRegs.I2CCLKH = 100;			// NOTE: must be non zero
+   I2caRegs.I2CIER.all = 0x24;		// Enable SCD & ARDY interrupts
+
+//   I2caRegs.I2CMDR.all = 0x0020;	// Take I2C out of reset
+   I2caRegs.I2CMDR.all = 0x0420;	// Take I2C out of reset		//zq
+   									// Stop I2C when suspended
+
+   I2caRegs.I2CFFTX.all = 0x6000;	// Enable FIFO mode and TXFIFO
+   I2caRegs.I2CFFRX.all = 0x2040;	// Enable RXFIFO, clear RXFFINT,
+
+   return;
+}
+
+Uint16 AIC23Write(int Address,int Data)
+{
+
+
+   if (I2caRegs.I2CMDR.bit.STP == 1)
+   {
+      return I2C_STP_NOT_READY_ERROR;
+   }
+
+   // Setup slave address
+   I2caRegs.I2CSAR = 0x1A;
+
+   // Check if bus busy
+   if (I2caRegs.I2CSTR.bit.BB == 1)
+   {
+      return I2C_BUS_BUSY_ERROR;
+   }
+
+   // Setup number of bytes to send
+   // MsgBuffer + Address
+   I2caRegs.I2CCNT = 2;
+   I2caRegs.I2CDXR = Address;
+   I2caRegs.I2CDXR = Data;
+   // Send start as master transmitter
+   I2caRegs.I2CMDR.all = 0x6E20;
+   return I2C_SUCCESS;
+}
+
+void Audio_Delay(int time)
+{
+ int i,j,k=0;
+ for(i=0;i<time;i++)
+  for(j=0;j<1024;j++)
+   k++;
+}
+
+interrupt void  ISRMcbspSend(void)
+{
+      int temp1,temp2;
+      temp1=McbspaRegs.DRR1.all;
+	  temp2=McbspaRegs.DRR2.all;       
+  McbspaRegs.DXR1.all = temp1;        //放音
+	 McbspaRegs.DXR2.all = temp2;
+    PieCtrlRegs.PIEACK.all = 0x0020;    
+}
+
+//--------------------------------------------------------------------------------------------------------NET
+void Load_Net_Parameters(void)
+{
+	Gateway_IP[0] = 192;
+	Gateway_IP[1] = 168;
+	Gateway_IP[2] = 1;
+	Gateway_IP[3] = 1;
+
+	Sub_Mask[0]=255;
+	Sub_Mask[1]=255;
+	Sub_Mask[2]=255;
+	Sub_Mask[3]=0;
+
+	Phy_Addr[0]=0x0c;
+	Phy_Addr[1]=0x29;
+	Phy_Addr[2]=0xab;
+	Phy_Addr[3]=0x7c;
+	Phy_Addr[4]=0x00;
+	Phy_Addr[5]=0x01;
+
+	IP_Addr[0]=192;
+	IP_Addr[1]=168;
+	IP_Addr[2]=1;
+	IP_Addr[3]=99;
+
+	S0_Port[0] = 0x13;
+	S0_Port[1] = 0x88;
+
+	S0_Mode=UDP_MODE;
+}
+
+void W5500_Socket_Set(void)
+{
+	if(S0_State==0)
+	{
+		if(Socket_UDP(0)==TRUE)
+		{
+			S0_State=S_INIT|S_CONN;
+		}
+		else
+		{
+			S0_State=0;
+		}
+	}
+}
+
+void W5500_Initialization(void)
+{
+	W5500_Init();
+	Detect_Gateway();
+	Socket_Init(0);	
+	W5500_Socket_Set();
+}
+
+void W5500_Config(void)
+{
+	Load_Net_Parameters();
+	W5500_Initialization();
+}
+
+interrupt void	W5500_isr(void)
+{
+	PieCtrlRegs.PIEACK.all = PIEACK_GROUP12;
+	W5500_Interrupt=1;
+}
+
+void NET_SPI_Init(void)
+{    
+	SpiaRegs.SPICCR.all =0x0007;// SPI软件复位, 极性位为0（上降沿发送数据）, 每次移进和移出8位字长度；禁止SPI内部回送（LOOKBACK）功能；
+	SpiaRegs.SPICTL.all =0x0006; // 使能主机模式，正常相位，使能主机发送，禁止接收,溢出中断，禁止SPI中断；                                 
+	SpiaRegs.SPIBRR =0x003F;	//SPI波特率=25M/32	=195.3KHZ；		
+	SpiaRegs.SPICCR.bit.CLKPOLARITY = 0;//设置SPI移位时钟极性
+	SpiaRegs.SPICTL.bit.CLK_PHASE=1;					
+    SpiaRegs.SPICCR.bit.SPISWRESET=1; 
+    SpiaRegs.SPIPRI.bit.FREE = 1;  // 自由运行     
+}
+//--------------------------------------------------------------------------------MAIN----------------------------------------------------------
+void main(void)
+{
+	Uint16 i,j;
+   Uint32 Sum=0;
+   Uint32 Vin;
+   Uint16 s1=1,s2=2,s3=3,s4=4;
+   Uint16 tmp=0;
+    Uint16 ReceivedChar;
+    char *msg;
+    Uint16 addr=0;
+    Uint16 Errcnt=0;
+    Uint16 USBCnt=0;
+
+   InitSysCtrl();
+   DINT;
+   InitPieCtrl();
+   IER = 0x0000;
+   IFR = 0x0000;
+   InitPieVectTable();
+   MemCopy(&RamfuncsLoadStart, &RamfuncsLoadEnd, &RamfuncsRunStart);
+   InitFlash();
+   InitSciGpio();
+   scia_fifo_init();	   // Initialize the SCI FIFO
+   scia_echoback_init();  // Initalize SCI for echoback
+//------------------------------------------------------------------------------------------------SCI A&B ST	
+    scib_fifo_init();	   // Initialize the SCI FIFO
+    scib_echoback_init();  // Initalize SCI for echoback
+    msg = "\r\nSelftest Start! \n\0";
+    scia_msg(msg);
+    msg = "\r\n-----------------------------------COMB Test----------------------------------- \0";
+    scia_msg(msg);
+    
+    msg = "\r\nIf you see the message, press any key \0";
+    scib_msg(msg);
+    // Wait for inc character
+    while(ScibRegs.SCIFFRX.bit.RXFFST !=1) { } 
+    ReceivedChar =ScibRegs.SCIRXBUF.all;
+    if(ReceivedChar>0)
+	{
+		msg = "\r\nCOMB Test-----OK! \n\0";
+    	scia_msg(msg);
+		SCIBOK=1;
+	}
+    else SCIBOK=0;
+//------------------------------------------------------------------------------------------------RS485 ST	
+    ReceivedChar=0;
+    scic_echoback_init();
+    msg = "\r\n-----------------------------------RS485 Test----------------------------------- \0";
+    scia_msg(msg);
+    msg = "\r\nIf you see the message, press any key \0";
+    scic_msg(msg);
+    // Wait for inc character
+    while(ScicRegs.SCIRXST.bit.RXRDY !=1) { }
+    ReceivedChar = ScicRegs.SCIRXBUF.all;
+    if(ReceivedChar>0)
+	{
+		msg = "\r\nRS485 Test-----OK! \n\0";
+    	scia_msg(msg);
+		RS485OK=1;
+	}
+    else RS485OK=0;   
+//------------------------------------------------------------------------------------------------SEG&AD ST
+	msg = "\r\n-----------------------------------SegLED&AD Test----------------------------------- \0";
+    scia_msg(msg);
+    msg = "\r\nIf the value is right,press any key \0";
+    scia_msg(msg);
+    ReceivedChar=0;
+   EALLOW;
+   SysCtrlRegs.HISPCP.all = ADC_MODCLK;	// HSPCLK = SYSCLKOUT/（2*ADC_MODCLK）=15MHZ
+   EDIS;
+   InitSegCS();
+   InitSpiaGpio();   
+   InitAdc();
+   spi_fifo_init(); 
+   spi_init();
+   AdcRegs.ADCTRL1.bit.ACQ_PS = ADC_SHCLK;//设置采样窗口时间：（15+1）*ADCCLK
+   AdcRegs.ADCTRL3.bit.ADCCLKPS = ADC_CKPS;//ADC内核时钟分频：HSPCLK/2=6.25MHZ
+   AdcRegs.ADCTRL1.bit.SEQ_CASC = 1;        // 1选择级联模式
+   AdcRegs.ADCCHSELSEQ1.bit.CONV00 = 0x0;  //通道选择ADCAIN0
+   AdcRegs.ADCTRL1.bit.CONT_RUN = 1;       // 设置为连续运行
+   AdcRegs.ADCTRL2.all = 0x2000;
+   for(;;)
+   {
+     Sum=0;
+     for (i=0; i<BUF_SIZE; i++)
+     {
+     	SampleTable[i] = 0;
+     }
+     for (i=0; i<AVG; i++)
+     {
+        while (AdcRegs.ADCST.bit.INT_SEQ1== 0) {} // 等待中断
+        AdcRegs.ADCST.bit.INT_SEQ1_CLR = 1;
+        SampleTable[i] =((AdcRegs.ADCRESULT0>>4) );
+     }
+	 for (i=0;i<AVG;i++)
+	 {
+      Sum+=SampleTable[i];
+	  Sum=Sum/2;
+	 }
+	 Vin=Sum*3*1000/4096;
+	 s1=Vin/1000;
+	 s2=Vin%1000/100;
+	 s3=Vin%1000%100/10;
+	 s4=Vin%1000%100%10;
+	 ShowChar(s1,s2,s3,s4);
+	if(SciaRegs.SCIFFRX.bit.RXFFST !=0)
+	{
+    	SciaRegs.SCIFFRX.bit.RXFIFORESET = 0;
+    	SciaRegs.SCIFFRX.bit.RXFIFORESET = 1;
+    	ReceivedChar = SciaRegs.SCIRXBUF.all;
+	}
+    if(ReceivedChar>0)
+	{
+		msg = "\r\nSEG&AD Test-----OK! \n\0";
+    	scia_msg(msg);
+		SEGADOK=1;
+		break;
+	}
+	else SEGADOK=0;
+	loopdelay();
+   }
+//------------------------------------------------------------------------------------------------DAC ST
+	msg = "\r\n--------------------------------------DAC Test----------------------------------- \0";
+    scia_msg(msg);
+    msg = "\r\nIf the value A:0.4 B:0.8 C:1.2 D:1.6 is right, press any key \0";
+    scia_msg(msg);
+    ReceivedChar=0;
+    InitSpiaGpio();
+    SpiaRegs.SPICCR.all =0x0a;///进入初始状态，数据在上升沿输出，自测禁止，11位数据模式                            
+	SpiaRegs.SPICTL.all =0x0006; // 使能主机模式，正常相位，使能主机发送，禁止接收                                  
+	SpiaRegs.SPIBRR =0x0031;	//SPI波特率=37.5M/50	=0.75MHZ；							
+    SpiaRegs.SPICCR.all =0x8a; //退出初始状态； 
+    SpiaRegs.SPIPRI.bit.FREE = 1;  // 自由运行    
+    EALLOW;
+	GpioCtrlRegs.GPBMUX2.bit.GPIO49 = 0;
+	GpioCtrlRegs.GPBDIR.bit.GPIO49 = 1;
+	GpioCtrlRegs.GPBPUD.bit.GPIO49 = 0; 
+	EDIS;
+    SetLOAD;
+    WriteDAC(0,0,47);	//0.4V
+	WriteDAC(1,0,93);	//0.8V
+	WriteDAC(2,0,140);	//1.2V
+	WriteDAC(3,0,186);	//1.6V   
+    while(SciaRegs.SCIFFRX.bit.RXFFST !=1) { } // Wait for inc character
+    ReceivedChar = SciaRegs.SCIRXBUF.all;
+    if(ReceivedChar>0)
+	{
+		msg = "\r\nDAC Test-----OK! \n\0";
+    	scia_msg(msg);
+		DACOK=1;
+	}
+    else DACOK=0;
+//------------------------------------------------------------------------------------------------RTC&LCD ST
+	msg = "\r\n-----------------------------------RTC&LCD Test----------------------------------- \0";
+    scia_msg(msg);
+    msg = "\r\nCheck the time diapalyed in LCD, press any key \0";
+    scia_msg(msg);
+    ReceivedChar=0;
+    Eerom_Gpio_Init();
+    Init_Port();
+    LCD_init();
+    Init8563();
+    for(;;)
+    {
+    	GetTime();
+    	LCD_write_command(0x90);
+		tmp=TAB_T[2];
+		tmp>>=4;
+		tmp+=0x30;
+		LCD_write_data(tmp);
+		tmp=TAB_T[2];
+		tmp&=0x000F;
+		tmp+=0x30;
+		LCD_write_data(tmp);
+		LCD_write_data('-');
+		tmp=TAB_T[1];
+		tmp>>=4;
+		tmp+=0x30;
+		LCD_write_data(tmp);
+		tmp=TAB_T[1];
+		tmp&=0x000F;
+		tmp+=0x30;
+		LCD_write_data(tmp);
+		LCD_write_data('-');
+		tmp=TAB_T[0];
+		tmp>>=4;
+		tmp+=0x30;
+		LCD_write_data(tmp);
+		tmp=TAB_T[0];
+		tmp&=0x000F;
+		tmp+=0x30;
+		LCD_write_data(tmp);
+    	if(SciaRegs.SCIFFRX.bit.RXFFST !=0)
+		{
+    		SciaRegs.SCIFFRX.bit.RXFIFORESET = 0;
+    		SciaRegs.SCIFFRX.bit.RXFIFORESET = 1;
+    		ReceivedChar = SciaRegs.SCIRXBUF.all;
+		}
+    	if(ReceivedChar>0)
+		{
+			msg = "\r\nRTC&LCD Test-----OK! \n\0";
+    		scia_msg(msg);
+			RTCLCDOK=1;
+			break;
+		}
+		else RTCLCDOK=0;
+		loopdelay();
+    }
+	GpioDataRegs.GPADAT.bit.GPIO24 = 1;  //cs=1
+//------------------------------------------------------------------------------------------------EEPROM ST	
+	
+	Eerom_Gpio_Init();
+	msg = "\r\n-----------------------------------EEPROM Test----------------------------------- \0";
+    scia_msg(msg);
+	for(i = 0;i<8;i++)
+    {    		
+		writebyte(i,TranBuf[i]);					//写Eeprom
+		delay(50000);
+		RecvBuf[i] = readbyte(i);					//读Eeprom
+		delay(50000);
+    }
+	for(i = 0;i<8;i++)
+	{
+		if(TranBuf[i]!=RecvBuf[i])
+		{
+			Errcnt++;
+		}
+	}
+    if(Errcnt==0)
+    {
+		msg = "\r\nEEPROM Test-----OK! \n\0";
+    	scia_msg(msg);
+    	EEROK=1;
+    }
+    else EEROK=0;
+//------------------------------------------------------------------------------------------------BUZZ ST	
+	msg = "\r\n-----------------------------------BUZZ Test----------------------------------- \0";
+    scia_msg(msg);
+    msg = "\r\nIf you can hear the song from buzz, press any key \0";
+    scia_msg(msg);
+    ReceivedChar=0;
+    Buzz_Gpio_Init();
+    EALLOW;  // This is needed to write to EALLOW protected registers
+   	PieVectTable.TINT0 = &cpu_timer0_isr;
+   	EDIS;    // This is needed to disable write to EALLOW protected registers
+    InitCpuTimers();   // For this example, only initialize the Cpu Timers
+   	ConfigCpuTimer(&CpuTimer0, 150, 50);
+   	IER |= M_INT1;
+   	PieCtrlRegs.PIEIER1.bit.INTx7 = 1;
+   	EINT;   // Enable Global interrupt INTM
+   	//ERTM;   // Enable Global realtime interrupt DBGM
+   	
+    for(;;)
+    {
+		if(Musi[Song[addr]]==0xFF)									
+		{
+			addr=0;															//音乐播放结束
+		}
+		else
+		{
+			StopCpuTimer0();												//停止计数
+			DISABLE_TIMER1_INT;												//不使能定时中断
+			ConfigCpuTimer(&CpuTimer0, 150, Musi[Song[addr]+8]);			//设置定时时间
+			StartCpuTimer0();												//重启定时器
+			ENABLE_TIMER1_INT;												//使能定时中断
+			Buzz_Delay(DT[addr]);												//音乐节拍延时
+			StopCpuTimer0();												//停止计数
+			DISABLE_TIMER1_INT;												//不使能定时中断
+			BUZZ_OFF;														//关闭蜂鸣器
+			Buzz_Delay(8);														//音乐停顿
+			addr++;
+		}
+		if(SciaRegs.SCIFFRX.bit.RXFFST !=0)
+		{
+    		SciaRegs.SCIFFRX.bit.RXFIFORESET = 0;
+    		SciaRegs.SCIFFRX.bit.RXFIFORESET = 1;
+    		ReceivedChar = SciaRegs.SCIRXBUF.all;
+		}
+    	if(ReceivedChar>0)
+		{
+			msg = "\r\nBUZZ Test-----OK! \n\0";
+    		scia_msg(msg);
+			BUZZOK=1;
+			break;
+		}
+		else BUZZOK=0;
+    }
+//------------------------------------------------------------------------------------------------PWM ST	
+	msg = "\r\n-----------------------------------PWM Test----------------------------------- \0";
+    scia_msg(msg);
+    msg = "\r\nIf the freq. is 150kHz, press any key \0";
+    scia_msg(msg);
+    ReceivedChar=0;
+    InitEPwm1Gpio();
+    InitEPwm2Gpio();
+    EALLOW;
+   	SysCtrlRegs.PCLKCR0.bit.TBCLKSYNC = 0;
+   	EDIS;
+   	HRPWM1_Config(1000);
+   	HRPWM2_Config(1000);
+   	EALLOW;
+    SysCtrlRegs.PCLKCR0.bit.TBCLKSYNC = 1;
+    EDIS;
+    while(SciaRegs.SCIFFRX.bit.RXFFST !=1) { } 
+    ReceivedChar = SciaRegs.SCIRXBUF.all;
+    if(ReceivedChar>0)
+	{
+		msg = "\r\nPWM Test-----OK! \n\0";
+    	scia_msg(msg);
+		PWMOK=1;
+	}
+    else PWMOK=0;
+    EALLOW;
+   	SysCtrlRegs.PCLKCR0.bit.TBCLKSYNC = 0;
+   	EDIS;
+
+//------------------------------------------------------------------------------------------------DCMOT ST	
+	msg = "\r\n--------------------------------DCMOT Test----------------------------------- \0";
+    scia_msg(msg);
+    msg = "\r\nCheck DC Motor, press any key  \0";
+    scia_msg(msg);
+    ReceivedChar=0;
+    EALLOW;
+    GpioCtrlRegs.GPAPUD.bit.GPIO26 = 0;   									// Enable pullup on GPIO27
+    GpioDataRegs.GPASET.bit.GPIO26 = 1;   									// Load output latch
+    GpioCtrlRegs.GPAMUX2.bit.GPIO26 = 0;  									// GPIO27 = GPIO
+    GpioCtrlRegs.GPADIR.bit.GPIO26 = 1;   									// GPIO27 = output  
+	GpioDataRegs.GPACLEAR.bit.GPIO26 = 1;
+	EDIS;
+   while(SciaRegs.SCIFFRX.bit.RXFFST !=1) {} 
+    ReceivedChar = SciaRegs.SCIRXBUF.all;
+    SciaRegs.SCIFFRX.bit.RXFIFORESET = 0;
+   SciaRegs.SCIFFRX.bit.RXFIFORESET = 1;
+    if(ReceivedChar>0)
+	{
+		msg = "\r\nDCMOT Test-----OK! \n\0";
+    	scia_msg(msg);
+		DCMOK=1;
+	}
+    else DCMOK=0;
+   
+   GpioDataRegs.GPASET.bit.GPIO26 = 1;
+ 
+//------------------------------------------------------------------------------------------------STPMOT ST	
+	msg = "\r\n--------------------------------STPMOT Test----------------------------------- \0";
+    scia_msg(msg);
+    ReceivedChar=0;
+    Gpio_select();
+    DINT;
+    //CW
+    j=128; //改变这个值可以控制转动周数。
+    while(j--)
+    {
+      for(i=0;i<4;i++)
+      {
+       GpioDataRegs.GPADAT.all=Step_table[i]; //GPIO2-GPIO5依次输出高电平
+       delay(20000);
+
+      }
+    }
+    //CCW
+	j=128;
+	GpioDataRegs.GPADAT.all=0x0000;
+	 while(j--)
+   {
+      for(i=0;i<4;i++)
+      {
+       GpioDataRegs.GPADAT.all=Step_table1[i]; //GPIO2-GPIO5依次输出高电平
+       delay(20000);
+
+      }
+    }
+    GpioDataRegs.GPASET.bit.GPIO25 = 1;
+    msg = "\r\nCheck STP Motor, press any key  \0";
+    scia_msg(msg);
+    while(SciaRegs.SCIFFRX.bit.RXFFST !=1) {} 
+    ReceivedChar = SciaRegs.SCIRXBUF.all;
+    if(ReceivedChar>0)
+	{
+		msg = "\r\nSPTMOT Test-----OK! \n\0";
+    	scia_msg(msg);
+		STPMOK=1;
+	}
+    else STPMOK=0;
+//------------------------------------------------------------------------------------------------CAN ST	
+	msg = "\r\n-----------------------------------CAN Test----------------------------------- \0";
+    scia_msg(msg);
+	InitECanGpio();
+    EALLOW;
+    ECanaShadow.CANTIOC.all = ECanaRegs.CANTIOC.all;
+    ECanaShadow.CANTIOC.bit.TXFUNC = 1;
+    ECanaRegs.CANTIOC.all = ECanaShadow.CANTIOC.all;
+
+    ECanaShadow.CANRIOC.all = ECanaRegs.CANRIOC.all;
+    ECanaShadow.CANRIOC.bit.RXFUNC = 1;
+    ECanaRegs.CANRIOC.all = ECanaShadow.CANRIOC.all;
+    EDIS;
+
+    ECanaRegs.CANME.all = 0;
+
+    ECanaMboxes.MBOX0.MSGID.all = 0x9555AAA0; 
+    ECanaMboxes.MBOX1.MSGID.all = 0x9555AAA1; 
+    ECanaMboxes.MBOX2.MSGID.all = 0x9555AAA2; 
+    ECanaMboxes.MBOX3.MSGID.all = 0x9555AAA3; 
+    ECanaMboxes.MBOX4.MSGID.all = 0x9555AAA4; 
+    ECanaMboxes.MBOX5.MSGID.all = 0x9555AAA5; 
+    ECanaMboxes.MBOX6.MSGID.all = 0x9555AAA6; 
+    ECanaMboxes.MBOX7.MSGID.all = 0x9555AAA7; 
+    ECanaMboxes.MBOX8.MSGID.all = 0x9555AAA8; 
+    ECanaMboxes.MBOX9.MSGID.all = 0x9555AAA9; 
+    ECanaMboxes.MBOX10.MSGID.all = 0x9555AAAA; 
+    ECanaMboxes.MBOX11.MSGID.all = 0x9555AAAB; 
+    ECanaMboxes.MBOX12.MSGID.all = 0x9555AAAC; 
+    ECanaMboxes.MBOX13.MSGID.all = 0x9555AAAD; 
+    ECanaMboxes.MBOX14.MSGID.all = 0x9555AAAE; 
+    ECanaMboxes.MBOX15.MSGID.all = 0x9555AAAF; 
+    
+    ECanaMboxes.MBOX16.MSGID.all = 0x9555AAA0; 
+    ECanaMboxes.MBOX17.MSGID.all = 0x9555AAA1; 
+    ECanaMboxes.MBOX18.MSGID.all = 0x9555AAA2; 
+    ECanaMboxes.MBOX19.MSGID.all = 0x9555AAA3; 
+    ECanaMboxes.MBOX20.MSGID.all = 0x9555AAA4; 
+    ECanaMboxes.MBOX21.MSGID.all = 0x9555AAA5; 
+    ECanaMboxes.MBOX22.MSGID.all = 0x9555AAA6; 
+    ECanaMboxes.MBOX23.MSGID.all = 0x9555AAA7; 
+    ECanaMboxes.MBOX24.MSGID.all = 0x9555AAA8; 
+    ECanaMboxes.MBOX25.MSGID.all = 0x9555AAA9; 
+    ECanaMboxes.MBOX26.MSGID.all = 0x9555AAAA; 
+    ECanaMboxes.MBOX27.MSGID.all = 0x9555AAAB; 
+    ECanaMboxes.MBOX28.MSGID.all = 0x9555AAAC; 
+    ECanaMboxes.MBOX29.MSGID.all = 0x9555AAAD; 
+    ECanaMboxes.MBOX30.MSGID.all = 0x9555AAAE; 
+    ECanaMboxes.MBOX31.MSGID.all = 0x9555AAAF; 
+
+    ECanaRegs.CANMD.all = 0xFFFF0000; 
+    
+    ECanaRegs.CANME.all = 0xFFFFFFFF;
+
+    ECanaMboxes.MBOX0.MSGCTRL.bit.DLC = 8;
+    ECanaMboxes.MBOX1.MSGCTRL.bit.DLC = 8;
+    ECanaMboxes.MBOX2.MSGCTRL.bit.DLC = 8;
+    ECanaMboxes.MBOX3.MSGCTRL.bit.DLC = 8;
+    ECanaMboxes.MBOX4.MSGCTRL.bit.DLC = 8;
+    ECanaMboxes.MBOX5.MSGCTRL.bit.DLC = 8;
+    ECanaMboxes.MBOX6.MSGCTRL.bit.DLC = 8;
+    ECanaMboxes.MBOX7.MSGCTRL.bit.DLC = 8;
+    ECanaMboxes.MBOX8.MSGCTRL.bit.DLC = 8;
+    ECanaMboxes.MBOX9.MSGCTRL.bit.DLC = 8;
+    ECanaMboxes.MBOX10.MSGCTRL.bit.DLC = 8;
+    ECanaMboxes.MBOX11.MSGCTRL.bit.DLC = 8;
+    ECanaMboxes.MBOX12.MSGCTRL.bit.DLC = 8;
+    ECanaMboxes.MBOX13.MSGCTRL.bit.DLC = 8;
+    ECanaMboxes.MBOX14.MSGCTRL.bit.DLC = 8;
+    ECanaMboxes.MBOX15.MSGCTRL.bit.DLC = 8;
+     
+    ECanaMboxes.MBOX0.MSGCTRL.bit.RTR = 0;      
+    ECanaMboxes.MBOX1.MSGCTRL.bit.RTR = 0;  
+    ECanaMboxes.MBOX2.MSGCTRL.bit.RTR = 0;  
+    ECanaMboxes.MBOX3.MSGCTRL.bit.RTR = 0;
+    ECanaMboxes.MBOX4.MSGCTRL.bit.RTR = 0;
+    ECanaMboxes.MBOX5.MSGCTRL.bit.RTR = 0;
+    ECanaMboxes.MBOX6.MSGCTRL.bit.RTR = 0;
+    ECanaMboxes.MBOX7.MSGCTRL.bit.RTR = 0;
+    ECanaMboxes.MBOX8.MSGCTRL.bit.RTR = 0;
+    ECanaMboxes.MBOX9.MSGCTRL.bit.RTR = 0;
+    ECanaMboxes.MBOX10.MSGCTRL.bit.RTR = 0;
+    ECanaMboxes.MBOX11.MSGCTRL.bit.RTR = 0;
+    ECanaMboxes.MBOX12.MSGCTRL.bit.RTR = 0;
+    ECanaMboxes.MBOX13.MSGCTRL.bit.RTR = 0;
+    ECanaMboxes.MBOX14.MSGCTRL.bit.RTR = 0;
+    ECanaMboxes.MBOX15.MSGCTRL.bit.RTR = 0;
+    
+    ECanaMboxes.MBOX0.MDL.all = 0x9555AAA0;
+    ECanaMboxes.MBOX0.MDH.all = 0x89ABCDEF;
+
+    ECanaMboxes.MBOX1.MDL.all = 0x9555AAA1;
+    ECanaMboxes.MBOX1.MDH.all = 0x89ABCDEF;
+   
+    ECanaMboxes.MBOX2.MDL.all = 0x9555AAA2;
+    ECanaMboxes.MBOX2.MDH.all = 0x89ABCDEF;
+ 
+    ECanaMboxes.MBOX3.MDL.all = 0x9555AAA3;
+    ECanaMboxes.MBOX3.MDH.all = 0x89ABCDEF;
+ 
+    ECanaMboxes.MBOX4.MDL.all = 0x9555AAA4;
+    ECanaMboxes.MBOX4.MDH.all = 0x89ABCDEF;
+ 
+    ECanaMboxes.MBOX5.MDL.all = 0x9555AAA5;
+    ECanaMboxes.MBOX5.MDH.all = 0x89ABCDEF;
+ 
+    ECanaMboxes.MBOX6.MDL.all = 0x9555AAA6;
+    ECanaMboxes.MBOX6.MDH.all = 0x89ABCDEF;
+ 
+    ECanaMboxes.MBOX7.MDL.all = 0x9555AAA7;
+    ECanaMboxes.MBOX7.MDH.all = 0x89ABCDEF;
+ 
+    ECanaMboxes.MBOX8.MDL.all = 0x9555AAA8;
+    ECanaMboxes.MBOX8.MDH.all = 0x89ABCDEF;
+ 
+    ECanaMboxes.MBOX9.MDL.all = 0x9555AAA9;
+    ECanaMboxes.MBOX9.MDH.all = 0x89ABCDEF;
+ 
+    ECanaMboxes.MBOX10.MDL.all = 0x9555AAAA;
+    ECanaMboxes.MBOX10.MDH.all = 0x89ABCDEF;
+ 
+    ECanaMboxes.MBOX11.MDL.all = 0x9555AAAB;
+    ECanaMboxes.MBOX11.MDH.all = 0x89ABCDEF;
+ 
+    ECanaMboxes.MBOX12.MDL.all = 0x9555AAAC;
+    ECanaMboxes.MBOX12.MDH.all = 0x89ABCDEF;
+ 
+    ECanaMboxes.MBOX13.MDL.all = 0x9555AAAD;
+    ECanaMboxes.MBOX13.MDH.all = 0x89ABCDEF;
+ 
+    ECanaMboxes.MBOX14.MDL.all = 0x9555AAAE;
+    ECanaMboxes.MBOX14.MDH.all = 0x89ABCDEF;
+ 
+    ECanaMboxes.MBOX15.MDL.all = 0x9555AAAF;
+    ECanaMboxes.MBOX15.MDH.all = 0x89ABCDEF;
+
+    EALLOW;
+    ECanaRegs.CANMIM.all = 0xFFFFFFFF;
+    ECanaShadow.CANMC.all = ECanaRegs.CANMC.all;
+    ECanaShadow.CANMC.bit.CCR = 1;            
+    ECanaRegs.CANMC.all = ECanaShadow.CANMC.all;
+    EDIS;
+    do 
+    {
+      ECanaShadow.CANES.all = ECanaRegs.CANES.all;
+    } while(ECanaShadow.CANES.bit.CCE != 1 ); 
+    EALLOW;
+    ECanaShadow.CANBTC.all = ECanaRegs.CANBTC.all;
+
+    ECanaShadow.CANBTC.bit.BRPREG = 9;    // (BRPREG + 1) = 10 feeds a 15 MHz CAN clock
+    ECanaShadow.CANBTC.bit.TSEG2REG = 5 ; // to the CAN module. (150 / 10 = 15)
+    ECanaShadow.CANBTC.bit.TSEG1REG = 7;  // Bit time = 15
+    ECanaRegs.CANBTC.all = ECanaShadow.CANBTC.all;
+    
+    ECanaShadow.CANMC.all = ECanaRegs.CANMC.all;
+    ECanaShadow.CANMC.bit.CCR = 0;            
+    ECanaRegs.CANMC.all = ECanaShadow.CANMC.all;
+    EDIS;
+    do
+    {
+      ECanaShadow.CANES.all = ECanaRegs.CANES.all;
+    } while(ECanaShadow.CANES.bit.CCE != 0 );
+    EALLOW;
+    ECanaShadow.CANMC.all = ECanaRegs.CANMC.all;
+    ECanaShadow.CANMC.bit.STM = 1;    // Configure CAN for self-test mode  
+    ECanaShadow.CANMC.bit.SCB = 1;    // eCAN mode (reqd to access 32 mailboxes)
+    ECanaRegs.CANMC.all = ECanaShadow.CANMC.all;
+    EDIS;
+    ECanaRegs.CANTRS.all = 0x0000FFFF;  // Set TRS for all transmit mailboxes
+    while(ECanaRegs.CANTA.all != 0x0000FFFF ) {}  // Wait for all TAn bits to be set..
+    ECanaRegs.CANTA.all = 0x0000FFFF;   // Clear all TAn    
+       
+    for(i=0; i<16; i++)         // Read & check 16 mailboxes
+    {
+       mailbox_read(i);         // This func reads the indicated mailbox data
+       mailbox_check(TestMbox1,TestMbox2,TestMbox3); // Checks the received data
+    }
+    if(CANErCnt == 0)
+    {
+    	msg = "\r\nCAN Test-----OK! \n\0";
+    	scia_msg(msg);
+		CANOK=1;
+    }
+    else CANOK=0;
+//------------------------------------------------------------------------------------------------KEY&EXINT ST	
+	msg = "\r\n------------------------------KEY&EXINT Test----------------------------------- \0";
+    scia_msg(msg);
+    msg = "\r\nPress K4&K5,check LED7&LED8, press any key \0";
+    scia_msg(msg);
+    ReceivedChar=0;
+	EALLOW;	 
+    PieVectTable.XINT1 = &xint1_isr;
+    PieVectTable.XINT2 = &xint2_isr;
+    EDIS;   
+    Xint1Count = 0; // 计数外部中断1（XINT1）
+    Xint2Count = 0; // 计数外部中断2（XINT2） 
+    PieCtrlRegs.PIECTRL.bit.ENPIE = 1;          // 使能外设中断扩展PIE模块
+    PieCtrlRegs.PIEIER1.bit.INTx4 = 1;          // 使能PIE组1的INT4
+    PieCtrlRegs.PIEIER1.bit.INTx5 = 1;          // 使能PIE组1的INT5   
+    IER |= M_INT1;                              // 使能CPU中断1（INT1）
+    EINT;
+    
+    EALLOW;
+   GpioCtrlRegs.GPAMUX1.bit.GPIO14 = 0;         // 选择为通用I/O口
+   GpioCtrlRegs.GPADIR.bit.GPIO14 = 0;          // 方向定义为输入
+   GpioCtrlRegs.GPAQSEL1.bit.GPIO14 = 0;        // 外部中断1（XINT1）与系统时钟SYSCLKOUT同步
+
+   GpioCtrlRegs.GPAMUX1.bit.GPIO15 = 0;         // 选择为通用I/O口
+   GpioCtrlRegs.GPADIR.bit.GPIO15 = 0;          // 方向定义为输入
+   GpioCtrlRegs.GPAQSEL1.bit.GPIO15 = 2;        // 外部中断2（XINT2）输入限定6个采样窗口
+   GpioCtrlRegs.GPACTRL.bit.QUALPRD1 = 0xFF;   // 每个采样窗口的周期为510*SYSCLKOUT 
+
+   GpioCtrlRegs.GPAMUX1.bit.GPIO2 = 0;
+   GpioCtrlRegs.GPADIR.bit.GPIO2 = 1;
+   GpioCtrlRegs.GPAMUX1.bit.GPIO3 = 0;
+   GpioCtrlRegs.GPADIR.bit.GPIO3 = 1;
+   GpioCtrlRegs.GPAMUX1.bit.GPIO4 = 0;
+   GpioCtrlRegs.GPADIR.bit.GPIO4 = 1;
+   GpioCtrlRegs.GPAMUX1.bit.GPIO5 = 0;
+   GpioCtrlRegs.GPADIR.bit.GPIO5 = 1;
+   GpioCtrlRegs.GPAMUX1.bit.GPIO6 = 0;
+   GpioCtrlRegs.GPADIR.bit.GPIO6 = 1;
+   GpioCtrlRegs.GPAMUX1.bit.GPIO7 = 0;
+   GpioCtrlRegs.GPADIR.bit.GPIO7 = 1;
+   GpioCtrlRegs.GPAMUX1.bit.GPIO8 = 0;
+   GpioCtrlRegs.GPADIR.bit.GPIO8 = 1;
+   GpioCtrlRegs.GPAMUX1.bit.GPIO9 = 0;
+   GpioCtrlRegs.GPADIR.bit.GPIO9 = 1;
+   GpioDataRegs.GPADAT.all=0x000003FC;
+   
+   //LED CS	
+	GpioCtrlRegs.GPAPUD.bit.GPIO27 = 0;   									// Enable pullup on GPIO27
+    GpioDataRegs.GPASET.bit.GPIO27 = 1;   									// Load output latch
+    GpioCtrlRegs.GPAMUX2.bit.GPIO27 = 0;  									// GPIO27 = GPIO
+    GpioCtrlRegs.GPADIR.bit.GPIO27 = 1;   									// GPIO27 = output  
+	GpioDataRegs.GPACLEAR.bit.GPIO27 = 1;      //LED cs=0
+	
+   EDIS;
+   
+   EALLOW;
+   GpioIntRegs.GPIOXINT1SEL.bit.GPIOSEL = 0x0E;   // XINT1是GPIO14
+   GpioIntRegs.GPIOXINT2SEL.bit.GPIOSEL = 0x0F;   // XINT2是GPIO15
+   EDIS;
+
+   XIntruptRegs.XINT1CR.bit.POLARITY = 0;      // 下降沿触发中断
+   XIntruptRegs.XINT2CR.bit.POLARITY = 0;      // 下降沿触发中断
+   
+   XIntruptRegs.XINT1CR.bit.ENABLE = 1;        // 使能XINT1
+   XIntruptRegs.XINT2CR.bit.ENABLE = 1;        // 使能XINT2
+   while(SciaRegs.SCIFFRX.bit.RXFFST !=1) {} 
+    ReceivedChar = SciaRegs.SCIRXBUF.all;
+    SciaRegs.SCIFFRX.bit.RXFIFORESET = 0;
+    SciaRegs.SCIFFRX.bit.RXFIFORESET = 1;
+    if(ReceivedChar>0)
+	{
+		msg = "\r\nKEY&EXINT Test-----OK! \n\0";
+    	scia_msg(msg);
+		KEYINTOK=1;
+	}
+    else KEYINTOK=0;
+    GpioDataRegs.GPASET.bit.GPIO27 = 1;
+//------------------------------------------------------------------------------------------------AUDIO ST	
+	msg = "\r\n--------------------------------AUDIO Test----------------------------------- \0";
+    scia_msg(msg);
+    msg = "\r\nIf you can hear what you said, press any key  \0";
+    scia_msg(msg);
+    InitMcbspaGpio();	//zq
+   InitI2CGpio();
+   DINT;
+   InitPieCtrl();
+   IER = 0x0000;
+   IFR = 0x0000;
+   InitPieVectTable();
+   I2CA_Init();
+	 AIC23Write(0x00,0x00);
+	 Audio_Delay(100);
+     AIC23Write(0x02,0x00);
+     Audio_Delay(100);
+	 AIC23Write(0x04,0x7f);
+	 Audio_Delay(100);
+     AIC23Write(0x06,0x7f);
+	 Audio_Delay(100);
+	 AIC23Write(0x08,0x14);
+	 Audio_Delay(100);
+     AIC23Write(0x0A,0x00);
+	 Audio_Delay(100);
+	 AIC23Write(0x0C,0x00);
+	 Audio_Delay(100);
+     AIC23Write(0x0E,0x43);
+	 Audio_Delay(100);
+	 AIC23Write(0x10,0x23);
+	 Audio_Delay(100);
+     AIC23Write(0x12,0x01);
+	 Audio_Delay(100);		//AIC23Init	 
+   InitMcbspa();          // Initalize the Mcbsp-A 
+    EALLOW;	// This is needed to write to EALLOW protected registers
+	PieVectTable.MRINTA = &ISRMcbspSend;
+	EDIS;   // This is needed to disable write to EALLOW protected registers
+    PieCtrlRegs.PIECTRL.bit.ENPIE = 1;   // Enable the PIE block
+    PieCtrlRegs.PIEIER6.bit.INTx5=1;     // Enable PIE Group 6, INT 5
+    IER |= M_INT6;                            // Enable CPU INT6
+	EINT;   // Enable Global interrupt INTM
+	ERTM;	// Enable Global realtime interrupt DBGM
+	while(SciaRegs.SCIFFRX.bit.RXFFST !=1) { } 
+    ReceivedChar = SciaRegs.SCIRXBUF.all;
+    if(ReceivedChar>0)
+	{
+		msg = "\r\nAUDIO Test-----OK! \n\0";
+    	scia_msg(msg);
+		AUDOK=1;
+	}
+    else AUDOK=0;
+
+//------------------------------------------------------------------------------------------------USB ST	
+	msg = "\r\n--------------------------------USB Test----------------------------------- \0";
+    scia_msg(msg);
+    msg = "\r\nPress K2 to input 'u' in NotePad, press any key  \0";
+    scia_msg(msg);
+    ReceivedChar=0;
+	InitUSBGpio();   
+    InitXintf16Gpio();	//zq
+    DINT;
+
+// Initialize the PIE control registers to their default state.
+// The default state is all PIE interrupts disabled and flags
+// are cleared.
+// This function is found in the DSP2833x_PieCtrl.c file.
+   InitPieCtrl();
+// Disable CPU interrupts and clear all CPU interrupt flags:
+   IER = 0x0000;
+   IFR = 0x0000;
+   
+   InitPieVectTable();
+   EALLOW;
+   GpioIntRegs.GPIOXINT3SEL.bit.GPIOSEL = 53;
+   PieVectTable.XINT3 = &mCH375Interrupt; 
+   EDIS;
+   PieCtrlRegs.PIECTRL.bit.ENPIE = 1;
+   PieCtrlRegs.PIEIER12.bit.INTx1 = 1; 
+   IER |= M_INT12; 
+   EINT;
+   
+   XIntruptRegs.XINT3CR.bit.POLARITY = 0;
+   XIntruptRegs.XINT3CR.bit.ENABLE = 1; 
+   XIntruptRegs.XNMICR.bit.SELECT = 0;
+   USB_delay(100);
+   CH375_Init();
+   for(;;)
+   {
+   		if((GpioDataRegs.GPADAT.bit.GPIO17==0) && (down1 == 0))
+		{
+			down1 = 1;
+			SendKeyReport();         
+		}			
+		if((GpioDataRegs.GPADAT.bit.GPIO17==1) && (down1 == 1))
+		{
+			down1 = 0;
+			SendKeyReport(); 
+			USBCnt++;
+		}
+		if(USBCnt>5) break;
+   }
+//------------------------------------------------------------------------------------------------------
+	DINT;
+	InitSciGpio();
+   scia_fifo_init();	   // Initialize the SCI FIFO
+   scia_echoback_init();  // Initalize SCI for echoback
+	msg = "\r\n--------------------------------SUMMERY----------------------------------- \0";
+    scia_msg(msg);
+	if(SCIBOK) msg = "\r\nCOMB Test SUCCESSED!  \n\0";
+	else msg = "\r\nCOMB Test FAILED!  \n\0";
+	scia_msg(msg);
+	s_delay();
+	if(RS485OK) msg = "\r\nRS485 Test SUCCESSED!  \n\0";
+	else msg = "\r\nRS485 Test FAILED!  \n\0";
+	scia_msg(msg);
+	s_delay();
+	if(SEGADOK) msg = "\r\nSEGLED Test SUCCESSED!  \n\0";
+	else msg = "\r\nSEGLED Test FAILED!  \n\0";
+	scia_msg(msg);
+	s_delay();
+	if(SEGADOK) msg = "\r\nADC Test SUCCESSED!  \n\0";
+	else msg = "\r\nADC Test FAILED!  \n\0";
+	scia_msg(msg);
+	s_delay();
+	if(DACOK) msg = "\r\nDAC Test SUCCESSED!  \n\0";
+	else msg = "\r\nDAC Test FAILED!  \n\0";
+	scia_msg(msg);
+	s_delay();
+	if(RTCLCDOK) msg = "\r\nRTC Test SUCCESSED!  \n\0";
+	else msg = "\r\nRTC Test FAILED!  \n\0";
+	scia_msg(msg);
+	s_delay();
+	if(RTCLCDOK) msg = "\r\nLCD Test SUCCESSED!  \n\0";
+	else msg = "\r\nLCD Test FAILED!  \n\0";
+	scia_msg(msg);
+	s_delay();
+	if(EEROK) msg = "\r\nIIC Test SUCCESSED!  \n\0";
+	else msg = "\r\nIIC Test FAILED!  \n\0";
+	scia_msg(msg);
+	s_delay();
+	if(BUZZOK) msg = "\r\nBUZZ Test SUCCESSED!  \n\0";
+	else msg = "\r\nBUZZ Test FAILED!  \n\0";
+	scia_msg(msg);
+	s_delay();
+	if(PWMOK) msg = "\r\nPWM Test SUCCESSED!  \n\0";
+	else msg = "\r\nPWM Test FAILED!  \n\0";
+	scia_msg(msg);
+	s_delay();
+	if(DCMOK) msg = "\r\nDC MOTOR Test SUCCESSED!  \n\0";
+	else msg = "\r\nDC MOTOR Test FAILED!  \n\0";
+	scia_msg(msg);
+	s_delay();
+	if(STPMOK) msg = "\r\nSTEP MOTOR Test SUCCESSED!  \n\0";
+	else msg = "\r\nSTEP MOTOR Test FAILED!  \n\0";
+	scia_msg(msg);
+	s_delay();
+	if(CANOK) msg = "\r\nCAN Test SUCCESSED!  \n\0";
+	else msg = "\r\nCAN Test FAILED!  \n\0";
+	scia_msg(msg);
+	s_delay();
+	if(KEYINTOK) msg = "\r\nKEY Test SUCCESSED!  \n\0";
+	else msg = "\r\nKEY Test FAILED!  \n\0";
+	scia_msg(msg);
+	s_delay();
+	if(KEYINTOK) msg = "\r\nEXT INT Test SUCCESSED!  \n\0";
+	else msg = "\r\nEXT INT Test FAILED!  \n\0";
+	scia_msg(msg);
+	s_delay();
+	if(AUDOK) msg = "\r\nAUDIO Test SUCCESSED!  \n\0";
+	else msg = "\r\nAUDIO Test FAILED!  \n\0";
+	scia_msg(msg);
+	s_delay();
+	if(USBOK) msg = "\r\nUSB Test SUCCESSED!  \n\0";
+	else msg = "\r\nUSB Test FAILED!  \n\0";
+	scia_msg(msg);
+}
+
+
+
+
+
+
+
+//===========================================================================
+// No more.
+//===========================================================================
+

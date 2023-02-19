@@ -1,0 +1,5 @@
+
+MCM40 PN:090613 ver.64bit
+versione 2 con interruttori S
+ricompilato
+

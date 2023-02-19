@@ -1,0 +1,229 @@
+LCANET, 6
+PROG, LCA2XNF, 5.2.1, "COMMAND=-g ev03.lca ev03.xnf  TIME=Thu Jan 25 13:10:31 2001"
+PROG, XNFBA, 5.2.1, "xnfba.xnf, Thu Jan 25 13:10:36 2001"
+PART, 3020PC68-70
+SYM, $I3/$1I39/$1I37, DFF, SCHNM=FDCE, LIBVER=2.0.0
+    PIN, GR, I, GLOBALRESET-, 14.0
+    PULSE, GR, -, 25.0
+    PIN, CE, I, $I3/$1I39/$Bus0_
+    PIN, CLR, I, $I3/$1I39/$Bus1_
+    PIN, C, I, $Net00002_, 12.4
+    PULSE, C, +, 5.0
+    PIN, D, I, $I3/D_R
+    PIN, Q, O, $Net00003_, 6.0
+    SETUP, D, C, +, 1.0, 7.0
+END
+SYM, $I3/$1I41, AND, SCHNM=AND2B1, LIBVER=2.0.0
+    PIN, I1, I, $Net00004_
+    PIN, O, O, $I3/D_R, 6.0
+    PIN, I0, I, $Net00011_, 4.2, INV
+END
+SYM, $I5/$1I39/$1I37, DFF, SCHNM=FDCE, LIBVER=2.0.0
+    PIN, GR, I, GLOBALRESET-, 14.0
+    PULSE, GR, -, 25.0
+    PIN, CE, I, $I5/$1I39/$Bus0_
+    PIN, CLR, I, $I5/$1I39/$Bus1_
+    PIN, C, I, $Net00002_, 12.9
+    PULSE, C, +, 5.0
+    PIN, D, I, $I5/D_R
+    PIN, Q, O, $Net00006_, 6.0
+    SETUP, D, C, +, 1.0, 7.0
+END
+SYM, $I5/$1I41, AND, SCHNM=AND2B1, LIBVER=2.0.0
+    PIN, I1, I, $Net00007_
+    PIN, O, O, $I5/D_R, 6.0
+    PIN, I0, I, $Net00011_, 3.5, INV
+END
+SYM, $I6/$1I39/$1I37, DFF, SCHNM=FDCE, LIBVER=2.0.0
+    PIN, GR, I, GLOBALRESET-, 14.0
+    PULSE, GR, -, 25.0
+    PIN, CE, I, $I6/$1I39/$Bus0_
+    PIN, CLR, I, $I6/$1I39/$Bus1_
+    PIN, C, I, $Net00002_, 12.9
+    PULSE, C, +, 5.0
+    PIN, D, I, $I6/D_R
+    PIN, Q, O, $Net00009_, 6.0
+    SETUP, D, C, +, 1.0, 7.0
+END
+SYM, $I6/$1I41, AND, SCHNM=AND2B1, LIBVER=2.0.0
+    PIN, I1, I, $Net00010_
+    PIN, O, O, $I6/D_R, 6.0
+    PIN, I0, I, $Net00011_, 3.5, INV
+END
+SYM, $I1, IBUF, SCHNM=IBUF, LIBVER=2.0.0
+    PIN, I, I, $Net00001_
+    PIN, O, O, $Net00002_, 6.0
+END
+SYM, $I4, INV, SCHNM=INV, LIBVER=2.0.0
+    PIN, I, I, $Net00003_
+    PIN, O, O, $Net00004_
+END
+SYM, $I46, OBUF, SCHNM=OBUF, LIBVER=2.0.0
+    PIN, I, I, $Net00035_, 8.8
+    PIN, O, O, $Net00036_, 29.0
+END
+SYM, $I11, AND, SCHNM=AND2, LIBVER=2.0.0
+    PIN, I1, I, $Net00003_, 6.2
+    PIN, I0, I, $Net00009_, 1.4
+    PIN, O, O, $Net00011_, 8.0
+END
+SYM, $I12, NAND, SCHNM=NAND3B2, LIBVER=2.0.0
+    PIN, I2, I, $Net00003_, 6.2
+    PIN, I1, I, $Net00006_, 10.0, INV
+    PIN, I0, I, $Net00009_, 9.7, INV
+    PIN, O, O, $Net00012_
+END
+SYM, $I13, NAND, SCHNM=NAND3B2, LIBVER=2.0.0
+    PIN, I0, I, $Net00003_, 6.2, INV
+    PIN, I1, I, $Net00006_, 10.0, INV
+    PIN, I2, I, $Net00009_, 9.7
+    PIN, O, O, $Net00013_
+END
+SYM, $I14, NAND, SCHNM=NAND3B2, LIBVER=2.0.0
+    PIN, I2, I, $Net00003_, 6.2
+    PIN, I1, I, $Net00006_, 10.4, INV
+    PIN, I0, I, $Net00009_, 10.2, INV
+    PIN, O, O, $Net00022_
+END
+SYM, $I15, NAND, SCHNM=NAND3B2, LIBVER=2.0.0
+    PIN, I1, I, $Net00003_, 6.2, INV
+    PIN, I2, I, $Net00006_, 10.4
+    PIN, I0, I, $Net00009_, 10.2, INV
+    PIN, O, O, $Net00025_, 8.0
+END
+SYM, $I16, NAND, SCHNM=NAND3B2, LIBVER=2.0.0
+    PIN, I2, I, $Net00003_, 6.2
+    PIN, I1, I, $Net00006_, 9.1, INV
+    PIN, I0, I, $Net00009_, 5.9, INV
+    PIN, O, O, $Net00018_
+END
+SYM, $I17, NAND, SCHNM=NAND3B2, LIBVER=2.0.0
+    PIN, I2, I, $Net00003_, 6.2
+    PIN, I1, I, $Net00006_, 10.0, INV
+    PIN, I0, I, $Net00009_, 9.7, INV
+    PIN, O, O, $Net00014_
+END
+SYM, $I18, NAND, SCHNM=NAND3B2, LIBVER=2.0.0
+    PIN, I0, I, $Net00003_, 6.2, INV
+    PIN, I1, I, $Net00006_, 10.0, INV
+    PIN, I2, I, $Net00009_, 9.7
+    PIN, O, O, $Net00015_
+END
+SYM, $I30, AND, SCHNM=AND2, LIBVER=2.0.0
+    PIN, O, O, $Net00035_, 8.0
+    PIN, I1, I, $Net00021_
+    PIN, I0, I, $Net00022_
+END
+SYM, $I20, AND, SCHNM=AND3B3, LIBVER=2.0.0
+    PIN, I2, I, $Net00003_, 6.2, INV
+    PIN, I1, I, $Net00006_, 7.8, INV
+    PIN, I0, I, $Net00009_, 1.4, INV
+    PIN, O, O, $Net00016_
+END
+SYM, $I21, AND, SCHNM=AND3B2, LIBVER=2.0.0
+    PIN, I1, I, $Net00003_, 6.2, INV
+    PIN, I2, I, $Net00006_, 7.8
+    PIN, I0, I, $Net00009_, 1.4, INV
+    PIN, O, O, $Net00017_
+END
+SYM, $I22, OR, SCHNM=OR2, LIBVER=2.0.0
+    PIN, I1, I, $Net00016_
+    PIN, I0, I, $Net00017_
+    PIN, O, O, $Net00031_, 8.0
+END
+SYM, $I23, AND, SCHNM=AND2, LIBVER=2.0.0
+    PIN, I1, I, $Net00012_
+    PIN, I0, I, $Net00013_
+    PIN, O, O, $Net00005_, 8.0
+END
+SYM, $I24, AND, SCHNM=AND3, LIBVER=2.0.0
+    PIN, O, O, $Net00033_, 8.0
+    PIN, I2, I, $Net00018_
+    PIN, I1, I, $Net00019_
+    PIN, I0, I, $Net00020_
+END
+SYM, $I25, AND, SCHNM=AND2, LIBVER=2.0.0
+    PIN, I1, I, $Net00014_
+    PIN, I0, I, $Net00015_
+    PIN, O, O, $Net00029_, 8.0
+END
+SYM, $I26, NAND, SCHNM=NAND3B1, LIBVER=2.0.0
+    PIN, I2, I, $Net00003_, 6.2
+    PIN, I0, I, $Net00006_, 9.1, INV
+    PIN, I1, I, $Net00009_, 5.9
+    PIN, O, O, $Net00023_, 8.0
+END
+SYM, $I27, NAND, SCHNM=NAND3B2, LIBVER=2.0.0
+    PIN, I1, I, $Net00003_, 6.2, INV
+    PIN, I2, I, $Net00006_, 9.1
+    PIN, I0, I, $Net00009_, 5.9, INV
+    PIN, O, O, $Net00019_
+END
+SYM, $I28, NAND, SCHNM=NAND3B1, LIBVER=2.0.0
+    PIN, I2, I, $Net00003_, 6.2
+    PIN, I1, I, $Net00006_, 9.1
+    PIN, I0, I, $Net00009_, 5.9, INV
+    PIN, O, O, $Net00020_
+END
+SYM, $I29, NAND, SCHNM=NAND3B3, LIBVER=2.0.0
+    PIN, I2, I, $Net00003_, 6.2, INV
+    PIN, I1, I, $Net00006_, 10.4, INV
+    PIN, I0, I, $Net00009_, 10.2, INV
+    PIN, O, O, $Net00021_
+END
+SYM, $I31, OBUF, SCHNM=OBUF, LIBVER=2.0.0
+    PIN, I, I, VCC
+    PIN, O, O, $Net00037_, 29.0
+END
+SYM, $I33, OBUF, SCHNM=OBUF, LIBVER=2.0.0
+    PIN, O, O, $Net00028_, 29.0
+    PIN, I, I, $Net00025_, 1.0
+END
+SYM, $I34, OBUF, SCHNM=OBUF, LIBVER=2.0.0
+    PIN, O, O, $Net00024_, 29.0
+    PIN, I, I, $Net00005_, 3.6
+END
+SYM, $I35, OBUF, SCHNM=OBUF, LIBVER=2.0.0
+    PIN, I, I, $Net00029_, 1.0
+    PIN, O, O, $Net00030_, 29.0
+END
+SYM, $I36, OBUF, SCHNM=OBUF, LIBVER=2.0.0
+    PIN, I, I, $Net00033_, 3.3
+    PIN, O, O, $Net00034_, 29.0
+END
+SYM, $I37, OBUF, SCHNM=OBUF, LIBVER=2.0.0
+    PIN, O, O, $Net00026_, 29.0
+    PIN, I, I, $Net00023_, 4.1
+END
+SYM, $I38, OBUF, SCHNM=OBUF, LIBVER=2.0.0
+    PIN, O, O, $Net00032_, 29.0
+    PIN, I, I, $Net00031_, 4.3
+END
+SYM, $I47, AND, SCHNM=AND2, LIBVER=2.0.0
+    PIN, I1, I, $Net00003_, 7.2
+    PIN, I0, I, $Net00006_, 1.0
+    PIN, O, O, $Net00008_
+END
+SYM, $I48, XOR, SCHNM=XOR2, LIBVER=2.0.0
+    PIN, I0, I, $Net00003_, 7.2
+    PIN, I1, I, $Net00006_
+    PIN, O, O, $Net00007_
+END
+SYM, $I49, XOR, SCHNM=XOR2, LIBVER=2.0.0
+    PIN, I1, I, $Net00009_
+    PIN, I0, I, $Net00008_
+    PIN, O, O, $Net00010_
+END
+PWR, 1, $I6/$1I39/$Bus0_, $I5/$1I39/$Bus0_, $I3/$1I39/$Bus0_, VCC
+PWR, 0, $I6/$1I39/$Bus1_, $I5/$1I39/$Bus1_, $I3/$1I39/$Bus1_
+EXT, GLOBALRESET-, I, 44
+EXT, $Net00037_, O, 28
+EXT, $Net00036_, O, 67
+EXT, $Net00034_, O, 2
+EXT, $Net00032_, O, 4
+EXT, $Net00030_, O, 6
+EXT, $Net00028_, O, 8
+EXT, $Net00026_, O, 9
+EXT, $Net00024_, O, 7
+EXT, $Net00001_, I, 46
+EOF

@@ -1,0 +1,156 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+C_SRCS += \
+../DSP2833x_Adc.c \
+../DSP2833x_CpuTimers.c \
+F:/project/EE_OEM/DL\ 3155E26/DISK/SOURCE\ CODE/DSP2833x_common/source/DSP2833x_DefaultIsr.c \
+../DSP2833x_ECan.c \
+../DSP2833x_EPwm.c \
+F:/project/EE_OEM/DL\ 3155E26/DISK/SOURCE\ CODE/DSP2833x_headers/source/DSP2833x_GlobalVariableDefs.c \
+../DSP2833x_Gpio.c \
+../DSP2833x_I2C.c \
+../DSP2833x_Mcbsp1.c \
+F:/project/EE_OEM/DL\ 3155E26/DISK/SOURCE\ CODE/DSP2833x_common/source/DSP2833x_PieCtrl.c \
+F:/project/EE_OEM/DL\ 3155E26/DISK/SOURCE\ CODE/DSP2833x_common/source/DSP2833x_PieVect.c \
+F:/project/EE_OEM/DL\ 3155E26/DISK/SOURCE\ CODE/DSP2833x_common/source/DSP2833x_Sci.c \
+../DSP2833x_Spi.c \
+F:/project/EE_OEM/DL\ 3155E26/DISK/SOURCE\ CODE/DSP2833x_common/source/DSP2833x_SysCtrl.c \
+../DSP2833x_Xintf.c \
+../I2cEeprom.c \
+../Main_SelftestALL.c \
+../W5500.c 
+
+ASM_SRCS += \
+F:/project/EE_OEM/DL\ 3155E26/DISK/SOURCE\ CODE/DSP2833x_common/source/DSP2833x_ADC_cal.asm \
+F:/project/EE_OEM/DL\ 3155E26/DISK/SOURCE\ CODE/DSP2833x_common/source/DSP2833x_CodeStartBranch.asm \
+F:/project/EE_OEM/DL\ 3155E26/DISK/SOURCE\ CODE/DSP2833x_common/source/DSP2833x_usDelay.asm 
+
+CMD_SRCS += \
+F:/project/EE_OEM/DL\ 3155E26/DISK/SOURCE\ CODE/DSP2833x_common/cmd/28335_RAM_lnk.cmd \
+F:/project/EE_OEM/DL\ 3155E26/DISK/SOURCE\ CODE/DSP2833x_headers/cmd/DSP2833x_Headers_nonBIOS.cmd 
+
+ASM_DEPS += \
+./DSP2833x_ADC_cal.pp \
+./DSP2833x_CodeStartBranch.pp \
+./DSP2833x_usDelay.pp 
+
+OBJS += \
+./DSP2833x_ADC_cal.obj \
+./DSP2833x_Adc.obj \
+./DSP2833x_CodeStartBranch.obj \
+./DSP2833x_CpuTimers.obj \
+./DSP2833x_DefaultIsr.obj \
+./DSP2833x_ECan.obj \
+./DSP2833x_EPwm.obj \
+./DSP2833x_GlobalVariableDefs.obj \
+./DSP2833x_Gpio.obj \
+./DSP2833x_I2C.obj \
+./DSP2833x_Mcbsp1.obj \
+./DSP2833x_PieCtrl.obj \
+./DSP2833x_PieVect.obj \
+./DSP2833x_Sci.obj \
+./DSP2833x_Spi.obj \
+./DSP2833x_SysCtrl.obj \
+./DSP2833x_Xintf.obj \
+./DSP2833x_usDelay.obj \
+./I2cEeprom.obj \
+./Main_SelftestALL.obj \
+./W5500.obj 
+
+C_DEPS += \
+./DSP2833x_Adc.pp \
+./DSP2833x_CpuTimers.pp \
+./DSP2833x_DefaultIsr.pp \
+./DSP2833x_ECan.pp \
+./DSP2833x_EPwm.pp \
+./DSP2833x_GlobalVariableDefs.pp \
+./DSP2833x_Gpio.pp \
+./DSP2833x_I2C.pp \
+./DSP2833x_Mcbsp1.pp \
+./DSP2833x_PieCtrl.pp \
+./DSP2833x_PieVect.pp \
+./DSP2833x_Sci.pp \
+./DSP2833x_Spi.pp \
+./DSP2833x_SysCtrl.pp \
+./DSP2833x_Xintf.pp \
+./I2cEeprom.pp \
+./Main_SelftestALL.pp \
+./W5500.pp 
+
+OBJS__QTD += \
+".\DSP2833x_ADC_cal.obj" \
+".\DSP2833x_Adc.obj" \
+".\DSP2833x_CodeStartBranch.obj" \
+".\DSP2833x_CpuTimers.obj" \
+".\DSP2833x_DefaultIsr.obj" \
+".\DSP2833x_ECan.obj" \
+".\DSP2833x_EPwm.obj" \
+".\DSP2833x_GlobalVariableDefs.obj" \
+".\DSP2833x_Gpio.obj" \
+".\DSP2833x_I2C.obj" \
+".\DSP2833x_Mcbsp1.obj" \
+".\DSP2833x_PieCtrl.obj" \
+".\DSP2833x_PieVect.obj" \
+".\DSP2833x_Sci.obj" \
+".\DSP2833x_Spi.obj" \
+".\DSP2833x_SysCtrl.obj" \
+".\DSP2833x_Xintf.obj" \
+".\DSP2833x_usDelay.obj" \
+".\I2cEeprom.obj" \
+".\Main_SelftestALL.obj" \
+".\W5500.obj" 
+
+ASM_DEPS__QTD += \
+".\DSP2833x_ADC_cal.pp" \
+".\DSP2833x_CodeStartBranch.pp" \
+".\DSP2833x_usDelay.pp" 
+
+C_DEPS__QTD += \
+".\DSP2833x_Adc.pp" \
+".\DSP2833x_CpuTimers.pp" \
+".\DSP2833x_DefaultIsr.pp" \
+".\DSP2833x_ECan.pp" \
+".\DSP2833x_EPwm.pp" \
+".\DSP2833x_GlobalVariableDefs.pp" \
+".\DSP2833x_Gpio.pp" \
+".\DSP2833x_I2C.pp" \
+".\DSP2833x_Mcbsp1.pp" \
+".\DSP2833x_PieCtrl.pp" \
+".\DSP2833x_PieVect.pp" \
+".\DSP2833x_Sci.pp" \
+".\DSP2833x_Spi.pp" \
+".\DSP2833x_SysCtrl.pp" \
+".\DSP2833x_Xintf.pp" \
+".\I2cEeprom.pp" \
+".\Main_SelftestALL.pp" \
+".\W5500.pp" 
+
+ASM_SRCS_QUOTED += \
+"F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/source/DSP2833x_ADC_cal.asm" \
+"F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/source/DSP2833x_CodeStartBranch.asm" \
+"F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/source/DSP2833x_usDelay.asm" 
+
+C_SRCS_QUOTED += \
+"../DSP2833x_Adc.c" \
+"../DSP2833x_CpuTimers.c" \
+"F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/source/DSP2833x_DefaultIsr.c" \
+"../DSP2833x_ECan.c" \
+"../DSP2833x_EPwm.c" \
+"F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_headers/source/DSP2833x_GlobalVariableDefs.c" \
+"../DSP2833x_Gpio.c" \
+"../DSP2833x_I2C.c" \
+"../DSP2833x_Mcbsp1.c" \
+"F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/source/DSP2833x_PieCtrl.c" \
+"F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/source/DSP2833x_PieVect.c" \
+"F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/source/DSP2833x_Sci.c" \
+"../DSP2833x_Spi.c" \
+"F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/source/DSP2833x_SysCtrl.c" \
+"../DSP2833x_Xintf.c" \
+"../I2cEeprom.c" \
+"../Main_SelftestALL.c" \
+"../W5500.c" 
+
+

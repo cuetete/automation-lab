@@ -1,0 +1,79 @@
+                              CHANGES
+
+                    Java(R) 2 SDK, Standard Edition
+                     Java(R) 2 Runtime Environment
+                           JDK/JRE 1.2.2-001
+                               11/15/99
+
+
+This CHANGES file summarizes the changes between the FCS version of 
+JDK/JRE 1.2.2 and this patch version, JDK/JRE 1.2.2-001. For changes
+in the Java platform since earlier releases, see the
+following document on the Java Software web site:
+
+       http://java.sun.com/products/jdk/1.2/changes.html
+
+
+
+----------------------------------------------------------------------
+INTRODUCTION
+-----------------------------------------------------------------------
+This is patch 001 of the 1.2.2 version of the Java Development
+Kit. For each patch release of the 1.2.2 version, 
+it is the Java(R) 2 SDK Windows 95/98/NT production release, and the 
+Solaris(tm) reference implementation of the Java 2 SDK source base.
+
+For the WIN32 production release, the Java(tm) Plug-in product 
+is included with the JRE 1.2.2 software.
+
+-----------------------------------------------------------------------
+BUGS FIXED IN PATCH JDK/JRE 1.2.2-001
+-----------------------------------------------------------------------
+
+4256530 - accessClassInPackage permission does not get overidden.
+
+4242924 - Use aggressive classloading to avoid deadlock
+          in SecurityManager.
+
+4262807 - Support needed for large applet deployment.
+
+4208960 - TimeZone.getOffset doesn't work with february 29th.
+
+4254589 - Doc: GregorianCalendar needs to specify behavior for 
+          leap year add/roll.
+
+4237348 - Spec/docs inconsistent with impl on Date.parse with 2-digit year
+
+	  Bug fixes 4254589 and 4237348  requires clarification on the 
+	  documentation only.Please refer to the online documentation at
+	  http://java.sun.com/products/jdk/1.2/docs/api/index.html
+	  for  the updated changes.
+
+-----------------------------------------------------------------------
+WIN32 BINARIES AFFECTED BY FIXES IN THIS PATCH 
+------------------------------------------------------------------------
+
+jre/lib/rt.jar
+jre/lib/jaws.jar
+jre/bin/npjava11.dll
+jre/bin/npjava32.dll
+jre/bin/beans.ocx
+jre/bin/classic/jvm.dll
+
+------------------------------------------------------------------------
+SOLARIS BINARIES AFFECTED BY FIXES IN THIS PATCH 
+------------------------------------------------------------------------
+
+jre/lib/rt.jar
+jre/lib/sparc/classic/libjvm.so
+jre/lib/sparc/libjava.so
+
+-----------------------------------------------------------------------
+PROBLEM REPORTING
+-----------------------------------------------------------------------
+
+If a problem is found with this patch, please report it in detail
+to the Sun Support Engineer that released this patch to you. The Sun 
+Support Engineer will relay the reported problem to the Sustaining 
+Engineering group responsible for the patch.
+

@@ -1,0 +1,17 @@
+PROMGEN: Xilinx Prom Generator D.19
+Copyright (c) 1995-2000 Xilinx, Inc.  All rights reserved.
+
+promgen -p tek -x 64K -c 0xFF -w -o C:\Xilinx\active\projects\provaxil\xproj\ver1\rev1\provaxil.tek -u 0 C:\Xilinx\active\projects\provaxil\xproj\ver1\rev1\provaxil.bit 
+
+PROM C:\Xilinx\active\projects\provaxil\xproj\ver1\rev1\provaxil.prm map: Fri Apr 20 14:46:13 2001
+
+Calculating PROM checksum with fill value ff
+
+Format        TekHex
+Size          64K
+PROM start    00000000
+PROM end      0000ffff
+PROM checksum 0000af64
+
+        Addr1        Addr2 File(s)
+     00000000     0000073d C:/Xilinx/active/projects/provaxil/xproj/ver1/rev1/provaxil.bit

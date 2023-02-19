@@ -1,0 +1,195 @@
+// DESCRIPTION:
+//
+//    UDP communication
+//    Using the UDP protocol to interact with the computer
+//
+//###########################################################################
+
+
+#include "DSP2833x_Device.h"     // DSP2833x头文件
+#include "DSP2833x_Examples.h"   // DSP2833x例程中用到的头文件
+#include "W5500.h" 
+
+/****************函数声明*******************/  
+
+
+void s_delay(void);
+void delay_loop(void);
+void SPI_Init(void);
+interrupt void W5500_isr(void);
+
+/***************全局变量定义****************/
+void Load_Net_Parameters(void)
+{
+	Gateway_IP[0] = 192;
+	Gateway_IP[1] = 168;
+	Gateway_IP[2] = 1;
+	Gateway_IP[3] = 1;
+
+	Sub_Mask[0]=255;
+	Sub_Mask[1]=255;
+	Sub_Mask[2]=255;
+	Sub_Mask[3]=0;
+
+	Phy_Addr[0]=0x0c;
+	Phy_Addr[1]=0x29;
+	Phy_Addr[2]=0xab;
+	Phy_Addr[3]=0x7c;
+	Phy_Addr[4]=0x00;
+	Phy_Addr[5]=0x01;
+
+	IP_Addr[0]=192;
+	IP_Addr[1]=168;
+	IP_Addr[2]=1;
+	IP_Addr[3]=99;
+
+	S0_Port[0] = 0x13;
+	S0_Port[1] = 0x88;
+
+	S0_Mode=UDP_MODE;
+}
+
+void W5500_Socket_Set(void)
+{
+	if(S0_State==0)
+	{
+		if(Socket_UDP(0)==TRUE)
+		{
+			S0_State=S_INIT|S_CONN;
+		}
+		else
+		{
+			S0_State=0;
+		}
+	}
+}
+
+void W5500_Initialization(void)
+{
+	W5500_Init();
+	Detect_Gateway();
+	Socket_Init(0);	
+	W5500_Socket_Set();
+}
+
+void W5500_Config(void)
+{
+	Load_Net_Parameters();
+	W5500_Initialization();
+}
+
+void main(void)
+{
+// 步骤 1. 初始化系统控制:
+// 设置PLL, WatchDog, 使能外设时钟
+// 下面这个函数可以从DSP280x_SysCtrl.c文件中找到.
+   InitSysCtrl();
+
+// 步骤 2. 初始化通用输入输出多路复用器GPIO: 
+// 这个函数在DSP280x_Gpio.c源文件中被定义了
+// 这个函数使GPIO控制类寄存器初始化到默认状态
+// InitGpio();  // Skipped for this example
+// 次函数在DSP280x_Spi.c文件里面
+   InitSpiaGpio();  //开发板使用SPIA
+
+//步骤 3. 清除所有中断,初始化中断向量表:
+// 禁止CPU全局中断 
+   DINT;
+
+// 初始化PIE控制寄存器到他们的默认状态.
+// 这个默认状态就是禁止PIE中断及清除所有PIE中断标志 
+// 这个函数放在DSP280x_PieCtrl.c源文件里
+   InitPieCtrl();
+
+// 禁止CPU中断，清除CPU中断标志位
+   IER = 0x0000;
+   IFR = 0x0000;
+   
+// 初始化PIE中断向量表，并使其指向中断服务子程序（ISR）
+// 这些中断服务子程序被放在了DSP280x_DefaultIsr.c源文件中
+// 这个函数放在了DSP280x_PieVect.c源文件里面.
+   InitPieVectTable();
+   EALLOW;	// 修改被保护的寄存器，修改前应添加EALLOW语句
+   PieVectTable.XINT3 = &W5500_isr;
+   EDIS;   // EDIS的意思是不允许修改被保护的寄存器
+   
+   EALLOW;		//CS
+   GpioDataRegs.GPBSET.bit.GPIO51 = 1;         // 输出高电平
+   GpioCtrlRegs.GPBMUX2.bit.GPIO51 = 0;        // 选择为通用I/O口
+   GpioCtrlRegs.GPBDIR.bit.GPIO51 = 1;         // 方向定义为输出
+   GpioDataRegs.GPBSET.bit.GPIO51=1;
+   EDIS;
+   
+   EALLOW;		//INT
+   GpioCtrlRegs.GPBMUX2.bit.GPIO52 = 0;         // 选择为通用I/O口
+   GpioCtrlRegs.GPBDIR.bit.GPIO52 = 0;          // 方向定义为输入
+   GpioCtrlRegs.GPBQSEL2.bit.GPIO52 = 2;        // 
+   GpioCtrlRegs.GPBCTRL.bit.QUALPRD2 = 1;   // 每个采样窗口的周期为510*SYSCLKOUT 
+   GpioCtrlRegs.GPBPUD.bit.GPIO52 = 0;
+   EDIS;
+   
+   EALLOW;
+   GpioIntRegs.GPIOXINT3SEL.bit.GPIOSEL = 52;   // XINT3是GPIO52
+   EDIS;
+   
+   XIntruptRegs.XINT3CR.bit.POLARITY = 0;      // 下降沿触发中断
+   XIntruptRegs.XINT3CR.bit.ENABLE = 1;        // 使能XINT3
+   PieCtrlRegs.PIECTRL.bit.ENPIE = 1;          // 使能外设中断扩展PIE模块
+   PieCtrlRegs.PIEIER12.bit.INTx1 = 1;          // 使能PIE组1的INT4  
+   IER |= M_INT12;                              // 使能CPU中断1（INT1）
+   EINT; 
+   
+   SPI_Init();
+   W5500_Config();		
+   for(;;)
+   {    
+	  if(W5500_Interrupt)
+		{
+			W5500_Interrupt_Process();
+		}
+   }
+} 	
+
+
+
+//延迟函数	
+
+void s_delay()
+{
+    long      i;
+    for (i = 0; i < 45000; i++) {} //
+}
+
+void delay_loop()
+{
+    long      i;
+    for (i = 0; i < 4500000; i++) {} //
+}
+
+//测试错误停止
+void error(void)
+{
+    asm("     ESTOP0");						// Test failed!! Stop!
+    for (;;);
+}
+
+void SPI_Init(void)
+{    
+	SpiaRegs.SPICCR.all =0x0007;// SPI软件复位, 极性位为0（上降沿发送数据）, 每次移进和移出8位字长度；禁止SPI内部回送（LOOKBACK）功能；
+	SpiaRegs.SPICTL.all =0x0006; // 使能主机模式，正常相位，使能主机发送，禁止接收,溢出中断，禁止SPI中断；                                 
+	SpiaRegs.SPIBRR =0x003F;	//SPI波特率=25M/32	=195.3KHZ；		
+	SpiaRegs.SPICCR.bit.CLKPOLARITY = 0;//设置SPI移位时钟极性
+	SpiaRegs.SPICTL.bit.CLK_PHASE=1;					
+    SpiaRegs.SPICCR.bit.SPISWRESET=1; 
+    SpiaRegs.SPIPRI.bit.FREE = 1;  // 自由运行     
+}
+
+interrupt void	W5500_isr(void)
+{
+	PieCtrlRegs.PIEACK.all = PIEACK_GROUP12;
+	W5500_Interrupt=1;
+}
+
+   
+//-----------------------------------------------------------------------------------------------------------
+

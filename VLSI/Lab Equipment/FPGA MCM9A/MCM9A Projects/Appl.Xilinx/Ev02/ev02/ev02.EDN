@@ -1,0 +1,2461 @@
+(edif  ev02 
+  (edifVersion 2 0 0)
+  (edifLevel 0)
+  (keywordMap
+    (keywordLevel 0))
+  (status
+    (written (timestamp 2001 4 20 12 27 0)
+      (author "ALDEC")
+      (program "Aldec's EDIF Netlist Generator"
+        (version "2.5.5.75"))))
+  (library Active_lib 
+    (edifLevel 0)
+    (technology
+      (numberDefinition
+        (scale 1 (E 1 -11) (unit TIME))))
+      (cell  AND2 
+        (cellType generic)
+        (view net (viewType netlist )
+          (interface
+            (port  I0 
+              (direction INPUT))
+            (port  I1 
+              (direction INPUT))
+            (port  O 
+              (direction OUTPUT))
+            (property  DEVICE (string "AND"))
+            (property  LEVEL (string "XILINX"))
+            (property  LIBVER (string "2.0.0")))))
+      (cell  AND2B1 
+        (cellType generic)
+        (view net (viewType netlist )
+          (interface
+            (port  I0 
+              (direction INPUT))
+            (port  I1 
+              (direction INPUT))
+            (port  O 
+              (direction OUTPUT))
+            (property  DEVICE (string "AND"))
+            (property  LEVEL (string "XILINX"))
+            (property  LIBVER (string "2.0.0")))))
+      (cell  AND3 
+        (cellType generic)
+        (view net (viewType netlist )
+          (interface
+            (port  I0 
+              (direction INPUT))
+            (port  I1 
+              (direction INPUT))
+            (port  I2 
+              (direction INPUT))
+            (port  O 
+              (direction OUTPUT))
+            (property  DEVICE (string "AND"))
+            (property  LEVEL (string "XILINX"))
+            (property  LIBVER (string "2.0.0")))))
+      (cell  AND3B1 
+        (cellType generic)
+        (view net (viewType netlist )
+          (interface
+            (port  I0 
+              (direction INPUT))
+            (port  I1 
+              (direction INPUT))
+            (port  I2 
+              (direction INPUT))
+            (port  O 
+              (direction OUTPUT))
+            (property  DEVICE (string "AND"))
+            (property  LEVEL (string "XILINX"))
+            (property  LIBVER (string "2.0.0")))))
+      (cell  AND3B2 
+        (cellType generic)
+        (view net (viewType netlist )
+          (interface
+            (port  I0 
+              (direction INPUT))
+            (port  I1 
+              (direction INPUT))
+            (port  I2 
+              (direction INPUT))
+            (port  O 
+              (direction OUTPUT))
+            (property  DEVICE (string "AND"))
+            (property  LEVEL (string "XILINX"))
+            (property  LIBVER (string "2.0.0")))))
+      (cell  AND4 
+        (cellType generic)
+        (view net (viewType netlist )
+          (interface
+            (port  I0 
+              (direction INPUT))
+            (port  I1 
+              (direction INPUT))
+            (port  I2 
+              (direction INPUT))
+            (port  I3 
+              (direction INPUT))
+            (port  O 
+              (direction OUTPUT))
+            (property  DEVICE (string "AND"))
+            (property  LEVEL (string "XILINX"))
+            (property  LIBVER (string "2.0.0")))))
+      (cell  AND4B2 
+        (cellType generic)
+        (view net (viewType netlist )
+          (interface
+            (port  I0 
+              (direction INPUT))
+            (port  I1 
+              (direction INPUT))
+            (port  I2 
+              (direction INPUT))
+            (port  I3 
+              (direction INPUT))
+            (port  O 
+              (direction OUTPUT))
+            (property  DEVICE (string "AND"))
+            (property  LEVEL (string "XILINX"))
+            (property  LIBVER (string "2.0.0")))))
+      (cell  AND4B3 
+        (cellType generic)
+        (view net (viewType netlist )
+          (interface
+            (port  I0 
+              (direction INPUT))
+            (port  I1 
+              (direction INPUT))
+            (port  I2 
+              (direction INPUT))
+            (port  I3 
+              (direction INPUT))
+            (port  O 
+              (direction OUTPUT))
+            (property  DEVICE (string "AND"))
+            (property  LEVEL (string "XILINX"))
+            (property  LIBVER (string "2.0.0")))))
+      (cell  AND4B4 
+        (cellType generic)
+        (view net (viewType netlist )
+          (interface
+            (port  I0 
+              (direction INPUT))
+            (port  I1 
+              (direction INPUT))
+            (port  I2 
+              (direction INPUT))
+            (port  I3 
+              (direction INPUT))
+            (port  O 
+              (direction OUTPUT))
+            (property  DEVICE (string "AND"))
+            (property  LEVEL (string "XILINX"))
+            (property  LIBVER (string "2.0.0")))))
+      (cell  AND5B2 
+        (cellType generic)
+        (view net (viewType netlist )
+          (interface
+            (port  I0 
+              (direction INPUT))
+            (port  I1 
+              (direction INPUT))
+            (port  I2 
+              (direction INPUT))
+            (port  I3 
+              (direction INPUT))
+            (port  I4 
+              (direction INPUT))
+            (port  O 
+              (direction OUTPUT))
+            (property  DEVICE (string "AND"))
+            (property  LEVEL (string "XILINX"))
+            (property  LIBVER (string "2.0.0")))))
+      (cell  D2_4E 
+        (cellType generic)
+        (view net (viewType netlist )
+          (interface
+            (port  A0 
+              (direction INPUT))
+            (port  A1 
+              (direction INPUT))
+            (port  D0 
+              (direction OUTPUT))
+            (port  D1 
+              (direction OUTPUT))
+            (port  D2 
+              (direction OUTPUT))
+            (port  D3 
+              (direction OUTPUT))
+            (port  E 
+              (direction INPUT))
+            (property  LEVEL (string "MXILINX"))
+            (property  LIBVER (string "2.0.0")))
+          (contents
+            (instance (rename  &_1I30 "$1I30")
+              (viewRef net 
+                (cellRef AND3 )))
+            (instance (rename  &_1I31 "$1I31")
+              (viewRef net 
+                (cellRef AND3B1 ))
+              (portinstance  I0 
+                (property  PARAM (string "INV"))))
+            (instance (rename  &_1I32 "$1I32")
+              (viewRef net 
+                (cellRef AND3B1 ))
+              (portinstance  I0 
+                (property  PARAM (string "INV"))))
+            (instance (rename  &_1I33 "$1I33")
+              (viewRef net 
+                (cellRef AND3B2 ))
+              (portinstance  I0 
+                (property  PARAM (string "INV")))
+              (portinstance  I1 
+                (property  PARAM (string "INV"))))
+            (net  A0 
+              (joined 
+                (portRef  A0 )
+                (portRef  I1 
+                  (instanceRef  &_1I30))
+                (portRef  I0 
+                  (instanceRef  &_1I31))
+                (portRef  I1 
+                  (instanceRef  &_1I32))
+                (portRef  I0 
+                  (instanceRef  &_1I33))))
+            (net  A1 
+              (joined 
+                (portRef  A1 )
+                (portRef  I1 
+                  (instanceRef  &_1I31))
+                (portRef  I0 
+                  (instanceRef  &_1I32))
+                (portRef  I1 
+                  (instanceRef  &_1I33))
+                (portRef  I0 
+                  (instanceRef  &_1I30))))
+            (net  D0 
+              (joined 
+                (portRef  D0 )
+                (portRef  O 
+                  (instanceRef  &_1I33))))
+            (net  D1 
+              (joined 
+                (portRef  D1 )
+                (portRef  O 
+                  (instanceRef  &_1I32))))
+            (net  D2 
+              (joined 
+                (portRef  D2 )
+                (portRef  O 
+                  (instanceRef  &_1I31))))
+            (net  D3 
+              (joined 
+                (portRef  D3 )
+                (portRef  O 
+                  (instanceRef  &_1I30))))
+            (net  E 
+              (joined 
+                (portRef  E )
+                (portRef  I2 
+                  (instanceRef  &_1I30))
+                (portRef  I2 
+                  (instanceRef  &_1I31))
+                (portRef  I2 
+                  (instanceRef  &_1I33))
+                (portRef  I2 
+                  (instanceRef  &_1I32)))))))
+      (cell  FDCE 
+        (cellType generic)
+        (view net (viewType netlist )
+          (interface
+            (port  C 
+              (direction INPUT))
+            (port  CE 
+              (direction INPUT))
+            (port  CLR 
+              (direction INPUT))
+            (port  D 
+              (direction INPUT))
+            (port  Q 
+              (direction OUTPUT))
+            (property  DEVICE (string "DFF"))
+            (property  LEVEL (string "XILINX"))
+            (property  LIBVER (string "2.0.0")))))
+      (cell  GND 
+        (cellType generic)
+        (view net (viewType netlist )
+          (interface
+            (port  GROUND 
+              (direction OUTPUT))
+            (property  LEVEL (string "XILINX"))
+            (property  LIBVER (string "2.0.0")))))
+      (cell  IBUF 
+        (cellType generic)
+        (view net (viewType netlist )
+          (interface
+            (port  I 
+              (direction INPUT))
+            (port  O 
+              (direction OUTPUT))
+            (property  DEVICE (string "IBUF"))
+            (property  LEVEL (string "XILINX"))
+            (property  LIBVER (string "2.0.0")))))
+      (cell  INV 
+        (cellType generic)
+        (view net (viewType netlist )
+          (interface
+            (port  I 
+              (direction INPUT))
+            (port  O 
+              (direction OUTPUT))
+            (property  DEVICE (string "INV"))
+            (property  LEVEL (string "XILINX"))
+            (property  LIBVER (string "2.0.0")))))
+      (cell  IPAD 
+        (cellType generic)
+        (view net (viewType netlist )
+          (interface
+            (port  IPAD 
+              (direction OUTPUT))
+            (property  EXT (string "IPAD"))
+            (property  LEVEL (string "XILINX"))
+            (property  LIBVER (string "2.0.0")))))
+      (cell  NAND4B1 
+        (cellType generic)
+        (view net (viewType netlist )
+          (interface
+            (port  I0 
+              (direction INPUT))
+            (port  I1 
+              (direction INPUT))
+            (port  I2 
+              (direction INPUT))
+            (port  I3 
+              (direction INPUT))
+            (port  O 
+              (direction OUTPUT))
+            (property  DEVICE (string "NAND"))
+            (property  LEVEL (string "XILINX"))
+            (property  LIBVER (string "2.0.0")))))
+      (cell  NAND4B2 
+        (cellType generic)
+        (view net (viewType netlist )
+          (interface
+            (port  I0 
+              (direction INPUT))
+            (port  I1 
+              (direction INPUT))
+            (port  I2 
+              (direction INPUT))
+            (port  I3 
+              (direction INPUT))
+            (port  O 
+              (direction OUTPUT))
+            (property  DEVICE (string "NAND"))
+            (property  LEVEL (string "XILINX"))
+            (property  LIBVER (string "2.0.0")))))
+      (cell  NAND4B3 
+        (cellType generic)
+        (view net (viewType netlist )
+          (interface
+            (port  I0 
+              (direction INPUT))
+            (port  I1 
+              (direction INPUT))
+            (port  I2 
+              (direction INPUT))
+            (port  I3 
+              (direction INPUT))
+            (port  O 
+              (direction OUTPUT))
+            (property  DEVICE (string "NAND"))
+            (property  LEVEL (string "XILINX"))
+            (property  LIBVER (string "2.0.0")))))
+      (cell  NAND4B4 
+        (cellType generic)
+        (view net (viewType netlist )
+          (interface
+            (port  I0 
+              (direction INPUT))
+            (port  I1 
+              (direction INPUT))
+            (port  I2 
+              (direction INPUT))
+            (port  I3 
+              (direction INPUT))
+            (port  O 
+              (direction OUTPUT))
+            (property  DEVICE (string "NAND"))
+            (property  LEVEL (string "XILINX"))
+            (property  LIBVER (string "2.0.0")))))
+      (cell  OBUF 
+        (cellType generic)
+        (view net (viewType netlist )
+          (interface
+            (port  I 
+              (direction INPUT))
+            (port  O 
+              (direction OUTPUT))
+            (property  DEVICE (string "OBUF"))
+            (property  LEVEL (string "XILINX"))
+            (property  LIBVER (string "2.0.0")))))
+      (cell  OPAD 
+        (cellType generic)
+        (view net (viewType netlist )
+          (interface
+            (port  OPAD 
+              (direction INPUT))
+            (property  EXT (string "OPAD"))
+            (property  LEVEL (string "XILINX"))
+            (property  LIBVER (string "2.0.0")))))
+      (cell  OR2 
+        (cellType generic)
+        (view net (viewType netlist )
+          (interface
+            (port  I0 
+              (direction INPUT))
+            (port  I1 
+              (direction INPUT))
+            (port  O 
+              (direction OUTPUT))
+            (property  DEVICE (string "OR"))
+            (property  LEVEL (string "XILINX"))
+            (property  LIBVER (string "2.0.0")))))
+      (cell  OR4 
+        (cellType generic)
+        (view net (viewType netlist )
+          (interface
+            (port  I0 
+              (direction INPUT))
+            (port  I1 
+              (direction INPUT))
+            (port  I2 
+              (direction INPUT))
+            (port  I3 
+              (direction INPUT))
+            (port  O 
+              (direction OUTPUT))
+            (property  DEVICE (string "OR"))
+            (property  LEVEL (string "XILINX"))
+            (property  LIBVER (string "2.0.0")))))
+      (cell  VCC 
+        (cellType generic)
+        (view net (viewType netlist )
+          (interface
+            (port  VCC 
+              (direction OUTPUT))
+            (property  LEVEL (string "XILINX"))
+            (property  LIBVER (string "2.0.0")))))
+      (cell  XNOR2 
+        (cellType generic)
+        (view net (viewType netlist )
+          (interface
+            (port  I0 
+              (direction INPUT))
+            (port  I1 
+              (direction INPUT))
+            (port  O 
+              (direction OUTPUT))
+            (property  DEVICE (string "XNOR"))
+            (property  LEVEL (string "XILINX"))
+            (property  LIBVER (string "2.0.0")))))
+      (cell  XOR2 
+        (cellType generic)
+        (view net (viewType netlist )
+          (interface
+            (port  I0 
+              (direction INPUT))
+            (port  I1 
+              (direction INPUT))
+            (port  O 
+              (direction OUTPUT))
+            (property  DEVICE (string "XOR"))
+            (property  LEVEL (string "XILINX"))
+            (property  LIBVER (string "2.0.0")))))
+      (cell  COMP4 
+        (cellType generic)
+        (view net (viewType netlist )
+          (interface
+            (port  A0 
+              (direction INPUT))
+            (port  A1 
+              (direction INPUT))
+            (port  A2 
+              (direction INPUT))
+            (port  A3 
+              (direction INPUT))
+            (port  B0 
+              (direction INPUT))
+            (port  B1 
+              (direction INPUT))
+            (port  B2 
+              (direction INPUT))
+            (port  B3 
+              (direction INPUT))
+            (port  EQ 
+              (direction OUTPUT))
+            (property  LEVEL (string "MXILINX"))
+            (property  LIBVER (string "2.0.0")))
+          (contents
+            (instance (rename  &_1I32 "$1I32")
+              (viewRef net 
+                (cellRef AND4 )))
+            (instance (rename  &_1I33 "$1I33")
+              (viewRef net 
+                (cellRef XNOR2 ))
+              (portinstance  O 
+                (property  PARAM (string "INV"))))
+            (instance (rename  &_1I34 "$1I34")
+              (viewRef net 
+                (cellRef XNOR2 ))
+              (portinstance  O 
+                (property  PARAM (string "INV"))))
+            (instance (rename  &_1I42 "$1I42")
+              (viewRef net 
+                (cellRef XNOR2 ))
+              (portinstance  O 
+                (property  PARAM (string "INV"))))
+            (instance (rename  &_1I43 "$1I43")
+              (viewRef net 
+                (cellRef XNOR2 ))
+              (portinstance  O 
+                (property  PARAM (string "INV"))))
+            (net  A0 
+              (joined 
+                (portRef  A0 )
+                (portRef  I1 
+                  (instanceRef  &_1I43))))
+            (net  A1 
+              (joined 
+                (portRef  A1 )
+                (portRef  I1 
+                  (instanceRef  &_1I42))))
+            (net  A2 
+              (joined 
+                (portRef  A2 )
+                (portRef  I1 
+                  (instanceRef  &_1I33))))
+            (net  A3 
+              (joined 
+                (portRef  A3 )
+                (portRef  I1 
+                  (instanceRef  &_1I34))))
+            (net  AB0 
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_1I43))
+                (portRef  I3 
+                  (instanceRef  &_1I32))))
+            (net  AB1 
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_1I42))
+                (portRef  I2 
+                  (instanceRef  &_1I32))))
+            (net  AB2 
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_1I33))
+                (portRef  I1 
+                  (instanceRef  &_1I32))))
+            (net  AB3 
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_1I34))
+                (portRef  I0 
+                  (instanceRef  &_1I32))))
+            (net  B0 
+              (joined 
+                (portRef  B0 )
+                (portRef  I0 
+                  (instanceRef  &_1I43))))
+            (net  B1 
+              (joined 
+                (portRef  B1 )
+                (portRef  I0 
+                  (instanceRef  &_1I42))))
+            (net  B2 
+              (joined 
+                (portRef  B2 )
+                (portRef  I0 
+                  (instanceRef  &_1I33))))
+            (net  B3 
+              (joined 
+                (portRef  B3 )
+                (portRef  I0 
+                  (instanceRef  &_1I34))))
+            (net  EQ 
+              (joined 
+                (portRef  EQ )
+                (portRef  O 
+                  (instanceRef  &_1I32)))))))
+      (cell  FDC 
+        (cellType generic)
+        (view net (viewType netlist )
+          (interface
+            (port  C 
+              (direction INPUT))
+            (port  CLR 
+              (direction INPUT))
+            (port  D 
+              (direction INPUT))
+            (port  Q 
+              (direction OUTPUT))
+            (property  LEVEL (string "MXILINX"))
+            (property  LIBVER (string "2.0.0")))
+          (contents
+            (instance (rename  &_1I30 "$1I30")
+              (viewRef net 
+                (cellRef FDCE )))
+            (instance (rename  &_1I37 "$1I37")
+              (viewRef net 
+                (cellRef VCC )))
+            (net (rename  &_Net00031_ "$Net00031_")
+              (joined 
+                (portRef  CE 
+                  (instanceRef  &_1I30))
+                (portRef  VCC 
+                  (instanceRef  &_1I37))))
+            (net  C 
+              (joined 
+                (portRef  C )
+                (portRef  C 
+                  (instanceRef  &_1I30))))
+            (net  CLR 
+              (joined 
+                (portRef  CLR )
+                (portRef  CLR 
+                  (instanceRef  &_1I30))))
+            (net  D 
+              (joined 
+                (portRef  D )
+                (portRef  D 
+                  (instanceRef  &_1I30))))
+            (net  Q 
+              (joined 
+                (portRef  Q )
+                (portRef  Q 
+                  (instanceRef  &_1I30)))))))
+      (cell  M2_1 
+        (cellType generic)
+        (view net (viewType netlist )
+          (interface
+            (port  D0 
+              (direction INPUT))
+            (port  D1 
+              (direction INPUT))
+            (port  O 
+              (direction OUTPUT))
+            (port  S0 
+              (direction INPUT))
+            (property  LEVEL (string "MXILINX"))
+            (property  LIBVER (string "2.0.0")))
+          (contents
+            (instance (rename  &_1I7 "$1I7")
+              (viewRef net 
+                (cellRef AND2B1 ))
+              (portinstance  I0 
+                (property  PARAM (string "INV"))))
+            (instance (rename  &_1I8 "$1I8")
+              (viewRef net 
+                (cellRef OR2 )))
+            (instance (rename  &_1I9 "$1I9")
+              (viewRef net 
+                (cellRef AND2 )))
+            (net  D0 
+              (joined 
+                (portRef  D0 )
+                (portRef  I1 
+                  (instanceRef  &_1I7))))
+            (net  D1 
+              (joined 
+                (portRef  D1 )
+                (portRef  I0 
+                  (instanceRef  &_1I9))))
+            (net  M0 
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_1I7))
+                (portRef  I1 
+                  (instanceRef  &_1I8))))
+            (net  M1 
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_1I9))
+                (portRef  I0 
+                  (instanceRef  &_1I8))))
+            (net  O 
+              (joined 
+                (portRef  O )
+                (portRef  O 
+                  (instanceRef  &_1I8))))
+            (net  S0 
+              (joined 
+                (portRef  S0 )
+                (portRef  I1 
+                  (instanceRef  &_1I9))
+                (portRef  I0 
+                  (instanceRef  &_1I7)))))))
+      (cell  M2_1E 
+        (cellType generic)
+        (view net (viewType netlist )
+          (interface
+            (port  D0 
+              (direction INPUT))
+            (port  D1 
+              (direction INPUT))
+            (port  E 
+              (direction INPUT))
+            (port  O 
+              (direction OUTPUT))
+            (port  S0 
+              (direction INPUT))
+            (property  LEVEL (string "MXILINX"))
+            (property  LIBVER (string "2.0.0")))
+          (contents
+            (instance (rename  &_1I30 "$1I30")
+              (viewRef net 
+                (cellRef AND3 )))
+            (instance (rename  &_1I31 "$1I31")
+              (viewRef net 
+                (cellRef AND3B1 ))
+              (portinstance  I0 
+                (property  PARAM (string "INV"))))
+            (instance (rename  &_1I38 "$1I38")
+              (viewRef net 
+                (cellRef OR2 )))
+            (net  D0 
+              (joined 
+                (portRef  D0 )
+                (portRef  I2 
+                  (instanceRef  &_1I31))))
+            (net  D1 
+              (joined 
+                (portRef  D1 )
+                (portRef  I0 
+                  (instanceRef  &_1I30))))
+            (net  E 
+              (joined 
+                (portRef  E )
+                (portRef  I1 
+                  (instanceRef  &_1I30))
+                (portRef  I1 
+                  (instanceRef  &_1I31))))
+            (net  M0 
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_1I31))
+                (portRef  I1 
+                  (instanceRef  &_1I38))))
+            (net  M1 
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_1I30))
+                (portRef  I0 
+                  (instanceRef  &_1I38))))
+            (net  O 
+              (joined 
+                (portRef  O )
+                (portRef  O 
+                  (instanceRef  &_1I38))))
+            (net  S0 
+              (joined 
+                (portRef  S0 )
+                (portRef  I2 
+                  (instanceRef  &_1I30))
+                (portRef  I0 
+                  (instanceRef  &_1I31)))))))
+      (cell  M4_1E 
+        (cellType generic)
+        (view net (viewType netlist )
+          (interface
+            (port  D0 
+              (direction INPUT))
+            (port  D1 
+              (direction INPUT))
+            (port  D2 
+              (direction INPUT))
+            (port  D3 
+              (direction INPUT))
+            (port  E 
+              (direction INPUT))
+            (port  O 
+              (direction OUTPUT))
+            (port  S0 
+              (direction INPUT))
+            (port  S1 
+              (direction INPUT))
+            (property  LEVEL (string "MXILINX"))
+            (property  LIBVER (string "2.0.0")))
+          (contents
+            (instance  M01 
+              (viewRef net 
+                (cellRef M2_1 )))
+            (instance  M23 
+              (viewRef net 
+                (cellRef M2_1 )))
+            (instance  O 
+              (viewRef net 
+                (cellRef M2_1E )))
+            (net  D0 
+              (joined 
+                (portRef  D0 )
+                (portRef  D0 
+                  (instanceRef M01 ))))
+            (net  D1 
+              (joined 
+                (portRef  D1 )
+                (portRef  D1 
+                  (instanceRef M01 ))))
+            (net  D2 
+              (joined 
+                (portRef  D2 )
+                (portRef  D0 
+                  (instanceRef M23 ))))
+            (net  D3 
+              (joined 
+                (portRef  D3 )
+                (portRef  D1 
+                  (instanceRef M23 ))))
+            (net  E 
+              (joined 
+                (portRef  E )
+                (portRef  E 
+                  (instanceRef O ))))
+            (net  M01 
+              (joined 
+                (portRef  O 
+                  (instanceRef M01 ))
+                (portRef  D0 
+                  (instanceRef O ))))
+            (net  M23 
+              (joined 
+                (portRef  O 
+                  (instanceRef M23 ))
+                (portRef  D1 
+                  (instanceRef O ))))
+            (net  O 
+              (joined 
+                (portRef  O )
+                (portRef  O 
+                  (instanceRef O ))))
+            (net  S0 
+              (joined 
+                (portRef  S0 )
+                (portRef  S0 
+                  (instanceRef M23 ))
+                (portRef  S0 
+                  (instanceRef M01 ))))
+            (net  S1 
+              (joined 
+                (portRef  S1 )
+                (portRef  S0 
+                  (instanceRef O )))))))
+      (cell  FTCLE 
+        (cellType generic)
+        (view net (viewType netlist )
+          (interface
+            (port  C 
+              (direction INPUT))
+            (port  CE 
+              (direction INPUT))
+            (port  CLR 
+              (direction INPUT))
+            (port  D 
+              (direction INPUT))
+            (port  L 
+              (direction INPUT))
+            (port  Q 
+              (direction OUTPUT))
+            (port  T 
+              (direction INPUT))
+            (property  LEVEL (string "MXILINX"))
+            (property  LIBVER (string "2.0.0")))
+          (contents
+            (instance (rename  &_1I30 "$1I30")
+              (viewRef net 
+                (cellRef M2_1 )))
+            (instance (rename  &_1I32 "$1I32")
+              (viewRef net 
+                (cellRef XOR2 )))
+            (instance (rename  &_1I35 "$1I35")
+              (viewRef net 
+                (cellRef FDCE )))
+            (instance (rename  &_1I71 "$1I71")
+              (viewRef net 
+                (cellRef OR2 )))
+            (net  C 
+              (joined 
+                (portRef  C )
+                (portRef  C 
+                  (instanceRef  &_1I35))))
+            (net  CE 
+              (joined 
+                (portRef  CE )
+                (portRef  I0 
+                  (instanceRef  &_1I71))))
+            (net  CLR 
+              (joined 
+                (portRef  CLR )
+                (portRef  CLR 
+                  (instanceRef  &_1I35))))
+            (net  D 
+              (joined 
+                (portRef  D )
+                (portRef  D1 
+                  (instanceRef  &_1I30))))
+            (net  L 
+              (joined 
+                (portRef  L )
+                (portRef  S0 
+                  (instanceRef  &_1I30))
+                (portRef  I1 
+                  (instanceRef  &_1I71))))
+            (net  L_CE 
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_1I71))
+                (portRef  CE 
+                  (instanceRef  &_1I35))))
+            (net  MD 
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_1I30))
+                (portRef  D 
+                  (instanceRef  &_1I35))))
+            (net  Q 
+              (joined 
+                (portRef  Q )
+                (portRef  Q 
+                  (instanceRef  &_1I35))
+                (portRef  I1 
+                  (instanceRef  &_1I32))))
+            (net  T 
+              (joined 
+                (portRef  T )
+                (portRef  I0 
+                  (instanceRef  &_1I32))))
+            (net  TQ 
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_1I32))
+                (portRef  D0 
+                  (instanceRef  &_1I30)))))))
+      (cell  X74_160 
+        (cellType generic)
+        (view net (viewType netlist )
+          (interface
+            (port  A 
+              (direction INPUT))
+            (port  B 
+              (direction INPUT))
+            (port  C 
+              (direction INPUT))
+            (port  CK 
+              (direction INPUT))
+            (port  CLR 
+              (direction INPUT))
+            (port  D 
+              (direction INPUT))
+            (port  ENP 
+              (direction INPUT))
+            (port  ENT 
+              (direction INPUT))
+            (port  LOAD 
+              (direction INPUT))
+            (port  QA 
+              (direction OUTPUT))
+            (port  QB 
+              (direction OUTPUT))
+            (port  QC 
+              (direction OUTPUT))
+            (port  QD 
+              (direction OUTPUT))
+            (port  RCO 
+              (direction OUTPUT))
+            (property  LEVEL (string "MXILINX"))
+            (property  LIBVER (string "2.0.1")))
+          (contents
+            (instance (rename  &_1I111 "$1I111")
+              (viewRef net 
+                (cellRef AND5B2 ))
+              (portinstance  I0 
+                (property  PARAM (string "INV")))
+              (portinstance  I1 
+                (property  PARAM (string "INV"))))
+            (instance (rename  &_1I115 "$1I115")
+              (viewRef net 
+                (cellRef AND3 )))
+            (instance (rename  &_1I67 "$1I67")
+              (viewRef net 
+                (cellRef AND2 )))
+            (instance (rename  &_1I68 "$1I68")
+              (viewRef net 
+                (cellRef INV ))
+              (portinstance  O 
+                (property  PARAM (string "INV"))))
+            (instance (rename  &_1I70 "$1I70")
+              (viewRef net 
+                (cellRef AND2 )))
+            (instance (rename  &_1I71 "$1I71")
+              (viewRef net 
+                (cellRef AND2B1 ))
+              (portinstance  I0 
+                (property  PARAM (string "INV"))))
+            (instance (rename  &_1I77 "$1I77")
+              (viewRef net 
+                (cellRef AND2 )))
+            (instance (rename  &_1I78 "$1I78")
+              (viewRef net 
+                (cellRef OR2 )))
+            (instance (rename  &_1I79 "$1I79")
+              (viewRef net 
+                (cellRef INV ))
+              (portinstance  O 
+                (property  PARAM (string "INV"))))
+            (instance  QA 
+              (viewRef net 
+                (cellRef FTCLE )))
+            (instance  QB 
+              (viewRef net 
+                (cellRef FTCLE )))
+            (instance  QC 
+              (viewRef net 
+                (cellRef FTCLE )))
+            (instance  QD 
+              (viewRef net 
+                (cellRef FTCLE )))
+            (net  A 
+              (joined 
+                (portRef  A )
+                (portRef  D 
+                  (instanceRef QA ))))
+            (net  B 
+              (joined 
+                (portRef  B )
+                (portRef  D 
+                  (instanceRef QB ))))
+            (net  C 
+              (joined 
+                (portRef  C )
+                (portRef  D 
+                  (instanceRef QC ))))
+            (net  CE 
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_1I67))
+                (portRef  CE 
+                  (instanceRef QC ))
+                (portRef  CE 
+                  (instanceRef QD ))
+                (portRef  CE 
+                  (instanceRef QB ))
+                (portRef  T 
+                  (instanceRef QA ))
+                (portRef  CE 
+                  (instanceRef QA ))))
+            (net  CK 
+              (joined 
+                (portRef  CK )
+                (portRef  C 
+                  (instanceRef QA ))
+                (portRef  C 
+                  (instanceRef QB ))
+                (portRef  C 
+                  (instanceRef QC ))
+                (portRef  C 
+                  (instanceRef QD ))))
+            (net  CLR 
+              (joined 
+                (portRef  CLR )
+                (portRef  I 
+                  (instanceRef  &_1I68))))
+            (net  CLRB 
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_1I68))
+                (portRef  CLR 
+                  (instanceRef QA ))
+                (portRef  CLR 
+                  (instanceRef QB ))
+                (portRef  CLR 
+                  (instanceRef QC ))
+                (portRef  CLR 
+                  (instanceRef QD ))))
+            (net  D 
+              (joined 
+                (portRef  D )
+                (portRef  D 
+                  (instanceRef QD ))))
+            (net  ENP 
+              (joined 
+                (portRef  ENP )
+                (portRef  I1 
+                  (instanceRef  &_1I67))))
+            (net  ENT 
+              (joined 
+                (portRef  ENT )
+                (portRef  I0 
+                  (instanceRef  &_1I67))
+                (portRef  I2 
+                  (instanceRef  &_1I111))
+                (portRef  I0 
+                  (instanceRef  &_1I115))))
+            (net  LB 
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_1I79))
+                (portRef  L 
+                  (instanceRef QA ))
+                (portRef  L 
+                  (instanceRef QB ))
+                (portRef  L 
+                  (instanceRef QD ))
+                (portRef  L 
+                  (instanceRef QC ))))
+            (net  LOAD 
+              (joined 
+                (portRef  LOAD )
+                (portRef  I 
+                  (instanceRef  &_1I79))))
+            (net  QA 
+              (joined 
+                (portRef  QA )
+                (portRef  Q 
+                  (instanceRef QA ))
+                (portRef  I1 
+                  (instanceRef  &_1I71))
+                (portRef  I0 
+                  (instanceRef  &_1I70))
+                (portRef  I3 
+                  (instanceRef  &_1I111))
+                (portRef  I1 
+                  (instanceRef  &_1I115))))
+            (net  QB 
+              (joined 
+                (portRef  QB )
+                (portRef  Q 
+                  (instanceRef QB ))
+                (portRef  I1 
+                  (instanceRef  &_1I70))
+                (portRef  I0 
+                  (instanceRef  &_1I111))))
+            (net  QC 
+              (joined 
+                (portRef  QC )
+                (portRef  Q 
+                  (instanceRef QC ))
+                (portRef  I1 
+                  (instanceRef  &_1I111))
+                (portRef  I1 
+                  (instanceRef  &_1I77))))
+            (net  QD 
+              (joined 
+                (portRef  QD )
+                (portRef  Q 
+                  (instanceRef QD ))
+                (portRef  I0 
+                  (instanceRef  &_1I71))
+                (portRef  I2 
+                  (instanceRef  &_1I115))
+                (portRef  I4 
+                  (instanceRef  &_1I111))))
+            (net  RCO 
+              (joined 
+                (portRef  RCO )
+                (portRef  O 
+                  (instanceRef  &_1I111))))
+            (net  T1 
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_1I71))
+                (portRef  T 
+                  (instanceRef QB ))))
+            (net  T2 
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_1I70))
+                (portRef  T 
+                  (instanceRef QC ))
+                (portRef  I0 
+                  (instanceRef  &_1I77))))
+            (net  T3 
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_1I78))
+                (portRef  T 
+                  (instanceRef QD ))))
+            (net  TQAD 
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_1I115))
+                (portRef  I0 
+                  (instanceRef  &_1I78))))
+            (net  TQB 
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_1I77))
+                (portRef  I1 
+                  (instanceRef  &_1I78)))))))
+      (cell  ev02 
+        (cellType generic)
+        (view net (viewType netlist )
+          (interface)
+          (contents
+            (instance (rename  &_I10 "$I10")
+              (viewRef net 
+                (cellRef OPAD ))
+              (property  EXT (string "OPAD"))
+              (property  LOC (string "P7")))
+            (instance (rename  &_I100 "$I100")
+              (viewRef net 
+                (cellRef NAND4B3 ))
+              (portinstance  I0 
+                (property  PARAM (string "INV")))
+              (portinstance  I1 
+                (property  PARAM (string "INV")))
+              (portinstance  I2 
+                (property  PARAM (string "INV")))
+              (portinstance  O 
+                (property  PARAM (string "INV"))))
+            (instance (rename  &_I101 "$I101")
+              (viewRef net 
+                (cellRef NAND4B1 ))
+              (portinstance  I0 
+                (property  PARAM (string "INV")))
+              (portinstance  O 
+                (property  PARAM (string "INV"))))
+            (instance (rename  &_I102 "$I102")
+              (viewRef net 
+                (cellRef AND3 )))
+            (instance (rename  &_I104 "$I104")
+              (viewRef net 
+                (cellRef OBUF )))
+            (instance (rename  &_I105 "$I105")
+              (viewRef net 
+                (cellRef OPAD ))
+              (property  EXT (string "OPAD"))
+              (property  LOC (string "P65")))
+            (instance (rename  &_I11 "$I11")
+              (viewRef net 
+                (cellRef OBUF )))
+            (instance (rename  &_I110 "$I110")
+              (viewRef net 
+                (cellRef X74_160 )))
+            (instance (rename  &_I111 "$I111")
+              (viewRef net 
+                (cellRef X74_160 )))
+            (instance (rename  &_I112 "$I112")
+              (viewRef net 
+                (cellRef X74_160 )))
+            (instance (rename  &_I113 "$I113")
+              (viewRef net 
+                (cellRef X74_160 )))
+            (instance (rename  &_I114 "$I114")
+              (viewRef net 
+                (cellRef X74_160 )))
+            (instance (rename  &_I115 "$I115")
+              (viewRef net 
+                (cellRef X74_160 )))
+            (instance (rename  &_I116 "$I116")
+              (viewRef net 
+                (cellRef X74_160 )))
+            (instance (rename  &_I117 "$I117")
+              (viewRef net 
+                (cellRef X74_160 )))
+            (instance (rename  &_I118 "$I118")
+              (viewRef net 
+                (cellRef OPAD ))
+              (property  EXT (string "OPAD"))
+              (property  LOC (string "P50")))
+            (instance (rename  &_I119 "$I119")
+              (viewRef net 
+                (cellRef OBUF )))
+            (instance (rename  &_I12 "$I12")
+              (viewRef net 
+                (cellRef OBUF )))
+            (instance (rename  &_I120 "$I120")
+              (viewRef net 
+                (cellRef OPAD ))
+              (property  EXT (string "OPAD"))
+              (property  LOC (string "P54")))
+            (instance (rename  &_I121 "$I121")
+              (viewRef net 
+                (cellRef OBUF )))
+            (instance (rename  &_I123 "$I123")
+              (viewRef net 
+                (cellRef IBUF )))
+            (instance (rename  &_I124 "$I124")
+              (viewRef net 
+                (cellRef VCC )))
+            (instance (rename  &_I125 "$I125")
+              (viewRef net 
+                (cellRef GND )))
+            (instance (rename  &_I126 "$I126")
+              (viewRef net 
+                (cellRef IPAD ))
+              (property  EXT (string "IPAD"))
+              (property  LOC (string "P46")))
+            (instance (rename  &_I127 "$I127")
+              (viewRef net 
+                (cellRef IBUF )))
+            (instance (rename  &_I128 "$I128")
+              (viewRef net 
+                (cellRef INV ))
+              (portinstance  O 
+                (property  PARAM (string "INV"))))
+            (instance (rename  &_I13 "$I13")
+              (viewRef net 
+                (cellRef OBUF )))
+            (instance (rename  &_I135 "$I135")
+              (viewRef net 
+                (cellRef COMP4 )))
+            (instance (rename  &_I136 "$I136")
+              (viewRef net 
+                (cellRef INV ))
+              (portinstance  O 
+                (property  PARAM (string "INV"))))
+            (instance (rename  &_I137 "$I137")
+              (viewRef net 
+                (cellRef GND )))
+            (instance (rename  &_I138 "$I138")
+              (viewRef net 
+                (cellRef VCC )))
+            (instance (rename  &_I14 "$I14")
+              (viewRef net 
+                (cellRef OBUF )))
+            (instance (rename  &_I15 "$I15")
+              (viewRef net 
+                (cellRef OBUF )))
+            (instance (rename  &_I16 "$I16")
+              (viewRef net 
+                (cellRef OBUF )))
+            (instance (rename  &_I17 "$I17")
+              (viewRef net 
+                (cellRef OBUF )))
+            (instance (rename  &_I18 "$I18")
+              (viewRef net 
+                (cellRef OPAD ))
+              (property  EXT (string "OPAD"))
+              (property  LOC (string "P9")))
+            (instance (rename  &_I19 "$I19")
+              (viewRef net 
+                (cellRef OPAD ))
+              (property  EXT (string "OPAD"))
+              (property  LOC (string "P8")))
+            (instance (rename  &_I20 "$I20")
+              (viewRef net 
+                (cellRef OPAD ))
+              (property  EXT (string "OPAD"))
+              (property  LOC (string "P67")))
+            (instance (rename  &_I21 "$I21")
+              (viewRef net 
+                (cellRef OPAD ))
+              (property  EXT (string "OPAD"))
+              (property  LOC (string "P2")))
+            (instance (rename  &_I22 "$I22")
+              (viewRef net 
+                (cellRef OPAD ))
+              (property  EXT (string "OPAD"))
+              (property  LOC (string "P30")))
+            (instance (rename  &_I23 "$I23")
+              (viewRef net 
+                (cellRef OPAD ))
+              (property  EXT (string "OPAD"))
+              (property  LOC (string "P4")))
+            (instance (rename  &_I24 "$I24")
+              (viewRef net 
+                (cellRef OPAD ))
+              (property  EXT (string "OPAD"))
+              (property  LOC (string "P6")))
+            (instance (rename  &_I26 "$I26")
+              (viewRef net 
+                (cellRef IPAD ))
+              (property  EXT (string "IPAD"))
+              (property  LOC (string "P11")))
+            (instance (rename  &_I27 "$I27")
+              (viewRef net 
+                (cellRef INV ))
+              (portinstance  O 
+                (property  PARAM (string "INV"))))
+            (instance (rename  &_I28 "$I28")
+              (viewRef net 
+                (cellRef FDC )))
+            (instance (rename  &_I29 "$I29")
+              (viewRef net 
+                (cellRef FDC )))
+            (instance (rename  &_I30 "$I30")
+              (viewRef net 
+                (cellRef INV ))
+              (portinstance  O 
+                (property  PARAM (string "INV"))))
+            (instance (rename  &_I65 "$I65")
+              (viewRef net 
+                (cellRef D2_4E )))
+            (instance (rename  &_I66 "$I66")
+              (viewRef net 
+                (cellRef OPAD ))
+              (property  EXT (string "OPAD"))
+              (property  LOC (string "P28")))
+            (instance (rename  &_I67 "$I67")
+              (viewRef net 
+                (cellRef OPAD ))
+              (property  EXT (string "OPAD"))
+              (property  LOC (string "P57")))
+            (instance (rename  &_I68 "$I68")
+              (viewRef net 
+                (cellRef OPAD ))
+              (property  EXT (string "OPAD"))
+              (property  LOC (string "P59")))
+            (instance (rename  &_I69 "$I69")
+              (viewRef net 
+                (cellRef OBUF )))
+            (instance (rename  &_I70 "$I70")
+              (viewRef net 
+                (cellRef OBUF )))
+            (instance (rename  &_I71 "$I71")
+              (viewRef net 
+                (cellRef OBUF )))
+            (instance (rename  &_I74 "$I74")
+              (viewRef net 
+                (cellRef M4_1E )))
+            (instance (rename  &_I75 "$I75")
+              (viewRef net 
+                (cellRef M4_1E )))
+            (instance (rename  &_I76 "$I76")
+              (viewRef net 
+                (cellRef M4_1E )))
+            (instance (rename  &_I77 "$I77")
+              (viewRef net 
+                (cellRef M4_1E )))
+            (instance (rename  &_I78 "$I78")
+              (viewRef net 
+                (cellRef NAND4B3 ))
+              (portinstance  I0 
+                (property  PARAM (string "INV")))
+              (portinstance  I1 
+                (property  PARAM (string "INV")))
+              (portinstance  I2 
+                (property  PARAM (string "INV")))
+              (portinstance  O 
+                (property  PARAM (string "INV"))))
+            (instance (rename  &_I79 "$I79")
+              (viewRef net 
+                (cellRef NAND4B3 ))
+              (portinstance  I0 
+                (property  PARAM (string "INV")))
+              (portinstance  I1 
+                (property  PARAM (string "INV")))
+              (portinstance  I2 
+                (property  PARAM (string "INV")))
+              (portinstance  O 
+                (property  PARAM (string "INV"))))
+            (instance (rename  &_I80 "$I80")
+              (viewRef net 
+                (cellRef AND2 )))
+            (instance (rename  &_I81 "$I81")
+              (viewRef net 
+                (cellRef NAND4B2 ))
+              (portinstance  I0 
+                (property  PARAM (string "INV")))
+              (portinstance  I1 
+                (property  PARAM (string "INV")))
+              (portinstance  O 
+                (property  PARAM (string "INV"))))
+            (instance (rename  &_I82 "$I82")
+              (viewRef net 
+                (cellRef NAND4B2 ))
+              (portinstance  I0 
+                (property  PARAM (string "INV")))
+              (portinstance  I1 
+                (property  PARAM (string "INV")))
+              (portinstance  O 
+                (property  PARAM (string "INV"))))
+            (instance (rename  &_I83 "$I83")
+              (viewRef net 
+                (cellRef NAND4B1 ))
+              (portinstance  I0 
+                (property  PARAM (string "INV")))
+              (portinstance  O 
+                (property  PARAM (string "INV"))))
+            (instance (rename  &_I84 "$I84")
+              (viewRef net 
+                (cellRef AND3 )))
+            (instance (rename  &_I85 "$I85")
+              (viewRef net 
+                (cellRef AND4B4 ))
+              (portinstance  I0 
+                (property  PARAM (string "INV")))
+              (portinstance  I1 
+                (property  PARAM (string "INV")))
+              (portinstance  I2 
+                (property  PARAM (string "INV")))
+              (portinstance  I3 
+                (property  PARAM (string "INV"))))
+            (instance (rename  &_I86 "$I86")
+              (viewRef net 
+                (cellRef AND4B3 ))
+              (portinstance  I0 
+                (property  PARAM (string "INV")))
+              (portinstance  I1 
+                (property  PARAM (string "INV")))
+              (portinstance  I2 
+                (property  PARAM (string "INV"))))
+            (instance (rename  &_I87 "$I87")
+              (viewRef net 
+                (cellRef AND4B2 ))
+              (portinstance  I0 
+                (property  PARAM (string "INV")))
+              (portinstance  I1 
+                (property  PARAM (string "INV"))))
+            (instance (rename  &_I88 "$I88")
+              (viewRef net 
+                (cellRef NAND4B3 ))
+              (portinstance  I0 
+                (property  PARAM (string "INV")))
+              (portinstance  I1 
+                (property  PARAM (string "INV")))
+              (portinstance  I2 
+                (property  PARAM (string "INV")))
+              (portinstance  O 
+                (property  PARAM (string "INV"))))
+            (instance (rename  &_I89 "$I89")
+              (viewRef net 
+                (cellRef NAND4B3 ))
+              (portinstance  I0 
+                (property  PARAM (string "INV")))
+              (portinstance  I1 
+                (property  PARAM (string "INV")))
+              (portinstance  I2 
+                (property  PARAM (string "INV")))
+              (portinstance  O 
+                (property  PARAM (string "INV"))))
+            (instance (rename  &_I9 "$I9")
+              (viewRef net 
+                (cellRef OBUF )))
+            (instance (rename  &_I90 "$I90")
+              (viewRef net 
+                (cellRef NAND4B3 ))
+              (portinstance  I0 
+                (property  PARAM (string "INV")))
+              (portinstance  I1 
+                (property  PARAM (string "INV")))
+              (portinstance  I2 
+                (property  PARAM (string "INV")))
+              (portinstance  O 
+                (property  PARAM (string "INV"))))
+            (instance (rename  &_I91 "$I91")
+              (viewRef net 
+                (cellRef AND4B3 ))
+              (portinstance  I0 
+                (property  PARAM (string "INV")))
+              (portinstance  I1 
+                (property  PARAM (string "INV")))
+              (portinstance  I2 
+                (property  PARAM (string "INV"))))
+            (instance (rename  &_I92 "$I92")
+              (viewRef net 
+                (cellRef AND2 )))
+            (instance (rename  &_I93 "$I93")
+              (viewRef net 
+                (cellRef OR4 )))
+            (instance (rename  &_I94 "$I94")
+              (viewRef net 
+                (cellRef NAND4B3 ))
+              (portinstance  I0 
+                (property  PARAM (string "INV")))
+              (portinstance  I1 
+                (property  PARAM (string "INV")))
+              (portinstance  I2 
+                (property  PARAM (string "INV")))
+              (portinstance  O 
+                (property  PARAM (string "INV"))))
+            (instance (rename  &_I95 "$I95")
+              (viewRef net 
+                (cellRef NAND4B3 ))
+              (portinstance  I0 
+                (property  PARAM (string "INV")))
+              (portinstance  I1 
+                (property  PARAM (string "INV")))
+              (portinstance  I2 
+                (property  PARAM (string "INV")))
+              (portinstance  O 
+                (property  PARAM (string "INV"))))
+            (instance (rename  &_I96 "$I96")
+              (viewRef net 
+                (cellRef NAND4B2 ))
+              (portinstance  I0 
+                (property  PARAM (string "INV")))
+              (portinstance  I1 
+                (property  PARAM (string "INV")))
+              (portinstance  O 
+                (property  PARAM (string "INV"))))
+            (instance (rename  &_I97 "$I97")
+              (viewRef net 
+                (cellRef NAND4B1 ))
+              (portinstance  I0 
+                (property  PARAM (string "INV")))
+              (portinstance  O 
+                (property  PARAM (string "INV"))))
+            (instance (rename  &_I98 "$I98")
+              (viewRef net 
+                (cellRef AND4 )))
+            (instance (rename  &_I99 "$I99")
+              (viewRef net 
+                (cellRef NAND4B4 ))
+              (portinstance  I0 
+                (property  PARAM (string "INV")))
+              (portinstance  I1 
+                (property  PARAM (string "INV")))
+              (portinstance  I2 
+                (property  PARAM (string "INV")))
+              (portinstance  I3 
+                (property  PARAM (string "INV")))
+              (portinstance  O 
+                (property  PARAM (string "INV"))))
+            (instance  I_from_net_VCC 
+              (viewRef net 
+                (cellRef VCC )))
+            (net  CK5 
+              (joined 
+                (portRef  ENT 
+                  (instanceRef  &_I116))
+                (portRef  RCO 
+                  (instanceRef  &_I117))))
+            (net (rename  &_Net00006_ "$Net00006_")
+              (joined 
+                (portRef  OPAD 
+                  (instanceRef  &_I24))
+                (portRef  O 
+                  (instanceRef  &_I12))))
+            (net (rename  &_Net00005_ "$Net00005_")
+              (joined 
+                (portRef  OPAD 
+                  (instanceRef  &_I18))
+                (portRef  O 
+                  (instanceRef  &_I11))))
+            (net (rename  &_Net00008_ "$Net00008_")
+              (joined 
+                (portRef  OPAD 
+                  (instanceRef  &_I21))
+                (portRef  O 
+                  (instanceRef  &_I14))))
+            (net (rename  &_Net00009_ "$Net00009_")
+              (joined 
+                (portRef  OPAD 
+                  (instanceRef  &_I19))
+                (portRef  O 
+                  (instanceRef  &_I15))))
+            (net (rename  &_Net00011_ "$Net00011_")
+              (joined 
+                (portRef  OPAD 
+                  (instanceRef  &_I22))
+                (portRef  O 
+                  (instanceRef  &_I17))))
+            (net (rename  &_Net00004_ "$Net00004_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I9))
+                (portRef  OPAD 
+                  (instanceRef  &_I10))))
+            (net (rename  &_Net00010_ "$Net00010_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I16))
+                (portRef  OPAD 
+                  (instanceRef  &_I20))))
+            (net &__A__1
+              (joined 
+                (portRef  VCC 
+                  (instanceRef I_from_net_VCC ))
+                (portRef  I 
+                  (instanceRef  &_I104))))
+            (net (rename  &_Net00072_ "$Net00072_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I104))
+                (portRef  OPAD 
+                  (instanceRef  &_I105))))
+            (net (rename  &_Net00077_ "$Net00077_")
+              (joined 
+                (portRef  A 
+                  (instanceRef  &_I110))
+                (portRef  B 
+                  (instanceRef  &_I110))
+                (portRef  C 
+                  (instanceRef  &_I110))
+                (portRef  D 
+                  (instanceRef  &_I110))
+                (portRef  A 
+                  (instanceRef  &_I111))
+                (portRef  B 
+                  (instanceRef  &_I111))
+                (portRef  C 
+                  (instanceRef  &_I111))
+                (portRef  D 
+                  (instanceRef  &_I111))
+                (portRef  A 
+                  (instanceRef  &_I112))
+                (portRef  B 
+                  (instanceRef  &_I112))
+                (portRef  C 
+                  (instanceRef  &_I112))
+                (portRef  D 
+                  (instanceRef  &_I112))
+                (portRef  B 
+                  (instanceRef  &_I113))
+                (portRef  D 
+                  (instanceRef  &_I113))
+                (portRef  C 
+                  (instanceRef  &_I113))
+                (portRef  A 
+                  (instanceRef  &_I113))
+                (portRef  A 
+                  (instanceRef  &_I117))
+                (portRef  B 
+                  (instanceRef  &_I117))
+                (portRef  C 
+                  (instanceRef  &_I117))
+                (portRef  D 
+                  (instanceRef  &_I117))
+                (portRef  A 
+                  (instanceRef  &_I116))
+                (portRef  B 
+                  (instanceRef  &_I116))
+                (portRef  C 
+                  (instanceRef  &_I116))
+                (portRef  D 
+                  (instanceRef  &_I116))
+                (portRef  A 
+                  (instanceRef  &_I114))
+                (portRef  B 
+                  (instanceRef  &_I114))
+                (portRef  C 
+                  (instanceRef  &_I114))
+                (portRef  D 
+                  (instanceRef  &_I114))
+                (portRef  A 
+                  (instanceRef  &_I115))
+                (portRef  B 
+                  (instanceRef  &_I115))
+                (portRef  C 
+                  (instanceRef  &_I115))
+                (portRef  D 
+                  (instanceRef  &_I115))
+                (portRef  CLR 
+                  (instanceRef  &_I29))
+                (portRef  CLR 
+                  (instanceRef  &_I28))
+                (portRef  GROUND 
+                  (instanceRef  &_I125))))
+            (net (rename  &_Net00007_ "$Net00007_")
+              (joined 
+                (portRef  OPAD 
+                  (instanceRef  &_I23))
+                (portRef  O 
+                  (instanceRef  &_I13))))
+            (net (rename  &_Net00074_ "$Net00074_")
+              (joined 
+                (portRef  IPAD 
+                  (instanceRef  &_I26))
+                (portRef  I 
+                  (instanceRef  &_I123))))
+            (net  CK 
+              (joined 
+                (portRef  CK 
+                  (instanceRef  &_I110))
+                (portRef  CK 
+                  (instanceRef  &_I112))
+                (portRef  CK 
+                  (instanceRef  &_I113))
+                (portRef  CK 
+                  (instanceRef  &_I114))
+                (portRef  CK 
+                  (instanceRef  &_I115))
+                (portRef  CK 
+                  (instanceRef  &_I116))
+                (portRef  CK 
+                  (instanceRef  &_I117))
+                (portRef  O 
+                  (instanceRef  &_I123))
+                (portRef  I 
+                  (instanceRef  &_I121))
+                (portRef  CK 
+                  (instanceRef  &_I111))))
+            (net  CK2 
+              (joined 
+                (portRef  RCO 
+                  (instanceRef  &_I111))
+                (portRef  ENT 
+                  (instanceRef  &_I112))))
+            (net (rename  &_Net00059_ "$Net00059_")
+              (joined 
+                (portRef  RCO 
+                  (instanceRef  &_I112))
+                (portRef  ENT 
+                  (instanceRef  &_I113))))
+            (net  CK4 
+              (joined 
+                (portRef  RCO 
+                  (instanceRef  &_I113))
+                (portRef  ENT 
+                  (instanceRef  &_I117))
+                (portRef  I 
+                  (instanceRef  &_I119))))
+            (net (rename  &_Net00003_ "$Net00003_")
+              (joined 
+                (portRef  ENT 
+                  (instanceRef  &_I115))
+                (portRef  RCO 
+                  (instanceRef  &_I116))))
+            (net (rename  &_Net00016_ "$Net00016_")
+              (joined 
+                (portRef  ENT 
+                  (instanceRef  &_I114))
+                (portRef  RCO 
+                  (instanceRef  &_I115))))
+            (net (rename  &_Net00017_ "$Net00017_")
+              (joined 
+                (portRef  D0 
+                  (instanceRef  &_I76))
+                (portRef  QA 
+                  (instanceRef  &_I114))
+                (portRef  B0 
+                  (instanceRef  &_I135))))
+            (net (rename  &_Net00018_ "$Net00018_")
+              (joined 
+                (portRef  QC 
+                  (instanceRef  &_I114))
+                (portRef  D0 
+                  (instanceRef  &_I77))
+                (portRef  B2 
+                  (instanceRef  &_I135))))
+            (net (rename  &_Net00058_ "$Net00058_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I74))
+                (portRef  I0 
+                  (instanceRef  &_I101))
+                (portRef  I0 
+                  (instanceRef  &_I78))
+                (portRef  I0 
+                  (instanceRef  &_I79))
+                (portRef  I0 
+                  (instanceRef  &_I81))
+                (portRef  I0 
+                  (instanceRef  &_I82))
+                (portRef  I0 
+                  (instanceRef  &_I88))
+                (portRef  I0 
+                  (instanceRef  &_I89))
+                (portRef  I0 
+                  (instanceRef  &_I90))
+                (portRef  I0 
+                  (instanceRef  &_I83))
+                (portRef  I0 
+                  (instanceRef  &_I85))
+                (portRef  I0 
+                  (instanceRef  &_I86))
+                (portRef  I0 
+                  (instanceRef  &_I87))
+                (portRef  I3 
+                  (instanceRef  &_I91))
+                (portRef  I0 
+                  (instanceRef  &_I95))
+                (portRef  I0 
+                  (instanceRef  &_I94))
+                (portRef  I0 
+                  (instanceRef  &_I96))
+                (portRef  I0 
+                  (instanceRef  &_I97))
+                (portRef  I0 
+                  (instanceRef  &_I99))
+                (portRef  I0 
+                  (instanceRef  &_I100))))
+            (net (rename  &_Net00070_ "$Net00070_")
+              (joined 
+                (portRef  D2 
+                  (instanceRef  &_I65))
+                (portRef  I 
+                  (instanceRef  &_I70))))
+            (net (rename  &_Net00062_ "$Net00062_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I27))
+                (portRef  D 
+                  (instanceRef  &_I29))))
+            (net (rename  &_Net00061_ "$Net00061_")
+              (joined 
+                (portRef  Q 
+                  (instanceRef  &_I29))
+                (portRef  I 
+                  (instanceRef  &_I27))
+                (portRef  C 
+                  (instanceRef  &_I28))
+                (portRef  A0 
+                  (instanceRef  &_I65))
+                (portRef  S0 
+                  (instanceRef  &_I76))
+                (portRef  S0 
+                  (instanceRef  &_I75))
+                (portRef  S0 
+                  (instanceRef  &_I77))
+                (portRef  S0 
+                  (instanceRef  &_I74))))
+            (net (rename  &_Net00069_ "$Net00069_")
+              (joined 
+                (portRef  D1 
+                  (instanceRef  &_I65))
+                (portRef  I 
+                  (instanceRef  &_I69))))
+            (net (rename  &_Net00028_ "$Net00028_")
+              (joined 
+                (portRef  D3 
+                  (instanceRef  &_I74))
+                (portRef  QD 
+                  (instanceRef  &_I117))))
+            (net (rename  &_Net00066_ "$Net00066_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I70))
+                (portRef  OPAD 
+                  (instanceRef  &_I67))))
+            (net (rename  &_Net00025_ "$Net00025_")
+              (joined 
+                (portRef  D0 
+                  (instanceRef  &_I74))
+                (portRef  QD 
+                  (instanceRef  &_I114))
+                (portRef  B3 
+                  (instanceRef  &_I135))))
+            (net (rename  &_Net00020_ "$Net00020_")
+              (joined 
+                (portRef  D2 
+                  (instanceRef  &_I75))
+                (portRef  QB 
+                  (instanceRef  &_I116))))
+            (net (rename  &_Net00021_ "$Net00021_")
+              (joined 
+                (portRef  D3 
+                  (instanceRef  &_I75))
+                (portRef  QB 
+                  (instanceRef  &_I117))))
+            (net (rename  &_Net00068_ "$Net00068_")
+              (joined 
+                (portRef  D0 
+                  (instanceRef  &_I65))
+                (portRef  I 
+                  (instanceRef  &_I17))))
+            (net (rename  &_Net00065_ "$Net00065_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I69))
+                (portRef  OPAD 
+                  (instanceRef  &_I68))))
+            (net (rename  &_Net00002_ "$Net00002_")
+              (joined 
+                (portRef  D2 
+                  (instanceRef  &_I76))
+                (portRef  QA 
+                  (instanceRef  &_I116))))
+            (net (rename  &_Net00013_ "$Net00013_")
+              (joined 
+                (portRef  D3 
+                  (instanceRef  &_I76))
+                (portRef  QA 
+                  (instanceRef  &_I117))))
+            (net (rename  &_Net00014_ "$Net00014_")
+              (joined 
+                (portRef  QB 
+                  (instanceRef  &_I114))
+                (portRef  D0 
+                  (instanceRef  &_I75))
+                (portRef  B1 
+                  (instanceRef  &_I135))))
+            (net (rename  &_Net00015_ "$Net00015_")
+              (joined 
+                (portRef  D1 
+                  (instanceRef  &_I75))
+                (portRef  QB 
+                  (instanceRef  &_I115))))
+            (net (rename  &_Net00064_ "$Net00064_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I30))
+                (portRef  D 
+                  (instanceRef  &_I28))))
+            (net (rename  &_Net00027_ "$Net00027_")
+              (joined 
+                (portRef  D2 
+                  (instanceRef  &_I74))
+                (portRef  QD 
+                  (instanceRef  &_I116))))
+            (net (rename  &_Net00076_ "$Net00076_")
+              (joined 
+                (portRef  CLR 
+                  (instanceRef  &_I110))
+                (portRef  O 
+                  (instanceRef  &_I128))
+                (portRef  CLR 
+                  (instanceRef  &_I111))
+                (portRef  CLR 
+                  (instanceRef  &_I112))
+                (portRef  CLR 
+                  (instanceRef  &_I113))
+                (portRef  CLR 
+                  (instanceRef  &_I116))
+                (portRef  CLR 
+                  (instanceRef  &_I117))
+                (portRef  CLR 
+                  (instanceRef  &_I115))))
+            (net (rename  &_Net00026_ "$Net00026_")
+              (joined 
+                (portRef  D1 
+                  (instanceRef  &_I74))
+                (portRef  QD 
+                  (instanceRef  &_I115))))
+            (net (rename  &_Net00067_ "$Net00067_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I71))
+                (portRef  OPAD 
+                  (instanceRef  &_I66))))
+            (net (rename  &_Net00063_ "$Net00063_")
+              (joined 
+                (portRef  Q 
+                  (instanceRef  &_I28))
+                (portRef  I 
+                  (instanceRef  &_I30))
+                (portRef  A1 
+                  (instanceRef  &_I65))
+                (portRef  S1 
+                  (instanceRef  &_I76))
+                (portRef  S1 
+                  (instanceRef  &_I75))
+                (portRef  S1 
+                  (instanceRef  &_I74))
+                (portRef  S1 
+                  (instanceRef  &_I77))))
+            (net (rename  &_Net00022_ "$Net00022_")
+              (joined 
+                (portRef  D1 
+                  (instanceRef  &_I77))
+                (portRef  QC 
+                  (instanceRef  &_I115))))
+            (net (rename  &_Net00024_ "$Net00024_")
+              (joined 
+                (portRef  D3 
+                  (instanceRef  &_I77))
+                (portRef  QC 
+                  (instanceRef  &_I117))))
+            (net (rename  &_Net00023_ "$Net00023_")
+              (joined 
+                (portRef  D2 
+                  (instanceRef  &_I77))
+                (portRef  QC 
+                  (instanceRef  &_I116))))
+            (net (rename  &_Net00001_ "$Net00001_")
+              (joined 
+                (portRef  D1 
+                  (instanceRef  &_I76))
+                (portRef  QA 
+                  (instanceRef  &_I115))))
+            (net (rename  &_Net00071_ "$Net00071_")
+              (joined 
+                (portRef  D3 
+                  (instanceRef  &_I65))
+                (portRef  I 
+                  (instanceRef  &_I71))))
+            (net (rename  &_Net00029_ "$Net00029_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I78))
+                (portRef  I1 
+                  (instanceRef  &_I80))))
+            (net (rename  &_Net00030_ "$Net00030_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I79))
+                (portRef  I0 
+                  (instanceRef  &_I80))))
+            (net (rename  &_Net00031_ "$Net00031_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I81))
+                (portRef  I1 
+                  (instanceRef  &_I92))))
+            (net (rename  &_Net00032_ "$Net00032_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I82))
+                (portRef  I0 
+                  (instanceRef  &_I92))))
+            (net (rename  &_Net00034_ "$Net00034_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I80))
+                (portRef  I 
+                  (instanceRef  &_I9))))
+            (net (rename  &_Net00035_ "$Net00035_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I92))
+                (portRef  I 
+                  (instanceRef  &_I11))))
+            (net (rename  &_Net00036_ "$Net00036_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I88))
+                (portRef  I 
+                  (instanceRef  &_I15))))
+            (net (rename  &_Net00037_ "$Net00037_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I90))
+                (portRef  I1 
+                  (instanceRef  &_I84))))
+            (net (rename  &_Net00038_ "$Net00038_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I89))
+                (portRef  I2 
+                  (instanceRef  &_I84))))
+            (net (rename  &_Net00039_ "$Net00039_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I83))
+                (portRef  I0 
+                  (instanceRef  &_I84))))
+            (net (rename  &_Net00040_ "$Net00040_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I84))
+                (portRef  I 
+                  (instanceRef  &_I12))))
+            (net (rename  &_Net00041_ "$Net00041_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I85))
+                (portRef  I3 
+                  (instanceRef  &_I93))))
+            (net (rename  &_Net00042_ "$Net00042_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I86))
+                (portRef  I2 
+                  (instanceRef  &_I93))))
+            (net (rename  &_Net00043_ "$Net00043_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I87))
+                (portRef  I1 
+                  (instanceRef  &_I93))))
+            (net (rename  &_Net00044_ "$Net00044_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I91))
+                (portRef  I0 
+                  (instanceRef  &_I93))))
+            (net (rename  &_Net00045_ "$Net00045_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I93))
+                (portRef  I 
+                  (instanceRef  &_I13))))
+            (net (rename  &_Net00046_ "$Net00046_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I95))
+                (portRef  I3 
+                  (instanceRef  &_I98))))
+            (net (rename  &_Net00047_ "$Net00047_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I94))
+                (portRef  I2 
+                  (instanceRef  &_I98))))
+            (net (rename  &_Net00048_ "$Net00048_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I96))
+                (portRef  I1 
+                  (instanceRef  &_I98))))
+            (net (rename  &_Net00049_ "$Net00049_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I97))
+                (portRef  I0 
+                  (instanceRef  &_I98))))
+            (net (rename  &_Net00050_ "$Net00050_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I98))
+                (portRef  I 
+                  (instanceRef  &_I14))))
+            (net (rename  &_Net00051_ "$Net00051_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I99))
+                (portRef  I2 
+                  (instanceRef  &_I102))))
+            (net (rename  &_Net00052_ "$Net00052_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I100))
+                (portRef  I1 
+                  (instanceRef  &_I102))))
+            (net (rename  &_Net00053_ "$Net00053_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I101))
+                (portRef  I0 
+                  (instanceRef  &_I102))))
+            (net (rename  &_Net00054_ "$Net00054_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I102))
+                (portRef  I 
+                  (instanceRef  &_I16))))
+            (net (rename  &_Net00055_ "$Net00055_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I76))
+                (portRef  I3 
+                  (instanceRef  &_I78))
+                (portRef  I2 
+                  (instanceRef  &_I79))
+                (portRef  I3 
+                  (instanceRef  &_I81))
+                (portRef  I1 
+                  (instanceRef  &_I82))
+                (portRef  I2 
+                  (instanceRef  &_I88))
+                (portRef  I3 
+                  (instanceRef  &_I101))
+                (portRef  I3 
+                  (instanceRef  &_I100))
+                (portRef  I3 
+                  (instanceRef  &_I99))
+                (portRef  I3 
+                  (instanceRef  &_I89))
+                (portRef  I2 
+                  (instanceRef  &_I90))
+                (portRef  I3 
+                  (instanceRef  &_I83))
+                (portRef  I3 
+                  (instanceRef  &_I85))
+                (portRef  I1 
+                  (instanceRef  &_I87))
+                (portRef  I2 
+                  (instanceRef  &_I91))
+                (portRef  I3 
+                  (instanceRef  &_I97))
+                (portRef  I3 
+                  (instanceRef  &_I96))
+                (portRef  I3 
+                  (instanceRef  &_I94))
+                (portRef  I2 
+                  (instanceRef  &_I95))
+                (portRef  I2 
+                  (instanceRef  &_I86))))
+            (net (rename  &_Net00056_ "$Net00056_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I75))
+                (portRef  I2 
+                  (instanceRef  &_I78))
+                (portRef  I1 
+                  (instanceRef  &_I79))
+                (portRef  I1 
+                  (instanceRef  &_I81))
+                (portRef  I3 
+                  (instanceRef  &_I82))
+                (portRef  I3 
+                  (instanceRef  &_I88))
+                (portRef  I2 
+                  (instanceRef  &_I101))
+                (portRef  I2 
+                  (instanceRef  &_I100))
+                (portRef  I2 
+                  (instanceRef  &_I99))
+                (portRef  I2 
+                  (instanceRef  &_I89))
+                (portRef  I1 
+                  (instanceRef  &_I90))
+                (portRef  I2 
+                  (instanceRef  &_I83))
+                (portRef  I2 
+                  (instanceRef  &_I85))
+                (portRef  I3 
+                  (instanceRef  &_I87))
+                (portRef  I1 
+                  (instanceRef  &_I91))
+                (portRef  I2 
+                  (instanceRef  &_I97))
+                (portRef  I2 
+                  (instanceRef  &_I96))
+                (portRef  I2 
+                  (instanceRef  &_I94))
+                (portRef  I3 
+                  (instanceRef  &_I95))
+                (portRef  I3 
+                  (instanceRef  &_I86))))
+            (net (rename  &_Net00057_ "$Net00057_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I77))
+                (portRef  I1 
+                  (instanceRef  &_I78))
+                (portRef  I3 
+                  (instanceRef  &_I79))
+                (portRef  I1 
+                  (instanceRef  &_I101))
+                (portRef  I1 
+                  (instanceRef  &_I100))
+                (portRef  I1 
+                  (instanceRef  &_I99))
+                (portRef  I2 
+                  (instanceRef  &_I81))
+                (portRef  I2 
+                  (instanceRef  &_I82))
+                (portRef  I1 
+                  (instanceRef  &_I88))
+                (portRef  I1 
+                  (instanceRef  &_I89))
+                (portRef  I3 
+                  (instanceRef  &_I90))
+                (portRef  I1 
+                  (instanceRef  &_I83))
+                (portRef  I1 
+                  (instanceRef  &_I85))
+                (portRef  I2 
+                  (instanceRef  &_I87))
+                (portRef  I0 
+                  (instanceRef  &_I91))
+                (portRef  I1 
+                  (instanceRef  &_I97))
+                (portRef  I1 
+                  (instanceRef  &_I96))
+                (portRef  I1 
+                  (instanceRef  &_I94))
+                (portRef  I1 
+                  (instanceRef  &_I95))
+                (portRef  I1 
+                  (instanceRef  &_I86))))
+            (net (rename  &_Net00079_ "$Net00079_")
+              (joined 
+                (portRef  LOAD 
+                  (instanceRef  &_I110))
+                (portRef  ENP 
+                  (instanceRef  &_I113))
+                (portRef  LOAD 
+                  (instanceRef  &_I113))
+                (portRef  LOAD 
+                  (instanceRef  &_I112))
+                (portRef  LOAD 
+                  (instanceRef  &_I111))
+                (portRef  ENT 
+                  (instanceRef  &_I110))
+                (portRef  ENP 
+                  (instanceRef  &_I110))
+                (portRef  LOAD 
+                  (instanceRef  &_I116))
+                (portRef  ENP 
+                  (instanceRef  &_I117))
+                (portRef  LOAD 
+                  (instanceRef  &_I117))
+                (portRef  ENP 
+                  (instanceRef  &_I111))
+                (portRef  ENP 
+                  (instanceRef  &_I112))
+                (portRef  ENP 
+                  (instanceRef  &_I116))
+                (portRef  LOAD 
+                  (instanceRef  &_I114))
+                (portRef  ENP 
+                  (instanceRef  &_I114))
+                (portRef  LOAD 
+                  (instanceRef  &_I115))
+                (portRef  ENP 
+                  (instanceRef  &_I115))
+                (portRef  E 
+                  (instanceRef  &_I65))
+                (portRef  E 
+                  (instanceRef  &_I74))
+                (portRef  E 
+                  (instanceRef  &_I75))
+                (portRef  E 
+                  (instanceRef  &_I76))
+                (portRef  E 
+                  (instanceRef  &_I77))
+                (portRef  VCC 
+                  (instanceRef  &_I124))))
+            (net (rename  &_Net00060_ "$Net00060_")
+              (joined 
+                (portRef  C 
+                  (instanceRef  &_I29))
+                (portRef  QD 
+                  (instanceRef  &_I112))))
+            (net (rename  &_Net00075_ "$Net00075_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I121))
+                (portRef  OPAD 
+                  (instanceRef  &_I120))))
+            (net (rename  &_Net00012_ "$Net00012_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I119))
+                (portRef  OPAD 
+                  (instanceRef  &_I118))))
+            (net (rename  &_Net00033_ "$Net00033_")
+              (joined 
+                (portRef  RCO 
+                  (instanceRef  &_I110))
+                (portRef  ENT 
+                  (instanceRef  &_I111))))
+            (net (rename  &_Net00073_ "$Net00073_")
+              (joined 
+                (portRef  IPAD 
+                  (instanceRef  &_I126))
+                (portRef  I 
+                  (instanceRef  &_I127))))
+            (net (rename  &_Net00078_ "$Net00078_")
+              (joined 
+                (portRef  O 
+                  (instanceRef  &_I127))
+                (portRef  I 
+                  (instanceRef  &_I128))))
+            (net (rename  &_Net00019_ "$Net00019_")
+              (joined 
+                (portRef  EQ 
+                  (instanceRef  &_I135))
+                (portRef  I 
+                  (instanceRef  &_I136))))
+            (net (rename  &_Net00080_ "$Net00080_")
+              (joined 
+                (portRef  CLR 
+                  (instanceRef  &_I114))
+                (portRef  O 
+                  (instanceRef  &_I136))))
+            (net (rename  &_Net00081_ "$Net00081_")
+              (joined 
+                (portRef  A0 
+                  (instanceRef  &_I135))
+                (portRef  GROUND 
+                  (instanceRef  &_I137))
+                (portRef  A3 
+                  (instanceRef  &_I135))))
+            (net (rename  &_Net00082_ "$Net00082_")
+              (joined 
+                (portRef  VCC 
+                  (instanceRef  &_I138))
+                (portRef  A1 
+                  (instanceRef  &_I135))
+                (portRef  A2 
+                  (instanceRef  &_I135))))))))
+  (design  ev02 
+    (cellRef ev02 
+      (libraryRef Active_lib ))
+        (property PART (string "3020A-7-PC68"))))

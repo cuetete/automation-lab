@@ -1,0 +1,72 @@
+-----------------------  POP28335_SD_FAT32.pjt - Debug  -----------------------
+[00ic_SD_FAT32.c] "C:\CCStudio_v3.3PLA\C2000\cgtools\bin\cl2000" -g -q -pdr -as -fr"./Debug" -fs"./Debug" -i"../../DSP2833x_headers/include" -i"../../DSP2833x_common/include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 -@"Debug.lkf" "00ic_SD_FAT32.c"
+
+[DEVICE.C] "C:\CCStudio_v3.3PLA\C2000\cgtools\bin\cl2000" -g -q -pdr -as -fr"./Debug" -fs"./Debug" -i"../../DSP2833x_headers/include" -i"../../DSP2833x_common/include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 -@"Debug.lkf" "DEVICE.C"
+"DEVICE.C", line 91: remark: function declared implicitly
+"DEVICE.C", line 101: remark: function declared implicitly
+
+[DSP2833x_ADC_cal.asm] "C:\CCStudio_v3.3PLA\C2000\cgtools\bin\cl2000" -g -q -pdr -as -fr"./Debug" -fs"./Debug" -i"../../DSP2833x_headers/include" -i"../../DSP2833x_common/include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 -@"Debug.lkf" "DSP2833x_ADC_cal.asm"
+
+[DSP2833x_CodeStartBranch.asm] "C:\CCStudio_v3.3PLA\C2000\cgtools\bin\cl2000" -g -q -pdr -as -fr"./Debug" -fs"./Debug" -i"../../DSP2833x_headers/include" -i"../../DSP2833x_common/include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 -@"Debug.lkf" "DSP2833x_CodeStartBranch.asm"
+
+[DSP2833x_DefaultIsr.c] "C:\CCStudio_v3.3PLA\C2000\cgtools\bin\cl2000" -g -q -pdr -as -fr"./Debug" -fs"./Debug" -i"../../DSP2833x_headers/include" -i"../../DSP2833x_common/include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 -@"Debug.lkf" "DSP2833x_DefaultIsr.c"
+
+[DSP2833x_GlobalVariableDefs.c] "C:\CCStudio_v3.3PLA\C2000\cgtools\bin\cl2000" -g -q -pdr -as -fr"./Debug" -fs"./Debug" -i"../../DSP2833x_headers/include" -i"../../DSP2833x_common/include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 -@"Debug.lkf" "DSP2833x_GlobalVariableDefs.c"
+
+[DSP2833x_PieCtrl.c] "C:\CCStudio_v3.3PLA\C2000\cgtools\bin\cl2000" -g -q -pdr -as -fr"./Debug" -fs"./Debug" -i"../../DSP2833x_headers/include" -i"../../DSP2833x_common/include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 -@"Debug.lkf" "DSP2833x_PieCtrl.c"
+
+[DSP2833x_PieVect.c] "C:\CCStudio_v3.3PLA\C2000\cgtools\bin\cl2000" -g -q -pdr -as -fr"./Debug" -fs"./Debug" -i"../../DSP2833x_headers/include" -i"../../DSP2833x_common/include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 -@"Debug.lkf" "DSP2833x_PieVect.c"
+
+[DSP2833x_Spi.c] "C:\CCStudio_v3.3PLA\C2000\cgtools\bin\cl2000" -g -q -pdr -as -fr"./Debug" -fs"./Debug" -i"../../DSP2833x_headers/include" -i"../../DSP2833x_common/include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 -@"Debug.lkf" "DSP2833x_Spi.c"
+
+[DSP2833x_SysCtrl.c] "C:\CCStudio_v3.3PLA\C2000\cgtools\bin\cl2000" -g -q -pdr -as -fr"./Debug" -fs"./Debug" -i"../../DSP2833x_headers/include" -i"../../DSP2833x_common/include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 -@"Debug.lkf" "DSP2833x_SysCtrl.c"
+
+[DSP2833x_usDelay.asm] "C:\CCStudio_v3.3PLA\C2000\cgtools\bin\cl2000" -g -q -pdr -as -fr"./Debug" -fs"./Debug" -i"../../DSP2833x_headers/include" -i"../../DSP2833x_common/include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 -@"Debug.lkf" "DSP2833x_usDelay.asm"
+
+[DSP2833x_Xintf.c] "C:\CCStudio_v3.3PLA\C2000\cgtools\bin\cl2000" -g -q -pdr -as -fr"./Debug" -fs"./Debug" -i"../../DSP2833x_headers/include" -i"../../DSP2833x_common/include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 -@"Debug.lkf" "DSP2833x_Xintf.c"
+
+[fat.c] "C:\CCStudio_v3.3PLA\C2000\cgtools\bin\cl2000" -g -q -pdr -as -fr"./Debug" -fs"./Debug" -i"../../DSP2833x_headers/include" -i"../../DSP2833x_common/include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 -@"Debug.lkf" "fat.c"
+
+[Fat16.c] "C:\CCStudio_v3.3PLA\C2000\cgtools\bin\cl2000" -g -q -pdr -as -fr"./Debug" -fs"./Debug" -i"../../DSP2833x_headers/include" -i"../../DSP2833x_common/include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 -@"Debug.lkf" "Fat16.c"
+
+[Fat32.c] "C:\CCStudio_v3.3PLA\C2000\cgtools\bin\cl2000" -g -q -pdr -as -fr"./Debug" -fs"./Debug" -i"../../DSP2833x_headers/include" -i"../../DSP2833x_common/include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 -@"Debug.lkf" "Fat32.c"
+
+[HAL.C] "C:\CCStudio_v3.3PLA\C2000\cgtools\bin\cl2000" -g -q -pdr -as -fr"./Debug" -fs"./Debug" -i"../../DSP2833x_headers/include" -i"../../DSP2833x_common/include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 -@"Debug.lkf" "HAL.C"
+
+[HPI16.C] "C:\CCStudio_v3.3PLA\C2000\cgtools\bin\cl2000" -g -q -pdr -as -fr"./Debug" -fs"./Debug" -i"../../DSP2833x_headers/include" -i"../../DSP2833x_common/include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 -@"Debug.lkf" "HPI16.C"
+"HPI16.C", line 405: remark: function declared implicitly
+"HPI16.C", line 405: remark: function declared implicitly
+"HPI16.C", line 982: remark: function declared implicitly
+"HPI16.C", line 982: remark: function declared implicitly
+
+[HPI32.C] "C:\CCStudio_v3.3PLA\C2000\cgtools\bin\cl2000" -g -q -pdr -as -fr"./Debug" -fs"./Debug" -i"../../DSP2833x_headers/include" -i"../../DSP2833x_common/include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 -@"Debug.lkf" "HPI32.C"
+"HPI32.C", line 35: remark: function declared implicitly
+"HPI32.C", line 35: remark: function declared implicitly
+"HPI32.C", line 241: remark: function declared implicitly
+"HPI32.C", line 241: remark: function declared implicitly
+"HPI32.C", line 601: remark: function declared implicitly
+"HPI32.C", line 601: remark: function declared implicitly
+"HPI32.C", line 715: remark: function declared implicitly
+"HPI32.C", line 715: remark: function declared implicitly
+"HPI32.C", line 970: remark: function declared implicitly
+"HPI32.C", line 970: remark: function declared implicitly
+
+[SD_SPI_Erase.c] "C:\CCStudio_v3.3PLA\C2000\cgtools\bin\cl2000" -g -q -pdr -as -fr"./Debug" -fs"./Debug" -i"../../DSP2833x_headers/include" -i"../../DSP2833x_common/include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 -@"Debug.lkf" "SD_SPI_Erase.c"
+
+[SD_SPI_Initialization.c] "C:\CCStudio_v3.3PLA\C2000\cgtools\bin\cl2000" -g -q -pdr -as -fr"./Debug" -fs"./Debug" -i"../../DSP2833x_headers/include" -i"../../DSP2833x_common/include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 -@"Debug.lkf" "SD_SPI_Initialization.c"
+
+[SD_SPI_Read.c] "C:\CCStudio_v3.3PLA\C2000\cgtools\bin\cl2000" -g -q -pdr -as -fr"./Debug" -fs"./Debug" -i"../../DSP2833x_headers/include" -i"../../DSP2833x_common/include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 -@"Debug.lkf" "SD_SPI_Read.c"
+
+[SD_SPI_Registers.c] "C:\CCStudio_v3.3PLA\C2000\cgtools\bin\cl2000" -g -q -pdr -as -fr"./Debug" -fs"./Debug" -i"../../DSP2833x_headers/include" -i"../../DSP2833x_common/include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 -@"Debug.lkf" "SD_SPI_Registers.c"
+
+[SD_SPI_Transmission.c] "C:\CCStudio_v3.3PLA\C2000\cgtools\bin\cl2000" -g -q -pdr -as -fr"./Debug" -fs"./Debug" -i"../../DSP2833x_headers/include" -i"../../DSP2833x_common/include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 -@"Debug.lkf" "SD_SPI_Transmission.c"
+
+[SD_SPI_Write.c] "C:\CCStudio_v3.3PLA\C2000\cgtools\bin\cl2000" -g -q -pdr -as -fr"./Debug" -fs"./Debug" -i"../../DSP2833x_headers/include" -i"../../DSP2833x_common/include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 -@"Debug.lkf" "SD_SPI_Write.c"
+
+[Udisc.c] "C:\CCStudio_v3.3PLA\C2000\cgtools\bin\cl2000" -g -q -pdr -as -fr"./Debug" -fs"./Debug" -i"../../DSP2833x_headers/include" -i"../../DSP2833x_common/include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 -@"Debug.lkf" "Udisc.c"
+
+[Linking...] "C:\CCStudio_v3.3PLA\C2000\cgtools\bin\cl2000" -@"Debug.lkf"
+<Linking>
+
+Build Complete,
+  0 Errors, 0 Warnings, 16 Remarks.

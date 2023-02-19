@@ -1,0 +1,231 @@
+// TI File $Revision: /main/3 $
+// Checkin $Date: April 21, 2008   15:44:27 $
+//###########################################################################
+//
+// ASSUMPTIONS:
+//
+//    This program requires the DSP2833x header files.
+//
+//    As supplied, this project is configured for "boot to SARAM"
+//    operation.  The 2833x Boot Mode table is shown below.
+//    For information on configuring the boot mode of an eZdsp,
+//    please refer to the documentation included with the eZdsp,
+//
+//       $Boot_Table:
+//
+//         GPIO87   GPIO86     GPIO85   GPIO84
+//          XA15     XA14       XA13     XA12
+//           PU       PU         PU       PU
+//        ==========================================
+//            1        1          1        1    Jump to Flash
+//            1        1          1        0    SCI-A boot
+//            1        1          0        1    SPI-A boot
+//            1        1          0        0    I2C-A boot
+//            1        0          1        1    eCAN-A boot
+//            1        0          1        0    McBSP-A boot
+//            1        0          0        1    Jump to XINTF x16
+//            1        0          0        0    Jump to XINTF x32
+//            0        1          1        1    Jump to OTP
+//            0        1          1        0    Parallel GPIO I/O boot
+//            0        1          0        1    Parallel XINTF boot
+//            0        1          0        0    Jump to SARAM	    <- "boot to SARAM"
+//            0        0          1        1    Branch to check boot mode
+//            0        0          1        0    Boot to flash, bypass ADC cal
+//            0        0          0        1    Boot to SARAM, bypass ADC cal
+//            0        0          0        0    Boot to SCI-A, bypass ADC cal
+//                                              Boot_Table_End$
+//
+//
+// DESCRIPTION:
+//
+// Code will perform a block copy of 1024 words from Zone 7 XINTF (DMABuf2)
+// to L4 SARAM (DMABuf1) .
+// Transfer will be started by Timer0.
+// We will use 32-bit DMA datasize.  Note this is independent from the XINTF
+// data width which is x16. Code will end in local_DINTCH1_ISR once the transfer is
+// complete
+//
+// Watch Variables:
+//      DMABuf1
+//      DMABuf2
+//
+//###########################################################################
+//
+// Original source by: M.P.
+//
+// $TI Release: DSP2833x/DSP2823x Header Files V1.20 $
+// $Release Date: August 1, 2008 $
+//###########################################################################
+
+#include "DSP28x_Project.h"     // Device Headerfile and Examples Include File
+/**************************************************************************/
+// Definitions for the SST 39VF800A part
+#define 	SST_ID                   0x00BF         /* SST Manufacturer's ID code   */
+#define 	SST_39VF400A             0x2780         /* SST39VF400/SST39VF400A device code */
+#define 	SST_39VF800A             0x2781         /* SST39VF800/SST39VF800A device code */
+#define		TimeOutErr				 1
+#define		VerifyErr				 2
+#define		WriteOK					 0
+#define		EraseErr				 3
+#define		EraseOK					 0			
+#define		SectorSize				 0x800
+#define		BlockSize				 0x8000
+unsigned    int  *FlashStart = (unsigned  int *)0x200000;
+unsigned  	int  *DSPRamStart = (unsigned  int *)0x00F000;  //RAML7前半部分
+unsigned  	int  *DSPRamStart2 = (unsigned  int *)0x00F800;  //RAML7的后半部分
+/**************************************************************************/
+
+void delay_loop(Uint32 x);
+extern void InitXintf(void);
+
+#define  execute_30us    delay_loop(1000)    
+#define  execute_150ms    delay_loop(5000000)
+ 
+void delay_loop(Uint32 x)
+{
+    Uint32      i;
+    for (i = 0; i < x; i++) {}
+}
+/**************************************************************************/
+Uint16	ChipErase(void)
+		{
+			Uint16	i,Data;
+			Uint32	TimeOut;				
+			*(FlashStart + 0x5555) = 0xAAAA;
+			*(FlashStart + 0x2AAA) = 0x5555;
+			*(FlashStart + 0x5555) = 0x8080;
+			*(FlashStart + 0x5555) = 0xAAAA;
+			*(FlashStart + 0x2AAA) = 0x5555;
+			*(FlashStart + 0x5555) = 0x1010;	
+			i = 0;
+			TimeOut = 0;
+			execute_150ms;
+			while(i<5)
+				{
+					Data = *(FlashStart +  0x3FFFF);
+					if	(Data == 0xFFFF)	i++;
+					else	i=0;
+					if ( ++TimeOut>0x1000000)	return (TimeOutErr);
+				}
+			for	(i=0;i<0x4000;i++)	
+				{
+					Data = *(FlashStart + i);
+					if (Data !=0xFFFF)	return (EraseErr);
+				}
+		
+			return  (EraseOK);											
+											
+		}
+		
+
+Uint16	FlashWrite(Uint32	RamStart, Uint32   RomStart,  Uint16	Length)
+		{
+			Uint32	i,TimeOut;
+			Uint16	Data1,Data2,j;
+			for	(i=0;i<Length;i++)
+				{
+					*(FlashStart + 0x5555)= 0xAA;
+					*(FlashStart + 0x2AAA)= 0x55;
+					*(FlashStart + 0x5555) = 0xA0;
+					*(FlashStart + RomStart + i) = *(DSPRamStart + RamStart + i);
+					TimeOut = 0;
+					j=0;
+					execute_30us;
+				}	
+				
+					while(j<5)
+						{
+							Data1 = *(FlashStart + RomStart + i);
+							Data2 = *(FlashStart + RomStart + i);							
+							if	(Data1 == Data2)	j++;
+							else	j=0;
+							if ( ++TimeOut>0x1000000)	return (TimeOutErr);
+								
+						}						
+                 
+				
+			for (i=0;i<Length;i++)
+				{
+					Data1 = *(FlashStart + RomStart +i);
+					Data2 = *(DSPRamStart + RamStart +i);
+					if  (Data1 != Data2)	return (VerifyErr);
+				}
+			return  (WriteOK);			
+				
+		}
+
+void	FlashRead(Uint32	RamStart, Uint32  RomStart,	Uint16	Length)
+		{
+			Uint32	i;
+			Uint16 Temp; 
+			for	(i=0;i<Length;i++)
+				{
+					Temp =  (*((volatile	unsigned  int  *)(FlashStart + RomStart + i)));
+					*(DSPRamStart + RamStart +i) = Temp;
+				}	
+		}
+
+void	InitRam(Uint16	Start)
+		{
+			Uint16	i;
+			for	(i=0;i<0x400;i++)		*(DSPRamStart + Start + i) = i;
+		}
+void	EraseRam(Uint16	Start)
+		{
+			Uint16	i;
+			for	(i=0;i<0x400;i++)		*(DSPRamStart2 + Start + i) = 0;
+		}
+void	RamRead(Uint16	Start)
+		{
+			Uint16	i;
+			for	(i=0;i<0x400;i++)		*(DSPRamStart2 + Start + i) = *(DSPRamStart +i);
+		}				
+/**************************************************************************/
+void main(void)
+{
+   
+// Step 1. Initialize System Control:
+// PLL, WatchDog, enable Peripheral Clocks
+// This example function is found in the DSP2833x_SysCtrl.c file.
+   InitSysCtrl();
+
+// Step 2. Clear all interrupts and initialize PIE vector table:
+// Disable CPU interrupts
+   DINT;
+
+// Step 3. Initialize the PIE control registers to their default state.
+// The default state is all PIE interrupts disabled and flags
+// are cleared.
+// This function is found in the DSP2833x_PieCtrl.c file.
+   InitPieCtrl();
+
+// Step 4.Disable CPU interrupts and clear all CPU interrupt flags:
+   IER = 0x0000;
+   IFR = 0x0000;
+//Step 5. Initialize PieVectTable
+   InitPieVectTable();
+//Step 6. Initialize Xintf
+   InitXintf();	
+//Step 7. 初始化DSP内部Ram区    
+   InitRam(0);
+//Step 8. 清除DSP外扩FLASH（SST39VF800）内容    
+   ChipErase(); 
+   execute_150ms;   
+//Step 9. 写数据到SST39VF800    
+   FlashWrite(0,0,0x400);
+//Step 10. 清除Ram中的数据    
+   EraseRam(0x0);
+//Step 11. 将FLASH中的数据再读取到另一块Ram（RAML7的后半部分）中 
+   FlashRead(0,0,0x400);
+
+
+   for(;;)
+   {
+
+   };
+
+}
+
+
+
+

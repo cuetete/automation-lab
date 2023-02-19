@@ -1,0 +1,96 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+C_SRCS += \
+F:/project/EE_OEM/DL\ 3155E26/DISK/SOURCE\ CODE/DSP2833x_common/source/DSP2833x_DefaultIsr.c \
+../DSP2833x_ECan.c \
+F:/project/EE_OEM/DL\ 3155E26/DISK/SOURCE\ CODE/DSP2833x_headers/source/DSP2833x_GlobalVariableDefs.c \
+F:/project/EE_OEM/DL\ 3155E26/DISK/SOURCE\ CODE/DSP2833x_common/source/DSP2833x_PieCtrl.c \
+F:/project/EE_OEM/DL\ 3155E26/DISK/SOURCE\ CODE/DSP2833x_common/source/DSP2833x_PieVect.c \
+F:/project/EE_OEM/DL\ 3155E26/DISK/SOURCE\ CODE/DSP2833x_common/source/DSP2833x_Spi.c \
+F:/project/EE_OEM/DL\ 3155E26/DISK/SOURCE\ CODE/DSP2833x_common/source/DSP2833x_SysCtrl.c \
+../EcanA_to_B_Xmit.c 
+
+ASM_SRCS += \
+F:/project/EE_OEM/DL\ 3155E26/DISK/SOURCE\ CODE/DSP2833x_common/source/DSP2833x_ADC_cal.asm \
+F:/project/EE_OEM/DL\ 3155E26/DISK/SOURCE\ CODE/DSP2833x_common/source/DSP2833x_CodeStartBranch.asm \
+F:/project/EE_OEM/DL\ 3155E26/DISK/SOURCE\ CODE/DSP2833x_common/source/DSP2833x_usDelay.asm 
+
+CMD_SRCS += \
+F:/project/EE_OEM/DL\ 3155E26/DISK/SOURCE\ CODE/DSP2833x_common/cmd/28335_RAM_lnk.cmd \
+F:/project/EE_OEM/DL\ 3155E26/DISK/SOURCE\ CODE/DSP2833x_headers/cmd/DSP2833x_Headers_nonBIOS.cmd 
+
+ASM_DEPS += \
+./DSP2833x_ADC_cal.pp \
+./DSP2833x_CodeStartBranch.pp \
+./DSP2833x_usDelay.pp 
+
+OBJS += \
+D:/POP28335_CODE/POP28335_examples/Ex19_POP28335_ecanATXD_BRXD/Debug/DSP2833x_ADC_cal.obj \
+D:/POP28335_CODE/POP28335_examples/Ex19_POP28335_ecanATXD_BRXD/Debug/DSP2833x_CodeStartBranch.obj \
+D:/POP28335_CODE/POP28335_examples/Ex19_POP28335_ecanATXD_BRXD/Debug/DSP2833x_DefaultIsr.obj \
+D:/POP28335_CODE/POP28335_examples/Ex19_POP28335_ecanATXD_BRXD/Debug/DSP2833x_ECan.obj \
+D:/POP28335_CODE/POP28335_examples/Ex19_POP28335_ecanATXD_BRXD/Debug/DSP2833x_GlobalVariableDefs.obj \
+D:/POP28335_CODE/POP28335_examples/Ex19_POP28335_ecanATXD_BRXD/Debug/DSP2833x_PieCtrl.obj \
+D:/POP28335_CODE/POP28335_examples/Ex19_POP28335_ecanATXD_BRXD/Debug/DSP2833x_PieVect.obj \
+D:/POP28335_CODE/POP28335_examples/Ex19_POP28335_ecanATXD_BRXD/Debug/DSP2833x_Spi.obj \
+D:/POP28335_CODE/POP28335_examples/Ex19_POP28335_ecanATXD_BRXD/Debug/DSP2833x_SysCtrl.obj \
+D:/POP28335_CODE/POP28335_examples/Ex19_POP28335_ecanATXD_BRXD/Debug/DSP2833x_usDelay.obj \
+D:/POP28335_CODE/POP28335_examples/Ex19_POP28335_ecanATXD_BRXD/Debug/EcanA_to_B_Xmit.obj 
+
+C_DEPS += \
+./DSP2833x_DefaultIsr.pp \
+./DSP2833x_ECan.pp \
+./DSP2833x_GlobalVariableDefs.pp \
+./DSP2833x_PieCtrl.pp \
+./DSP2833x_PieVect.pp \
+./DSP2833x_Spi.pp \
+./DSP2833x_SysCtrl.pp \
+./EcanA_to_B_Xmit.pp 
+
+OBJS__QTD += \
+"D:\POP28335_CODE\POP28335_examples\Ex19_POP28335_ecanATXD_BRXD\Debug\DSP2833x_ADC_cal.obj" \
+"D:\POP28335_CODE\POP28335_examples\Ex19_POP28335_ecanATXD_BRXD\Debug\DSP2833x_CodeStartBranch.obj" \
+"D:\POP28335_CODE\POP28335_examples\Ex19_POP28335_ecanATXD_BRXD\Debug\DSP2833x_DefaultIsr.obj" \
+"D:\POP28335_CODE\POP28335_examples\Ex19_POP28335_ecanATXD_BRXD\Debug\DSP2833x_ECan.obj" \
+"D:\POP28335_CODE\POP28335_examples\Ex19_POP28335_ecanATXD_BRXD\Debug\DSP2833x_GlobalVariableDefs.obj" \
+"D:\POP28335_CODE\POP28335_examples\Ex19_POP28335_ecanATXD_BRXD\Debug\DSP2833x_PieCtrl.obj" \
+"D:\POP28335_CODE\POP28335_examples\Ex19_POP28335_ecanATXD_BRXD\Debug\DSP2833x_PieVect.obj" \
+"D:\POP28335_CODE\POP28335_examples\Ex19_POP28335_ecanATXD_BRXD\Debug\DSP2833x_Spi.obj" \
+"D:\POP28335_CODE\POP28335_examples\Ex19_POP28335_ecanATXD_BRXD\Debug\DSP2833x_SysCtrl.obj" \
+"D:\POP28335_CODE\POP28335_examples\Ex19_POP28335_ecanATXD_BRXD\Debug\DSP2833x_usDelay.obj" \
+"D:\POP28335_CODE\POP28335_examples\Ex19_POP28335_ecanATXD_BRXD\Debug\EcanA_to_B_Xmit.obj" 
+
+ASM_DEPS__QTD += \
+".\DSP2833x_ADC_cal.pp" \
+".\DSP2833x_CodeStartBranch.pp" \
+".\DSP2833x_usDelay.pp" 
+
+C_DEPS__QTD += \
+".\DSP2833x_DefaultIsr.pp" \
+".\DSP2833x_ECan.pp" \
+".\DSP2833x_GlobalVariableDefs.pp" \
+".\DSP2833x_PieCtrl.pp" \
+".\DSP2833x_PieVect.pp" \
+".\DSP2833x_Spi.pp" \
+".\DSP2833x_SysCtrl.pp" \
+".\EcanA_to_B_Xmit.pp" 
+
+ASM_SRCS_QUOTED += \
+"F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/source/DSP2833x_ADC_cal.asm" \
+"F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/source/DSP2833x_CodeStartBranch.asm" \
+"F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/source/DSP2833x_usDelay.asm" 
+
+C_SRCS_QUOTED += \
+"F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/source/DSP2833x_DefaultIsr.c" \
+"../DSP2833x_ECan.c" \
+"F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_headers/source/DSP2833x_GlobalVariableDefs.c" \
+"F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/source/DSP2833x_PieCtrl.c" \
+"F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/source/DSP2833x_PieVect.c" \
+"F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/source/DSP2833x_Spi.c" \
+"F:/project/EE_OEM/DL 3155E26/DISK/SOURCE CODE/DSP2833x_common/source/DSP2833x_SysCtrl.c" \
+"../EcanA_to_B_Xmit.c" 
+
+

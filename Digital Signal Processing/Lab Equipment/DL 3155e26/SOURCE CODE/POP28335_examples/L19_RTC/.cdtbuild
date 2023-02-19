@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?fileVersion 3.1.0?>
+
+<ManagedProjectBuildInfo>
+<project id="POP28335_RTC.com.ti.ccstudio.buildDefinitions.C2000.ProjectType.2073702216" name="C2000" projectType="com.ti.ccstudio.buildDefinitions.C2000.ProjectType">
+<configuration artifactExtension="out" artifactName="POP28335_EEPROM" description="" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.2144650227" name="Debug" parent="com.ti.ccstudio.buildDefinitions.C2000.Debug">
+<toolChain id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.DebugToolchain.1231152981" name="TI Code Generation Tools" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.DebugToolchain" targetTool="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.865785655">
+<option id="com.ti.ccstudio.buildDefinitions.core.OPT_TAGS.1434743814" superClass="com.ti.ccstudio.buildDefinitions.core.OPT_TAGS" valueType="stringList">
+<listOptionValue builtIn="false" value="DEVICE_CONFIGURATION_ID=TMS320C28XX"/>
+<listOptionValue builtIn="false" value="DEVICE_ENDIANNESS=none"/>
+<listOptionValue builtIn="false" value="OUTPUT_FORMAT=COFF"/>
+<listOptionValue builtIn="false" value="CCS_MBS_VERSION=4.2.4"/>
+<listOptionValue builtIn="false" value="LINKER_COMMAND_FILE="/>
+<listOptionValue builtIn="false" value="RUNTIME_SUPPORT_LIBRARY="/>
+<listOptionValue builtIn="false" value="OUTPUT_TYPE=executable"/>
+<listOptionValue builtIn="false" value="RTSC_PRODUCTS=com.ti.rtsc.XDAIS:latest;"/>
+<listOptionValue builtIn="false" value="LINK_ORDER=DSP2833x_Headers_nonBIOS.cmd;"/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.core.OPT_CODEGEN_VERSION.1414584955" superClass="com.ti.ccstudio.buildDefinitions.core.OPT_CODEGEN_VERSION" value="6.0.1" valueType="string"/>
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.885406840" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug">
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIAG_WARNING.1086252864" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIAG_WARNING" valueType="stringList">
+<listOptionValue builtIn="false" value="225"/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.INCLUDE_PATH.335170394" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.INCLUDE_PATH" valueType="includePath">
+<listOptionValue builtIn="false" value="&quot;${CG_TOOL_ROOT}/include&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${XDAIS_CG_ROOT}/packages/ti/xdais&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${EXT_ROOT__POP28335_RTC}/DSP2833x_headers/include&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${EXT_ROOT__POP28335_RTC}/DSP2833x_common/include&quot;"/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIRECTORY_MODE.1208620259" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIRECTORY_MODE" value="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIRECTORY_MODE.manual" valueType="enumerated"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DEFINE.1927081823" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DEFINE" valueType="definedSymbols">
+<listOptionValue builtIn="false" value="&quot;_DEBUG&quot;"/>
+<listOptionValue builtIn="false" value="&quot;LARGE_MODEL&quot;"/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.LARGE_MEMORY_MODEL.128087010" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.LARGE_MEMORY_MODEL" value="true" valueType="boolean"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.SILICON_VERSION.901413394" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.SILICON_VERSION" value="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.SILICON_VERSION.28" valueType="enumerated"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.FLOAT_SUPPORT.1977632522" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.FLOAT_SUPPORT" value="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.FLOAT_SUPPORT.fpu32" valueType="enumerated"/>
+</tool>
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.865785655" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug">
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.OUTPUT_FILE.1571061918" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.OUTPUT_FILE" value="&quot;POP28335_EEPROM.out&quot;" valueType="string"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.MAP_FILE.685782533" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.MAP_FILE" value="&quot;POP28335_EEPROM.map&quot;" valueType="string"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.SEARCH_PATH.1591763135" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.SEARCH_PATH" valueType="stringList">
+<listOptionValue builtIn="false" value="&quot;${CG_TOOL_ROOT}/lib&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${CG_TOOL_ROOT}/include&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${PROJECT_ROOT}&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${EXT_ROOT__POP28335_RTC}/DSP2833x_headers/include&quot;"/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.STACK_SIZE.42739747" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.STACK_SIZE" value="0x380" valueType="string"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.LIBRARY.1290598101" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.LIBRARY" valueType="libs">
+<listOptionValue builtIn="false" value="&quot;rts2800_fpu32.lib&quot;"/>
+</option>
+</tool>
+<macros/>
+</toolChain>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.2144650227./POP28335_RTC/POP28335_RTC/Debug/ccsSrcs.opt" name="ccsSrcs.opt" rcbsApplicability="disable" resourcePath="/POP28335_RTC/POP28335_RTC/Debug/ccsSrcs.opt" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.885406840./POP28335_RTC/POP28335_RTC/Debug/ccsSrcs.opt">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.885406840./POP28335_RTC/POP28335_RTC/Debug/ccsSrcs.opt" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.885406840"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.2144650227./POP28335_RTC/POP28335_RTC/Debug/ccsObjs.opt" name="ccsObjs.opt" rcbsApplicability="disable" resourcePath="/POP28335_RTC/POP28335_RTC/Debug/ccsObjs.opt" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.885406840./POP28335_RTC/POP28335_RTC/Debug/ccsObjs.opt">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.885406840./POP28335_RTC/POP28335_RTC/Debug/ccsObjs.opt" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.885406840"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.2144650227./POP28335_RTC/POP28335_RTC/Debug/ccsLinker.opt" name="ccsLinker.opt" rcbsApplicability="disable" resourcePath="/POP28335_RTC/POP28335_RTC/Debug/ccsLinker.opt" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.885406840./POP28335_RTC/POP28335_RTC/Debug/ccsLinker.opt">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.885406840./POP28335_RTC/POP28335_RTC/Debug/ccsLinker.opt" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.885406840"/>
+</resourceConfiguration>
+</configuration>
+<configuration artifactExtension="out" artifactName="ZQ28335_EEPROM" description="" id="com.ti.ccstudio.buildDefinitions.C2000.Release.1509940321" name="Release" parent="com.ti.ccstudio.buildDefinitions.C2000.Release">
+<toolChain id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.ReleaseToolchain.255096321" name="TI Code Generation Tools" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.ReleaseToolchain" targetTool="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.503273529">
+<option id="com.ti.ccstudio.buildDefinitions.core.OPT_TAGS.497400039" superClass="com.ti.ccstudio.buildDefinitions.core.OPT_TAGS" valueType="stringList">
+<listOptionValue builtIn="false" value="DEVICE_CONFIGURATION_ID=TMS320C28XX"/>
+<listOptionValue builtIn="false" value="DEVICE_ENDIANNESS=none"/>
+<listOptionValue builtIn="false" value="OUTPUT_FORMAT=COFF"/>
+<listOptionValue builtIn="false" value="CCS_MBS_VERSION=4.2.4"/>
+<listOptionValue builtIn="false" value="LINKER_COMMAND_FILE="/>
+<listOptionValue builtIn="false" value="RUNTIME_SUPPORT_LIBRARY="/>
+<listOptionValue builtIn="false" value="OUTPUT_TYPE=executable"/>
+<listOptionValue builtIn="false" value="RTSC_PRODUCTS=com.ti.rtsc.XDAIS:latest;"/>
+<listOptionValue builtIn="false" value="LINK_ORDER=DSP2833x_Headers_nonBIOS.cmd;"/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.core.OPT_CODEGEN_VERSION.948995904" superClass="com.ti.ccstudio.buildDefinitions.core.OPT_CODEGEN_VERSION" value="6.0.1" valueType="string"/>
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1281828292" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease">
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIAG_WARNING.1674028248" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIAG_WARNING" valueType="stringList">
+<listOptionValue builtIn="false" value="225"/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.INCLUDE_PATH.1250495899" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.INCLUDE_PATH" valueType="includePath">
+<listOptionValue builtIn="false" value="&quot;${CG_TOOL_ROOT}/include&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${XDAIS_CG_ROOT}/packages/ti/xdais&quot;"/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.OPT_LEVEL.release.689496933" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.OPT_LEVEL.release" value="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.OPT_LEVEL.3" valueType="enumerated"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIRECTORY_MODE.1295152130" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIRECTORY_MODE" value="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIRECTORY_MODE.manual" valueType="enumerated"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DEFINE.1261772683" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DEFINE" valueType="definedSymbols">
+<listOptionValue builtIn="false" value="&quot;LARGE_MODEL&quot;"/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.LARGE_MEMORY_MODEL.1038483802" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.LARGE_MEMORY_MODEL" value="true" valueType="boolean"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.SILICON_VERSION.1772831959" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.SILICON_VERSION" value="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.SILICON_VERSION.28" valueType="enumerated"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DEBUGGING_MODEL.388950987" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DEBUGGING_MODEL" value="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DEBUGGING_MODEL._none" valueType="enumerated"/>
+</tool>
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.503273529" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease">
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.OUTPUT_FILE.1541198154" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.OUTPUT_FILE" value="&quot;ZQ28335_EEPROM.out&quot;" valueType="string"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.MAP_FILE.1262675898" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.MAP_FILE" value="&quot;ZQ28335_EEPROM.map&quot;" valueType="string"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.SEARCH_PATH.1110686120" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.SEARCH_PATH" valueType="stringList">
+<listOptionValue builtIn="false" value="&quot;${CG_TOOL_ROOT}/lib&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${CG_TOOL_ROOT}/include&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${PROJECT_ROOT}&quot;"/>
+</option>
+</tool>
+</toolChain>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.1509940321./POP28335_RTC/POP28335_RTC/Debug/ccsSrcs.opt" name="ccsSrcs.opt" rcbsApplicability="disable" resourcePath="/POP28335_RTC/POP28335_RTC/Debug/ccsSrcs.opt" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1281828292./POP28335_RTC/POP28335_RTC/Debug/ccsSrcs.opt">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1281828292./POP28335_RTC/POP28335_RTC/Debug/ccsSrcs.opt" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1281828292"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.1509940321./POP28335_RTC/POP28335_RTC/Debug/ccsObjs.opt" name="ccsObjs.opt" rcbsApplicability="disable" resourcePath="/POP28335_RTC/POP28335_RTC/Debug/ccsObjs.opt" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1281828292./POP28335_RTC/POP28335_RTC/Debug/ccsObjs.opt">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1281828292./POP28335_RTC/POP28335_RTC/Debug/ccsObjs.opt" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1281828292"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.1509940321./POP28335_RTC/POP28335_RTC/Debug/ccsLinker.opt" name="ccsLinker.opt" rcbsApplicability="disable" resourcePath="/POP28335_RTC/POP28335_RTC/Debug/ccsLinker.opt" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1281828292./POP28335_RTC/POP28335_RTC/Debug/ccsLinker.opt">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1281828292./POP28335_RTC/POP28335_RTC/Debug/ccsLinker.opt" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1281828292"/>
+</resourceConfiguration>
+</configuration>
+<macros/>
+</project>
+</ManagedProjectBuildInfo>

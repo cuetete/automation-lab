@@ -1,0 +1,121 @@
+Release 3.3.06i_V2_SE2 - Bitgen D.19
+Copyright (c) 1995-2000 Xilinx, Inc.  All rights reserved.
+
+Loading device database for application Bitgen from file "ev05.ncd".
+   "ev05" is an NCD, version 2.32, device xc3020a, package pc68, speed -7
+Loading device for application Bitgen from file '3020a.nph' in environment
+C:/Xilinx.
+Opened constraints file ev05.pcf.
+
+Fri Mar 30 13:30:04 2001
+
+bitgen -t -a -u -l -w -g Input:CMOS -g DonePin:PULLUP -g Oscillator:DISABLE -g ReadBack:COMMAND -g RESETTIME:AFTER -g DONETIME:AFTER ev05.ncd 
+
+Running DRC.
+DRC detected 0 errors and 0 warnings.
+Saving ll file in "ev05.ll".
+
+Tying down design ev05.ncd.
+Creating tie sources.
+   Original design signals: 149
+   Original signals added to source list: 89
+   New signals created: 77
+   New signals added to source list: 77
+   Total signals in source list: 166
+Creating tie targets.
+   Total nodes: 2474
+   Unused nodes: 1639
+   Nodes in target list: 967
+Tying down target nodes.
+   Tied 190 nodes to signal $TIE_DA_X.
+   Tied 14 nodes to signal $TIE_DA_Y.
+   Tied 22 nodes to signal $TIE_CA_X.
+   Tied 11 nodes to signal $TIE_CA_Y.
+   Tied 29 nodes to signal $TIE_HE_X.
+   Tied 33 nodes to signal $TIE_HE_Y.
+   Tied 20 nodes to signal $TIE_HF_X.
+   Tied 6 nodes to signal $TIE_HF_Y.
+   Tied 198 nodes to signal $TIE_EH_Y.
+   Tied 1 nodes to signal $TIE_BH_X.
+   Tied 18 nodes to signal $TIE_BH_Y.
+   Tied 5 nodes to signal $TIE_UNB61_Q.
+   Tied 6 nodes to signal $TIE_P13_Q.
+   Tied 3 nodes to signal $TIE_P12_Q.
+   Tied 39 nodes to signal $TIE_P11_Q.
+   Tied 1 nodes to signal $TIE_P9_Q.
+   Tied 4 nodes to signal $TIE_P8_Q.
+   Tied 1 nodes to signal $TIE_P29_Q.
+   Tied 18 nodes to signal $TIE_P7_Q.
+   Tied 2 nodes to signal $TIE_P30_Q.
+   Tied 2 nodes to signal $TIE_P6_Q.
+   Tied 1 nodes to signal $TIE_P5_Q.
+   Tied 2 nodes to signal $TIE_P4_Q.
+   Tied 3 nodes to signal $TIE_P3_Q.
+   Tied 9 nodes to signal $TIE_P2_Q.
+   Tied 51 nodes to signal $TIE_P68_Q.
+   Tied 1 nodes to signal $TIE_P37_Q.
+   Tied 1 nodes to signal $TIE_P67_Q.
+   Tied 15 nodes to signal $TIE_P66_Q.
+   Tied 4 nodes to signal $TIE_P65_Q.
+   Tied 4 nodes to signal $TIE_P64_Q.
+   Tied 4 nodes to signal $TIE_P63_Q.
+   Tied 2 nodes to signal $TIE_P42_Q.
+   Tied 75 nodes to signal $TIE_P62_Q.
+   Tied 4 nodes to signal $TIE_P61_Q.
+   Tied 2 nodes to signal $TIE_P55_Q.
+   Tied 1 nodes to signal $TIE_UNB21_Q.
+   Tied 1 nodes to signal $TIE_P58_Q.
+   Tied 1 nodes to signal $TIE_P59_Q.
+   Tied 20 nodes to signal $TIE_GCLK_O.
+   Tied 5 nodes to signal $I110/QA.
+   Tied 1 nodes to signal $I110/T2.
+   Tied 7 nodes to signal $I110/QC.
+   Tied 5 nodes to signal $Net00033_.
+   Tied 3 nodes to signal $I111/QB.
+   Tied 1 nodes to signal $I111/QC.
+   Tied 5 nodes to signal CK2.
+   Tied 2 nodes to signal $I112/QA.
+   Tied 1 nodes to signal $I112/QB.
+   Tied 1 nodes to signal $I112/QC.
+   Tied 9 nodes to signal $Net00060_.
+   Tied 2 nodes to signal $Net00059_.
+   Tied 1 nodes to signal $I113/QA.
+   Tied 7 nodes to signal $I113/T2.
+   Tied 2 nodes to signal $I113/QD.
+   Tied 2 nodes to signal CK4.
+   Tied 5 nodes to signal $Net00017_.
+   Tied 11 nodes to signal $I114/CLRB.
+   Tied 5 nodes to signal $Net00014_.
+   Tied 9 nodes to signal $Net00018_.
+   Tied 4 nodes to signal $Net00025_.
+   Tied 3 nodes to signal $Net00016_.
+   Tied 3 nodes to signal $Net00001_.
+   Tied 7 nodes to signal $Net00015_.
+   Tied 2 nodes to signal $I115/T2.
+   Tied 2 nodes to signal $Net00022_.
+   Tied 1 nodes to signal $Net00026_.
+   Tied 9 nodes to signal $Net00003_.
+   Tied 2 nodes to signal $Net00002_.
+   Tied 2 nodes to signal $Net00013_.
+   Tied 1 nodes to signal $Net00021_.
+   Tied 2 nodes to signal $I117/T2.
+   Tied 1 nodes to signal $Net00024_.
+   Tied 1 nodes to signal $Net00028_.
+   Tied 3 nodes to signal $Net00061_.
+   Tied 2 nodes to signal $Net00058_.
+   Tied 2 nodes to signal $Net00055_.
+   Tied 1 nodes to signal $Net00034_.
+   Tied 1 nodes to signal GLOBAL_LOGIC1.
+   Tied 2 nodes to signal $Net00085_.
+   Tied 1 nodes to signal $TIE_DA_X.
+   Tied 1 nodes to signal $TIE_DA_X.
+   Tied 1 nodes to signal $TIE_CA_Y.
+   Tied 1 nodes to signal $TIE_DA_Y.
+   Tied 1 nodes to signal CK.
+   Tied 1 nodes to signal $TIE_HF_X.
+   Tied 1 nodes to signal $TIE_EH_Y.
+   Tied 1 nodes to signal $TIE_BH_Y.
+Tiedown complete. 0 untied nodes.
+Fixing up iob clocks...Done.
+Creating bit map...
+Saving bit stream in "ev05.bit".

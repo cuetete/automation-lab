@@ -1,0 +1,258 @@
+// DESCRIPTION:
+//
+//		Real Timer dispaly on LCD12864
+//		1st line: yyyy/mm/dd   2nd line: hh/mm/ss
+//      3rd line: date
+//		
+////###########################################################################	
+
+#include "DSP2833x_Device.h"     // DSP2833x Headerfile Include File
+#include "DSP2833x_Examples.h"   // DSP2833x Examples Include File
+
+
+#define uchar unsigned char
+#define LCD_RS GpioDataRegs.GPADAT.bit.GPIO0
+#define LCD_EN GpioDataRegs.GPADAT.bit.GPIO1
+#define LCD_DB GpioDataRegs.GPADAT.all
+
+extern void delay(Uint16 time);
+extern void Eerom_Gpio_Init(void);
+extern void Init8563(void);
+extern void GetTime(void);
+
+void Init_Port(void);
+void LCD_init(void);                       
+void LCD_write_command(uchar command);       
+void LCD_write_data(uchar dat);               
+
+extern uchar TAB_T[];
+
+void main(void)
+{
+   Uint16 tmp=0;
+// Step 1. Initialize System Control:
+// PLL, WatchDog, enable Peripheral Clocks
+// This example function is found in the DSP280x_SysCtrl.c file.
+   InitSysCtrl();					 
+
+
+// Step 2. Initalize GPIO: 
+// This example function is found in the DSP280x_Gpio.c file and
+// illustrates how to set the GPIO to it's default state.
+   Eerom_Gpio_Init();					 
+   Init_Port();
+   LCD_init();
+// Step 3. Clear all interrupts and initialize PIE vector table:
+// Disable CPU interrupts 
+   DINT;   
+
+// Initialize PIE control registers to their default state.
+// The default state is all PIE interrupts disabled and flags
+// are cleared.  
+// This function is found in the DSP280x_PieCtrl.c file.
+   InitPieCtrl();			
+
+// Disable CPU interrupts and clear all CPU interrupt flags:
+   IER = 0x0000;
+   IFR = 0x0000;
+
+// Initialize the PIE vector table with pointers to the shell Interrupt 
+// Service Routines (ISR).  
+// This will populate the entire table, even if the interrupt
+// is not used in this example.  This is useful for debug purposes.
+// The shell ISR routines are found in DSP280x_DefaultIsr.c.
+// This function is found in DSP280x_PieVect.c.
+   InitPieVectTable();
+   Init8563();
+   for(;;)
+   {
+		LCD_write_command(0x80);  //0x80 0x90 0x88 0x98
+		LCD_write_data('2');
+		LCD_write_data('0');
+		tmp=TAB_T[6];
+		tmp>>=4;
+		tmp+=0x30;
+		LCD_write_data(tmp);		//display year
+		tmp=TAB_T[6];
+		tmp&=0x000F;
+		tmp+=0x30;
+		LCD_write_data(tmp);
+		LCD_write_data('-');
+		tmp=TAB_T[5];
+		tmp>>=4;
+		tmp+=0x30;
+		LCD_write_data(tmp);       
+		tmp=TAB_T[5];
+		tmp&=0x000F;
+		tmp+=0x30;
+		LCD_write_data(tmp);		//display month
+		LCD_write_data('-');
+		tmp=TAB_T[3];
+		tmp>>=4;
+		tmp+=0x30;
+		LCD_write_data(tmp);
+		tmp=TAB_T[3];
+		tmp&=0x000F;
+		tmp+=0x30;
+		LCD_write_data(tmp);		//display day
+		
+		LCD_write_command(0x90);
+		tmp=TAB_T[2];
+		tmp>>=4;
+		tmp+=0x30;
+		LCD_write_data(tmp);
+		tmp=TAB_T[2];
+		tmp&=0x000F;
+		tmp+=0x30;
+		LCD_write_data(tmp);
+		LCD_write_data('-');
+		tmp=TAB_T[1];
+		tmp>>=4;
+		tmp+=0x30;
+		LCD_write_data(tmp);
+		tmp=TAB_T[1];
+		tmp&=0x000F;
+		tmp+=0x30;
+		LCD_write_data(tmp);
+		LCD_write_data('-');
+		tmp=TAB_T[0];
+		tmp>>=4;
+		tmp+=0x30;
+		LCD_write_data(tmp);
+		tmp=TAB_T[0];
+		tmp&=0x000F;
+		tmp+=0x30;
+		LCD_write_data(tmp);
+
+		LCD_write_command(0x88);
+		switch(TAB_T[4])
+		{
+			case 0x00:
+				LCD_write_data('S');
+				LCD_write_data('U');
+				LCD_write_data('N');
+				LCD_write_data('D');
+				LCD_write_data('A');
+				LCD_write_data('Y');
+				break;
+			case 0x01:
+				LCD_write_data('M');
+				LCD_write_data('O');
+				LCD_write_data('N');
+				LCD_write_data('D');
+				LCD_write_data('A');
+				LCD_write_data('Y');
+				break;
+			case 0x02:
+				LCD_write_data('T');
+				LCD_write_data('U');
+				LCD_write_data('E');
+				LCD_write_data('S');
+				LCD_write_data('D');
+				LCD_write_data('A');
+				LCD_write_data('Y');
+				break;
+			case 0x03:
+				LCD_write_data('W');
+				LCD_write_data('E');
+				LCD_write_data('D');
+				LCD_write_data('N');
+				LCD_write_data('E');
+				LCD_write_data('S');
+				LCD_write_data('D');
+				LCD_write_data('A');
+				LCD_write_data('Y');
+				break;
+			case 0x04:
+				LCD_write_data('T');
+				LCD_write_data('H');
+				LCD_write_data('U');
+				LCD_write_data('R');
+				LCD_write_data('S');
+				LCD_write_data('D');
+				LCD_write_data('A');
+				LCD_write_data('Y');
+				break;
+			case 0x05:
+				LCD_write_data('F');
+				LCD_write_data('R');
+				LCD_write_data('I');
+				LCD_write_data('D');
+				LCD_write_data('A');
+				LCD_write_data('Y');
+				break;
+			case 0x06:
+				LCD_write_data('S');
+				LCD_write_data('A');
+				LCD_write_data('T');
+				LCD_write_data('U');
+				LCD_write_data('R');
+				LCD_write_data('D');
+				LCD_write_data('A');
+				LCD_write_data('Y');
+				break;
+			default:
+				break;
+		}
+    	delay(50000);
+		GetTime();
+		
+      
+   }   
+}   
+
+void Init_Port(void)
+{
+   EALLOW;   
+   GpioCtrlRegs.GPAPUD.bit.GPIO0 = 0;    
+   GpioCtrlRegs.GPAPUD.bit.GPIO1 = 1;   
+   GpioCtrlRegs.GPAMUX1.all = 0;    
+   GpioCtrlRegs.GPAMUX2.bit.GPIO24 = 0;    
+   GpioCtrlRegs.GPADIR.all = 0x10003FF; 
+   GpioCtrlRegs.GPAQSEL1.all = 0x0000;   
+   GpioCtrlRegs.GPAQSEL2.all = 0x0000;  
+   GpioDataRegs.GPADAT.bit.GPIO0 = 1;
+   GpioDataRegs.GPADAT.bit.GPIO1 = 0;
+   GpioDataRegs.GPADAT.bit.GPIO24 = 0;  	//74244 EN=0;
+   EDIS;
+} 
+ 
+void LCD_write_command(uchar command)
+{
+LCD_RS=0;         
+LCD_EN=1;          
+LCD_DB=(command<<2)|0x0002; 
+DELAY_US(10000); 
+LCD_EN=0;
+DELAY_US(100);
+
+}
+ 
+void LCD_write_data(uchar dat)
+{
+LCD_RS=1;          
+LCD_EN=1;           
+LCD_DB=(dat<<2)|0x0003;
+DELAY_US(10000); 
+LCD_EN=0; 
+DELAY_US(100);
+}
+ 
+void LCD_init(void)
+{
+DELAY_US(100000); 
+LCD_write_command(0x30); 
+DELAY_US(200); 
+LCD_write_command(0x30); 
+DELAY_US(200); 
+LCD_write_command(0x0c); 
+DELAY_US(200); 
+LCD_write_command(0x01); 
+DELAY_US(12000); 
+LCD_write_command(0x06); 
+DELAY_US(500); 
+}
+
+//===========================================================================
+// No more.
+//===========================================================================

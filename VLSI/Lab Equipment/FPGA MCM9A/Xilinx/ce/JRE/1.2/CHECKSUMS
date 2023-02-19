@@ -1,0 +1,48 @@
+
+			    CHECKSUMS
+
+                    Java(tm) Development Kit
+                    Java(tm) Runtime Environment
+                      JDK(tm) 1.2.2-001
+
+-----------------------------------------------------------------------
+CONTENTS
+-----------------------------------------------------------------------
+This document contains the MD5 checksums of the binaries that were 
+changed for patch 001 of 1.2.2 Java(tm) Development Kit release and
+1.2.2 of Java(tm) Runtime Environment.
+
+------------------------------------------------------------------------
+BINARIES AFFECTED BY FIXES IN THIS PATCH
+------------------------------------------------------------------------
+The following are MD5 checksums of the revised binaries in win32 version
+of this patch:
+
+(jdk1_2_2-001-win.exe install):
+jre/lib/rt.jar			 7cd61954783060834a5dcce88e92056b
+jre/lib/jaws.jar		 501e4280e8dd3ca8c93f9338a3ad072d
+jre/bin/npjava11.dll		 21ce266789e7979f43d727a6a3b12542
+jre/bin/npjava32.dll		 7f9909695d53971773a70afdda7d4b88
+jre/bin/beans.ocx		 cc78219feb93280315e50c6fa4061f50
+jre/bin/classic/jvm.dll		 0ad3d68faf50b53ac47409a16e8a504a
+lib/jvm.lib			 f3a3074a13931c157ee731f4e73764a9
+
+(jre1_2_2-001-win.exe and jre1_2_2-001-win-i.exe install):
+lib/rt.jar			 7cd61954783060834a5dcce88e92056b
+lib/jaws.jar			 501e4280e8dd3ca8c93f9338a3ad072d
+bin/npjava11.dll		 21ce266789e7979f43d727a6a3b12542
+bin/npjava32.dll		 7f9909695d53971773a70afdda7d4b88
+bin/beans.ocx			 cc78219feb93280315e50c6fa4061f50
+bin/classic/jvm.dll		 0ad3d68faf50b53ac47409a16e8a504a
+
+
+If a problem is found with this patch, please report it in detail
+to the Sun Support Engineer that released this patch to you. The Sun
+Support Engineer will relay the reported problem to the Sustaining 
+Engineering group responsible for the patch
+
+-----------------------------------------------------------------------
+Copyright (C) 1996, 1997, 1998, 1999 Sun Microsystems, Inc.
+901 San Antonio Rd., Palo Alto, CA 94303 USA
+All rights reserved.
+

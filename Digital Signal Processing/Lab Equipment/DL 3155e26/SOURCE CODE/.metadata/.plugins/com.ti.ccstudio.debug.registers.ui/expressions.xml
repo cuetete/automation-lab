@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<States>
+<Expressions>
+<Expression IMemento.internal.id="sindat">
+<Format/>
+</Expression>
+<Expression IMemento.internal.id="TestMbox1">
+<Format Class="com.ti.ccstudio.debug.registers.model.VariableFormat" Name="Hexadecimal"/>
+</Expression>
+<Expression IMemento.internal.id="TestMbox2">
+<Format Class="com.ti.ccstudio.debug.registers.model.VariableFormat" Name="Hexadecimal"/>
+</Expression>
+<Expression IMemento.internal.id="TestMbox3">
+<Format Class="com.ti.ccstudio.debug.registers.model.VariableFormat" Name="Hexadecimal"/>
+</Expression>
+<Expression IMemento.internal.id="PassCount">
+<Format/>
+</Expression>
+<Expression IMemento.internal.id="ECanaRegs.CANRMP.bit.RMP20">
+<Format/>
+</Expression>
+<Expression IMemento.internal.id="REVID">
+<Format Class="com.ti.ccstudio.debug.registers.model.VariableFormat" Name="Hexadecimal"/>
+</Expression>
+<Expression IMemento.internal.id="REVDATA">
+<Format Class="com.ti.ccstudio.debug.registers.model.VariableFormat" Name="Hexadecimal"/>
+</Expression>
+</Expressions>
+</States>

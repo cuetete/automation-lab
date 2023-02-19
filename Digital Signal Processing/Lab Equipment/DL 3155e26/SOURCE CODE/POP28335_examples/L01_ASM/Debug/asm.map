@@ -1,0 +1,84 @@
+******************************************************************************
+  TMS320C2000 Evaluation Linker PC v6.0.1                      
+******************************************************************************
+>> Linked Wed Jan 31 16:40:03 2018
+
+OUTPUT FILE NAME:   <asm.out>
+ENTRY POINT SYMBOL: "start"  address: 003f8008
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+PAGE 0:
+  PRAMH0                003f8000   00001200  00000022  000011de  RWIX
+
+PAGE 1:
+  RAMM0                 00000000   00000400  00000000  00000400  RWIX
+  RAMM1                 00000400   00000400  00000000  00000400  RWIX
+  DRAMH0                003f9200   00000a00  00000040  000009c0  RWIX
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.cinit     0    003f8000    00000000     UNINITIALIZED
+
+.text      0    003f8000    00000022     
+                  003f8000    00000022     test.obj (.text)
+
+.bss       1    003f9200    00000040     UNINITIALIZED
+                  003f9200    00000040     test.obj (.bss)
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address    name
+--------   ----
+003f9200   .bss
+003f8000   .text
+ffffffff   ___binit__
+003f9200   ___bss__
+ffffffff   ___c_args__
+ffffffff   ___cinit__
+003f9240   ___end__
+003f8022   ___etext__
+ffffffff   ___pinit__
+003f8000   ___text__
+ffffffff   binit
+003f9206   buf
+ffffffff   cinit
+003f9240   end
+003f8022   etext
+ffffffff   pinit
+003f8008   start
+003f9200   x
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address    name
+--------   ----
+003f8000   .text
+003f8000   ___text__
+003f8008   start
+003f8022   ___etext__
+003f8022   etext
+003f9200   .bss
+003f9200   ___bss__
+003f9200   x
+003f9206   buf
+003f9240   ___end__
+003f9240   end
+ffffffff   ___binit__
+ffffffff   ___c_args__
+ffffffff   ___cinit__
+ffffffff   ___pinit__
+ffffffff   binit
+ffffffff   cinit
+ffffffff   pinit
+
+[18 symbols]

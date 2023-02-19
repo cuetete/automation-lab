@@ -1,0 +1,67 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectName="DSP2823x"
+ProjectDir="F:\project\EE_OEM\DL 3155E26\DISK\SOURCE CODE\POP28335_examples\L09_SD_FAT32\"
+ProjectType=Executable
+CPUFamily=TMS320C28XX
+Tool="Compiler"
+Tool="CustomBuilder"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+Config="Release"
+
+[Source Files]
+Source="SD_FAT32.c"
+Source="DEVICE.C"
+Source="DSP2833x_ADC_cal.asm"
+Source="DSP2833x_CodeStartBranch.asm"
+Source="DSP2833x_DefaultIsr.c"
+Source="DSP2833x_GlobalVariableDefs.c"
+Source="DSP2833x_PieCtrl.c"
+Source="DSP2833x_PieVect.c"
+Source="DSP2833x_Spi.c"
+Source="DSP2833x_SysCtrl.c"
+Source="DSP2833x_usDelay.asm"
+Source="DSP2833x_Xintf.c"
+Source="fat.c"
+Source="Fat16.c"
+Source="Fat32.c"
+Source="HAL.C"
+Source="HPI16.C"
+Source="HPI32.C"
+Source="SD_SPI_Erase.c"
+Source="SD_SPI_Initialization.c"
+Source="SD_SPI_Read.c"
+Source="SD_SPI_Registers.c"
+Source="SD_SPI_Transmission.c"
+Source="SD_SPI_Write.c"
+Source="Udisc.c"
+Source="DSP2833x_Headers_nonBIOS.cmd"
+Source="MY28335_RAM_lnk.cmd"
+
+["Compiler" Settings: "Debug"]
+Options=-g -q -pdr -as -fr".\Debug" -fs".\Debug" -i"..\..\DSP2833x_headers\include" -i"..\..\DSP2833x_common\include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28
+
+["Compiler" Settings: "Release"]
+Options=-q -o3 -fr".\Release" -d"LARGE_MODEL" -ml -v28
+
+["DspBiosBuilder" Settings: "Debug"]
+Options=-v28
+
+["DspBiosBuilder" Settings: "Release"]
+Options=-v28
+
+["Linker" Settings: "Debug"]
+Options=-q -c -m".\Debug\POP28335_SD_FAT32.map" -o".\Debug\POP28335_SD_FAT32.out" -stack0x380 -w -x -i"..\..\DSP2833x_headers\include" -l"rts2800_ml.lib"
+
+["Linker" Settings: "Release"]
+Options=-q -c -o".\Release\Example_2823xSpi_FFDLB.out" -x
+
+["MY28335_RAM_lnk.cmd" Settings: "Debug"]
+LinkOrder=1
+
+["MY28335_RAM_lnk.cmd" Settings: "Release"]
+LinkOrder=1
+

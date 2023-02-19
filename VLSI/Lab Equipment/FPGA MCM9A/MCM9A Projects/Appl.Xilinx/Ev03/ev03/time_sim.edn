@@ -1,0 +1,1926 @@
+(edif time_sim
+  (edifVersion 2 0 0)
+  (edifLevel 0)
+  (keywordMap (keywordLevel 0))
+  (status
+    (written
+      (timestamp 2001 3 30 16 43 42)
+      (program "Xilinx NGD2EDIF" (version "D.19"))
+      (comment "Command line: -w -v fndtn ev03.nga time_sim.edn ")))
+  (external SIMPRIMS
+    (edifLevel 0)
+    (technology (numberDefinition
+      (scale 1 (E 1 -12) (unit TIME))))
+    (cell x_ff
+      (cellType GENERIC)
+      (view view_1
+        (viewType NETLIST)
+        (interface
+          (port IN
+            (direction INPUT))
+          (port CLK
+            (direction INPUT))
+          (port CE
+            (direction INPUT))
+          (port SET
+            (direction INPUT))
+          (port RST
+            (direction INPUT))
+          (port OUT
+            (direction OUTPUT))
+      )))
+    (cell x_inv
+      (cellType GENERIC)
+      (view view_1
+        (viewType NETLIST)
+        (interface
+          (port IN
+            (direction INPUT))
+          (port OUT
+            (direction OUTPUT))
+      )))
+    (cell x_and2
+      (cellType GENERIC)
+      (view view_1
+        (viewType NETLIST)
+        (interface
+          (port IN0
+            (direction INPUT))
+          (port IN1
+            (direction INPUT))
+          (port OUT
+            (direction OUTPUT))
+      )))
+    (cell x_buf
+      (cellType GENERIC)
+      (view view_1
+        (viewType NETLIST)
+        (interface
+          (port IN
+            (direction INPUT))
+          (port OUT
+            (direction OUTPUT))
+      )))
+    (cell x_and3
+      (cellType GENERIC)
+      (view view_1
+        (viewType NETLIST)
+        (interface
+          (port IN0
+            (direction INPUT))
+          (port IN1
+            (direction INPUT))
+          (port IN2
+            (direction INPUT))
+          (port OUT
+            (direction OUTPUT))
+      )))
+    (cell x_ipad
+      (cellType GENERIC)
+      (view view_1
+        (viewType NETLIST)
+        (interface
+          (port PAD
+            (direction INPUT))
+      )))
+    (cell x_or2
+      (cellType GENERIC)
+      (view view_1
+        (viewType NETLIST)
+        (interface
+          (port IN0
+            (direction INPUT))
+          (port IN1
+            (direction INPUT))
+          (port OUT
+            (direction OUTPUT))
+      )))
+    (cell x_opad
+      (cellType GENERIC)
+      (view view_1
+        (viewType NETLIST)
+        (interface
+          (port PAD
+            (direction OUTPUT))
+      )))
+    (cell x_xor2
+      (cellType GENERIC)
+      (view view_1
+        (viewType NETLIST)
+        (interface
+          (port IN0
+            (direction INPUT))
+          (port IN1
+            (direction INPUT))
+          (port OUT
+            (direction OUTPUT))
+      )))
+    (cell x_zero
+      (cellType GENERIC)
+      (view view_1
+        (viewType NETLIST)
+        (interface
+          (port OUT
+            (direction OUTPUT))
+      )))
+    (cell x_one
+      (cellType GENERIC)
+      (view view_1
+        (viewType NETLIST)
+        (interface
+          (port OUT
+            (direction OUTPUT))
+      )))
+  )
+  (library ev03_lib
+    (edifLevel 0)
+    (technology (numberDefinition
+      (scale 1 (E 1 -12) (unit TIME))))
+    (cell &_I3___1I39
+      (cellType GENERIC)
+      (view view_1
+        (viewType NETLIST)
+        (interface
+          (port Q
+            (direction OUTPUT)
+            )
+          (port D
+            (direction INPUT)
+            )
+          (port C
+            (direction INPUT)
+            )
+          (port GR
+            (direction INPUT)
+            )
+        )
+        (contents
+          (instance (rename &_1I37 "$1I37")
+            (viewRef view_1 (cellRef x_ff (libraryRef SIMPRIMS)))
+            (property HOLDCELOCLK (integer 2000)(unit TIME) (owner "Xilinx"))
+            (property PWCLKHI (integer 4000)(unit TIME) (owner "Xilinx"))
+            (property PWCLKLO (integer 4000)(unit TIME) (owner "Xilinx"))
+            (property HOLDCEHICLK (integer 2000)(unit TIME) (owner "Xilinx"))
+            (portInstance IN
+            )
+            (portInstance CLK
+              (property RISE (integer 7730)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 7730)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance RST
+              (property FALL (integer 12500)(unit TIME) (owner "Xilinx"))
+              (property RISE (integer 12500)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance OUT
+              (property RISE (integer 4500)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 4500)(unit TIME) (owner "Xilinx"))
+            )
+          )
+          (instance (rename &_1I37_4_INV "$1I37_4_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (net C
+            (joined
+              (portRef C)
+              (portRef CLK (instanceRef &_1I37))
+            )
+          )
+          (net D
+            (joined
+              (portRef D)
+              (portRef IN (instanceRef &_1I37))
+            )
+          )
+          (net Q
+            (joined
+              (portRef Q)
+              (portRef OUT (instanceRef &_1I37))
+            )
+          )
+          (net (rename &_1I37_4_INV "$1I37_4_INV")
+            (joined
+              (portRef OUT (instanceRef &_1I37_4_INV))
+              (portRef RST (instanceRef &_1I37))
+            )
+          )
+          (net GR
+            (joined
+              (portRef IN (instanceRef &_1I37_4_INV))
+              (portRef GR)
+            )
+            (property INITSTATE (string "1") (owner "Xilinx"))
+            (property GLOBAL (boolean (true)) (owner "Xilinx"))
+          )
+        )
+    ))
+    (cell &_I3
+      (cellType GENERIC)
+      (view view_1
+        (viewType NETLIST)
+        (interface
+          (port R
+            (direction INPUT)
+            )
+          (port Q
+            (direction OUTPUT)
+            )
+          (port D
+            (direction INPUT)
+            )
+          (port C
+            (direction INPUT)
+            )
+          (port GR
+            (direction INPUT)
+            )
+        )
+        (contents
+          (instance (rename &_1I39 "$1I39")
+            (viewRef view_1 (cellRef &_I3___1I39 (libraryRef ev03_lib))))
+          (instance (rename &_1I41 "$1I41")
+            (viewRef view_1 (cellRef x_and2 (libraryRef SIMPRIMS)))
+            (portInstance IN0
+              (property FALL (integer 1757)(unit TIME) (owner "Xilinx"))
+              (property RISE (integer 1757)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance OUT
+              (property RISE (integer 4500)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 4500)(unit TIME) (owner "Xilinx"))
+            )
+          )
+          (instance (rename &_1I41_0_INV "$1I41_0_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (net C
+            (joined
+              (portRef C)
+              (portRef C (instanceRef &_1I39))
+            )
+          )
+          (net D
+            (joined
+              (portRef D)
+              (portRef IN1 (instanceRef &_1I41))
+            )
+          )
+          (net D_R
+            (joined
+              (portRef D (instanceRef &_1I39))
+              (portRef OUT (instanceRef &_1I41))
+            )
+          )
+          (net Q
+            (joined
+              (portRef Q)
+              (portRef Q (instanceRef &_1I39))
+            )
+          )
+          (net R
+            (joined
+              (portRef R)
+              (portRef IN (instanceRef &_1I41_0_INV))
+            )
+          )
+          (net (rename &_1I41_0_INV "$1I41_0_INV")
+            (joined
+              (portRef OUT (instanceRef &_1I41_0_INV))
+              (portRef IN0 (instanceRef &_1I41))
+            )
+          )
+          (net GR
+            (joined
+              (portRef GR (instanceRef &_1I39))
+              (portRef GR)
+            )
+            (property INITSTATE (string "1") (owner "Xilinx"))
+            (property GLOBAL (boolean (true)) (owner "Xilinx"))
+          )
+        )
+    ))
+    (cell &_I5___1I39
+      (cellType GENERIC)
+      (view view_1
+        (viewType NETLIST)
+        (interface
+          (port Q
+            (direction OUTPUT)
+            )
+          (port D
+            (direction INPUT)
+            )
+          (port C
+            (direction INPUT)
+            )
+          (port GR
+            (direction INPUT)
+            )
+        )
+        (contents
+          (instance (rename &_1I37 "$1I37")
+            (viewRef view_1 (cellRef x_ff (libraryRef SIMPRIMS)))
+            (property PWCLKHI (integer 4000)(unit TIME) (owner "Xilinx"))
+            (property PWCLKLO (integer 4000)(unit TIME) (owner "Xilinx"))
+            (property HOLDCEHICLK (integer 2000)(unit TIME) (owner "Xilinx"))
+            (property HOLDCELOCLK (integer 2000)(unit TIME) (owner "Xilinx"))
+            (portInstance IN
+            )
+            (portInstance CLK
+              (property RISE (integer 7730)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 7730)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance RST
+              (property FALL (integer 12500)(unit TIME) (owner "Xilinx"))
+              (property RISE (integer 12500)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance OUT
+              (property RISE (integer 4500)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 4500)(unit TIME) (owner "Xilinx"))
+            )
+          )
+          (instance (rename &_1I37_4_INV "$1I37_4_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (net C
+            (joined
+              (portRef C)
+              (portRef CLK (instanceRef &_1I37))
+            )
+          )
+          (net D
+            (joined
+              (portRef D)
+              (portRef IN (instanceRef &_1I37))
+            )
+          )
+          (net Q
+            (joined
+              (portRef Q)
+              (portRef OUT (instanceRef &_1I37))
+            )
+          )
+          (net (rename &_1I37_4_INV "$1I37_4_INV")
+            (joined
+              (portRef OUT (instanceRef &_1I37_4_INV))
+              (portRef RST (instanceRef &_1I37))
+            )
+          )
+          (net GR
+            (joined
+              (portRef IN (instanceRef &_1I37_4_INV))
+              (portRef GR)
+            )
+            (property INITSTATE (string "1") (owner "Xilinx"))
+            (property GLOBAL (boolean (true)) (owner "Xilinx"))
+          )
+        )
+    ))
+    (cell &_I5
+      (cellType GENERIC)
+      (view view_1
+        (viewType NETLIST)
+        (interface
+          (port R
+            (direction INPUT)
+            )
+          (port Q
+            (direction OUTPUT)
+            )
+          (port D
+            (direction INPUT)
+            )
+          (port C
+            (direction INPUT)
+            )
+          (port GR
+            (direction INPUT)
+            )
+        )
+        (contents
+          (instance (rename &_1I39 "$1I39")
+            (viewRef view_1 (cellRef &_I5___1I39 (libraryRef ev03_lib))))
+          (instance (rename &_1I41 "$1I41")
+            (viewRef view_1 (cellRef x_and2 (libraryRef SIMPRIMS)))
+            (portInstance IN0
+              (property FALL (integer 1757)(unit TIME) (owner "Xilinx"))
+              (property RISE (integer 1757)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance OUT
+              (property RISE (integer 4500)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 4500)(unit TIME) (owner "Xilinx"))
+            )
+          )
+          (instance (rename &_1I41_0_INV "$1I41_0_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (net C
+            (joined
+              (portRef C)
+              (portRef C (instanceRef &_1I39))
+            )
+          )
+          (net D
+            (joined
+              (portRef D)
+              (portRef IN1 (instanceRef &_1I41))
+            )
+          )
+          (net D_R
+            (joined
+              (portRef D (instanceRef &_1I39))
+              (portRef OUT (instanceRef &_1I41))
+            )
+          )
+          (net Q
+            (joined
+              (portRef Q)
+              (portRef Q (instanceRef &_1I39))
+            )
+          )
+          (net R
+            (joined
+              (portRef R)
+              (portRef IN (instanceRef &_1I41_0_INV))
+            )
+          )
+          (net (rename &_1I41_0_INV "$1I41_0_INV")
+            (joined
+              (portRef OUT (instanceRef &_1I41_0_INV))
+              (portRef IN0 (instanceRef &_1I41))
+            )
+          )
+          (net GR
+            (joined
+              (portRef GR (instanceRef &_1I39))
+              (portRef GR)
+            )
+            (property INITSTATE (string "1") (owner "Xilinx"))
+            (property GLOBAL (boolean (true)) (owner "Xilinx"))
+          )
+        )
+    ))
+    (cell &_I6___1I39
+      (cellType GENERIC)
+      (view view_1
+        (viewType NETLIST)
+        (interface
+          (port Q
+            (direction OUTPUT)
+            )
+          (port D
+            (direction INPUT)
+            )
+          (port C
+            (direction INPUT)
+            )
+          (port GR
+            (direction INPUT)
+            )
+        )
+        (contents
+          (instance (rename &_1I37 "$1I37")
+            (viewRef view_1 (cellRef x_ff (libraryRef SIMPRIMS)))
+            (property PWCLKHI (integer 4000)(unit TIME) (owner "Xilinx"))
+            (property HOLDCEHICLK (integer 2000)(unit TIME) (owner "Xilinx"))
+            (property PWCLKLO (integer 4000)(unit TIME) (owner "Xilinx"))
+            (property HOLDCELOCLK (integer 2000)(unit TIME) (owner "Xilinx"))
+            (portInstance IN
+            )
+            (portInstance CLK
+              (property RISE (integer 7730)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 7730)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance RST
+              (property FALL (integer 12500)(unit TIME) (owner "Xilinx"))
+              (property RISE (integer 12500)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance OUT
+              (property RISE (integer 4500)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 4500)(unit TIME) (owner "Xilinx"))
+            )
+          )
+          (instance (rename &_1I37_4_INV "$1I37_4_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (net C
+            (joined
+              (portRef C)
+              (portRef CLK (instanceRef &_1I37))
+            )
+          )
+          (net D
+            (joined
+              (portRef D)
+              (portRef IN (instanceRef &_1I37))
+            )
+          )
+          (net Q
+            (joined
+              (portRef Q)
+              (portRef OUT (instanceRef &_1I37))
+            )
+          )
+          (net (rename &_1I37_4_INV "$1I37_4_INV")
+            (joined
+              (portRef OUT (instanceRef &_1I37_4_INV))
+              (portRef RST (instanceRef &_1I37))
+            )
+          )
+          (net GR
+            (joined
+              (portRef IN (instanceRef &_1I37_4_INV))
+              (portRef GR)
+            )
+            (property INITSTATE (string "1") (owner "Xilinx"))
+            (property GLOBAL (boolean (true)) (owner "Xilinx"))
+          )
+        )
+    ))
+    (cell &_I6
+      (cellType GENERIC)
+      (view view_1
+        (viewType NETLIST)
+        (interface
+          (port R
+            (direction INPUT)
+            )
+          (port Q
+            (direction OUTPUT)
+            )
+          (port D
+            (direction INPUT)
+            )
+          (port C
+            (direction INPUT)
+            )
+          (port GR
+            (direction INPUT)
+            )
+        )
+        (contents
+          (instance (rename &_1I39 "$1I39")
+            (viewRef view_1 (cellRef &_I6___1I39 (libraryRef ev03_lib))))
+          (instance (rename &_1I41 "$1I41")
+            (viewRef view_1 (cellRef x_and2 (libraryRef SIMPRIMS)))
+            (portInstance IN0
+              (property FALL (integer 855)(unit TIME) (owner "Xilinx"))
+              (property RISE (integer 855)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance IN1
+            )
+            (portInstance OUT
+              (property RISE (integer 4500)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 4500)(unit TIME) (owner "Xilinx"))
+            )
+          )
+          (instance (rename &_1I41_0_INV "$1I41_0_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (net C
+            (joined
+              (portRef C)
+              (portRef C (instanceRef &_1I39))
+            )
+          )
+          (net D
+            (joined
+              (portRef D)
+              (portRef IN1 (instanceRef &_1I41))
+            )
+          )
+          (net D_R
+            (joined
+              (portRef D (instanceRef &_1I39))
+              (portRef OUT (instanceRef &_1I41))
+            )
+          )
+          (net Q
+            (joined
+              (portRef Q)
+              (portRef Q (instanceRef &_1I39))
+            )
+          )
+          (net R
+            (joined
+              (portRef R)
+              (portRef IN (instanceRef &_1I41_0_INV))
+            )
+          )
+          (net (rename &_1I41_0_INV "$1I41_0_INV")
+            (joined
+              (portRef OUT (instanceRef &_1I41_0_INV))
+              (portRef IN0 (instanceRef &_1I41))
+            )
+          )
+          (net GR
+            (joined
+              (portRef GR (instanceRef &_1I39))
+              (portRef GR)
+            )
+            (property INITSTATE (string "1") (owner "Xilinx"))
+            (property GLOBAL (boolean (true)) (owner "Xilinx"))
+          )
+        )
+    ))
+    (cell ev03
+      (cellType GENERIC)
+      (view view_1
+        (viewType NETLIST)
+        (interface
+          (port (rename &_Net00001_ "$Net00001_")
+            (direction INPUT)
+            (designator "46")
+            )
+          (port (rename &_Net00034_ "$Net00034_")
+            (direction OUTPUT)
+            (designator "2")
+            )
+          (port (rename &_Net00032_ "$Net00032_")
+            (direction OUTPUT)
+            (designator "4")
+            )
+          (port (rename &_Net00024_ "$Net00024_")
+            (direction OUTPUT)
+            (designator "7")
+            )
+          (port (rename &_Net00037_ "$Net00037_")
+            (direction OUTPUT)
+            (designator "28")
+            )
+          (port (rename &_Net00026_ "$Net00026_")
+            (direction OUTPUT)
+            (designator "9")
+            )
+          (port (rename &_Net00036_ "$Net00036_")
+            (direction OUTPUT)
+            (designator "67")
+            )
+          (port (rename &_Net00028_ "$Net00028_")
+            (direction OUTPUT)
+            (designator "8")
+            )
+          (port (rename &_Net00030_ "$Net00030_")
+            (direction OUTPUT)
+            (designator "6")
+            )
+          (port (rename &_Net00027_ "$Net00027_")
+            (direction OUTPUT)
+            (designator "57")
+            )
+          (port (rename &_Net00038_ "$Net00038_")
+            (direction OUTPUT)
+            (designator "59")
+            )
+          (port (rename &_Net00039_ "$Net00039_")
+            (direction OUTPUT)
+            (designator "30")
+            )
+          (designator "3020apc68-7")
+        )
+        (contents
+          (instance (rename &_I3 "$I3")
+            (viewRef view_1 (cellRef &_I3 (libraryRef ev03_lib))))
+          (instance (rename &_I5 "$I5")
+            (viewRef view_1 (cellRef &_I5 (libraryRef ev03_lib))))
+          (instance (rename &_I6 "$I6")
+            (viewRef view_1 (cellRef &_I6 (libraryRef ev03_lib))))
+          (instance (rename &_I1 "$I1")
+            (viewRef view_1 (cellRef x_buf (libraryRef SIMPRIMS)))
+            (portInstance IN
+            )
+            (portInstance OUT
+              (property RISE (integer 4000)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 4000)(unit TIME) (owner "Xilinx"))
+            )
+          )
+          (instance (rename &_I11 "$I11")
+            (viewRef view_1 (cellRef x_and2 (libraryRef SIMPRIMS)))
+            (portInstance IN0
+              (property RISE (integer 1438)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 1438)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance IN1
+              (property RISE (integer 4260)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 4260)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance OUT
+              (property RISE (integer 5100)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 5100)(unit TIME) (owner "Xilinx"))
+            )
+          )
+          (instance (rename &_I12 "$I12")
+            (viewRef view_1 (cellRef x_and3 (libraryRef SIMPRIMS)))
+            (portInstance IN0
+              (property FALL (integer 4213)(unit TIME) (owner "Xilinx"))
+              (property RISE (integer 4213)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance IN1
+              (property FALL (integer 5023)(unit TIME) (owner "Xilinx"))
+              (property RISE (integer 5023)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance IN2
+              (property RISE (integer 5206)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 5206)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I13 "$I13")
+            (viewRef view_1 (cellRef x_and3 (libraryRef SIMPRIMS)))
+            (portInstance IN0
+              (property FALL (integer 5206)(unit TIME) (owner "Xilinx"))
+              (property RISE (integer 5206)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance IN1
+              (property FALL (integer 5023)(unit TIME) (owner "Xilinx"))
+              (property RISE (integer 5023)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance IN2
+              (property RISE (integer 4213)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 4213)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I14 "$I14")
+            (viewRef view_1 (cellRef x_and3 (libraryRef SIMPRIMS)))
+            (portInstance IN0
+              (property FALL (integer 2433)(unit TIME) (owner "Xilinx"))
+              (property RISE (integer 2433)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance IN1
+              (property FALL (integer 4045)(unit TIME) (owner "Xilinx"))
+              (property RISE (integer 4045)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance IN2
+              (property RISE (integer 4260)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 4260)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I15 "$I15")
+            (viewRef view_1 (cellRef x_and3 (libraryRef SIMPRIMS)))
+            (portInstance IN0
+            )
+            (portInstance IN1
+              (property FALL (integer 4360)(unit TIME) (owner "Xilinx"))
+              (property RISE (integer 4360)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance IN2
+              (property RISE (integer 4145)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 4145)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance OUT
+              (property FALL (integer 5000)(unit TIME) (owner "Xilinx"))
+              (property RISE (integer 5000)(unit TIME) (owner "Xilinx"))
+            )
+          )
+          (instance (rename &_I16 "$I16")
+            (viewRef view_1 (cellRef x_and3 (libraryRef SIMPRIMS)))
+            (portInstance IN0
+              (property FALL (integer 4213)(unit TIME) (owner "Xilinx"))
+              (property RISE (integer 4213)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance IN1
+              (property FALL (integer 5023)(unit TIME) (owner "Xilinx"))
+              (property RISE (integer 5023)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance IN2
+              (property RISE (integer 5206)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 5206)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance OUT
+              (property FALL (integer 5100)(unit TIME) (owner "Xilinx"))
+              (property RISE (integer 5100)(unit TIME) (owner "Xilinx"))
+            )
+          )
+          (instance (rename &_I17 "$I17")
+            (viewRef view_1 (cellRef x_and3 (libraryRef SIMPRIMS)))
+            (portInstance IN0
+              (property FALL (integer 5040)(unit TIME) (owner "Xilinx"))
+              (property RISE (integer 5040)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance IN1
+              (property FALL (integer 4045)(unit TIME) (owner "Xilinx"))
+              (property RISE (integer 4045)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance IN2
+              (property RISE (integer 4260)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 4260)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I18 "$I18")
+            (viewRef view_1 (cellRef x_and3 (libraryRef SIMPRIMS)))
+            (portInstance IN0
+              (property FALL (integer 4260)(unit TIME) (owner "Xilinx"))
+              (property RISE (integer 4260)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance IN1
+              (property FALL (integer 4045)(unit TIME) (owner "Xilinx"))
+              (property RISE (integer 4045)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance IN2
+              (property RISE (integer 5040)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 5040)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I2 "$I2")
+            (viewRef view_1 (cellRef x_ipad (libraryRef SIMPRIMS)))
+          )
+          (instance (rename &_I20 "$I20")
+            (viewRef view_1 (cellRef x_and3 (libraryRef SIMPRIMS)))
+            (portInstance IN0
+              (property FALL (integer 1438)(unit TIME) (owner "Xilinx"))
+              (property RISE (integer 1438)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance IN1
+              (property FALL (integer 4045)(unit TIME) (owner "Xilinx"))
+              (property RISE (integer 4045)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance IN2
+              (property FALL (integer 4260)(unit TIME) (owner "Xilinx"))
+              (property RISE (integer 4260)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I21 "$I21")
+            (viewRef view_1 (cellRef x_and3 (libraryRef SIMPRIMS)))
+            (portInstance IN0
+              (property FALL (integer 1438)(unit TIME) (owner "Xilinx"))
+              (property RISE (integer 1438)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance IN1
+              (property FALL (integer 4260)(unit TIME) (owner "Xilinx"))
+              (property RISE (integer 4260)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance IN2
+              (property RISE (integer 4045)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 4045)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I22 "$I22")
+            (viewRef view_1 (cellRef x_or2 (libraryRef SIMPRIMS)))
+            (portInstance IN0
+            )
+            (portInstance IN1
+            )
+            (portInstance OUT
+              (property RISE (integer 5100)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 5100)(unit TIME) (owner "Xilinx"))
+            )
+          )
+          (instance (rename &_I23 "$I23")
+            (viewRef view_1 (cellRef x_and2 (libraryRef SIMPRIMS)))
+            (portInstance IN0
+            )
+            (portInstance IN1
+            )
+            (portInstance OUT
+              (property RISE (integer 5100)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 5100)(unit TIME) (owner "Xilinx"))
+            )
+          )
+          (instance (rename &_I24 "$I24")
+            (viewRef view_1 (cellRef x_and3 (libraryRef SIMPRIMS)))
+            (portInstance IN0
+            )
+            (portInstance IN1
+            )
+            (portInstance IN2
+            )
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I25 "$I25")
+            (viewRef view_1 (cellRef x_and2 (libraryRef SIMPRIMS)))
+            (portInstance IN0
+            )
+            (portInstance IN1
+            )
+            (portInstance OUT
+              (property RISE (integer 5100)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 5100)(unit TIME) (owner "Xilinx"))
+            )
+          )
+          (instance (rename &_I26 "$I26")
+            (viewRef view_1 (cellRef x_and3 (libraryRef SIMPRIMS)))
+            (portInstance IN0
+              (property FALL (integer 4045)(unit TIME) (owner "Xilinx"))
+              (property RISE (integer 4045)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance IN1
+              (property RISE (integer 5040)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 5040)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance IN2
+              (property RISE (integer 4260)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 4260)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance OUT
+              (property FALL (integer 5100)(unit TIME) (owner "Xilinx"))
+              (property RISE (integer 5100)(unit TIME) (owner "Xilinx"))
+            )
+          )
+          (instance (rename &_I27 "$I27")
+            (viewRef view_1 (cellRef x_and3 (libraryRef SIMPRIMS)))
+            (portInstance IN0
+              (property FALL (integer 4213)(unit TIME) (owner "Xilinx"))
+              (property RISE (integer 4213)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance IN1
+              (property FALL (integer 5206)(unit TIME) (owner "Xilinx"))
+              (property RISE (integer 5206)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance IN2
+              (property RISE (integer 5023)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 5023)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance OUT
+              (property FALL (integer 5100)(unit TIME) (owner "Xilinx"))
+              (property RISE (integer 5100)(unit TIME) (owner "Xilinx"))
+            )
+          )
+          (instance (rename &_I28 "$I28")
+            (viewRef view_1 (cellRef x_and3 (libraryRef SIMPRIMS)))
+            (portInstance IN0
+              (property FALL (integer 4213)(unit TIME) (owner "Xilinx"))
+              (property RISE (integer 4213)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance IN1
+              (property RISE (integer 5023)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 5023)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance IN2
+              (property RISE (integer 5206)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 5206)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance OUT
+              (property FALL (integer 5100)(unit TIME) (owner "Xilinx"))
+              (property RISE (integer 5100)(unit TIME) (owner "Xilinx"))
+            )
+          )
+          (instance (rename &_I29 "$I29")
+            (viewRef view_1 (cellRef x_and3 (libraryRef SIMPRIMS)))
+            (portInstance IN0
+              (property FALL (integer 2433)(unit TIME) (owner "Xilinx"))
+              (property RISE (integer 2433)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance IN1
+              (property FALL (integer 4045)(unit TIME) (owner "Xilinx"))
+              (property RISE (integer 4045)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance IN2
+              (property FALL (integer 4260)(unit TIME) (owner "Xilinx"))
+              (property RISE (integer 4260)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I30 "$I30")
+            (viewRef view_1 (cellRef x_and2 (libraryRef SIMPRIMS)))
+            (portInstance IN0
+            )
+            (portInstance IN1
+            )
+            (portInstance OUT
+              (property RISE (integer 5600)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 5600)(unit TIME) (owner "Xilinx"))
+            )
+          )
+          (instance (rename &_I31 "$I31")
+            (viewRef view_1 (cellRef x_buf (libraryRef SIMPRIMS)))
+            (portInstance IN
+            )
+            (portInstance OUT
+              (property RISE (integer 16000)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 16000)(unit TIME) (owner "Xilinx"))
+            )
+          )
+          (instance (rename &_I32 "$I32")
+            (viewRef view_1 (cellRef x_opad (libraryRef SIMPRIMS)))
+          )
+          (instance (rename &_I33 "$I33")
+            (viewRef view_1 (cellRef x_buf (libraryRef SIMPRIMS)))
+            (portInstance IN
+              (property RISE (integer 5350)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 5350)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance OUT
+              (property RISE (integer 16000)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 16000)(unit TIME) (owner "Xilinx"))
+            )
+          )
+          (instance (rename &_I34 "$I34")
+            (viewRef view_1 (cellRef x_buf (libraryRef SIMPRIMS)))
+            (portInstance IN
+              (property RISE (integer 4079)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 4079)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance OUT
+              (property RISE (integer 16000)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 16000)(unit TIME) (owner "Xilinx"))
+            )
+          )
+          (instance (rename &_I35 "$I35")
+            (viewRef view_1 (cellRef x_buf (libraryRef SIMPRIMS)))
+            (portInstance IN
+              (property RISE (integer 1834)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 1834)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance OUT
+              (property RISE (integer 16000)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 16000)(unit TIME) (owner "Xilinx"))
+            )
+          )
+          (instance (rename &_I36 "$I36")
+            (viewRef view_1 (cellRef x_buf (libraryRef SIMPRIMS)))
+            (portInstance IN
+              (property RISE (integer 600)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 600)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance OUT
+              (property RISE (integer 16000)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 16000)(unit TIME) (owner "Xilinx"))
+            )
+          )
+          (instance (rename &_I37 "$I37")
+            (viewRef view_1 (cellRef x_buf (libraryRef SIMPRIMS)))
+            (portInstance IN
+              (property RISE (integer 3449)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 3449)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance OUT
+              (property RISE (integer 16000)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 16000)(unit TIME) (owner "Xilinx"))
+            )
+          )
+          (instance (rename &_I38 "$I38")
+            (viewRef view_1 (cellRef x_buf (libraryRef SIMPRIMS)))
+            (portInstance IN
+              (property RISE (integer 4069)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 4069)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance OUT
+              (property RISE (integer 16000)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 16000)(unit TIME) (owner "Xilinx"))
+            )
+          )
+          (instance (rename &_I39 "$I39")
+            (viewRef view_1 (cellRef x_opad (libraryRef SIMPRIMS)))
+          )
+          (instance (rename &_I4 "$I4")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I40 "$I40")
+            (viewRef view_1 (cellRef x_opad (libraryRef SIMPRIMS)))
+          )
+          (instance (rename &_I41 "$I41")
+            (viewRef view_1 (cellRef x_opad (libraryRef SIMPRIMS)))
+          )
+          (instance (rename &_I42 "$I42")
+            (viewRef view_1 (cellRef x_opad (libraryRef SIMPRIMS)))
+          )
+          (instance (rename &_I43 "$I43")
+            (viewRef view_1 (cellRef x_opad (libraryRef SIMPRIMS)))
+          )
+          (instance (rename &_I44 "$I44")
+            (viewRef view_1 (cellRef x_opad (libraryRef SIMPRIMS)))
+          )
+          (instance (rename &_I45 "$I45")
+            (viewRef view_1 (cellRef x_opad (libraryRef SIMPRIMS)))
+          )
+          (instance (rename &_I46 "$I46")
+            (viewRef view_1 (cellRef x_buf (libraryRef SIMPRIMS)))
+            (portInstance IN
+              (property RISE (integer 3773)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 3773)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance OUT
+              (property RISE (integer 16000)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 16000)(unit TIME) (owner "Xilinx"))
+            )
+          )
+          (instance (rename &_I47 "$I47")
+            (viewRef view_1 (cellRef x_and2 (libraryRef SIMPRIMS)))
+            (portInstance IN0
+              (property RISE (integer 4045)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 4045)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance IN1
+              (property RISE (integer 4260)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 4260)(unit TIME) (owner "Xilinx"))
+            )
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I48 "$I48")
+            (viewRef view_1 (cellRef x_xor2 (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I49 "$I49")
+            (viewRef view_1 (cellRef x_xor2 (libraryRef SIMPRIMS)))
+            (portInstance IN0
+            )
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I50 "$I50")
+            (viewRef view_1 (cellRef x_buf (libraryRef SIMPRIMS)))
+            (portInstance IN
+            )
+            (portInstance OUT
+              (property RISE (integer 16000)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 16000)(unit TIME) (owner "Xilinx"))
+            )
+          )
+          (instance (rename &_I51 "$I51")
+            (viewRef view_1 (cellRef x_buf (libraryRef SIMPRIMS)))
+            (portInstance IN
+            )
+            (portInstance OUT
+              (property RISE (integer 16000)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 16000)(unit TIME) (owner "Xilinx"))
+            )
+          )
+          (instance (rename &_I52 "$I52")
+            (viewRef view_1 (cellRef x_buf (libraryRef SIMPRIMS)))
+            (portInstance IN
+            )
+            (portInstance OUT
+              (property RISE (integer 16000)(unit TIME) (owner "Xilinx"))
+              (property FALL (integer 16000)(unit TIME) (owner "Xilinx"))
+            )
+          )
+          (instance (rename &_I53 "$I53")
+            (viewRef view_1 (cellRef x_opad (libraryRef SIMPRIMS)))
+          )
+          (instance (rename &_I54 "$I54")
+            (viewRef view_1 (cellRef x_opad (libraryRef SIMPRIMS)))
+          )
+          (instance (rename &_I55 "$I55")
+            (viewRef view_1 (cellRef x_opad (libraryRef SIMPRIMS)))
+          )
+          (instance (rename &_I56 "$I56")
+            (viewRef view_1 (cellRef x_zero (libraryRef SIMPRIMS)))
+          )
+          (instance I_from_net_VCC
+            (viewRef view_1 (cellRef x_one (libraryRef SIMPRIMS)))
+          )
+          (instance (rename GR_PAD "GR.PAD")
+            (viewRef view_1 (cellRef x_ipad (libraryRef SIMPRIMS)))
+          )
+          (instance (rename &_I12_0_INV "$I12_0_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I12_1_INV "$I12_1_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I12_3_INV "$I12_3_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I13_0_INV "$I13_0_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I13_1_INV "$I13_1_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I13_3_INV "$I13_3_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I14_0_INV "$I14_0_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I14_1_INV "$I14_1_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I14_3_INV "$I14_3_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I15_0_INV "$I15_0_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I15_1_INV "$I15_1_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I15_3_INV "$I15_3_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I16_0_INV "$I16_0_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I16_1_INV "$I16_1_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I16_3_INV "$I16_3_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I17_0_INV "$I17_0_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I17_1_INV "$I17_1_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I17_3_INV "$I17_3_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I18_0_INV "$I18_0_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I18_1_INV "$I18_1_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I18_3_INV "$I18_3_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I20_0_INV "$I20_0_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I20_1_INV "$I20_1_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I20_2_INV "$I20_2_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I21_0_INV "$I21_0_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I21_1_INV "$I21_1_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I26_0_INV "$I26_0_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I26_3_INV "$I26_3_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I27_0_INV "$I27_0_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I27_1_INV "$I27_1_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I27_3_INV "$I27_3_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I28_0_INV "$I28_0_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I28_3_INV "$I28_3_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I29_0_INV "$I29_0_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I29_1_INV "$I29_1_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I29_2_INV "$I29_2_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (instance (rename &_I29_3_INV "$I29_3_INV")
+            (viewRef view_1 (cellRef x_inv (libraryRef SIMPRIMS)))
+            (portInstance OUT
+            )
+          )
+          (net (rename &_Net00001_ "$Net00001_")
+            (joined
+              (portRef IN (instanceRef &_I1))
+              (portRef PAD (instanceRef &_I2))
+              (portRef &_Net00001_)
+            )
+          )
+          (net (rename &_Net00002_ "$Net00002_")
+            (joined
+              (portRef C (instanceRef &_I3))
+              (portRef C (instanceRef &_I5))
+              (portRef C (instanceRef &_I6))
+              (portRef OUT (instanceRef &_I1))
+            )
+          )
+          (net (rename &_Net00003_ "$Net00003_")
+            (joined
+              (portRef Q (instanceRef &_I3))
+              (portRef IN1 (instanceRef &_I11))
+              (portRef IN2 (instanceRef &_I12))
+              (portRef IN2 (instanceRef &_I14))
+              (portRef IN2 (instanceRef &_I16))
+              (portRef IN2 (instanceRef &_I17))
+              (portRef IN2 (instanceRef &_I26))
+              (portRef IN2 (instanceRef &_I28))
+              (portRef IN (instanceRef &_I4))
+              (portRef IN1 (instanceRef &_I47))
+              (portRef IN0 (instanceRef &_I48))
+              (portRef IN (instanceRef &_I13_0_INV))
+              (portRef IN (instanceRef &_I15_1_INV))
+              (portRef IN (instanceRef &_I18_0_INV))
+              (portRef IN (instanceRef &_I20_2_INV))
+              (portRef IN (instanceRef &_I21_1_INV))
+              (portRef IN (instanceRef &_I27_1_INV))
+              (portRef IN (instanceRef &_I29_2_INV))
+            )
+          )
+          (net (rename &_Net00004_ "$Net00004_")
+            (joined
+              (portRef D (instanceRef &_I3))
+              (portRef OUT (instanceRef &_I4))
+            )
+          )
+          (net (rename &_Net00035_ "$Net00035_")
+            (joined
+              (portRef OUT (instanceRef &_I30))
+              (portRef IN (instanceRef &_I46))
+            )
+          )
+          (net (rename &_Net00006_ "$Net00006_")
+            (joined
+              (portRef Q (instanceRef &_I5))
+              (portRef IN2 (instanceRef &_I15))
+              (portRef IN2 (instanceRef &_I21))
+              (portRef IN2 (instanceRef &_I27))
+              (portRef IN1 (instanceRef &_I28))
+              (portRef IN0 (instanceRef &_I47))
+              (portRef IN1 (instanceRef &_I48))
+              (portRef IN (instanceRef &_I12_1_INV))
+              (portRef IN (instanceRef &_I13_1_INV))
+              (portRef IN (instanceRef &_I14_1_INV))
+              (portRef IN (instanceRef &_I16_1_INV))
+              (portRef IN (instanceRef &_I17_1_INV))
+              (portRef IN (instanceRef &_I18_1_INV))
+              (portRef IN (instanceRef &_I20_1_INV))
+              (portRef IN (instanceRef &_I26_0_INV))
+              (portRef IN (instanceRef &_I29_1_INV))
+            )
+          )
+          (net (rename &_Net00033_ "$Net00033_")
+            (joined
+              (portRef OUT (instanceRef &_I24))
+              (portRef IN (instanceRef &_I36))
+            )
+          )
+          (net (rename &_Net00034_ "$Net00034_")
+            (joined
+              (portRef OUT (instanceRef &_I36))
+              (portRef PAD (instanceRef &_I43))
+              (portRef &_Net00034_)
+            )
+          )
+          (net (rename &_Net00009_ "$Net00009_")
+            (joined
+              (portRef Q (instanceRef &_I6))
+              (portRef IN0 (instanceRef &_I11))
+              (portRef IN2 (instanceRef &_I13))
+              (portRef IN2 (instanceRef &_I18))
+              (portRef IN1 (instanceRef &_I26))
+              (portRef IN1 (instanceRef &_I49))
+              (portRef IN (instanceRef &_I12_0_INV))
+              (portRef IN (instanceRef &_I14_0_INV))
+              (portRef IN (instanceRef &_I15_0_INV))
+              (portRef IN (instanceRef &_I16_0_INV))
+              (portRef IN (instanceRef &_I17_0_INV))
+              (portRef IN (instanceRef &_I20_0_INV))
+              (portRef IN (instanceRef &_I21_0_INV))
+              (portRef IN (instanceRef &_I27_0_INV))
+              (portRef IN (instanceRef &_I28_0_INV))
+              (portRef IN (instanceRef &_I29_0_INV))
+            )
+          )
+          (net (rename &_Net00032_ "$Net00032_")
+            (joined
+              (portRef OUT (instanceRef &_I38))
+              (portRef PAD (instanceRef &_I42))
+              (portRef &_Net00032_)
+            )
+          )
+          (net (rename &_Net00011_ "$Net00011_")
+            (joined
+              (portRef R (instanceRef &_I3))
+              (portRef R (instanceRef &_I5))
+              (portRef R (instanceRef &_I6))
+              (portRef OUT (instanceRef &_I11))
+            )
+          )
+          (net (rename &_Net00012_ "$Net00012_")
+            (joined
+              (portRef IN1 (instanceRef &_I23))
+              (portRef OUT (instanceRef &_I12_3_INV))
+            )
+          )
+          (net (rename &_Net00013_ "$Net00013_")
+            (joined
+              (portRef IN0 (instanceRef &_I23))
+              (portRef OUT (instanceRef &_I13_3_INV))
+            )
+          )
+          (net (rename &_Net00014_ "$Net00014_")
+            (joined
+              (portRef IN1 (instanceRef &_I25))
+              (portRef OUT (instanceRef &_I17_3_INV))
+            )
+          )
+          (net (rename &_Net00015_ "$Net00015_")
+            (joined
+              (portRef IN0 (instanceRef &_I25))
+              (portRef OUT (instanceRef &_I18_3_INV))
+            )
+          )
+          (net (rename &_Net00016_ "$Net00016_")
+            (joined
+              (portRef OUT (instanceRef &_I20))
+              (portRef IN1 (instanceRef &_I22))
+            )
+          )
+          (net (rename &_Net00017_ "$Net00017_")
+            (joined
+              (portRef OUT (instanceRef &_I21))
+              (portRef IN0 (instanceRef &_I22))
+            )
+          )
+          (net (rename &_Net00018_ "$Net00018_")
+            (joined
+              (portRef IN2 (instanceRef &_I24))
+              (portRef OUT (instanceRef &_I16_3_INV))
+            )
+          )
+          (net (rename &_Net00019_ "$Net00019_")
+            (joined
+              (portRef IN1 (instanceRef &_I24))
+              (portRef OUT (instanceRef &_I27_3_INV))
+            )
+          )
+          (net (rename &_Net00020_ "$Net00020_")
+            (joined
+              (portRef IN0 (instanceRef &_I24))
+              (portRef OUT (instanceRef &_I28_3_INV))
+            )
+          )
+          (net (rename &_Net00021_ "$Net00021_")
+            (joined
+              (portRef IN1 (instanceRef &_I30))
+              (portRef OUT (instanceRef &_I29_3_INV))
+            )
+          )
+          (net (rename &_Net00022_ "$Net00022_")
+            (joined
+              (portRef IN0 (instanceRef &_I30))
+              (portRef OUT (instanceRef &_I14_3_INV))
+            )
+          )
+          (net &__A__1
+            (joined
+              (portRef IN (instanceRef &_I31))
+              (portRef OUT (instanceRef I_from_net_VCC))
+            )
+          )
+          (net (rename &_Net00024_ "$Net00024_")
+            (joined
+              (portRef OUT (instanceRef &_I34))
+              (portRef PAD (instanceRef &_I39))
+              (portRef &_Net00024_)
+            )
+          )
+          (net (rename &_Net00037_ "$Net00037_")
+            (joined
+              (portRef OUT (instanceRef &_I31))
+              (portRef PAD (instanceRef &_I32))
+              (portRef &_Net00037_)
+            )
+          )
+          (net (rename &_Net00026_ "$Net00026_")
+            (joined
+              (portRef OUT (instanceRef &_I37))
+              (portRef PAD (instanceRef &_I45))
+              (portRef &_Net00026_)
+            )
+          )
+          (net (rename &_Net00036_ "$Net00036_")
+            (joined
+              (portRef PAD (instanceRef &_I44))
+              (portRef OUT (instanceRef &_I46))
+              (portRef &_Net00036_)
+            )
+          )
+          (net (rename &_Net00028_ "$Net00028_")
+            (joined
+              (portRef OUT (instanceRef &_I33))
+              (portRef PAD (instanceRef &_I40))
+              (portRef &_Net00028_)
+            )
+          )
+          (net (rename &_Net00029_ "$Net00029_")
+            (joined
+              (portRef OUT (instanceRef &_I25))
+              (portRef IN (instanceRef &_I35))
+            )
+          )
+          (net (rename &_Net00030_ "$Net00030_")
+            (joined
+              (portRef OUT (instanceRef &_I35))
+              (portRef PAD (instanceRef &_I41))
+              (portRef &_Net00030_)
+            )
+          )
+          (net (rename &_Net00031_ "$Net00031_")
+            (joined
+              (portRef OUT (instanceRef &_I22))
+              (portRef IN (instanceRef &_I38))
+            )
+          )
+          (net (rename &_Net00007_ "$Net00007_")
+            (joined
+              (portRef D (instanceRef &_I5))
+              (portRef OUT (instanceRef &_I48))
+            )
+          )
+          (net (rename &_Net00008_ "$Net00008_")
+            (joined
+              (portRef OUT (instanceRef &_I47))
+              (portRef IN0 (instanceRef &_I49))
+            )
+          )
+          (net (rename &_Net00010_ "$Net00010_")
+            (joined
+              (portRef D (instanceRef &_I6))
+              (portRef OUT (instanceRef &_I49))
+            )
+          )
+          (net (rename &_Net00005_ "$Net00005_")
+            (joined
+              (portRef OUT (instanceRef &_I23))
+              (portRef IN (instanceRef &_I34))
+            )
+          )
+          (net (rename &_Net00023_ "$Net00023_")
+            (joined
+              (portRef IN (instanceRef &_I37))
+              (portRef OUT (instanceRef &_I26_3_INV))
+            )
+          )
+          (net (rename &_Net00025_ "$Net00025_")
+            (joined
+              (portRef IN (instanceRef &_I33))
+              (portRef OUT (instanceRef &_I15_3_INV))
+            )
+          )
+          (net (rename &_Net00027_ "$Net00027_")
+            (joined
+              (portRef OUT (instanceRef &_I50))
+              (portRef PAD (instanceRef &_I53))
+              (portRef &_Net00027_)
+            )
+          )
+          (net (rename &_Net00038_ "$Net00038_")
+            (joined
+              (portRef OUT (instanceRef &_I51))
+              (portRef PAD (instanceRef &_I54))
+              (portRef &_Net00038_)
+            )
+          )
+          (net (rename &_Net00039_ "$Net00039_")
+            (joined
+              (portRef OUT (instanceRef &_I52))
+              (portRef PAD (instanceRef &_I55))
+              (portRef &_Net00039_)
+            )
+          )
+          (net (rename &_Net00040_ "$Net00040_")
+            (joined
+              (portRef IN (instanceRef &_I50))
+              (portRef IN (instanceRef &_I51))
+              (portRef IN (instanceRef &_I52))
+              (portRef OUT (instanceRef &_I56))
+            )
+          )
+          (net (rename &_I12_0_INV "$I12_0_INV")
+            (joined
+              (portRef OUT (instanceRef &_I12_0_INV))
+              (portRef IN0 (instanceRef &_I12))
+            )
+          )
+          (net (rename &_I12_1_INV "$I12_1_INV")
+            (joined
+              (portRef OUT (instanceRef &_I12_1_INV))
+              (portRef IN1 (instanceRef &_I12))
+            )
+          )
+          (net (rename &_I12_3_INV "$I12_3_INV")
+            (joined
+              (portRef IN (instanceRef &_I12_3_INV))
+              (portRef OUT (instanceRef &_I12))
+            )
+          )
+          (net (rename &_I13_0_INV "$I13_0_INV")
+            (joined
+              (portRef OUT (instanceRef &_I13_0_INV))
+              (portRef IN0 (instanceRef &_I13))
+            )
+          )
+          (net (rename &_I13_1_INV "$I13_1_INV")
+            (joined
+              (portRef OUT (instanceRef &_I13_1_INV))
+              (portRef IN1 (instanceRef &_I13))
+            )
+          )
+          (net (rename &_I13_3_INV "$I13_3_INV")
+            (joined
+              (portRef IN (instanceRef &_I13_3_INV))
+              (portRef OUT (instanceRef &_I13))
+            )
+          )
+          (net (rename &_I14_0_INV "$I14_0_INV")
+            (joined
+              (portRef OUT (instanceRef &_I14_0_INV))
+              (portRef IN0 (instanceRef &_I14))
+            )
+          )
+          (net (rename &_I14_1_INV "$I14_1_INV")
+            (joined
+              (portRef OUT (instanceRef &_I14_1_INV))
+              (portRef IN1 (instanceRef &_I14))
+            )
+          )
+          (net (rename &_I14_3_INV "$I14_3_INV")
+            (joined
+              (portRef IN (instanceRef &_I14_3_INV))
+              (portRef OUT (instanceRef &_I14))
+            )
+          )
+          (net (rename &_I15_0_INV "$I15_0_INV")
+            (joined
+              (portRef OUT (instanceRef &_I15_0_INV))
+              (portRef IN0 (instanceRef &_I15))
+            )
+          )
+          (net (rename &_I15_1_INV "$I15_1_INV")
+            (joined
+              (portRef OUT (instanceRef &_I15_1_INV))
+              (portRef IN1 (instanceRef &_I15))
+            )
+          )
+          (net (rename &_I15_3_INV "$I15_3_INV")
+            (joined
+              (portRef IN (instanceRef &_I15_3_INV))
+              (portRef OUT (instanceRef &_I15))
+            )
+          )
+          (net (rename &_I16_0_INV "$I16_0_INV")
+            (joined
+              (portRef OUT (instanceRef &_I16_0_INV))
+              (portRef IN0 (instanceRef &_I16))
+            )
+          )
+          (net (rename &_I16_1_INV "$I16_1_INV")
+            (joined
+              (portRef OUT (instanceRef &_I16_1_INV))
+              (portRef IN1 (instanceRef &_I16))
+            )
+          )
+          (net (rename &_I16_3_INV "$I16_3_INV")
+            (joined
+              (portRef IN (instanceRef &_I16_3_INV))
+              (portRef OUT (instanceRef &_I16))
+            )
+          )
+          (net (rename &_I17_0_INV "$I17_0_INV")
+            (joined
+              (portRef OUT (instanceRef &_I17_0_INV))
+              (portRef IN0 (instanceRef &_I17))
+            )
+          )
+          (net (rename &_I17_1_INV "$I17_1_INV")
+            (joined
+              (portRef OUT (instanceRef &_I17_1_INV))
+              (portRef IN1 (instanceRef &_I17))
+            )
+          )
+          (net (rename &_I17_3_INV "$I17_3_INV")
+            (joined
+              (portRef IN (instanceRef &_I17_3_INV))
+              (portRef OUT (instanceRef &_I17))
+            )
+          )
+          (net (rename &_I18_0_INV "$I18_0_INV")
+            (joined
+              (portRef OUT (instanceRef &_I18_0_INV))
+              (portRef IN0 (instanceRef &_I18))
+            )
+          )
+          (net (rename &_I18_1_INV "$I18_1_INV")
+            (joined
+              (portRef OUT (instanceRef &_I18_1_INV))
+              (portRef IN1 (instanceRef &_I18))
+            )
+          )
+          (net (rename &_I18_3_INV "$I18_3_INV")
+            (joined
+              (portRef IN (instanceRef &_I18_3_INV))
+              (portRef OUT (instanceRef &_I18))
+            )
+          )
+          (net (rename &_I20_0_INV "$I20_0_INV")
+            (joined
+              (portRef OUT (instanceRef &_I20_0_INV))
+              (portRef IN0 (instanceRef &_I20))
+            )
+          )
+          (net (rename &_I20_1_INV "$I20_1_INV")
+            (joined
+              (portRef OUT (instanceRef &_I20_1_INV))
+              (portRef IN1 (instanceRef &_I20))
+            )
+          )
+          (net (rename &_I20_2_INV "$I20_2_INV")
+            (joined
+              (portRef OUT (instanceRef &_I20_2_INV))
+              (portRef IN2 (instanceRef &_I20))
+            )
+          )
+          (net (rename &_I21_0_INV "$I21_0_INV")
+            (joined
+              (portRef OUT (instanceRef &_I21_0_INV))
+              (portRef IN0 (instanceRef &_I21))
+            )
+          )
+          (net (rename &_I21_1_INV "$I21_1_INV")
+            (joined
+              (portRef OUT (instanceRef &_I21_1_INV))
+              (portRef IN1 (instanceRef &_I21))
+            )
+          )
+          (net (rename &_I26_0_INV "$I26_0_INV")
+            (joined
+              (portRef OUT (instanceRef &_I26_0_INV))
+              (portRef IN0 (instanceRef &_I26))
+            )
+          )
+          (net (rename &_I26_3_INV "$I26_3_INV")
+            (joined
+              (portRef IN (instanceRef &_I26_3_INV))
+              (portRef OUT (instanceRef &_I26))
+            )
+          )
+          (net (rename &_I27_0_INV "$I27_0_INV")
+            (joined
+              (portRef OUT (instanceRef &_I27_0_INV))
+              (portRef IN0 (instanceRef &_I27))
+            )
+          )
+          (net (rename &_I27_1_INV "$I27_1_INV")
+            (joined
+              (portRef OUT (instanceRef &_I27_1_INV))
+              (portRef IN1 (instanceRef &_I27))
+            )
+          )
+          (net (rename &_I27_3_INV "$I27_3_INV")
+            (joined
+              (portRef IN (instanceRef &_I27_3_INV))
+              (portRef OUT (instanceRef &_I27))
+            )
+          )
+          (net (rename &_I28_0_INV "$I28_0_INV")
+            (joined
+              (portRef OUT (instanceRef &_I28_0_INV))
+              (portRef IN0 (instanceRef &_I28))
+            )
+          )
+          (net (rename &_I28_3_INV "$I28_3_INV")
+            (joined
+              (portRef IN (instanceRef &_I28_3_INV))
+              (portRef OUT (instanceRef &_I28))
+            )
+          )
+          (net (rename &_I29_0_INV "$I29_0_INV")
+            (joined
+              (portRef OUT (instanceRef &_I29_0_INV))
+              (portRef IN0 (instanceRef &_I29))
+            )
+          )
+          (net (rename &_I29_1_INV "$I29_1_INV")
+            (joined
+              (portRef OUT (instanceRef &_I29_1_INV))
+              (portRef IN1 (instanceRef &_I29))
+            )
+          )
+          (net (rename &_I29_2_INV "$I29_2_INV")
+            (joined
+              (portRef OUT (instanceRef &_I29_2_INV))
+              (portRef IN2 (instanceRef &_I29))
+            )
+          )
+          (net (rename &_I29_3_INV "$I29_3_INV")
+            (joined
+              (portRef IN (instanceRef &_I29_3_INV))
+              (portRef OUT (instanceRef &_I29))
+            )
+          )
+          (net GR
+            (joined
+              (portRef GR (instanceRef &_I3))
+              (portRef GR (instanceRef &_I5))
+              (portRef GR (instanceRef &_I6))
+              (portRef PAD (instanceRef GR_PAD))
+            )
+            (property INITSTATE (string "1") (owner "Xilinx"))
+            (property GLOBAL (boolean (true)) (owner "Xilinx"))
+          )
+        )
+    ))
+  )
+  (design ev03
+    (cellRef ev03
+      (libraryRef ev03_lib))
+  )
+)

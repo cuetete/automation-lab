@@ -1,0 +1,92 @@
+
+Xilinx Mapping Report File for Design 'provaxil'
+Copyright (c) 1995-2000 Xilinx, Inc.  All rights reserved.
+
+Design Information
+------------------
+Command Line   : m1map -p xc3020a-7-pc68 -o map.ncd provaxil.ngd provaxil.pcf 
+Target Device  : x3020a
+Target Package : pc68
+Target Speed   : -7
+Mapper Version : xc3000a -- D.19
+
+Design Summary
+--------------
+   Number of errors:        0
+   Number of warnings:      0
+   Number of CLBs:              5 out of    64    7%
+      CLB Flip Flops:       8
+   Number of bonded IOBs:      11 out of    58   18%
+      IOB Flip Flops:       0
+      IOB Latches:          0
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Design Attributes
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - Added Logic
+Section 7 - Expanded Logic
+Section 8 - Signal Cross-Reference
+Section 9 - Symbol Cross-Reference
+Section 10 - IOB Properties
+Section 11 - RPMs
+Section 12 - Guide Report
+Section 13 - Area Group Summary
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+
+Section 3 - Design Attributes
+-----------------------------
+ Attribute LOC
+   "P2" for signal(s) $Net00010_ on symbol "$I17"
+   "P4" for signal(s) $Net00011_ on symbol "$I18"
+   "P65" for signal(s) $Net00008_ on symbol "$I19"
+   "P56" on symbol "$I2"
+   "P58" on symbol "$I20"
+   "P67" for signal(s) $Net00009_ on symbol "$I23"
+   "P55" on symbol "$I3"
+   "P6" for signal(s) $Net00017_ on symbol "$I32"
+   "P8" for signal(s) $Net00023_ on symbol "$I34"
+   "P9" for signal(s) $Net00022_ on symbol "$I36"
+   "P7" for signal(s) $Net00016_ on symbol "$I38"
+
+Section 4 - Removed Logic Summary
+---------------------------------
+
+Section 5 - Removed Logic
+-------------------------
+
+To enable printing of redundant blocks removed and signals merged, set the
+detailed map report option and rerun map.
+
+Section 6 - Added Logic
+-----------------------
+
+Section 7 - Expanded Logic
+--------------------------
+To enable this section, set the detailed map report option and rerun map.
+
+Section 8 - Signal Cross-Reference
+----------------------------------
+To enable this section, set the detailed map report option and rerun map.
+
+Section 9 - Symbol Cross-Reference
+----------------------------------
+To enable this section, set the detailed map report option and rerun map.
+
+Section 10 - IOB Properties
+---------------------------
+
+Section 11 - RPMs
+-----------------
+
+Section 12 - Guide Report
+-------------------------
+Guide not run on this design.

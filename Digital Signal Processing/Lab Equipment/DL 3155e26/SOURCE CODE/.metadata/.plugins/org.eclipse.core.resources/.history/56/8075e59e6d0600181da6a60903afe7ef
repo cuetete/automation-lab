@@ -1,0 +1,212 @@
+// TI File $Revision: /main/1 $
+// Checkin $Date: January 15, 2008   10:49:54 $
+//###########################################################################
+//
+// FILE:   Example_2823xSpi_FFDLB.c
+//
+// TITLE:  DSP2823x Device Spi Digital Loop Back program. 
+//
+// ASSUMPTIONS:
+//
+//    This program requires the DSP2823x header files. 
+// 
+//    This program uses the internal loop back test mode of the peripheral. 
+//    Other then boot mode pin configuration, no other hardware configuration
+//    is required. 
+//
+//    As supplied, this project is configured for "boot to SARAM" 
+//    operation.  The 2823x Boot Mode table is shown below.  
+//    For information on configuring the boot mode of an eZdsp, 
+//    please refer to the documentation included with the eZdsp,  
+//
+//       $Boot_Table:
+//
+//         GPIO87   GPIO86     GPIO85   GPIO84
+//          XA15     XA14       XA13     XA12
+//           PU       PU         PU       PU
+//        ==========================================
+//            1        1          1        1    Jump to Flash
+//            1        1          1        0    SCI-A boot
+//            1        1          0        1    SPI-A boot
+//            1        1          0        0    I2C-A boot
+//            1        0          1        1    eCAN-A boot
+//            1        0          1        0    McBSP-A boot
+//            1        0          0        1    Jump to XINTF x16
+//            1        0          0        0    Jump to XINTF x32
+//            0        1          1        1    Jump to OTP
+//            0        1          1        0    Parallel GPIO I/O boot
+//            0        1          0        1    Parallel XINTF boot
+//            0        1          0        0    Jump to SARAM	    <- "boot to SARAM"
+//            0        0          1        1    Branch to check boot mode
+//            0        0          1        0    Boot to flash, bypass ADC cal
+//            0        0          0        1    Boot to SARAM, bypass ADC cal
+//            0        0          0        0    Boot to SCI-A, bypass ADC cal
+//                                              Boot_Table_End$
+//
+// DESCRIPTION:
+//
+//    This program is a SPI example that uses the internal loopback of
+//    the peripheral.  Interrupts are not used.
+//
+//    A stream of data is sent and then compared to the recieved stream.
+//  
+//    The sent data looks like this:
+//    0000 0001 0002 0003 0004 0005 0006 0007 .... FFFE FFFF
+//
+//    This pattern is repeated forever.  
+//
+//          Watch Variables:         
+//                sdata - sent data
+//                rdata - received data
+//		
+////###########################################################################		
+// Original Author: S.S.
+//
+// $TI Release: DSP2833x Header Files V1.10 $
+// $Release Date: February 15, 2008 $
+//###########################################################################
+
+
+
+#include "DSP2833x_Device.h"     // Headerfile Include File
+#include "DSP2833x_Examples.h"   // Examples Include File
+
+// Prototype statements for functions found within this file.
+interrupt void xint1_isr(void);
+interrupt void xint2_isr(void);
+
+//Global variable
+volatile Uint32 Xint1Count; //发生外部中断1的次数；
+volatile Uint32 Xint2Count; //发生外部中断2的次数；
+volatile Uint32 Xint2Loop; //给外部中断2的for循环变量
+
+#define keyon1 GpioDataRegs.GPADAT.bit.GPIO14
+#define keyon2 GpioDataRegs.GPADAT.bit.GPIO15
+
+#define DELAY 35.700L
+
+void main(void)
+{
+// Step 1. Initialize System Control:
+// PLL, WatchDog, enable Peripheral Clocks
+// This example function is found in the DSP2833x_SysCtrl.c file.
+   InitSysCtrl();
+
+// Step 2. Initalize GPIO:
+// This example function is found in the DSP2833x_Gpio.c file and
+// illustrates how to set the GPIO to it's default state.
+// InitGpio();  // Skipped for this example
+
+
+// Step 3. Clear all interrupts and initialize PIE vector table:
+// Disable CPU interrupts
+   DINT;
+
+// Initialize the PIE control registers to their default state.
+// The default state is all PIE interrupts disabled and flags
+// are cleared.
+// This function is found in the DSP2833x_PieCtrl.c file.
+   InitPieCtrl();
+
+// Disable CPU interrupts and clear all CPU interrupt flags:
+   IER = 0x0000;
+   IFR = 0x0000;
+
+// Initialize the PIE vector table with pointers to the shell Interrupt
+// Service Routines (ISR).
+// This will populate the entire table, even if the interrupt
+// is not used in this example.  This is useful for debug purposes.
+// The shell ISR routines are found in DSP2833x_DefaultIsr.c.
+// This function is found in DSP2833x_PieVect.c.
+   InitPieVectTable();
+
+// Interrupts that are used in this example are re-mapped to
+// ISR functions found within this file.
+   EALLOW;  // This is needed to write to EALLOW protected registers
+   PieVectTable.XINT1 = &xint1_isr;		//define EXT INT ISR
+   PieVectTable.XINT2 = &xint2_isr;
+   EDIS; 
+	
+   Xint1Count = 0; //XINT1 Count
+   Xint2Count = 0; //XINT2 Count 
+
+
+   PieCtrlRegs.PIECTRL.bit.ENPIE = 1;           
+   PieCtrlRegs.PIEIER1.bit.INTx4 = 1;           
+   PieCtrlRegs.PIEIER1.bit.INTx5 = 1;           
+   IER |= M_INT1;                              //enable INT1
+   EINT;                                       //enable Global interrupt
+   
+   //LED0,1  I/O Initialization
+   EALLOW;
+   GpioDataRegs.GPASET.bit.GPIO2 = 1;         //  set bit
+   GpioCtrlRegs.GPAMUX1.bit.GPIO2 = 0;        //  set as GPIO
+   GpioCtrlRegs.GPADIR.bit.GPIO2 = 1;         //  output
+
+   GpioDataRegs.GPASET.bit.GPIO3 = 1;         
+   GpioCtrlRegs.GPAMUX1.bit.GPIO3 = 0;        
+   GpioCtrlRegs.GPADIR.bit.GPIO3 = 1;         
+   EDIS;
+   
+   //ser KEY5,6 as external interrupt spurce
+   EALLOW;
+   GpioCtrlRegs.GPAMUX1.bit.GPIO14 = 0;         
+   GpioCtrlRegs.GPADIR.bit.GPIO14 = 0;          
+   GpioCtrlRegs.GPAQSEL1.bit.GPIO14 = 0;         
+
+   GpioCtrlRegs.GPAMUX1.bit.GPIO15 = 0;          
+   GpioCtrlRegs.GPADIR.bit.GPIO15 = 0;           
+   GpioCtrlRegs.GPAQSEL1.bit.GPIO15 = 2;         
+   GpioCtrlRegs.GPACTRL.bit.QUALPRD1 = 0xFF;     
+   EDIS;
+
+   EALLOW;
+   GpioIntRegs.GPIOXINT1SEL.bit.GPIOSEL = 0x00;   // XINT1-GPIO0
+   GpioIntRegs.GPIOXINT2SEL.bit.GPIOSEL = 0x01;   // XINT2-GPIO1
+   EDIS;
+
+   XIntruptRegs.XINT1CR.bit.POLARITY = 0;      // falling edge trigging
+   XIntruptRegs.XINT2CR.bit.POLARITY = 0;     
+   
+   XIntruptRegs.XINT1CR.bit.ENABLE = 1;        // enable XINT1
+   XIntruptRegs.XINT2CR.bit.ENABLE = 1;        // enable XINT2
+   	
+   for(;;);
+	
+} 	
+
+//ISR
+interrupt void xint1_isr(void)
+{
+	Uint32 i;
+	for(i=0;i<1000000;i++);    // elimination of jitter
+	while(keyon1==0);
+	GpioDataRegs.GPATOGGLE.all = 0x3;      
+	Xint1Count++;
+	PieCtrlRegs.PIEACK.all = PIEACK_GROUP1; //
+}
+
+interrupt void xint2_isr(void)
+{
+	Uint32 i;
+	for(Xint2Loop=1;Xint2Loop<=8;Xint2Loop++)
+	{
+	  GpioDataRegs.GPBTOGGLE.all = 0x3;   // GPIO60-GPIO61输出电平取反
+      DELAY_US(100000);  //delay 0.1s
+    }
+
+	Xint2Count++;
+	for(i=0;i<1000000;i++);    // elimination of jitter
+	while(keyon2==0);
+	PieCtrlRegs.PIEACK.all = PIEACK_GROUP1;
+
+}
+
+
+
+//===========================================================================
+// No more.
+//===========================================================================
+
+
+

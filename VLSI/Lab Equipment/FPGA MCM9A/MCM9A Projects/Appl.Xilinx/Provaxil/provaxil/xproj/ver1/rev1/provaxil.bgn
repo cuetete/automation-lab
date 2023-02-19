@@ -1,0 +1,104 @@
+Release 3.3.06i_V2_SE2 - Bitgen D.19
+Copyright (c) 1995-2000 Xilinx, Inc.  All rights reserved.
+
+Loading device database for application Bitgen from file "provaxil.ncd".
+   "provaxil" is an NCD, version 2.32, device xc3020a, package pc68, speed -7
+Loading device for application Bitgen from file '3020a.nph' in environment
+C:/Xilinx.
+Opened constraints file provaxil.pcf.
+
+Fri Apr 20 12:58:57 2001
+
+bitgen -t -a -u -l -w -g Input:CMOS -g DonePin:PULLUP -g Oscillator:DISABLE -g ReadBack:COMMAND -g RESETTIME:AFTER -g DONETIME:AFTER provaxil.ncd 
+
+Running DRC.
+DRC detected 0 errors and 0 warnings.
+Saving ll file in "provaxil.ll".
+
+Tying down design provaxil.ncd.
+Creating tie sources.
+   Original design signals: 30
+   Original signals added to source list: 11
+   New signals created: 184
+   New signals added to source list: 184
+   Total signals in source list: 195
+Creating tie targets.
+   Total nodes: 2474
+   Unused nodes: 2213
+   Nodes in target list: 1563
+Tying down target nodes.
+   Tied 575 nodes to signal $TIE_HA_X.
+   Tied 1 nodes to signal $TIE_HA_Y.
+   Tied 131 nodes to signal $TIE_GA_X.
+   Tied 134 nodes to signal $TIE_FA_X.
+   Tied 133 nodes to signal $TIE_EA_X.
+   Tied 1 nodes to signal $TIE_EA_Y.
+   Tied 131 nodes to signal $TIE_DA_X.
+   Tied 106 nodes to signal $TIE_CA_X.
+   Tied 262 nodes to signal $TIE_AA_X.
+   Tied 1 nodes to signal $TIE_BG_Y.
+   Tied 11 nodes to signal $TIE_AG_Y.
+   Tied 1 nodes to signal $TIE_CH_X.
+   Tied 2 nodes to signal $TIE_BH_X.
+   Tied 4 nodes to signal $TIE_AH_X.
+   Tied 1 nodes to signal $TIE_P12_Q.
+   Tied 1 nodes to signal $TIE_P30_Q.
+   Tied 1 nodes to signal $TIE_P37_Q.
+   Tied 2 nodes to signal $TIE_P62_Q.
+   Tied 1 nodes to signal $TIE_P61_Q.
+   Tied 9 nodes to signal $TIE_GCLK_O.
+   Tied 1 nodes to signal Q03.
+   Tied 2 nodes to signal Q04.
+   Tied 2 nodes to signal Q08.
+   Tied 1 nodes to signal Q01.
+   Tied 2 nodes to signal Q02.
+   Tied 1 nodes to signal Q06.
+   Tied 1 nodes to signal $TIE_GA_X.
+   Tied 1 nodes to signal $TIE_DA_X.
+   Tied 1 nodes to signal $TIE_HA_X.
+   Tied 1 nodes to signal $TIE_AA_X.
+   Tied 1 nodes to signal $TIE_FA_X.
+   Tied 1 nodes to signal $TIE_CA_X.
+   Tied 1 nodes to signal $TIE_HA_X.
+   Tied 1 nodes to signal $TIE_EA_X.
+   Tied 1 nodes to signal $TIE_AA_X.
+   Tied 1 nodes to signal $TIE_GA_X.
+   Tied 1 nodes to signal $TIE_DA_X.
+   Tied 1 nodes to signal $TIE_FA_X.
+   Tied 1 nodes to signal $TIE_CA_X.
+   Tied 1 nodes to signal $TIE_HA_X.
+   Tied 1 nodes to signal $TIE_EA_X.
+   Tied 1 nodes to signal $TIE_AA_X.
+   Tied 1 nodes to signal $TIE_GA_X.
+   Tied 1 nodes to signal $TIE_DA_X.
+   Tied 1 nodes to signal $TIE_HA_X.
+   Tied 1 nodes to signal $TIE_FA_X.
+   Tied 1 nodes to signal $TIE_HA_X.
+   Tied 1 nodes to signal $TIE_EA_X.
+   Tied 1 nodes to signal $TIE_GA_X.
+   Tied 1 nodes to signal $TIE_DA_X.
+   Tied 1 nodes to signal $TIE_AA_X.
+   Tied 1 nodes to signal $TIE_FA_X.
+   Tied 1 nodes to signal $TIE_HA_X.
+   Tied 1 nodes to signal $TIE_EA_X.
+   Tied 1 nodes to signal $TIE_AA_X.
+   Tied 1 nodes to signal $TIE_GA_X.
+   Tied 1 nodes to signal $TIE_DA_X.
+   Tied 1 nodes to signal $TIE_HA_X.
+   Tied 1 nodes to signal $TIE_FA_X.
+   Tied 1 nodes to signal $TIE_CA_X.
+   Tied 1 nodes to signal $TIE_HA_X.
+   Tied 1 nodes to signal $TIE_EA_X.
+   Tied 1 nodes to signal $TIE_AA_X.
+   Tied 1 nodes to signal $TIE_GA_X.
+   Tied 1 nodes to signal $TIE_DA_X.
+   Tied 2 nodes to signal $TIE_AA_X.
+   Tied 1 nodes to signal $TIE_HA_X.
+   Tied 1 nodes to signal $TIE_EA_X.
+   Tied 1 nodes to signal $TIE_AA_X.
+   Tied 1 nodes to signal $TIE_GA_X.
+   Tied 1 nodes to signal $TIE_DA_X.
+Tiedown complete. 0 untied nodes.
+Fixing up iob clocks...Done.
+Creating bit map...
+Saving bit stream in "provaxil.bit".

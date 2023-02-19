@@ -1,0 +1,188 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+C_SRCS += \
+../DSP2833x_DefaultIsr.c \
+../DSP2833x_GlobalVariableDefs.c \
+../DSP2833x_PieCtrl.c \
+../DSP2833x_PieVect.c \
+../DSP2833x_Spi.c \
+../DSP2833x_SysCtrl.c \
+../DSP2833x_Xintf.c \
+../Example_2823xSpi_FFDLB.c \
+../Fat16.c \
+../Fat32.c \
+../SD_SPI_Erase.c \
+../SD_SPI_Initialization.c \
+../SD_SPI_Read.c \
+../SD_SPI_Registers.c \
+../SD_SPI_Transmission.c \
+../SD_SPI_Write.c \
+../Udisc.c \
+../fat.c 
+
+ASM_SRCS += \
+../DSP2833x_ADC_cal.asm \
+../DSP2833x_CodeStartBranch.asm \
+../DSP2833x_usDelay.asm 
+
+CMD_SRCS += \
+../DSP2833x_Headers_nonBIOS.cmd \
+../MY28335_RAM_lnk.cmd 
+
+C_UPPER_SRCS += \
+../DEVICE.C \
+../HAL.C \
+../HPI16.C \
+../HPI32.C 
+
+ASM_DEPS += \
+./DSP2833x_ADC_cal.pp \
+./DSP2833x_CodeStartBranch.pp \
+./DSP2833x_usDelay.pp 
+
+OBJS += \
+E:/F28335_III_CPLD_SourceCode/DSP28335_SourceCode/SourceCode22_SD_FAT32_OK/Debug/DEVICE.obj \
+E:/F28335_III_CPLD_SourceCode/DSP28335_SourceCode/SourceCode22_SD_FAT32_OK/Debug/DSP2833x_ADC_cal.obj \
+E:/F28335_III_CPLD_SourceCode/DSP28335_SourceCode/SourceCode22_SD_FAT32_OK/Debug/DSP2833x_CodeStartBranch.obj \
+E:/F28335_III_CPLD_SourceCode/DSP28335_SourceCode/SourceCode22_SD_FAT32_OK/Debug/DSP2833x_DefaultIsr.obj \
+E:/F28335_III_CPLD_SourceCode/DSP28335_SourceCode/SourceCode22_SD_FAT32_OK/Debug/DSP2833x_GlobalVariableDefs.obj \
+E:/F28335_III_CPLD_SourceCode/DSP28335_SourceCode/SourceCode22_SD_FAT32_OK/Debug/DSP2833x_PieCtrl.obj \
+E:/F28335_III_CPLD_SourceCode/DSP28335_SourceCode/SourceCode22_SD_FAT32_OK/Debug/DSP2833x_PieVect.obj \
+E:/F28335_III_CPLD_SourceCode/DSP28335_SourceCode/SourceCode22_SD_FAT32_OK/Debug/DSP2833x_Spi.obj \
+E:/F28335_III_CPLD_SourceCode/DSP28335_SourceCode/SourceCode22_SD_FAT32_OK/Debug/DSP2833x_SysCtrl.obj \
+E:/F28335_III_CPLD_SourceCode/DSP28335_SourceCode/SourceCode22_SD_FAT32_OK/Debug/DSP2833x_Xintf.obj \
+E:/F28335_III_CPLD_SourceCode/DSP28335_SourceCode/SourceCode22_SD_FAT32_OK/Debug/DSP2833x_usDelay.obj \
+E:/F28335_III_CPLD_SourceCode/DSP28335_SourceCode/SourceCode22_SD_FAT32_OK/Debug/Example_2823xSpi_FFDLB.obj \
+E:/F28335_III_CPLD_SourceCode/DSP28335_SourceCode/SourceCode22_SD_FAT32_OK/Debug/Fat16.obj \
+E:/F28335_III_CPLD_SourceCode/DSP28335_SourceCode/SourceCode22_SD_FAT32_OK/Debug/Fat32.obj \
+E:/F28335_III_CPLD_SourceCode/DSP28335_SourceCode/SourceCode22_SD_FAT32_OK/Debug/HAL.obj \
+E:/F28335_III_CPLD_SourceCode/DSP28335_SourceCode/SourceCode22_SD_FAT32_OK/Debug/HPI16.obj \
+E:/F28335_III_CPLD_SourceCode/DSP28335_SourceCode/SourceCode22_SD_FAT32_OK/Debug/HPI32.obj \
+E:/F28335_III_CPLD_SourceCode/DSP28335_SourceCode/SourceCode22_SD_FAT32_OK/Debug/SD_SPI_Erase.obj \
+E:/F28335_III_CPLD_SourceCode/DSP28335_SourceCode/SourceCode22_SD_FAT32_OK/Debug/SD_SPI_Initialization.obj \
+E:/F28335_III_CPLD_SourceCode/DSP28335_SourceCode/SourceCode22_SD_FAT32_OK/Debug/SD_SPI_Read.obj \
+E:/F28335_III_CPLD_SourceCode/DSP28335_SourceCode/SourceCode22_SD_FAT32_OK/Debug/SD_SPI_Registers.obj \
+E:/F28335_III_CPLD_SourceCode/DSP28335_SourceCode/SourceCode22_SD_FAT32_OK/Debug/SD_SPI_Transmission.obj \
+E:/F28335_III_CPLD_SourceCode/DSP28335_SourceCode/SourceCode22_SD_FAT32_OK/Debug/SD_SPI_Write.obj \
+E:/F28335_III_CPLD_SourceCode/DSP28335_SourceCode/SourceCode22_SD_FAT32_OK/Debug/Udisc.obj \
+E:/F28335_III_CPLD_SourceCode/DSP28335_SourceCode/SourceCode22_SD_FAT32_OK/Debug/fat.obj 
+
+C_DEPS += \
+./DSP2833x_DefaultIsr.pp \
+./DSP2833x_GlobalVariableDefs.pp \
+./DSP2833x_PieCtrl.pp \
+./DSP2833x_PieVect.pp \
+./DSP2833x_Spi.pp \
+./DSP2833x_SysCtrl.pp \
+./DSP2833x_Xintf.pp \
+./Example_2823xSpi_FFDLB.pp \
+./Fat16.pp \
+./Fat32.pp \
+./SD_SPI_Erase.pp \
+./SD_SPI_Initialization.pp \
+./SD_SPI_Read.pp \
+./SD_SPI_Registers.pp \
+./SD_SPI_Transmission.pp \
+./SD_SPI_Write.pp \
+./Udisc.pp \
+./fat.pp 
+
+C_UPPER_DEPS += \
+./DEVICE.pp \
+./HAL.pp \
+./HPI16.pp \
+./HPI32.pp 
+
+OBJS__QTD += \
+"E:\F28335_III_CPLD_SourceCode\DSP28335_SourceCode\SourceCode22_SD_FAT32_OK\Debug\DEVICE.obj" \
+"E:\F28335_III_CPLD_SourceCode\DSP28335_SourceCode\SourceCode22_SD_FAT32_OK\Debug\DSP2833x_ADC_cal.obj" \
+"E:\F28335_III_CPLD_SourceCode\DSP28335_SourceCode\SourceCode22_SD_FAT32_OK\Debug\DSP2833x_CodeStartBranch.obj" \
+"E:\F28335_III_CPLD_SourceCode\DSP28335_SourceCode\SourceCode22_SD_FAT32_OK\Debug\DSP2833x_DefaultIsr.obj" \
+"E:\F28335_III_CPLD_SourceCode\DSP28335_SourceCode\SourceCode22_SD_FAT32_OK\Debug\DSP2833x_GlobalVariableDefs.obj" \
+"E:\F28335_III_CPLD_SourceCode\DSP28335_SourceCode\SourceCode22_SD_FAT32_OK\Debug\DSP2833x_PieCtrl.obj" \
+"E:\F28335_III_CPLD_SourceCode\DSP28335_SourceCode\SourceCode22_SD_FAT32_OK\Debug\DSP2833x_PieVect.obj" \
+"E:\F28335_III_CPLD_SourceCode\DSP28335_SourceCode\SourceCode22_SD_FAT32_OK\Debug\DSP2833x_Spi.obj" \
+"E:\F28335_III_CPLD_SourceCode\DSP28335_SourceCode\SourceCode22_SD_FAT32_OK\Debug\DSP2833x_SysCtrl.obj" \
+"E:\F28335_III_CPLD_SourceCode\DSP28335_SourceCode\SourceCode22_SD_FAT32_OK\Debug\DSP2833x_Xintf.obj" \
+"E:\F28335_III_CPLD_SourceCode\DSP28335_SourceCode\SourceCode22_SD_FAT32_OK\Debug\DSP2833x_usDelay.obj" \
+"E:\F28335_III_CPLD_SourceCode\DSP28335_SourceCode\SourceCode22_SD_FAT32_OK\Debug\Example_2823xSpi_FFDLB.obj" \
+"E:\F28335_III_CPLD_SourceCode\DSP28335_SourceCode\SourceCode22_SD_FAT32_OK\Debug\Fat16.obj" \
+"E:\F28335_III_CPLD_SourceCode\DSP28335_SourceCode\SourceCode22_SD_FAT32_OK\Debug\Fat32.obj" \
+"E:\F28335_III_CPLD_SourceCode\DSP28335_SourceCode\SourceCode22_SD_FAT32_OK\Debug\HAL.obj" \
+"E:\F28335_III_CPLD_SourceCode\DSP28335_SourceCode\SourceCode22_SD_FAT32_OK\Debug\HPI16.obj" \
+"E:\F28335_III_CPLD_SourceCode\DSP28335_SourceCode\SourceCode22_SD_FAT32_OK\Debug\HPI32.obj" \
+"E:\F28335_III_CPLD_SourceCode\DSP28335_SourceCode\SourceCode22_SD_FAT32_OK\Debug\SD_SPI_Erase.obj" \
+"E:\F28335_III_CPLD_SourceCode\DSP28335_SourceCode\SourceCode22_SD_FAT32_OK\Debug\SD_SPI_Initialization.obj" \
+"E:\F28335_III_CPLD_SourceCode\DSP28335_SourceCode\SourceCode22_SD_FAT32_OK\Debug\SD_SPI_Read.obj" \
+"E:\F28335_III_CPLD_SourceCode\DSP28335_SourceCode\SourceCode22_SD_FAT32_OK\Debug\SD_SPI_Registers.obj" \
+"E:\F28335_III_CPLD_SourceCode\DSP28335_SourceCode\SourceCode22_SD_FAT32_OK\Debug\SD_SPI_Transmission.obj" \
+"E:\F28335_III_CPLD_SourceCode\DSP28335_SourceCode\SourceCode22_SD_FAT32_OK\Debug\SD_SPI_Write.obj" \
+"E:\F28335_III_CPLD_SourceCode\DSP28335_SourceCode\SourceCode22_SD_FAT32_OK\Debug\Udisc.obj" \
+"E:\F28335_III_CPLD_SourceCode\DSP28335_SourceCode\SourceCode22_SD_FAT32_OK\Debug\fat.obj" 
+
+ASM_DEPS__QTD += \
+".\DSP2833x_ADC_cal.pp" \
+".\DSP2833x_CodeStartBranch.pp" \
+".\DSP2833x_usDelay.pp" 
+
+C_UPPER_DEPS__QTD += \
+".\DEVICE.pp" \
+".\HAL.pp" \
+".\HPI16.pp" \
+".\HPI32.pp" 
+
+C_DEPS__QTD += \
+".\DSP2833x_DefaultIsr.pp" \
+".\DSP2833x_GlobalVariableDefs.pp" \
+".\DSP2833x_PieCtrl.pp" \
+".\DSP2833x_PieVect.pp" \
+".\DSP2833x_Spi.pp" \
+".\DSP2833x_SysCtrl.pp" \
+".\DSP2833x_Xintf.pp" \
+".\Example_2823xSpi_FFDLB.pp" \
+".\Fat16.pp" \
+".\Fat32.pp" \
+".\SD_SPI_Erase.pp" \
+".\SD_SPI_Initialization.pp" \
+".\SD_SPI_Read.pp" \
+".\SD_SPI_Registers.pp" \
+".\SD_SPI_Transmission.pp" \
+".\SD_SPI_Write.pp" \
+".\Udisc.pp" \
+".\fat.pp" 
+
+C_UPPER_SRCS_QUOTED += \
+"../DEVICE.C" \
+"../HAL.C" \
+"../HPI16.C" \
+"../HPI32.C" 
+
+ASM_SRCS_QUOTED += \
+"../DSP2833x_ADC_cal.asm" \
+"../DSP2833x_CodeStartBranch.asm" \
+"../DSP2833x_usDelay.asm" 
+
+C_SRCS_QUOTED += \
+"../DSP2833x_DefaultIsr.c" \
+"../DSP2833x_GlobalVariableDefs.c" \
+"../DSP2833x_PieCtrl.c" \
+"../DSP2833x_PieVect.c" \
+"../DSP2833x_Spi.c" \
+"../DSP2833x_SysCtrl.c" \
+"../DSP2833x_Xintf.c" \
+"../Example_2823xSpi_FFDLB.c" \
+"../Fat16.c" \
+"../Fat32.c" \
+"../SD_SPI_Erase.c" \
+"../SD_SPI_Initialization.c" \
+"../SD_SPI_Read.c" \
+"../SD_SPI_Registers.c" \
+"../SD_SPI_Transmission.c" \
+"../SD_SPI_Write.c" \
+"../Udisc.c" \
+"../fat.c" 
+
+

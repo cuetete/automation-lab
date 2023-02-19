@@ -1,0 +1,34 @@
+XNFMERGE Ver. 5.2.0 
+Copyright (c) 1987-1995 Xilinx Inc. All rights reserved
+
+List of files read
+    Read file ev03.xnf
+    Read file fdr.xnf
+    Read file fd.xnf
+    Read file fdr.xnf
+    Read file fd.xnf
+    Read file fdr.xnf
+    Read file fd.xnf
+
+Signal Binding Report:
+     $I6/R bound to $Net00011_
+     $I6/Q bound to $Net00009_
+     $I6/D bound to $Net00010_
+     $I6/C bound to $Net00002_
+     $I5/R bound to $Net00011_
+     $I5/Q bound to $Net00006_
+     $I5/D bound to $Net00007_
+     $I5/C bound to $Net00002_
+     $I3/R bound to $Net00011_
+     $I3/Q bound to $Net00003_
+     $I3/D bound to $Net00004_
+     $I3/C bound to $Net00002_
+
+
+
+List of sets created by XNFMERGE:
+
+Items in network:
+   46 signals
+   38 primitive symbols
+   0 unresolved symbols

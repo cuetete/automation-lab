@@ -1,0 +1,13 @@
+Program Group|Xilinx Foundation Series 3.1i
+FileList|fnd_nt_jl.txt
+Family|Virtex|Virtex Devices
+Family|VirtexE|VirtexE Devices.
+Family|Virtex2|Virtex2 Devices.
+Family|Spartan|Spartan Devices.
+Family|SpartanXL|SpartanXL Devices.
+Family|Spartan2|Spartan2 Devices.
+Family|XC4000|XC4000 Devices.
+Family|XC3000A/L|Use the 3100A/L and 3000A/L families for existing designs. These parts are intended for existing designs and not intended for new designs.
+Family|XC5200|XC5200 Devices.  Use the following parts from the XC5200 family for existing designs. These parts are intended for existing designs and not intended for new designs. Includes: XC5202, XC5204, XC5206, XC5210, XC5215 
+Family|XC9500|XC9500 Devices.  This option installs the files needed to design to all of the parts of the XC9500/XL/XV CPLD families.
+

@@ -1,0 +1,262 @@
+// TI File $Revision: /main/14 $
+// Checkin $Date: April 21, 2008   15:41:07 $
+//###########################################################################
+//
+// FILE:    Example_2833xCpuTimer.c
+//
+// TITLE:   DSP2833x Device Getting Started Program.
+//
+// ASSUMPTIONS:
+//
+//    This program requires the DSP2833x header files.
+//
+//    Other then boot mode configuration, no other hardware configuration
+//    is required.
+//
+//
+//    As supplied, this project is configured for "boot to SARAM"
+//    operation.  The 2833x Boot Mode table is shown below.
+//    For information on configuring the boot mode of an eZdsp,
+//    please refer to the documentation included with the eZdsp,
+//
+//       $Boot_Table:
+//
+//         GPIO87   GPIO86     GPIO85   GPIO84
+//          XA15     XA14       XA13     XA12
+//           PU       PU         PU       PU
+//        ==========================================
+//            1        1          1        1    Jump to Flash
+//            1        1          1        0    SCI-A boot
+//            1        1          0        1    SPI-A boot
+//            1        1          0        0    I2C-A boot
+//            1        0          1        1    eCAN-A boot
+//            1        0          1        0    McBSP-A boot
+//            1        0          0        1    Jump to XINTF x16
+//            1        0          0        0    Jump to XINTF x32
+//            0        1          1        1    Jump to OTP
+//            0        1          1        0    Parallel GPIO I/O boot
+//            0        1          0        1    Parallel XINTF boot
+//            0        1          0        0    Jump to SARAM	    <- "boot to SARAM"
+//            0        0          1        1    Branch to check boot mode
+//            0        0          1        0    Boot to flash, bypass ADC cal
+//            0        0          0        1    Boot to SARAM, bypass ADC cal
+//            0        0          0        0    Boot to SCI-A, bypass ADC cal
+//                                              Boot_Table_End$
+//
+// DESCRIPTION:
+//
+//    This example configures CPU Timer0, 1, and 2 and increments
+//    a counter each time the timers assert an interrupt.
+//
+//       Watch Variables:
+//          CpuTimer0.InterruptCount
+//          CpuTimer1.InterruptCount
+//          CpuTimer2.InterruptCount
+//
+//###########################################################################
+// $TI Release: DSP2833x/DSP2823x Header Files V1.20 $
+// $Release Date: August 1, 2008 $
+//###########################################################################
+
+
+#include "DSP28x_Project.h"     // Device Headerfile and Examples Include File
+
+
+
+#define BUZZ_CLK_GENER			GpioDataRegs.GPATOGGLE.bit.GPIO10 = 1;		//Buzz control IO
+#define DISABLE_TIMER1_INT		IER &= 0xFFFE;								//disable TIMER1
+#define ENABLE_TIMER1_INT		IER |= M_INT1;								//enable TIMER1
+#define BUZZ_OFF				GpioDataRegs.GPASET.bit.GPIO10 = 1;			//off buzz
+/*****************************************************************************************************/
+
+interrupt void cpu_timer0_isr(void);
+void Show(void);
+void Buzz_Gpio_Init(void);
+void Delay(Uint16 t);
+/*****************************************************************************************************/
+
+void Buzz_Gpio_Init(void)
+{
+	EALLOW;
+    GpioCtrlRegs.GPAPUD.bit.GPIO10 = 0;   									// Enable pullup on GPIO35
+    GpioDataRegs.GPASET.bit.GPIO10 = 1;  									 // Load output latch
+    GpioCtrlRegs.GPAMUX1.bit.GPIO10 = 0;  									// GPIO10 = GPIO
+    GpioCtrlRegs.GPADIR.bit.GPIO10 = 1;   									// GPIO10 = output
+    EDIS;
+}
+/*****************************************************************************************************/
+
+Uint16 Musi[23]={		// buzz tone
+				0,
+				3816,	//L_do
+				3496,	//L_re
+				3215,	//L_mi
+				2865,	//L_fa
+				2551,	//L_so
+				2272,	//L_la
+				2024,	//L_xi
+				1912,	//do
+				1703,	//re
+				1517,	//mi
+				1432,	//fa
+				1275,	//so
+				1136,	//la
+				1013,	//xi
+				956,	//H_do
+				851,	//H_re
+				758,	//H_mi
+				716,	//H_fa
+				638,	//H_so
+				568,	//H_la
+				506,	//H_xi
+				0xFF	//STOP
+				};
+				/*
+Uint16 Song[]={1,1,5,5,6,6,5,4,4,3,3,2,2,1,5,5,4,4,3,3,2,5,5,4,4,3,3,2,22}; //《小小星星亮晶晶》简谱
+Uint16 DT[]={2,2,2,2,2,2,4,2,2,2,2,2,2,4,2,2,2,2,2,2,4,2,2,2,2,2,2,4};		//节拍
+*/
+Uint16 Song[]=	{5,5,6,5,8,7,5,5,6,5,8,7,5,5,5,10,8,7,6,11,10,8,9,8,22	};	//《祝你生日快乐》简谱			
+Uint16 DT[]={2,2,5,4,6,8,2,2,5,6,6,9,4,2,5,4,6,12,2,2,5,6,8,12 };			//节拍
+/*****************************************************************************************************/
+
+/*********************************************延时函数************************************************/
+void Delay(Uint16 t)														//延时函数
+{
+	Uint32 i=0;
+	Uint32 gain = 200000;													//延时增益
+	Uint32 base=0;								
+	base=gain*t; 															
+	for(i=0;i<=base;i++);
+}
+/*****************************************************************************************************/
+
+/*********************************************歌曲演奏************************************************/
+void Show(void)
+{
+	Uint16 addr=0;
+	while(1)
+	{
+		if(Musi[Song[addr]]==0xFF)									
+		{
+			return;															//音乐播放结束
+		}
+		else
+		{
+			StopCpuTimer0();												//停止计数
+			DISABLE_TIMER1_INT;												//不使能定时中断
+			ConfigCpuTimer(&CpuTimer0, 150, Musi[Song[addr]+8]);			//设置定时时间
+			StartCpuTimer0();												//重启定时器
+			ENABLE_TIMER1_INT;												//使能定时中断
+			Delay(DT[addr]);												//音乐节拍延时
+			StopCpuTimer0();												//停止计数
+			DISABLE_TIMER1_INT;												//不使能定时中断
+			BUZZ_OFF;														//关闭蜂鸣器
+			Delay(8);														//音乐停顿
+			addr++;
+		}
+	}
+
+}
+/*****************************************************************************************************/
+
+// Prototype statements for functions found within this file.
+interrupt void cpu_timer0_isr(void);
+
+
+void main(void)
+{
+
+// Step 1. Initialize System Control:
+// PLL, WatchDog, enable Peripheral Clocks
+// This example function is found in the DSP2833x_SysCtrl.c file.
+   InitSysCtrl();
+
+// Step 2. Initalize GPIO:
+// This example function is found in the DSP2833x_Gpio.c file and
+// illustrates how to set the GPIO to it's default state.
+// InitGpio();  // Skipped for this example
+    Buzz_Gpio_Init();
+
+// Step 3. Clear all interrupts and initialize PIE vector table:
+// Disable CPU interrupts
+   DINT;
+
+// Initialize the PIE control registers to their default state.
+// The default state is all PIE interrupts disabled and flags
+// are cleared.
+// This function is found in the DSP2833x_PieCtrl.c file.
+   InitPieCtrl();
+
+// Disable CPU interrupts and clear all CPU interrupt flags:
+   IER = 0x0000;
+   IFR = 0x0000;
+
+// Initialize the PIE vector table with pointers to the shell Interrupt
+// Service Routines (ISR).
+// This will populate the entire table, even if the interrupt
+// is not used in this example.  This is useful for debug purposes.
+// The shell ISR routines are found in DSP2833x_DefaultIsr.c.
+// This function is found in DSP2833x_PieVect.c.
+   InitPieVectTable();
+
+// Interrupts that are used in this example are re-mapped to
+// ISR functions found within this file.
+   EALLOW;  // This is needed to write to EALLOW protected registers
+   PieVectTable.TINT0 = &cpu_timer0_isr;
+
+
+   EDIS;    // This is needed to disable write to EALLOW protected registers
+
+// Step 4. Initialize the Device Peripheral. This function can be
+//         found in DSP2833x_CpuTimers.c
+   InitCpuTimers();   // For this example, only initialize the Cpu Timers
+
+   ConfigCpuTimer(&CpuTimer0, 150, 50);
+
+// To ensure precise timing, use write-only instructions to write to the entire register. Therefore, if any
+// of the configuration bits are changed in ConfigCpuTimer and InitCpuTimers (in DSP2833x_CpuTimers.h), the
+// below settings must also be updated.
+
+//   CpuTimer0Regs.TCR.all = 0x4001; // Use write-only instruction to set TSS bit = 0
+//   CpuTimer1Regs.TCR.all = 0x4001; // Use write-only instruction to set TSS bit = 0
+//   CpuTimer2Regs.TCR.all = 0x4001; // Use write-only instruction to set TSS bit = 0
+
+// Step 5. User specific code, enable interrupts:
+
+
+// Enable CPU int1 which is connected to CPU-Timer 0, CPU int13
+// which is connected to CPU-Timer 1, and CPU int 14, which is connected
+// to CPU-Timer 2:
+   IER |= M_INT1;
+
+// Enable TINT0 in the PIE: Group 1 interrupt 7
+   PieCtrlRegs.PIEIER1.bit.INTx7 = 1;
+
+// Enable global Interrupts and higher priority real-time debug events:
+   EINT;   // Enable Global interrupt INTM
+   ERTM;   // Enable Global realtime interrupt DBGM
+
+// Step 6. IDLE loop. Just sit and loop forever (optional):
+   while(1)
+   {
+
+	Show();
+   }
+
+}
+
+
+interrupt void cpu_timer0_isr(void)
+{
+   CpuTimer0.InterruptCount++;
+BUZZ_CLK_GENER;
+   // Acknowledge this interrupt to receive more interrupts from group 1
+//   GpioDataRegs.GPBSET.bit.GPIO35 = 1;
+//  GpioDataRegs.GPBCLEAR.bit.GPIO35 = 1;  
+   PieCtrlRegs.PIEACK.all = PIEACK_GROUP1;
+}
+
+
+//===========================================================================
+// No more.
+//===========================================================================

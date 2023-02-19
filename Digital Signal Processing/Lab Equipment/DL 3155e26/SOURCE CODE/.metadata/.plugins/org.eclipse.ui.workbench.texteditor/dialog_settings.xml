@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="1001"/>
+		<item key="DIALOG_Y_ORIGIN" value="224"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<item key="selection" value=""/>
+		<item key="wrap" value="false"/>
+		<item key="casesensitive" value="false"/>
+		<list key="findhistory">
+			<item value="D:\POP28335_CODE\"/>
+			<item value="D:\POP28335_CODE\POP28335_examples\Ex29_POP28335_SD_FAT32"/>
+			<item value="D:/POP28335_CODE/POP28335_examples/Ex29_POP28335_SD_FAT32"/>
+			<item value="CANRMP"/>
+			<item value="CANME"/>
+			<item value="Canb"/>
+			<item value="buf_key"/>
+			<item value="InitDIR()"/>
+		</list>
+		<list key="replacehistory">
+			<item value="."/>
+			<item value="Cana"/>
+		</list>
+	</section>
+</section>

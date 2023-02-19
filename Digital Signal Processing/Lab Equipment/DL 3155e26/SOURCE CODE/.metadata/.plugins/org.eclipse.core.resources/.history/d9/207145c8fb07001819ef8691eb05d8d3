@@ -1,0 +1,209 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Each subdirectory must supply rules for building sources it contributes
+00ic_EcanA_to_B_Xmit.obj: ../00ic_EcanA_to_B_Xmit.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -g --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --diag_warning=225 --preproc_with_compile --preproc_dependency="00ic_EcanA_to_B_Xmit.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_ADC_cal.obj: ../DSP2833x_ADC_cal.asm $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -g --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --diag_warning=225 --preproc_with_compile --preproc_dependency="DSP2833x_ADC_cal.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_Adc.obj: ../DSP2833x_Adc.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -g --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --diag_warning=225 --preproc_with_compile --preproc_dependency="DSP2833x_Adc.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_CSMPasswords.obj: ../DSP2833x_CSMPasswords.asm $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -g --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --diag_warning=225 --preproc_with_compile --preproc_dependency="DSP2833x_CSMPasswords.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_CodeStartBranch.obj: ../DSP2833x_CodeStartBranch.asm $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -g --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --diag_warning=225 --preproc_with_compile --preproc_dependency="DSP2833x_CodeStartBranch.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_CpuTimers.obj: ../DSP2833x_CpuTimers.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -g --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --diag_warning=225 --preproc_with_compile --preproc_dependency="DSP2833x_CpuTimers.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_DBGIER.obj: ../DSP2833x_DBGIER.asm $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -g --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --diag_warning=225 --preproc_with_compile --preproc_dependency="DSP2833x_DBGIER.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_DMA.obj: ../DSP2833x_DMA.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -g --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --diag_warning=225 --preproc_with_compile --preproc_dependency="DSP2833x_DMA.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_DefaultIsr.obj: ../DSP2833x_DefaultIsr.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -g --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --diag_warning=225 --preproc_with_compile --preproc_dependency="DSP2833x_DefaultIsr.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_DisInt.obj: ../DSP2833x_DisInt.asm $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -g --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --diag_warning=225 --preproc_with_compile --preproc_dependency="DSP2833x_DisInt.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_ECan.obj: ../DSP2833x_ECan.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -g --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --diag_warning=225 --preproc_with_compile --preproc_dependency="DSP2833x_ECan.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_ECap.obj: ../DSP2833x_ECap.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -g --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --diag_warning=225 --preproc_with_compile --preproc_dependency="DSP2833x_ECap.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_EPwm.obj: ../DSP2833x_EPwm.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -g --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --diag_warning=225 --preproc_with_compile --preproc_dependency="DSP2833x_EPwm.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_EQep.obj: ../DSP2833x_EQep.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -g --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --diag_warning=225 --preproc_with_compile --preproc_dependency="DSP2833x_EQep.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_GlobalVariableDefs.obj: ../DSP2833x_GlobalVariableDefs.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -g --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --diag_warning=225 --preproc_with_compile --preproc_dependency="DSP2833x_GlobalVariableDefs.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_Gpio.obj: ../DSP2833x_Gpio.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -g --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --diag_warning=225 --preproc_with_compile --preproc_dependency="DSP2833x_Gpio.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_I2C.obj: ../DSP2833x_I2C.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -g --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --diag_warning=225 --preproc_with_compile --preproc_dependency="DSP2833x_I2C.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_Mcbsp.obj: ../DSP2833x_Mcbsp.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -g --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --diag_warning=225 --preproc_with_compile --preproc_dependency="DSP2833x_Mcbsp.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_MemCopy.obj: ../DSP2833x_MemCopy.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -g --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --diag_warning=225 --preproc_with_compile --preproc_dependency="DSP2833x_MemCopy.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_PieCtrl.obj: ../DSP2833x_PieCtrl.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -g --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --diag_warning=225 --preproc_with_compile --preproc_dependency="DSP2833x_PieCtrl.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_PieVect.obj: ../DSP2833x_PieVect.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -g --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --diag_warning=225 --preproc_with_compile --preproc_dependency="DSP2833x_PieVect.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_SWPrioritizedDefaultIsr.obj: ../DSP2833x_SWPrioritizedDefaultIsr.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -g --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --diag_warning=225 --preproc_with_compile --preproc_dependency="DSP2833x_SWPrioritizedDefaultIsr.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_SWPrioritizedPieVect.obj: ../DSP2833x_SWPrioritizedPieVect.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -g --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --diag_warning=225 --preproc_with_compile --preproc_dependency="DSP2833x_SWPrioritizedPieVect.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_Sci.obj: ../DSP2833x_Sci.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -g --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --diag_warning=225 --preproc_with_compile --preproc_dependency="DSP2833x_Sci.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_Spi.obj: ../DSP2833x_Spi.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -g --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --diag_warning=225 --preproc_with_compile --preproc_dependency="DSP2833x_Spi.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_SysCtrl.obj: ../DSP2833x_SysCtrl.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -g --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --diag_warning=225 --preproc_with_compile --preproc_dependency="DSP2833x_SysCtrl.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_Xintf.obj: ../DSP2833x_Xintf.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -g --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --diag_warning=225 --preproc_with_compile --preproc_dependency="DSP2833x_Xintf.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+DSP2833x_usDelay.obj: ../DSP2833x_usDelay.asm $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -g --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --diag_warning=225 --preproc_with_compile --preproc_dependency="DSP2833x_usDelay.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+Example_2833xECanBack2Back.obj: ../Example_2833xECanBack2Back.c $(GEN_OPTS) $(GEN_SRCS)
+	@echo 'Building file: $<'
+	@echo 'Invoking: Compiler'
+	"D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/bin/cl2000" -g --include_path="D:/Program Files (x86)/ti/ccsv4/tools/compiler/c2000/include" --diag_warning=225 --preproc_with_compile --preproc_dependency="Example_2833xECanBack2Back.pp" $(GEN_OPTS_QUOTED) $(subst #,$(wildcard $(subst $(SPACE),\$(SPACE),$<)),"#")
+	@echo 'Finished building: $<'
+	@echo ' '
+
+

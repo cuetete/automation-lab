@@ -1,0 +1,12 @@
+[general]
+bbox=240,280
+long_comment=2- to 4-Line Decoder/Demultiplexer with Enable
+
+[ports]
+A0=INPUT,L200
+A1=INPUT,L160
+D0=OUTPUT,R200
+D1=OUTPUT,R160
+D2=OUTPUT,R120
+D3=OUTPUT,R80
+E=INPUT,L80

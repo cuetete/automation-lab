@@ -1,0 +1,192 @@
+// TI File $Revision: /main/1 $
+// Checkin $Date: January 15, 2008   10:49:54 $
+//###########################################################################
+//
+// FILE:   Example_2823xSpi_FFDLB.c
+//
+// TITLE:  DSP2823x Device Spi Digital Loop Back program. 
+//
+// ASSUMPTIONS:
+//
+//    This program requires the DSP2823x header files. 
+// 
+//    This program uses the internal loop back test mode of the peripheral. 
+//    Other then boot mode pin configuration, no other hardware configuration
+//    is required. 
+//
+//    As supplied, this project is configured for "boot to SARAM" 
+//    operation.  The 2823x Boot Mode table is shown below.  
+//    For information on configuring the boot mode of an eZdsp, 
+//    please refer to the documentation included with the eZdsp,  
+//
+//       $Boot_Table:
+//
+//         GPIO87   GPIO86     GPIO85   GPIO84
+//          XA15     XA14       XA13     XA12
+//           PU       PU         PU       PU
+//        ==========================================
+//            1        1          1        1    Jump to Flash
+//            1        1          1        0    SCI-A boot
+//            1        1          0        1    SPI-A boot
+//            1        1          0        0    I2C-A boot
+//            1        0          1        1    eCAN-A boot
+//            1        0          1        0    McBSP-A boot
+//            1        0          0        1    Jump to XINTF x16
+//            1        0          0        0    Jump to XINTF x32
+//            0        1          1        1    Jump to OTP
+//            0        1          1        0    Parallel GPIO I/O boot
+//            0        1          0        1    Parallel XINTF boot
+//            0        1          0        0    Jump to SARAM	    <- "boot to SARAM"
+//            0        0          1        1    Branch to check boot mode
+//            0        0          1        0    Boot to flash, bypass ADC cal
+//            0        0          0        1    Boot to SARAM, bypass ADC cal
+//            0        0          0        0    Boot to SCI-A, bypass ADC cal
+//                                              Boot_Table_End$
+//
+// DESCRIPTION:
+//
+//    This program is a SPI example that uses the internal loopback of
+//    the peripheral.  Interrupts are not used.
+//
+//    A stream of data is sent and then compared to the recieved stream.
+//  
+//    The sent data looks like this:
+//    0000 0001 0002 0003 0004 0005 0006 0007 .... FFFE FFFF
+//
+//    This pattern is repeated forever.  
+//
+//          Watch Variables:         
+//                sdata - sent data
+//                rdata - received data
+//		
+////###########################################################################		
+// Original Author: S.S.
+//
+// $TI Release: DSP2833x Header Files V1.10 $
+// $Release Date: February 15, 2008 $
+//###########################################################################
+
+
+#include "DSP2833x_Device.h"     // DSP2823x Headerfile Include File
+#include "DSP2833x_examples.h"   // DSP2823x Examples Include File
+//////////////////////////////////////
+
+
+//void delay(unsigned int);
+//void ldelay(unsigned int);
+///////////////////////////////////////
+// Prototype statements for functions found within this file.
+// interrupt void ISRTimer2(void);
+
+//////////////////////////////////////
+
+//////////////////////////////////////////////////
+void main(void)
+{
+//   Uint16 sdata;  // send data
+ //  Uint16 rdata;  // received data
+
+// Step 1. Initialize System Control:
+// PLL, WatchDog, enable Peripheral Clocks
+// This example function is found in the DSP2833x_SysCtrl.c file.
+   InitSysCtrl();
+
+// Step 2. Initalize GPIO: 
+// This example function is found in the DSP2833x_Gpio.c file and
+// illustrates how to set the GPIO to it's default state.
+// InitGpio();  // Skipped for this example  
+// Setup only the GP I/O only for SPI-A functionality
+// This function is found in DSP2833x_Spi.c
+//   InitXintf();
+ //  InitSpiaGpio();
+
+// Step 3. Clear all interrupts and initialize PIE vector table:
+// Disable CPU interrupts 
+   DINT;
+
+// Initialize PIE control registers to their default state.
+// The default state is all PIE interrupts disabled and flags
+// are cleared.  
+// This function is found in the DSP2833x_PieCtrl.c file.
+   InitPieCtrl();
+
+// Disable CPU interrupts and clear all CPU interrupt flags:
+   IER = 0x0000;
+   IFR = 0x0000;
+   
+// Initialize the PIE vector table with pointers to the shell Interrupt 
+// Service Routines (ISR).  
+// This will populate the entire table, even if the interrupt
+// is not used in this example.  This is useful for debug purposes.
+// The shell ISR routines are found in DSP2833x_DefaultIsr.c.
+// This function is found in DSP2833x_PieVect.c.
+   InitPieVectTable();
+	// Configure GPIO60 and GPIO61 as a GPIO output pin
+   EALLOW;
+   //LED I/Os all output 
+   GpioCtrlRegs.GPAMUX1.bit.GPIO4 = 0;
+   GpioCtrlRegs.GPADIR.bit.GPIO4 = 1;
+   GpioCtrlRegs.GPAMUX1.bit.GPIO5 = 0;
+   GpioCtrlRegs.GPADIR.bit.GPIO5 = 1;
+   GpioCtrlRegs.GPAMUX1.bit.GPIO6 = 0;
+   GpioCtrlRegs.GPADIR.bit.GPIO6 = 1;
+   GpioCtrlRegs.GPAMUX1.bit.GPIO7 = 0;
+   GpioCtrlRegs.GPADIR.bit.GPIO7 = 1;
+   GpioCtrlRegs.GPAMUX1.bit.GPIO8 = 0;
+   GpioCtrlRegs.GPADIR.bit.GPIO8 = 1;
+   GpioCtrlRegs.GPAMUX1.bit.GPIO9 = 0;
+   GpioCtrlRegs.GPADIR.bit.GPIO9 = 1;
+   
+   //LED CS	
+   GpioCtrlRegs.GPAPUD.bit.GPIO27 = 0;   									// Enable pullup on GPIO27
+   GpioDataRegs.GPASET.bit.GPIO27 = 1;   									// Load output latch
+   GpioCtrlRegs.GPAMUX2.bit.GPIO27 = 0;  									// GPIO27 = GPIO
+   GpioCtrlRegs.GPADIR.bit.GPIO27 = 1;   									// GPIO27 = output  
+   GpioDataRegs.GPACLEAR.bit.GPIO27 = 1;	
+
+   EDIS;
+   
+   EALLOW;
+   // KEY I/Os all input
+   GpioCtrlRegs.GPAMUX1.bit.GPIO12 = 0;         // GPIO
+   GpioCtrlRegs.GPADIR.bit.GPIO12 = 0;          // input
+   GpioCtrlRegs.GPAMUX1.bit.GPIO13 = 0;         // GPIO
+   GpioCtrlRegs.GPADIR.bit.GPIO13 = 0;          // input
+   GpioCtrlRegs.GPAMUX1.bit.GPIO14 = 0;         // GPIO
+   GpioCtrlRegs.GPADIR.bit.GPIO14 = 0;          // input
+   GpioCtrlRegs.GPAMUX1.bit.GPIO15 = 0;         // GPIO
+   GpioCtrlRegs.GPADIR.bit.GPIO15 = 0;          // input
+   GpioCtrlRegs.GPAMUX2.bit.GPIO16 = 0;         // GPIO
+   GpioCtrlRegs.GPADIR.bit.GPIO16 = 0;          // input
+   GpioCtrlRegs.GPAMUX2.bit.GPIO17 = 0;         // GPIO
+   GpioCtrlRegs.GPADIR.bit.GPIO17 = 0;          // input
+
+   EDIS;
+////////////////////////////////////////////////
+  while (1)
+  {
+  	if (GpioDataRegs.GPADAT.bit.GPIO12==0) GpioDataRegs.GPADAT.bit.GPIO4=0;
+   	else GpioDataRegs.GPADAT.bit.GPIO4=1;
+
+  	if (GpioDataRegs.GPADAT.bit.GPIO13==0) GpioDataRegs.GPADAT.bit.GPIO5=0;
+   	else GpioDataRegs.GPADAT.bit.GPIO5=1;
+   	
+  	if (GpioDataRegs.GPADAT.bit.GPIO14==0) GpioDataRegs.GPADAT.bit.GPIO6=0;
+   	else  GpioDataRegs.GPADAT.bit.GPIO6=1;
+
+  	if (GpioDataRegs.GPADAT.bit.GPIO15==0) GpioDataRegs.GPADAT.bit.GPIO7=0;
+   	else GpioDataRegs.GPADAT.bit.GPIO7=1;	
+   	
+   	if (GpioDataRegs.GPADAT.bit.GPIO16==0) GpioDataRegs.GPADAT.bit.GPIO8=0;
+   	else GpioDataRegs.GPADAT.bit.GPIO8=1;
+   	
+   	if (GpioDataRegs.GPADAT.bit.GPIO17==0) GpioDataRegs.GPADAT.bit.GPIO9=0;
+   	else GpioDataRegs.GPADAT.bit.GPIO9=1;
+  }
+} 	
+
+	
+//===========================================================================
+// No more.
+//===========================================================================
+

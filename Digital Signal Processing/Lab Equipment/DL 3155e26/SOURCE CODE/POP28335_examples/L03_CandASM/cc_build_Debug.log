@@ -1,0 +1,10 @@
+----------------------------  CandASM.pjt - Debug  ----------------------------
+[testc.c] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -g -fr"C:/DSP_EXP/CandASM/Debug" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 -@"Debug.lkf" "testc.c"
+
+[tests.s] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -g -fr"C:/DSP_EXP/CandASM/Debug" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 -@"Debug.lkf" "tests.s"
+
+[Linking...] "C:\CCStudio_v3.3\C2000\cgtools\bin\cl2000" -@"Debug.lkf"
+<Linking>
+
+Build Complete,
+  0 Errors, 0 Warnings, 0 Remarks.

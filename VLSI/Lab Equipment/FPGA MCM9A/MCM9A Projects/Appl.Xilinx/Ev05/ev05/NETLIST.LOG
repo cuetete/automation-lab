@@ -1,0 +1,26 @@
+Loading - C:\XILINX\ACTIVE\PROJECTS\EV05\ev05.alb
+   Loading library default timing values
+Loading - FDC
+   Loading library default timing values
+Loading - X74_160
+   Loading library default timing values
+Loading - FTCLE
+   Loading library default timing values
+Loading - M2_1
+   Loading library default timing values
+Loading - M4_1E
+   Loading library default timing values
+Loading - M2_1E
+   Loading library default timing values
+Loading - D2_4E
+   Loading library default timing values
+Loading - COMP4
+   Loading library default timing values
+===============================
+Memory usage statistics:
+    Total number of allocated memory blocks: 567 (0)
+    Total number of memory reallocations: 3
+    Total length of memory used to load the netlist: 256 kB (0)
+    Number of system memory blocks (total/long): 1/0
+Netlist loaded in: 4 seconds
+===============================

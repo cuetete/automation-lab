@@ -1,0 +1,11 @@
+
+SW-D_0116 PN:200217 ver.64bit HID
+
+In DIDA.CFG il parametro da scrivere alla voce
+USBdevice= può essere:
+
+1 per SIS3-U, SIS4-P, GAU
+2 per EvSim
+
+Software CBT ( competency-based training = formazione basata sulle competenze )
+

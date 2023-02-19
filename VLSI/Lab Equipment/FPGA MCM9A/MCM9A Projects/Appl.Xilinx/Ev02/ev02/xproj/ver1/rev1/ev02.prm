@@ -1,0 +1,17 @@
+PROMGEN: Xilinx Prom Generator D.19
+Copyright (c) 1995-2000 Xilinx, Inc.  All rights reserved.
+
+promgen -p exo -x XC1718D -c 0xFF -w -o C:\Xilinx\active\projects\ev02\xproj\ver1\rev1\ev02.exo -u 0 C:\Xilinx\active\projects\ev02\xproj\ver1\rev1\ev02.bit 
+
+PROM C:\Xilinx\active\projects\ev02\xproj\ver1\rev1\ev02.prm map: Fri Apr 20 15:18:46 2001
+
+Calculating PROM checksum with fill value ff
+
+Format        Exormax
+Size          2K
+PROM start    00000000
+PROM end      000008db
+PROM checksum 0005b54d
+
+        Addr1        Addr2 File(s)
+     00000000     0000073d C:/Xilinx/active/projects/ev02/xproj/ver1/rev1/ev02.bit

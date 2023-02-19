@@ -1,0 +1,92 @@
+[project]
+name=provaxil
+netlist=provaxil
+contents=provaxil
+date=05/11/01
+time=10:57:59
+version=3.1.6.00.12
+generics=MAX
+Type=F21i
+FndType=F3.1i
+top_level=schematic
+library_net=ON
+sim_mode=FUNC
+pdf_dir=c:\xilinx\active\projects\
+lib_order=0 133 151
+
+[libraries]
+133=c:\xilinx\active\syslib\simprims
+151=c:\xilinx\active\syslib\xc3000
+0=
+
+[xilinx]
+libraries=unified
+family=1
+xact9=On
+xfam=XC3000A
+
+[device]
+xilinx=3020APC68-7
+part=3020APC68-7
+
+[netlist]
+external=FALSE
+
+[Schematic]
+Table01=Project
+Table02=Sheet
+Table03=Date
+Table04=Date Last Modified
+
+[sheets]
+provaxi1=
+
+[Log]
+exp_EDIF.log=Export netlist to EDIF 200
+netlist.log=Simulator Netlist Log
+
+[implement_HDL]
+family=1
+xfam=XC3000A
+part=3020APC68-7
+xilinx=3020APC68-7
+
+[sim_config]
+Lower Bound=2048
+Upper Bound=2048
+B0 Period=500
+Transport Delay=On
+Enable Global Netlist Analysis=On
+Forced State=Default
+Output Waveform=Overwrite
+Global Reset=On
+Keep Comments=Off
+Execute Preset=Off
+Models Stabilization=On
+Pulse Global Reset Net Enabled=On
+Pulse Global Reset Net=1000
+
+[designs]
+prova=
+
+[timings]
+provaxil=
+
+[APP_95]
+lid=0
+oid=0
+source=C:\XILINX\ACTIVE\PROJECTS\PROVAXIL\PROVAXI1.SCH
+
+[FILE7]
+scan_time=986013522
+
+[implement_XIE]
+version=ver1
+revision=rev1
+
+[OPEN32]
+lpstrInitialDir=c:\xilinx\active\projects\
+lpstrTitle=Destination Directory...
+Flags=3
+cmdLine=-b -h 1556 -hp 1500 -m PCM_BROWSE32_MESSAGE -f C:\XILINX\ACTIVE\PROJECTS\current.pdf
+

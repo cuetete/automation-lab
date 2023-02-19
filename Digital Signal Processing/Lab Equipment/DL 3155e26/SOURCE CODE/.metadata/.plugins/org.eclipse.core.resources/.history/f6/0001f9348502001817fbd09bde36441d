@@ -1,0 +1,158 @@
+
+//###########################################################################
+//EEPROM读写程序 ZQ28335开发板
+//###########################################################################
+
+#include "DSP2833x_Device.h"     // DSP2833x Headerfile Include File
+#include "DSP2833x_Examples.h"   // DSP2833x Examples Include File
+
+
+#define uchar unsigned char
+#define LCD_RS GpioDataRegs.GPADAT.bit.GPIO0
+#define LCD_EN GpioDataRegs.GPADAT.bit.GPIO1
+#define LCD_DB GpioDataRegs.GPADAT.all
+
+extern void delay(Uint16 time);
+extern void Eerom_Gpio_Init(void);
+extern void Init8563(void);
+extern void GetTime(void);
+
+void Init_Port(void);
+void LCD_init(void);                          //初始化函数
+void LCD_write_command(uchar command);        //写指令函数
+void LCD_write_data(uchar dat);               //写数据函数
+
+extern uchar TAB_T[];
+
+void main(void)
+{
+
+// Step 1. Initialize System Control:
+// PLL, WatchDog, enable Peripheral Clocks
+// This example function is found in the DSP280x_SysCtrl.c file.
+   InitSysCtrl();						//系统初始化程序
+
+
+// Step 2. Initalize GPIO: 
+// This example function is found in the DSP280x_Gpio.c file and
+// illustrates how to set the GPIO to it's default state.
+	Eerom_Gpio_Init();					//初始化SCL SDA IO口
+	Init_Port();
+	LCD_init();
+// Step 3. Clear all interrupts and initialize PIE vector table:
+// Disable CPU interrupts 
+   DINT;   
+
+// Initialize PIE control registers to their default state.
+// The default state is all PIE interrupts disabled and flags
+// are cleared.  
+// This function is found in the DSP280x_PieCtrl.c file.
+   InitPieCtrl();			
+
+// Disable CPU interrupts and clear all CPU interrupt flags:
+   IER = 0x0000;
+   IFR = 0x0000;
+
+// Initialize the PIE vector table with pointers to the shell Interrupt 
+// Service Routines (ISR).  
+// This will populate the entire table, even if the interrupt
+// is not used in this example.  This is useful for debug purposes.
+// The shell ISR routines are found in DSP280x_DefaultIsr.c.
+// This function is found in DSP280x_PieVect.c.
+   InitPieVectTable();
+	Init8563();
+   // Application loop
+   LCD_write_command(0x80);  //0x80 0x90 0x88 0x98
+   for(;;)
+   {
+
+    	delay(50000);
+		GetTime();
+		
+      
+   }   
+}   
+
+void Init_Port(void)
+{
+	EALLOW;   
+// 用户根据需要可以使能内部上拉或禁止. 
+// 其他不需要的行注释掉；
+    GpioCtrlRegs.GPAPUD.bit.GPIO0 = 0;    // 使能GPIO1 引脚内部上拉
+    GpioCtrlRegs.GPAPUD.bit.GPIO1 = 1;   // 禁止GPIO1 引脚内部上拉
+   
+/* 通过I/O功能选择寄存器配置通用I/O功能*/
+    GpioCtrlRegs.GPAMUX1.all = 0;   // 配置GPIO0-GPIO15为通用I/O口
+	GpioCtrlRegs.GPAMUX2.bit.GPIO24 = 0;   // 配置GPIO24为通用I/O口
+
+/* 设置I/O口为输入引脚*/
+    GpioCtrlRegs.GPADIR.all = 0x10003FF;// 配置GPIO0-GPIO9  GPIO24为输出引脚
+	
+// 每个输入口可以有不同的输入限定
+   // a) 输入与系统时钟 SYSCLKOUT同步
+   // b) 输入被指定的采样窗口限定
+   // c) 输入异步 (仅对外设输入有效)
+   GpioCtrlRegs.GPAQSEL1.all = 0x0000;    // GPIO0-GPIO15与系统时钟SYSCLKOUT 同步
+   GpioCtrlRegs.GPAQSEL2.all = 0x0000;    // GPIO24与系统时钟SYSCLKOUT 同步
+//输出数据LCD_RS置1和LCD_EN清零  
+   GpioDataRegs.GPADAT.bit.GPIO0 = 1;
+   GpioDataRegs.GPADAT.bit.GPIO1 = 0;
+   GpioDataRegs.GPADAT.bit.GPIO24 = 0;  //cs=0
+   EDIS;
+} 
+
+/*-------------------------------------- 
+;模块名称:LCD_write_command(); 
+;功    能:LCD1602写指令函数 
+;参数说明:command为写命令参数
+;-------------------------------------*/ 
+void LCD_write_command(uchar command)
+{
+LCD_RS=0;         //指令
+LCD_EN=1;          //允许
+LCD_DB=(command<<2)|0x0002;//赋值给D0-D7对应的GPIO4-GPIO11引脚
+DELAY_US(10000); 
+LCD_EN=0;
+DELAY_US(100);
+
+}
+
+/*-------------------------------------- 
+;模块名称:LCD_write_data(); 
+;功    能:LCD1602写数据函数 
+;占用资源: P2.0--RS(LCD_RS),P2.1--RW(LCD_RW),P2.2--E(LCD_E).
+;参数说明:dat为写数据参数
+;-------------------------------------*/
+void LCD_write_data(uchar dat)
+{
+LCD_RS=1;         //指令
+LCD_EN=1;          //允许
+LCD_DB=(dat<<2)|0x0003;//赋值给D0-D7对应的GPIO4-GPIO11引脚
+DELAY_US(10000); 
+LCD_EN=0; 
+DELAY_US(100);
+}
+/*-------------------------------------- 
+;模块名称:LCD_init(); 
+;功    能:初始化LCD1602 
+;占用资源:--
+;参数说明:--
+;-------------------------------------*/ 
+void LCD_init(void)
+{
+DELAY_US(100000);//延迟100ms
+LCD_write_command(0x30);//功能设置
+DELAY_US(200);//延迟200us
+LCD_write_command(0x30);//功能设置
+DELAY_US(200);//延迟200us
+LCD_write_command(0x0c);//显示开关控制
+DELAY_US(200);//延迟200us
+LCD_write_command(0x01);//显示清除
+DELAY_US(12000);//延迟12ms
+LCD_write_command(0x06);//显示清除
+DELAY_US(500);//延迟500us
+}
+
+//===========================================================================
+// No more.
+//===========================================================================

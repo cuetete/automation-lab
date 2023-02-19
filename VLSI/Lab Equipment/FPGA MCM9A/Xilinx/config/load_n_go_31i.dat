@@ -1,0 +1,74 @@
+#------------------------------------------------------------- 
+# This is a temporay license for both the Xilinx Foundation 
+# Series and Xilinx Foundation Series ISE Express synthesis 
+# tools.   This license is not locked to any specific machine.
+#
+# Set your LM_LICENSE_FILE environment variable to point to 
+# this file until you have installed your permanent license 
+# file.  In some cases, the Xilinx software installer will
+# have already set this environment variable for you.
+#
+# set LM_LICENSE_FILE=%XILINX%\data\license.dat
+#
+# During the software registration and install process, you 
+# should have applied for and received a permanent FPGA
+# Express license.dat file.   Once you have received this 
+# file, place the permanent license.dat file in a directory 
+# outside of the Xilinx install tree (default is C:\Flexlm)  
+# Next, change the LM_LICENSE_FILE environment variable to 
+# point to new location of your permanent license.
+#
+# set LM_LICENSE_FILE=c:\flexlm\license.dat
+# 
+# Please see the Release Notes for additional
+# installation instructions.
+#
+# This license is nodelocked to Load-N-Go, HOSTID=ANY PC
+# This license is uncounted. It does NOT require nor 
+# SUPPORT running lmgrd.
+#
+# The following increment line enables the Foundation Base Express
+# Package"
+# 
+INCREMENT FND-BSX-PC xilinxd 1.000 29-JAN-2002 0 0CF8024E767C36E68166 \
+        "XSJ_load_n_go" DEMO
+#
+#
+# The following increment line enables the Foundation ISE Base Package
+#
+INCREMENT FSE-BSX-PC xilinxd 1.000 29-JAN-2002 0 5C78324E0C18652E6589 \
+        "XSJ_load_n_go" DEMO
+#
+#----------------------------------------
+#
+# Package Definitions Follow:
+# These are REQUIRED for your license to work properly.
+#
+#------------- Xilinx Foundation Series Software -------------------------
+#
+PACKAGE FND-BSX-PC xilinxd 1.000 6070A091E8F14FDA69A7 \
+        COMPONENTS="FPGA-Express-RL2100:2001.09 \
+        FPGA-Express-VHDL-Base:2001.09 \
+        FPGA-Express-VLOG-Base:2001.09 \
+        FPGA-Express-XC3k-Optimizer:2001.09 \
+        FPGA-Express-XC4k-Optimizer:2001.09 \
+        FPGA-Express-XC5k-Optimizer:2001.09 \
+        FPGA-Express-VIRTEX-Optimizer:2001.09 \
+        FPGA-Express-XC9k-Optimizer:2001.09 \
+        FPGA-Express:1997.07 "
+#
+#------------ Xilinx Foundation Series ISE Software ---------------------
+#
+PACKAGE FSE-BSX-PC xilinxd 1.000 D08020B1FB281CE4CEFC \
+        COMPONENTS="FPGA-Express-RL2100:2001.09 \
+        FPGA-Express-VHDL-Base:2001.09 \
+        FPGA-Express-VLOG-Base:2001.09 \
+        FPGA-Express-XC3k-Optimizer:2001.09 \
+        FPGA-Express-XC4k-Optimizer:2001.09 \
+        FPGA-Express-XC5k-Optimizer:2001.09 \
+        FPGA-Express-VIRTEX-Optimizer:2001.09 \
+        FPGA-Express-XC9k-Optimizer:2001.09 \
+        FPGA-Express:1997.07 "
+#
+#---------------------------------------------------------------------------
+#

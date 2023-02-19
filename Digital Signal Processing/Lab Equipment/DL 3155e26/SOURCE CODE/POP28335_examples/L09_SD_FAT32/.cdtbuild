@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?fileVersion 3.1.0?>
+
+<ManagedProjectBuildInfo>
+<project id="POP28335_SD_FAT32.com.ti.ccstudio.buildDefinitions.C2000.ProjectType.1069201328" name="C2000" projectType="com.ti.ccstudio.buildDefinitions.C2000.ProjectType">
+<configuration artifactExtension="out" artifactName="POP28335_SD_FAT32" description="" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1031751967" name="Debug" parent="com.ti.ccstudio.buildDefinitions.C2000.Debug">
+<toolChain id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.DebugToolchain.370539546" name="TI Code Generation Tools" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.DebugToolchain" targetTool="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.527051830">
+<option id="com.ti.ccstudio.buildDefinitions.core.OPT_TAGS.349064309" superClass="com.ti.ccstudio.buildDefinitions.core.OPT_TAGS" valueType="stringList">
+<listOptionValue builtIn="false" value="DEVICE_CONFIGURATION_ID=TMS320C28XX"/>
+<listOptionValue builtIn="false" value="DEVICE_ENDIANNESS=none"/>
+<listOptionValue builtIn="false" value="OUTPUT_FORMAT=COFF"/>
+<listOptionValue builtIn="false" value="CCS_MBS_VERSION=4.2.4"/>
+<listOptionValue builtIn="false" value="LINKER_COMMAND_FILE="/>
+<listOptionValue builtIn="false" value="RUNTIME_SUPPORT_LIBRARY="/>
+<listOptionValue builtIn="false" value="OUTPUT_TYPE=executable"/>
+<listOptionValue builtIn="false" value="RTSC_PRODUCTS=com.ti.rtsc.XDAIS:latest;"/>
+<listOptionValue builtIn="false" value="LINK_ORDER=MY28335_RAM_lnk.cmd;"/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.core.OPT_CODEGEN_VERSION.1009501091" superClass="com.ti.ccstudio.buildDefinitions.core.OPT_CODEGEN_VERSION" value="6.0.1" valueType="string"/>
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug">
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIAG_WARNING.2111882147" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIAG_WARNING" valueType="stringList">
+<listOptionValue builtIn="false" value="225"/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.INCLUDE_PATH.1497241115" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.INCLUDE_PATH" valueType="includePath">
+<listOptionValue builtIn="false" value="&quot;${CG_TOOL_ROOT}/include&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${XDAIS_CG_ROOT}/packages/ti/xdais&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${EXT_ROOT__POP28335_SD_FAT32}/../../DSP2833x_headers/include&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${EXT_ROOT__POP28335_SD_FAT32}/../../DSP2833x_common/include&quot;"/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.QUIET_LEVEL.1514991296" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.QUIET_LEVEL" value="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.QUIET_LEVEL.QUIET" valueType="enumerated"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.ISSUE_REMARKS.206804688" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.ISSUE_REMARKS" value="true" valueType="boolean"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.OUTPUT_ALL_SYMS.1595327786" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.OUTPUT_ALL_SYMS" value="true" valueType="boolean"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIRECTORY_MODE.1782537" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIRECTORY_MODE" value="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIRECTORY_MODE.manual" valueType="enumerated"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.OBJ_DIRECTORY.1468471423" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.OBJ_DIRECTORY" value="&quot;./Debug&quot;" valueType="string"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.ASM_DIRECTORY.471500336" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.ASM_DIRECTORY" value="&quot;./Debug&quot;" valueType="string"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DEFINE.1735176260" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DEFINE" valueType="definedSymbols">
+<listOptionValue builtIn="false" value="&quot;_DEBUG&quot;"/>
+<listOptionValue builtIn="false" value="&quot;LARGE_MODEL&quot;"/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.LARGE_MEMORY_MODEL.638862427" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.LARGE_MEMORY_MODEL" value="true" valueType="boolean"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.UNIFIED_MEMORY.671258596" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.UNIFIED_MEMORY" value="true" valueType="boolean"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.SILICON_VERSION.529165985" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.SILICON_VERSION" value="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.SILICON_VERSION.28" valueType="enumerated"/>
+</tool>
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.527051830" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug">
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.OUTPUT_FILE.853903768" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.OUTPUT_FILE" value="&quot;POP28335_SD_FAT32.out&quot;" valueType="string"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.MAP_FILE.954623236" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.MAP_FILE" value="&quot;POP28335_SD_FAT32.map&quot;" valueType="string"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.SEARCH_PATH.1287177173" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.SEARCH_PATH" valueType="stringList">
+<listOptionValue builtIn="false" value="&quot;${CG_TOOL_ROOT}/lib&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${CG_TOOL_ROOT}/include&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${PROJECT_ROOT}&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${EXT_ROOT__POP28335_SD_FAT32}/../../DSP2833x_headers/include&quot;"/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.STACK_SIZE.1724282281" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.STACK_SIZE" value="0x380" valueType="string"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.LIBRARY.613823303" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.LIBRARY" valueType="libs">
+<listOptionValue builtIn="false" value="&quot;rts2800_ml.lib&quot;"/>
+</option>
+</tool>
+<macros expandEnvironmentMacros="true"/>
+</toolChain>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1031751967./POP28335_SD_FAT32/SFO_TI_Build_fpu.lib" name="SFO_TI_Build_fpu.lib" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/SFO_TI_Build_fpu.lib" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.527051830./POP28335_SD_FAT32/SFO_TI_Build_fpu.lib">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.527051830./POP28335_SD_FAT32/SFO_TI_Build_fpu.lib" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.527051830"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1031751967./POP28335_SD_FAT32/SFO_TI_Build_V5_fpu.lib" name="SFO_TI_Build_V5_fpu.lib" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/SFO_TI_Build_V5_fpu.lib" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.527051830./POP28335_SD_FAT32/SFO_TI_Build_V5_fpu.lib">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.527051830./POP28335_SD_FAT32/SFO_TI_Build_V5_fpu.lib" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.527051830"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1031751967./POP28335_SD_FAT32/SFO_TI_Build_V5.lib" name="SFO_TI_Build_V5.lib" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/SFO_TI_Build_V5.lib" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.527051830./POP28335_SD_FAT32/SFO_TI_Build_V5.lib">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.527051830./POP28335_SD_FAT32/SFO_TI_Build_V5.lib" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.527051830"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1031751967./POP28335_SD_FAT32/SFO_TI_Build.lib" name="SFO_TI_Build.lib" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/SFO_TI_Build.lib" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.527051830./POP28335_SD_FAT32/SFO_TI_Build.lib">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.527051830./POP28335_SD_FAT32/SFO_TI_Build.lib" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.527051830"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1031751967./POP28335_SD_FAT32/MAIN.c" name="MAIN.c" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/MAIN.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937./POP28335_SD_FAT32/MAIN.c">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937./POP28335_SD_FAT32/MAIN.c" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1031751967./POP28335_SD_FAT32/IQmath.lib" name="IQmath.lib" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/IQmath.lib" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.527051830./POP28335_SD_FAT32/IQmath.lib">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.527051830./POP28335_SD_FAT32/IQmath.lib" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.527051830"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1031751967./POP28335_SD_FAT32/F28335.cmd" name="F28335.cmd" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/F28335.cmd" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.527051830./POP28335_SD_FAT32/F28335.cmd">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.527051830./POP28335_SD_FAT32/F28335.cmd" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.527051830"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1031751967./POP28335_SD_FAT32/DSP2833x_Sci.c" name="DSP2833x_Sci.c" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/DSP2833x_Sci.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937./POP28335_SD_FAT32/DSP2833x_Sci.c">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937./POP28335_SD_FAT32/DSP2833x_Sci.c" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1031751967./POP28335_SD_FAT32/DSP2833x_SWPrioritizedPieVect.c" name="DSP2833x_SWPrioritizedPieVect.c" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/DSP2833x_SWPrioritizedPieVect.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937./POP28335_SD_FAT32/DSP2833x_SWPrioritizedPieVect.c">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937./POP28335_SD_FAT32/DSP2833x_SWPrioritizedPieVect.c" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1031751967./POP28335_SD_FAT32/DSP2833x_SWPrioritizedDefaultIsr.c" name="DSP2833x_SWPrioritizedDefaultIsr.c" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/DSP2833x_SWPrioritizedDefaultIsr.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937./POP28335_SD_FAT32/DSP2833x_SWPrioritizedDefaultIsr.c">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937./POP28335_SD_FAT32/DSP2833x_SWPrioritizedDefaultIsr.c" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1031751967./POP28335_SD_FAT32/DSP2833x_MemCopy.c" name="DSP2833x_MemCopy.c" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/DSP2833x_MemCopy.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937./POP28335_SD_FAT32/DSP2833x_MemCopy.c">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937./POP28335_SD_FAT32/DSP2833x_MemCopy.c" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1031751967./POP28335_SD_FAT32/DSP2833x_Mcbsp.c" name="DSP2833x_Mcbsp.c" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/DSP2833x_Mcbsp.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937./POP28335_SD_FAT32/DSP2833x_Mcbsp.c">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937./POP28335_SD_FAT32/DSP2833x_Mcbsp.c" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1031751967./POP28335_SD_FAT32/DSP2833x_I2C.c" name="DSP2833x_I2C.c" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/DSP2833x_I2C.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937./POP28335_SD_FAT32/DSP2833x_I2C.c">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937./POP28335_SD_FAT32/DSP2833x_I2C.c" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1031751967./POP28335_SD_FAT32/DSP2833x_Headers_BIOS.cmd" name="DSP2833x_Headers_BIOS.cmd" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/DSP2833x_Headers_BIOS.cmd" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.527051830./POP28335_SD_FAT32/DSP2833x_Headers_BIOS.cmd">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.527051830./POP28335_SD_FAT32/DSP2833x_Headers_BIOS.cmd" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.527051830"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1031751967./POP28335_SD_FAT32/DSP2833x_Gpio.c" name="DSP2833x_Gpio.c" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/DSP2833x_Gpio.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937./POP28335_SD_FAT32/DSP2833x_Gpio.c">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937./POP28335_SD_FAT32/DSP2833x_Gpio.c" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1031751967./POP28335_SD_FAT32/DSP2833x_EQep.c" name="DSP2833x_EQep.c" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/DSP2833x_EQep.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937./POP28335_SD_FAT32/DSP2833x_EQep.c">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937./POP28335_SD_FAT32/DSP2833x_EQep.c" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1031751967./POP28335_SD_FAT32/DSP2833x_EPwm.c" name="DSP2833x_EPwm.c" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/DSP2833x_EPwm.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937./POP28335_SD_FAT32/DSP2833x_EPwm.c">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937./POP28335_SD_FAT32/DSP2833x_EPwm.c" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1031751967./POP28335_SD_FAT32/DSP2833x_ECap.c" name="DSP2833x_ECap.c" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/DSP2833x_ECap.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937./POP28335_SD_FAT32/DSP2833x_ECap.c">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937./POP28335_SD_FAT32/DSP2833x_ECap.c" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1031751967./POP28335_SD_FAT32/DSP2833x_ECan.c" name="DSP2833x_ECan.c" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/DSP2833x_ECan.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937./POP28335_SD_FAT32/DSP2833x_ECan.c">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937./POP28335_SD_FAT32/DSP2833x_ECan.c" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1031751967./POP28335_SD_FAT32/DSP2833x_DisInt.asm" name="DSP2833x_DisInt.asm" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/DSP2833x_DisInt.asm" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937./POP28335_SD_FAT32/DSP2833x_DisInt.asm">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937./POP28335_SD_FAT32/DSP2833x_DisInt.asm" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1031751967./POP28335_SD_FAT32/DSP2833x_DMA.c" name="DSP2833x_DMA.c" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/DSP2833x_DMA.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937./POP28335_SD_FAT32/DSP2833x_DMA.c">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937./POP28335_SD_FAT32/DSP2833x_DMA.c" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1031751967./POP28335_SD_FAT32/DSP2833x_DBGIER.asm" name="DSP2833x_DBGIER.asm" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/DSP2833x_DBGIER.asm" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937./POP28335_SD_FAT32/DSP2833x_DBGIER.asm">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937./POP28335_SD_FAT32/DSP2833x_DBGIER.asm" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1031751967./POP28335_SD_FAT32/DSP2833x_CpuTimers.c" name="DSP2833x_CpuTimers.c" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/DSP2833x_CpuTimers.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937./POP28335_SD_FAT32/DSP2833x_CpuTimers.c">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937./POP28335_SD_FAT32/DSP2833x_CpuTimers.c" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1031751967./POP28335_SD_FAT32/DSP2833x_CSMPasswords.asm" name="DSP2833x_CSMPasswords.asm" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/DSP2833x_CSMPasswords.asm" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937./POP28335_SD_FAT32/DSP2833x_CSMPasswords.asm">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937./POP28335_SD_FAT32/DSP2833x_CSMPasswords.asm" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1031751967./POP28335_SD_FAT32/DSP2833x_Adc.c" name="DSP2833x_Adc.c" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/DSP2833x_Adc.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937./POP28335_SD_FAT32/DSP2833x_Adc.c">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937./POP28335_SD_FAT32/DSP2833x_Adc.c" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.359229937"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1031751967./POP28335_SD_FAT32/28335_RAM_lnk.cmd" name="28335_RAM_lnk.cmd" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/28335_RAM_lnk.cmd" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.527051830./POP28335_SD_FAT32/28335_RAM_lnk.cmd">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.527051830./POP28335_SD_FAT32/28335_RAM_lnk.cmd" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.527051830"/>
+</resourceConfiguration>
+</configuration>
+<configuration artifactExtension="out" artifactName="Example_2823xSpi_FFDLB" description="" id="com.ti.ccstudio.buildDefinitions.C2000.Release.1829982474" name="Release" parent="com.ti.ccstudio.buildDefinitions.C2000.Release">
+<toolChain id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.ReleaseToolchain.68345396" name="TI Code Generation Tools" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.ReleaseToolchain" targetTool="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.544054811">
+<option id="com.ti.ccstudio.buildDefinitions.core.OPT_TAGS.603012232" superClass="com.ti.ccstudio.buildDefinitions.core.OPT_TAGS" valueType="stringList">
+<listOptionValue builtIn="false" value="DEVICE_CONFIGURATION_ID=TMS320C28XX"/>
+<listOptionValue builtIn="false" value="DEVICE_ENDIANNESS=none"/>
+<listOptionValue builtIn="false" value="OUTPUT_FORMAT=COFF"/>
+<listOptionValue builtIn="false" value="CCS_MBS_VERSION=4.2.4"/>
+<listOptionValue builtIn="false" value="LINKER_COMMAND_FILE="/>
+<listOptionValue builtIn="false" value="RUNTIME_SUPPORT_LIBRARY="/>
+<listOptionValue builtIn="false" value="OUTPUT_TYPE=executable"/>
+<listOptionValue builtIn="false" value="RTSC_PRODUCTS=com.ti.rtsc.XDAIS:latest;"/>
+<listOptionValue builtIn="false" value="LINK_ORDER=MY28335_RAM_lnk.cmd;"/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.core.OPT_CODEGEN_VERSION.552406125" superClass="com.ti.ccstudio.buildDefinitions.core.OPT_CODEGEN_VERSION" value="6.0.1" valueType="string"/>
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease">
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIAG_WARNING.2134728888" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIAG_WARNING" valueType="stringList">
+<listOptionValue builtIn="false" value="225"/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.INCLUDE_PATH.160483433" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.INCLUDE_PATH" valueType="includePath">
+<listOptionValue builtIn="false" value="&quot;${CG_TOOL_ROOT}/include&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${XDAIS_CG_ROOT}/packages/ti/xdais&quot;"/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.QUIET_LEVEL.122719708" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.QUIET_LEVEL" value="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.QUIET_LEVEL.QUIET" valueType="enumerated"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.OPT_LEVEL.release.1803717919" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.OPT_LEVEL.release" value="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.OPT_LEVEL.3" valueType="enumerated"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIRECTORY_MODE.1683804422" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIRECTORY_MODE" value="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIRECTORY_MODE.manual" valueType="enumerated"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.OBJ_DIRECTORY.1635428817" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.OBJ_DIRECTORY" value="&quot;D:/POP28335_CODE/POP28335_examples/Ex29_POP28335_SD_FAT32/Release&quot;" valueType="string"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DEFINE.973132167" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DEFINE" valueType="definedSymbols">
+<listOptionValue builtIn="false" value="&quot;LARGE_MODEL&quot;"/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.LARGE_MEMORY_MODEL.1419153953" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.LARGE_MEMORY_MODEL" value="true" valueType="boolean"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.SILICON_VERSION.1581795478" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.SILICON_VERSION" value="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.SILICON_VERSION.28" valueType="enumerated"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DEBUGGING_MODEL.2131085910" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DEBUGGING_MODEL" value="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DEBUGGING_MODEL._none" valueType="enumerated"/>
+</tool>
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.544054811" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease">
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.OUTPUT_FILE.1288110414" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.OUTPUT_FILE" value="&quot;Example_2823xSpi_FFDLB.out&quot;" valueType="string"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.MAP_FILE.864686927" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.MAP_FILE" value="&quot;POP28335_SD_FAT32.map&quot;" valueType="string"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.SEARCH_PATH.944243425" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.SEARCH_PATH" valueType="stringList">
+<listOptionValue builtIn="false" value="&quot;${CG_TOOL_ROOT}/lib&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${CG_TOOL_ROOT}/include&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${PROJECT_ROOT}&quot;"/>
+</option>
+</tool>
+</toolChain>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.1829982474./POP28335_SD_FAT32/SFO_TI_Build_fpu.lib" name="SFO_TI_Build_fpu.lib" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/SFO_TI_Build_fpu.lib" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.544054811./POP28335_SD_FAT32/SFO_TI_Build_fpu.lib">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.544054811./POP28335_SD_FAT32/SFO_TI_Build_fpu.lib" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.544054811"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.1829982474./POP28335_SD_FAT32/SFO_TI_Build_V5_fpu.lib" name="SFO_TI_Build_V5_fpu.lib" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/SFO_TI_Build_V5_fpu.lib" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.544054811./POP28335_SD_FAT32/SFO_TI_Build_V5_fpu.lib">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.544054811./POP28335_SD_FAT32/SFO_TI_Build_V5_fpu.lib" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.544054811"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.1829982474./POP28335_SD_FAT32/SFO_TI_Build_V5.lib" name="SFO_TI_Build_V5.lib" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/SFO_TI_Build_V5.lib" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.544054811./POP28335_SD_FAT32/SFO_TI_Build_V5.lib">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.544054811./POP28335_SD_FAT32/SFO_TI_Build_V5.lib" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.544054811"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.1829982474./POP28335_SD_FAT32/SFO_TI_Build.lib" name="SFO_TI_Build.lib" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/SFO_TI_Build.lib" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.544054811./POP28335_SD_FAT32/SFO_TI_Build.lib">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.544054811./POP28335_SD_FAT32/SFO_TI_Build.lib" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.544054811"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.1829982474./POP28335_SD_FAT32/MAIN.c" name="MAIN.c" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/MAIN.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485./POP28335_SD_FAT32/MAIN.c">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485./POP28335_SD_FAT32/MAIN.c" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.1829982474./POP28335_SD_FAT32/IQmath.lib" name="IQmath.lib" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/IQmath.lib" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.544054811./POP28335_SD_FAT32/IQmath.lib">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.544054811./POP28335_SD_FAT32/IQmath.lib" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.544054811"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.1829982474./POP28335_SD_FAT32/F28335.cmd" name="F28335.cmd" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/F28335.cmd" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.544054811./POP28335_SD_FAT32/F28335.cmd">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.544054811./POP28335_SD_FAT32/F28335.cmd" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.544054811"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.1829982474./POP28335_SD_FAT32/DSP2833x_Sci.c" name="DSP2833x_Sci.c" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/DSP2833x_Sci.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485./POP28335_SD_FAT32/DSP2833x_Sci.c">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485./POP28335_SD_FAT32/DSP2833x_Sci.c" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.1829982474./POP28335_SD_FAT32/DSP2833x_SWPrioritizedPieVect.c" name="DSP2833x_SWPrioritizedPieVect.c" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/DSP2833x_SWPrioritizedPieVect.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485./POP28335_SD_FAT32/DSP2833x_SWPrioritizedPieVect.c">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485./POP28335_SD_FAT32/DSP2833x_SWPrioritizedPieVect.c" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.1829982474./POP28335_SD_FAT32/DSP2833x_SWPrioritizedDefaultIsr.c" name="DSP2833x_SWPrioritizedDefaultIsr.c" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/DSP2833x_SWPrioritizedDefaultIsr.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485./POP28335_SD_FAT32/DSP2833x_SWPrioritizedDefaultIsr.c">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485./POP28335_SD_FAT32/DSP2833x_SWPrioritizedDefaultIsr.c" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.1829982474./POP28335_SD_FAT32/DSP2833x_MemCopy.c" name="DSP2833x_MemCopy.c" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/DSP2833x_MemCopy.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485./POP28335_SD_FAT32/DSP2833x_MemCopy.c">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485./POP28335_SD_FAT32/DSP2833x_MemCopy.c" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.1829982474./POP28335_SD_FAT32/DSP2833x_Mcbsp.c" name="DSP2833x_Mcbsp.c" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/DSP2833x_Mcbsp.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485./POP28335_SD_FAT32/DSP2833x_Mcbsp.c">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485./POP28335_SD_FAT32/DSP2833x_Mcbsp.c" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.1829982474./POP28335_SD_FAT32/DSP2833x_I2C.c" name="DSP2833x_I2C.c" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/DSP2833x_I2C.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485./POP28335_SD_FAT32/DSP2833x_I2C.c">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485./POP28335_SD_FAT32/DSP2833x_I2C.c" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.1829982474./POP28335_SD_FAT32/DSP2833x_Headers_BIOS.cmd" name="DSP2833x_Headers_BIOS.cmd" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/DSP2833x_Headers_BIOS.cmd" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.544054811./POP28335_SD_FAT32/DSP2833x_Headers_BIOS.cmd">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.544054811./POP28335_SD_FAT32/DSP2833x_Headers_BIOS.cmd" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.544054811"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.1829982474./POP28335_SD_FAT32/DSP2833x_Gpio.c" name="DSP2833x_Gpio.c" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/DSP2833x_Gpio.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485./POP28335_SD_FAT32/DSP2833x_Gpio.c">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485./POP28335_SD_FAT32/DSP2833x_Gpio.c" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.1829982474./POP28335_SD_FAT32/DSP2833x_EQep.c" name="DSP2833x_EQep.c" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/DSP2833x_EQep.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485./POP28335_SD_FAT32/DSP2833x_EQep.c">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485./POP28335_SD_FAT32/DSP2833x_EQep.c" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.1829982474./POP28335_SD_FAT32/DSP2833x_EPwm.c" name="DSP2833x_EPwm.c" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/DSP2833x_EPwm.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485./POP28335_SD_FAT32/DSP2833x_EPwm.c">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485./POP28335_SD_FAT32/DSP2833x_EPwm.c" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.1829982474./POP28335_SD_FAT32/DSP2833x_ECap.c" name="DSP2833x_ECap.c" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/DSP2833x_ECap.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485./POP28335_SD_FAT32/DSP2833x_ECap.c">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485./POP28335_SD_FAT32/DSP2833x_ECap.c" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.1829982474./POP28335_SD_FAT32/DSP2833x_ECan.c" name="DSP2833x_ECan.c" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/DSP2833x_ECan.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485./POP28335_SD_FAT32/DSP2833x_ECan.c">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485./POP28335_SD_FAT32/DSP2833x_ECan.c" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.1829982474./POP28335_SD_FAT32/DSP2833x_DisInt.asm" name="DSP2833x_DisInt.asm" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/DSP2833x_DisInt.asm" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485./POP28335_SD_FAT32/DSP2833x_DisInt.asm">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485./POP28335_SD_FAT32/DSP2833x_DisInt.asm" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.1829982474./POP28335_SD_FAT32/DSP2833x_DMA.c" name="DSP2833x_DMA.c" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/DSP2833x_DMA.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485./POP28335_SD_FAT32/DSP2833x_DMA.c">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485./POP28335_SD_FAT32/DSP2833x_DMA.c" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.1829982474./POP28335_SD_FAT32/DSP2833x_DBGIER.asm" name="DSP2833x_DBGIER.asm" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/DSP2833x_DBGIER.asm" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485./POP28335_SD_FAT32/DSP2833x_DBGIER.asm">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485./POP28335_SD_FAT32/DSP2833x_DBGIER.asm" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.1829982474./POP28335_SD_FAT32/DSP2833x_CpuTimers.c" name="DSP2833x_CpuTimers.c" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/DSP2833x_CpuTimers.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485./POP28335_SD_FAT32/DSP2833x_CpuTimers.c">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485./POP28335_SD_FAT32/DSP2833x_CpuTimers.c" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.1829982474./POP28335_SD_FAT32/DSP2833x_CSMPasswords.asm" name="DSP2833x_CSMPasswords.asm" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/DSP2833x_CSMPasswords.asm" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485./POP28335_SD_FAT32/DSP2833x_CSMPasswords.asm">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485./POP28335_SD_FAT32/DSP2833x_CSMPasswords.asm" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.1829982474./POP28335_SD_FAT32/DSP2833x_Adc.c" name="DSP2833x_Adc.c" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/DSP2833x_Adc.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485./POP28335_SD_FAT32/DSP2833x_Adc.c">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485./POP28335_SD_FAT32/DSP2833x_Adc.c" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.2065577485"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.1829982474./POP28335_SD_FAT32/28335_RAM_lnk.cmd" name="28335_RAM_lnk.cmd" rcbsApplicability="disable" resourcePath="/POP28335_SD_FAT32/28335_RAM_lnk.cmd" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.544054811./POP28335_SD_FAT32/28335_RAM_lnk.cmd">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.544054811./POP28335_SD_FAT32/28335_RAM_lnk.cmd" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.544054811"/>
+</resourceConfiguration>
+</configuration>
+<macros/>
+</project>
+</ManagedProjectBuildInfo>

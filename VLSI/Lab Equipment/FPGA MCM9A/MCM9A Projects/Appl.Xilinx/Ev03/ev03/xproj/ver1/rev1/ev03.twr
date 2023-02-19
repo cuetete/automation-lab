@@ -1,0 +1,74 @@
+--------------------------------------------------------------------------------
+Xilinx TRACE, Version D.19
+Copyright (c) 1995-2000 Xilinx, Inc.  All rights reserved.
+
+trce ev03.ncd ev03.pcf -e 3 -o ev03.twr
+
+Design file:              ev03.ncd
+Physical constraint file: ev03.pcf
+Device,speed:             xc3020a,-7 (C  )
+Report level:             error report
+--------------------------------------------------------------------------------
+
+WARNING:Timing:2491 - No timing constraints found, doing default enumeration.
+
+================================================================================
+Timing constraint: Default period analysis
+ 32 items analyzed, 0 timing errors detected.
+ Minimum period is  20.117ns.
+ Maximum delay is  35.210ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: Default net enumeration
+ 15 items analyzed, 0 timing errors detected.
+ Maximum net delay is   7.730ns.
+--------------------------------------------------------------------------------
+
+
+All constraints were met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock $Net00001_ to Pad
+---------------+------------+
+               | clk (edge) |
+Destination Pad|   to PAD   |
+---------------+------------+
+$Net00024_     |   46.615(R)|
+$Net00026_     |   45.819(R)|
+$Net00028_     |   46.940(R)|
+$Net00030_     |   44.204(R)|
+$Net00032_     |   45.659(R)|
+$Net00034_     |   43.136(R)|
+$Net00036_     |   45.863(R)|
+---------------+------------+
+
+Clock to Setup on destination clock $Net00001_
+---------------+---------+---------+---------+---------+
+               | Src/Dest| Src/Dest| Src/Dest| Src/Dest|
+Source Clock   |Rise/Rise|Fall/Rise|Rise/Fall|Fall/Fall|
+---------------+---------+---------+---------+---------+
+$Net00001_     |   20.117|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0
+
+Constraints cover 32 paths, 15 nets, and 25 connections (100.0% coverage)
+
+Design statistics:
+   Minimum period:  20.117ns (Maximum frequency:  49.709MHz)
+   Maximum combinational path delay:  35.210ns
+   Maximum net delay:   7.730ns
+
+
+Analysis completed Fri Mar 30 16:43:38 2001
+--------------------------------------------------------------------------------
+

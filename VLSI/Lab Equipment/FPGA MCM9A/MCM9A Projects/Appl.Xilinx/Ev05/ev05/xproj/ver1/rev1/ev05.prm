@@ -1,0 +1,17 @@
+PROMGEN: Xilinx Prom Generator D.19
+Copyright (c) 1995-2000 Xilinx, Inc.  All rights reserved.
+
+promgen -p tek -x 64K -c 0xFF -w -o C:\Xilinx\active\projects\ev05\xproj\ver1\rev1\ev05.tek -u 0 C:\Xilinx\active\projects\ev05\xproj\ver1\rev1\ev05.bit 
+
+PROM C:\Xilinx\active\projects\ev05\xproj\ver1\rev1\ev05.prm map: Thu Apr 19 11:06:29 2001
+
+Calculating PROM checksum with fill value ff
+
+Format        TekHex
+Size          64K
+PROM start    00000000
+PROM end      0000ffff
+PROM checksum 0000a214
+
+        Addr1        Addr2 File(s)
+     00000000     0000073d C:/Xilinx/active/projects/ev05/xproj/ver1/rev1/ev05.bit

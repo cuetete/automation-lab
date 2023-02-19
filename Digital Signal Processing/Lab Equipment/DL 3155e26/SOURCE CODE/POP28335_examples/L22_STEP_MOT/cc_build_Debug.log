@@ -1,0 +1,9 @@
+-----------------------  POP28335_STEP_MOT.pjt - Debug  -----------------------
+[00ic_STEP_MOT.c] "C:\CCStudio_v3.3PLA\C2000\cgtools\bin\cl2000" -g -q -pdr -fr"D:/POP28335_CODE/POP28335_examples/Ex22_POP28335_STEP_MOT/Debug" -fs"D:/POP28335_CODE/POP28335_examples/Ex22_POP28335_STEP_MOT/Debug" -i"../../DSP2833x_headers/include" -i"../../DSP2833x_common/include" -d"_DEBUG" -d"LARGE_MODEL" -ml -mt -v28 -@"Debug.lkf" "00ic_STEP_MOT.c"
+"00ic_STEP_MOT.c", line 123: remark: controlling expression is constant
+
+[Linking...] "C:\CCStudio_v3.3PLA\C2000\cgtools\bin\cl2000" -@"Debug.lkf"
+<Linking>
+
+Build Complete,
+  0 Errors, 0 Warnings, 1 Remarks.

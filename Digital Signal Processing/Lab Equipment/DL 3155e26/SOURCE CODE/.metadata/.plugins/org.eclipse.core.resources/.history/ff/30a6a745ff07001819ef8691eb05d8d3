@@ -1,0 +1,24 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+C_SRCS += \
+../Example_2833xEcanA_to_B_Xmit.c 
+
+OBJS += \
+./Example_2833xEcanA_to_B_Xmit.obj 
+
+C_DEPS += \
+./Example_2833xEcanA_to_B_Xmit.pp 
+
+OBJS__QTD += \
+".\Example_2833xEcanA_to_B_Xmit.obj" 
+
+C_DEPS__QTD += \
+".\Example_2833xEcanA_to_B_Xmit.pp" 
+
+C_SRCS_QUOTED += \
+"../Example_2833xEcanA_to_B_Xmit.c" 
+
+

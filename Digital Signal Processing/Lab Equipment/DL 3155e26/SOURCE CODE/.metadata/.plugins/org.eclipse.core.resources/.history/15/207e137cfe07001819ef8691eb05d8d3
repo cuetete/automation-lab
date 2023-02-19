@@ -1,0 +1,80 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+C_SRCS += \
+../SRC/DSP2833x_DefaultIsr.c \
+../SRC/DSP2833x_ECan.c \
+../SRC/DSP2833x_GlobalVariableDefs.c \
+../SRC/DSP2833x_PieCtrl.c \
+../SRC/DSP2833x_PieVect.c \
+../SRC/DSP2833x_SysCtrl.c 
+
+ASM_SRCS += \
+../SRC/DSP2833x_ADC_cal.asm \
+../SRC/DSP2833x_CodeStartBranch.asm \
+../SRC/DSP2833x_usDelay.asm 
+
+ASM_DEPS += \
+./SRC/DSP2833x_ADC_cal.pp \
+./SRC/DSP2833x_CodeStartBranch.pp \
+./SRC/DSP2833x_usDelay.pp 
+
+OBJS += \
+./DSP2833x_ADC_cal.obj \
+./DSP2833x_CodeStartBranch.obj \
+./DSP2833x_DefaultIsr.obj \
+./DSP2833x_ECan.obj \
+./DSP2833x_GlobalVariableDefs.obj \
+./DSP2833x_PieCtrl.obj \
+./DSP2833x_PieVect.obj \
+./DSP2833x_SysCtrl.obj \
+./DSP2833x_usDelay.obj 
+
+C_DEPS += \
+./SRC/DSP2833x_DefaultIsr.pp \
+./SRC/DSP2833x_ECan.pp \
+./SRC/DSP2833x_GlobalVariableDefs.pp \
+./SRC/DSP2833x_PieCtrl.pp \
+./SRC/DSP2833x_PieVect.pp \
+./SRC/DSP2833x_SysCtrl.pp 
+
+OBJS__QTD += \
+".\DSP2833x_ADC_cal.obj" \
+".\DSP2833x_CodeStartBranch.obj" \
+".\DSP2833x_DefaultIsr.obj" \
+".\DSP2833x_ECan.obj" \
+".\DSP2833x_GlobalVariableDefs.obj" \
+".\DSP2833x_PieCtrl.obj" \
+".\DSP2833x_PieVect.obj" \
+".\DSP2833x_SysCtrl.obj" \
+".\DSP2833x_usDelay.obj" 
+
+ASM_DEPS__QTD += \
+".\SRC\DSP2833x_ADC_cal.pp" \
+".\SRC\DSP2833x_CodeStartBranch.pp" \
+".\SRC\DSP2833x_usDelay.pp" 
+
+C_DEPS__QTD += \
+".\SRC\DSP2833x_DefaultIsr.pp" \
+".\SRC\DSP2833x_ECan.pp" \
+".\SRC\DSP2833x_GlobalVariableDefs.pp" \
+".\SRC\DSP2833x_PieCtrl.pp" \
+".\SRC\DSP2833x_PieVect.pp" \
+".\SRC\DSP2833x_SysCtrl.pp" 
+
+ASM_SRCS_QUOTED += \
+"../SRC/DSP2833x_ADC_cal.asm" \
+"../SRC/DSP2833x_CodeStartBranch.asm" \
+"../SRC/DSP2833x_usDelay.asm" 
+
+C_SRCS_QUOTED += \
+"../SRC/DSP2833x_DefaultIsr.c" \
+"../SRC/DSP2833x_ECan.c" \
+"../SRC/DSP2833x_GlobalVariableDefs.c" \
+"../SRC/DSP2833x_PieCtrl.c" \
+"../SRC/DSP2833x_PieVect.c" \
+"../SRC/DSP2833x_SysCtrl.c" 
+
+

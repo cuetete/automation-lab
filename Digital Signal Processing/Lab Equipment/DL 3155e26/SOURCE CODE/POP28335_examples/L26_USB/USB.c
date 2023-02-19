@@ -1,0 +1,658 @@
+// DESCRIPTION:
+//
+//    Install CH372 driver and connect board with PC via USBA-B cable
+//    Press K2 to input 'u' as a general keyboard
+//    Press K1 to move cursor left as a general mouse
+//
+//###########################################################################
+
+#include "DSP2833x_Device.h"     // DSP2833x Headerfile Include File
+#include "DSP2833x_Examples.h"   // DSP2833x Examples Include File
+#include "stdio.h"
+#include "string.h"
+
+#define	CH375_MAX_DATA_LEN	0x40
+#define	CMD_RESET_ALL		0x05
+#define	CMD_CHECK_EXIST		0x06
+#define	CMD_SET_USB_ID		0x12
+#define	CMD_SET_USB_ADDR	0x13
+#define	CMD_SET_USB_MODE	0x15
+#define	CMD_SET_ENDP2		0x18
+#define	CMD_SET_ENDP3		0x19
+#define	CMD_SET_ENDP4		0x1A
+#define	CMD_SET_ENDP5		0x1B
+#define	CMD_SET_ENDP6		0x1C
+#define	CMD_SET_ENDP7		0x1D
+#define	CMD_GET_TOGGLE		0x0A
+#define	CMD_GET_STATUS		0x22
+#define	CMD_UNLOCK_USB		0x23
+#define	CMD_RD_USB_DATA		0x28
+#define	CMD_WR_USB_DATA3	0x29
+#define	CMD_WR_USB_DATA5	0x2A
+#define	CMD_WR_USB_DATA7	0x2B
+#define	CMD_SET_BAUDRATE	0x02
+#define	CMD_ABORT_NAK		0x17
+#define	CMD_SET_RETRY		0x0B
+#define	CMD_ISSUE_TOKEN		0x4F
+#define	CMD_CLR_STALL		0x41
+#define	CMD_SET_ADDRESS		0x45
+#define	CMD_GET_DESCR		0x46
+#define	CMD_SET_CONFIG		0x49
+#define	CMD_DISK_INIT		0x51
+#define	CMD_DISK_RESET		0x52
+#define	CMD_DISK_SIZE		0x53
+#define	CMD_DISK_READ		0x54
+#define	CMD_DISK_RD_GO		0x55
+#define	CMD_DISK_WRITE		0x56
+#define	CMD_DISK_WR_GO		0x57
+#define	CMD_GET_IC_VER		0x01
+#define	CMD_ENTER_SLEEP		0x03
+#define	CMD_RD_USB_DATA0	0x27
+#define	CMD_DELAY_100US		0x0F
+#define	CMD_CHK_SUSPEND		0x0B
+#define	CMD_SET_SYS_FREQ	0x04
+#define	CMD_TEST_CONNECT	0x16
+#define	CMD_AUTO_SETUP		0x4D
+#define	CMD_ISSUE_TKN_X		0x4E
+#define	CMD_SET_DISK_LUN	0x0B
+#define	CMD_DISK_BOC_CMD	0x50
+#define	CMD_DISK_INQUIRY	0x58
+#define	CMD_DISK_READY		0x59
+#define	CMD_DISK_R_SENSE	0x5A
+#define	CMD_DISK_MAX_LUN	0x5D
+#define	CMD_RET_SUCCESS		0x51
+#define	CMD_RET_ABORT		0x5F
+#define	USB_INT_USB_SUSPEND	0x05
+#define	USB_INT_WAKE_UP		0x06
+#define	USB_INT_EP0_SETUP	0x0C
+#define	USB_INT_EP0_OUT		0x00
+#define	USB_INT_EP0_IN		0x08
+#define	USB_INT_EP1_OUT		0x01
+#define	USB_INT_EP1_IN		0x09
+#define	USB_INT_EP2_OUT		0x02
+#define	USB_INT_EP2_IN		0x0A
+#define	USB_INT_BUS_RESET1	0x03
+#define	USB_INT_BUS_RESET2	0x07
+#define	USB_INT_BUS_RESET3	0x0B
+#define	USB_INT_BUS_RESET4	0x0F
+#define	USB_INT_SUCCESS		0x14
+#define	USB_INT_CONNECT		0x15
+#define	USB_INT_DISCONNECT	0x16
+#define	USB_INT_BUF_OVER	0x17
+#define	USB_INT_DISK_READ	0x1D		
+#define	USB_INT_DISK_WRITE	0x1E			
+#define	USB_INT_DISK_ERR	0x1F			
+#define	DEF_USB_PID_NULL	0x00			
+#define	DEF_USB_PID_SOF		0x05
+#define	DEF_USB_PID_SETUP	0x0D
+#define	DEF_USB_PID_IN		0x09
+#define	DEF_USB_PID_OUT		0x01
+#define	DEF_USB_PID_ACK		0x02
+#define	DEF_USB_PID_NAK		0x0A
+#define	DEF_USB_PID_STALL	0x0E
+#define	DEF_USB_PID_DATA0	0x03
+#define	DEF_USB_PID_DATA1	0x0B
+#define	DEF_USB_PID_PRE		0x0C
+
+#define	DEF_USB_REQ_READ	0x80
+#define	DEF_USB_REQ_WRITE	0x00
+#define	DEF_USB_REQ_TYPE	0x60
+#define	DEF_USB_REQ_STAND	0x00
+#define	DEF_USB_REQ_CLASS	0x20
+#define	DEF_USB_REQ_VENDOR	0x40
+#define	DEF_USB_REQ_RESERVE	0x60
+#define	DEF_USB_CLR_FEATURE	0x01
+#define	DEF_USB_SET_FEATURE	0x03
+#define	DEF_USB_GET_STATUS	0x00
+#define	DEF_USB_SET_ADDRESS	0x05
+#define	DEF_USB_GET_DESCR	0x06
+#define	DEF_USB_SET_DESCR	0x07
+#define	DEF_USB_GET_CONFIG	0x08
+#define	DEF_USB_SET_CONFIG	0x09
+#define	DEF_USB_GET_INTERF	0x0A
+#define	DEF_USB_SET_INTERF	0x0B
+#define	DEF_USB_SYNC_FRAME	0x0C
+
+
+typedef	union _REQUEST_PACK
+{
+	unsigned char  buffer[8];
+	struct{
+		unsigned char	 bmReuestType;    	 
+		unsigned char	 bRequest;
+		unsigned int     wValue;
+		unsigned int     wIndx;
+		unsigned int     wLength;
+	}r;
+} mREQUEST_PACKET,	*mpREQUEST_PACKET;
+
+unsigned char DevDes[]={0x12,0x01,0x10,0x01,0x00,0x00,0x00,0x08,0x31,0x51,0x07,0x21,0x00,0x03,0x01,0x02,0x00,0x01};
+
+unsigned char ReportDescriptor0[]=
+{
+	0x05, 0x01 ,  //USAGE_PAGE -> Generic Desktop
+	0x09 ,0x06 ,  //USAGE -> Generic Desktop -> Keyboard 
+	
+	0xA1 ,0x01,    //Collection -> Application
+	
+	0x05 ,0x07  , //USAGE_PAGE -> Keyboard/Keypad   
+	0x19, 0xE0 ,  //USAGE_MINIMUM 
+	0x29 ,0xE7 ,  //USAGE_MAXIMUM 
+	0x15 ,0x00 ,  // LOGICAL_MINIMUM  0
+	0x25 ,0x01,   //LOGICAL_MAXIMUM  1
+	0x95 ,0x08 ,  //REPORT_COUNT    8bit  
+	0x75 ,0x01 ,  //REPORT_SIZE    1
+	0x81 ,0x02 ,  
+	
+	0x95 ,0x01  , //REPORT_COUNT    1bit 
+	0x75 ,0x08 ,  //REPORT_SIZE     8
+	0x81 ,0x01 ,  
+	
+	0x05 ,0x08 ,  //USAGE_PAGE -> LEDs
+	0x19 ,0x01,   //USAGE_MINIMUM (1) 
+	0x29 ,0x03 ,  //USAGE_MAXIMUM (3)
+	0x95 ,0x03 , //REPORT_COUNT    3bit     xxx
+	0x75 ,0x01 ,  //REPORT_SIZE    1
+	0x91 ,0x02  , //OUTPUT    Data,Var,Abs
+	
+	0x95 ,0x05 ,  //REPORT_COUNT    5bit 
+	0x75 ,0x01 ,  //REPORT_SIZE    1
+	0x91 ,0x01 , //OUTPUT    Data,Var,Abs   00000
+	
+	0x05 ,0x07,   //USAGE_PAGE -> Keyboard/Keypad
+	0x19 ,0x00 ,  //USAGE_MINIMUM (0) 
+	0x2A ,0xFF ,0x00 , //USAGE_MAXIMUM  
+	0x15 ,0x00 ,   //LOGICAL_MINIMUM  0
+	0x26 ,0xFF ,0x00 , //LOGICAL_MAXIMUM 
+	
+	0x95 ,0x06 ,  //REPORT_COUNT   6bit  
+	0x75 ,0x08 ,  //REPORT_SIZE    8
+	0x81 ,0x00,   //INPUT   Data,Var,Abs
+	0xC0 
+};
+
+unsigned char ReportDescriptor1[]=
+{		 
+	  0x05 , 0x01 , 0x09 , 0x02 , 0xA1 , 0x01 , 0x09 , 0x01 
+	, 0xA1 , 0x00 , 0x05 , 0x09 , 0x19 , 0x01 , 0x29 , 0x03 
+	, 0x15 , 0x00 , 0x25 , 0x01 , 0x95 , 0x08 , 0x75 , 0x01 
+	, 0x81 , 0x02 , 0x05 , 0x01 , 0x09 , 0x30 , 0x09 , 0x31 
+	, 0x09 , 0x38 , 0x15 , 0x81 , 0x25 , 0x7F , 0x75 , 0x08 
+	, 0x95 , 0x03 , 0x81 , 0x06 , 0xC0 , 0xC0 		 
+};
+
+
+unsigned char ConDes[]={			
+ 0x09,
+ 0x02,
+ 0x3b,
+ 0x00,
+ 0x02,
+ 0x01,
+ 0x04,
+ 0x80,
+ 0x23,
+ 0x09,
+ 0x04,
+ 0x00,
+ 0x00,
+ 0x01,
+ 0x03,
+ 0x01,
+ 0x01,
+ 0x00,
+ 0x09,
+ 0x21,
+ 0x10,
+ 0x01,
+ 0x00,
+ 0x01,
+ 0x22,
+ sizeof(ReportDescriptor0)&0xFF,
+ (sizeof(ReportDescriptor0)>>8)&0xFF,
+ 0x07,
+ 0x05,
+ 0x81,
+ 0x03,
+ 0x08,
+ 0x00,
+ 0x0A,
+ 0x09,
+ 0x04,
+ 0x01,
+ 0x00,
+ 0x01,
+ 0x03,
+ 0x01,
+ 0x02,
+ 0x00,
+ 0x09,
+ 0x21,
+ 0x10,
+ 0x01,
+ 0x00,
+ 0x01,
+ 0x22,
+ sizeof(ReportDescriptor1)&0xFF,
+ (sizeof(ReportDescriptor1)>>8)&0xFF,
+ 0x07,
+ 0x05,
+ 0x82,
+ 0x03,
+ 0x08,
+ 0x00,
+ 0x0A
+};	
+
+mREQUEST_PACKET  request;
+unsigned char LangDes[]={0x04,0x03,0x09,0x04};
+unsigned char SerDes[]={0x0A,0x03,0x5F,0x6C,0xCF,0x82,0x81,0x6C,0x52,0x60};		
+unsigned char mVarSetupRequest;						  
+unsigned char mVarSetupLength;				
+unsigned char *VarSetupDescr;      
+unsigned char buf1[8];                                     
+unsigned char VarUsbAddress	;	
+unsigned char CH375FLAGERR;			
+unsigned char CH375CONFLAG;
+unsigned char flag=0;
+Uint16 ep1_busy = 0;   
+Uint16 ep2_busy = 0;
+unsigned char down1 = 0;  
+unsigned char down2 = 0;
+unsigned char buf_key[8]; 
+unsigned char buf_mouse[4];
+
+Uint16 *USBCMD = (Uint16 *)0x4001;
+Uint16 *USBDAT = (Uint16 *)0x4000;
+interrupt void mCH375Interrupt(void);
+
+void delay(Uint16 time) 
+{
+    for(; time>0 ; time--)
+    {
+        asm(" nop");
+        asm(" nop");
+        asm(" nop");
+        asm(" nop");
+		asm(" nop");
+        asm(" nop");
+        asm(" nop");
+        asm(" nop");
+    }
+}
+
+void CH375_WR_CMD_PORT(Uint16 cmd)     
+{                  
+	*USBCMD=cmd;        
+	delay(10);    
+}
+
+void CH375_WR_DAT_PORT(Uint16 dat )     
+{           
+	*USBDAT=dat;
+	delay(10);
+} 
+
+Uint16 CH375_RD_DAT_PORT()   
+{ 
+	delay(10);
+    return (*USBDAT&0x00FF);  
+}
+
+void CH375_Init()  
+{  
+	Uint16 i=0;  
+    CH375_WR_CMD_PORT(CMD_SET_USB_MODE); 
+	CH375_WR_DAT_PORT(1); 
+	                          
+   	for (;;)  
+    {  
+       i=CH375_RD_DAT_PORT();
+       if (i== CMD_RET_SUCCESS) break;
+    }  
+}
+
+void mCh375Ep0Up()
+{
+	unsigned char i,len;
+	if(mVarSetupLength){							
+		if(mVarSetupLength<=8)
+		{
+			len=mVarSetupLength;
+			mVarSetupLength=0;
+        }
+		else
+		{
+			len=8;
+			mVarSetupLength-=8;
+		}							                  
+	    CH375_WR_CMD_PORT(CMD_WR_USB_DATA3);					
+       	CH375_WR_DAT_PORT(len);									
+    	for(i=0;i!=len;i++)
+        CH375_WR_DAT_PORT(request.buffer[i]);
+    }
+	else
+	{
+		CH375_WR_CMD_PORT(CMD_WR_USB_DATA3);	
+		CH375_WR_DAT_PORT(0);	
+	}
+}
+
+void mCh375DesUp()
+{
+	unsigned char k;        
+	for (k=0; k!=8; k++ ) 
+	{
+		request.buffer[k]=*VarSetupDescr;  						
+		VarSetupDescr++;
+    }
+}
+
+interrupt void	mCH375Interrupt(void)
+{
+	unsigned char InterruptStatus;
+	unsigned char length,c1,len;
+	
+	PieCtrlRegs.PIEACK.all = PIEACK_GROUP12;
+	CH375_WR_CMD_PORT(CMD_GET_STATUS);
+	InterruptStatus =CH375_RD_DAT_PORT();  	     
+	
+	switch(InterruptStatus)
+	{  
+		case  USB_INT_EP1_IN:  										
+			ep1_busy = 0;
+			CH375_WR_CMD_PORT (CMD_UNLOCK_USB);
+			break;
+		case   USB_INT_EP2_IN:									
+			ep2_busy = 0;
+			CH375_WR_CMD_PORT (CMD_UNLOCK_USB);						
+			break;
+		case   USB_INT_EP0_SETUP: 							
+	    	CH375_WR_CMD_PORT(CMD_RD_USB_DATA);
+			length=CH375_RD_DAT_PORT();
+			for(len=0;len!=length;len++)request.buffer[len]=CH375_RD_DAT_PORT(); 
+			if(length==0x08){						                        
+				mVarSetupLength=(request.buffer[6] | (unsigned short)request.buffer[7]<<8);
+				mVarSetupRequest=request.r.bRequest;							  			
+				if((c1=request.r.bmReuestType)&0x40){         					 
+				}
+				if((c1=request.r.bmReuestType)&0x20){
+					if(request.buffer[1]==0x0a){
+						}												          //SET_IDLE
+					else if(request.buffer[1]==0x09){
+					}
+				}
+				if(!((c1=request.r.bmReuestType)&0x60)){          				  					
+					switch(request.r.bRequest){ 
+						case DEF_USB_CLR_FEATURE:								  
+							if((c1=request.r.bmReuestType&0x1F)==0X02){			  
+								switch(request.buffer[4]){
+									case 0x82:
+										CH375_WR_CMD_PORT(CMD_SET_ENDP7);		  
+										CH375_WR_DAT_PORT(0x8E);                 
+										break;
+									case 0x02:
+										CH375_WR_CMD_PORT(CMD_SET_ENDP6);
+										CH375_WR_DAT_PORT(0x80);				  
+										break;
+									case 0x81:
+										CH375_WR_CMD_PORT(CMD_SET_ENDP5);		
+										CH375_WR_DAT_PORT(0x8E);
+										break;
+									case 0x01:
+										CH375_WR_CMD_PORT(CMD_SET_ENDP4);	
+										CH375_WR_DAT_PORT(0x80);
+										break;
+									default:
+										break;
+								}
+							}
+							else{
+								CH375FLAGERR=1;								    
+							}
+							break;
+						case DEF_USB_GET_STATUS:								
+							request.buffer[0]=0;
+							request.buffer[1]=0;				
+							break;
+						case DEF_USB_SET_ADDRESS:								
+							VarUsbAddress=request.buffer[2];					
+							break;
+						case DEF_USB_GET_DESCR: 								
+							if(request.buffer[3]==1){							
+								VarSetupDescr=DevDes;
+								if(mVarSetupLength>sizeof(DevDes))
+									mVarSetupLength = sizeof(DevDes);
+								CH375FLAGERR=0;
+								}
+							else if(request.buffer[3]==2){		 				
+								VarSetupDescr=ConDes;
+								if(mVarSetupLength>sizeof(ConDes))
+									mVarSetupLength = sizeof(ConDes);
+								CH375FLAGERR=0;
+							
+								}
+							else if(request.buffer[3]==0x22) {
+								if(request.buffer[4]==0)
+								{
+									VarSetupDescr = ReportDescriptor0;
+									if(mVarSetupLength>sizeof(ReportDescriptor0))
+										mVarSetupLength = sizeof(ReportDescriptor0);									
+								}
+								else
+								{
+									VarSetupDescr = ReportDescriptor1;
+									if(mVarSetupLength>sizeof(ReportDescriptor1))
+										mVarSetupLength = sizeof(ReportDescriptor1);										
+								}						
+								CH375FLAGERR=0;
+								}
+							else if(request.buffer[3]==3) {
+								if ( request.buffer[4]== 0 ) 
+								{
+									VarSetupDescr=LangDes;
+									if(mVarSetupLength>sizeof(LangDes))
+										mVarSetupLength = sizeof(LangDes);										
+								}
+								else 
+								{
+									VarSetupDescr=SerDes;
+									if(mVarSetupLength>sizeof(SerDes))
+										mVarSetupLength = sizeof(SerDes);																		
+								} 						
+							}
+							
+							else CH375FLAGERR=1;
+								mCh375DesUp();															          							
+							break;
+						case DEF_USB_GET_CONFIG:									
+							request.buffer[0]=0;									
+							if(CH375CONFLAG) request.buffer[0]=1;					
+							break;
+						case DEF_USB_SET_CONFIG:                 					
+							CH375CONFLAG=0;
+							if ( request.buffer[2] != 0 ) {
+								CH375CONFLAG=1;										
+							}
+							break;
+						case DEF_USB_GET_INTERF:									
+							request.buffer[0]=1;									
+							break;
+						default :
+							CH375FLAGERR=1;											
+							break;
+					}
+				}
+			}
+			else {                                                                  
+				CH375FLAGERR=1;
+			}
+			if(!CH375FLAGERR) mCh375Ep0Up();										
+			else {
+				CH375_WR_CMD_PORT(CMD_SET_ENDP3);								    
+				CH375_WR_DAT_PORT(0x0F);
+			}
+			break;
+		case   USB_INT_EP0_IN:													   
+			if(mVarSetupRequest==DEF_USB_GET_DESCR){								
+				mCh375DesUp();
+				mCh375Ep0Up();															
+			}
+			else if(mVarSetupRequest==DEF_USB_SET_ADDRESS){							
+				CH375_WR_CMD_PORT(CMD_SET_USB_ADDR);
+				CH375_WR_DAT_PORT(VarUsbAddress);								    
+			}
+			CH375_WR_CMD_PORT (CMD_UNLOCK_USB);								        
+			break;
+		case   USB_INT_EP0_OUT:													   
+			CH375_WR_CMD_PORT(CMD_RD_USB_DATA0);									
+			if(length=CH375_RD_DAT_PORT()){										   
+				for(len=0;len!=length;len++){buf1[len]=CH375_RD_DAT_PORT();		   
+				   }
+				if(mVarSetupRequest==0x09)  
+				{
+//					buf1[0];                                                       
+					mVarSetupLength= 0;
+					mCh375Ep0Up();
+				}
+				   
+			}
+			CH375_WR_CMD_PORT (CMD_UNLOCK_USB);
+			break;
+		default:
+			if((InterruptStatus&0x03)==0x03){									
+				CH375FLAGERR=0;													
+				CH375CONFLAG=0;													
+				mVarSetupLength=0;
+				ep1_busy = 0;
+				ep2_busy = 0;
+			}
+			else{																
+				;
+			}
+			CH375_WR_CMD_PORT (CMD_UNLOCK_USB);									
+			CH375_RD_DAT_PORT();
+			break;
+	}
+}
+
+
+void SendKeyReport()
+{
+	unsigned char i;
+	memset(buf_key,0,8);
+	if(down1 == 1)
+		buf_key[2] = 0x18;
+	while(ep1_busy&0x00FF);                                                           
+	CH375_WR_CMD_PORT(CMD_WR_USB_DATA5);								      
+	CH375_WR_DAT_PORT(8);
+	for(i=0;i!=8;i++)
+		CH375_WR_DAT_PORT(buf_key[i]);
+	ep1_busy = 1;
+}
+
+void SendMouseReport()
+{
+	unsigned char i;
+	memset(buf_mouse,0,4);
+	if(down2 == 1)
+	{
+		buf_mouse[1] = 0xFF;
+	}
+	while(ep2_busy&0x00FF);                                                          	
+	CH375_WR_CMD_PORT(CMD_WR_USB_DATA7);								     
+	CH375_WR_DAT_PORT(4);
+	for(i=0;i!=4;i++)
+	{
+		CH375_WR_DAT_PORT(buf_mouse[i]);
+	}
+	ep2_busy = 1;	
+}
+
+void InitGpio(void)
+{
+	EALLOW;
+	GpioCtrlRegs.GPAMUX2.bit.GPIO16 = 0;         // GPIO
+	GpioCtrlRegs.GPADIR.bit.GPIO16 = 0;          // input
+	
+	GpioCtrlRegs.GPAMUX2.bit.GPIO17 = 0;         // GPIO
+	GpioCtrlRegs.GPADIR.bit.GPIO17 = 0;          // input
+   
+	GpioCtrlRegs.GPBMUX2.bit.GPIO53 = 0;
+	GpioCtrlRegs.GPBDIR.bit.GPIO53 = 0;
+	GpioCtrlRegs.GPBCTRL.bit.QUALPRD2 = 1;
+	GpioCtrlRegs.GPBQSEL2.bit.GPIO53 = 1;
+	GpioCtrlRegs.GPBPUD.bit.GPIO53 = 0;
+	EDIS;
+}
+
+void main(void)
+{
+   //Uint16	i;
+// Step 1. Initialize System Control:
+// PLL, WatchDog, enable Peripheral Clocks
+// This example function is found in the DSP2833x_SysCtrl.c file.
+   InitSysCtrl();
+
+// Step 2. Initalize GPIO:
+// This example function is found in the DSP2833x_Gpio.c file and
+// illustrates how to set the GPIO to it's default state.
+   InitGpio();   
+   InitXintf16Gpio();	//zq
+
+// Step 3. Clear all interrupts and initialize PIE vector table:
+// Disable CPU interrupts
+   DINT;
+
+// Initialize the PIE control registers to their default state.
+// The default state is all PIE interrupts disabled and flags
+// are cleared.
+// This function is found in the DSP2833x_PieCtrl.c file.
+   InitPieCtrl();
+// Disable CPU interrupts and clear all CPU interrupt flags:
+   IER = 0x0000;
+   IFR = 0x0000;
+   
+   InitPieVectTable();
+   EALLOW;
+   GpioIntRegs.GPIOXINT3SEL.bit.GPIOSEL = 53;
+   PieVectTable.XINT3 = &mCH375Interrupt; 
+   EDIS;
+   PieCtrlRegs.PIECTRL.bit.ENPIE = 1;
+   PieCtrlRegs.PIEIER12.bit.INTx1 = 1; 
+   IER |= M_INT12; 
+   EINT;
+   
+   XIntruptRegs.XINT3CR.bit.POLARITY = 0;
+   XIntruptRegs.XINT3CR.bit.ENABLE = 1; 
+   XIntruptRegs.XNMICR.bit.SELECT = 0;
+   delay(100);
+   CH375_Init();
+   while(1)
+   {
+		if(CH375CONFLAG)
+		{
+			if((GpioDataRegs.GPADAT.bit.GPIO16==0) && (down2 == 0))		// K1 pressed, move cursor left
+			{
+				down2 = 1;
+				SendMouseReport(); 
+			}
+			if((GpioDataRegs.GPADAT.bit.GPIO16==1) && (down2 == 1))
+			{
+				down2 = 0;
+				SendMouseReport(); 
+			}
+			if((GpioDataRegs.GPADAT.bit.GPIO17==0) && (down1 == 0))		// K2 pressed, input'u'
+			{
+				down1 = 1;
+				SendKeyReport();         
+			}			
+			if((GpioDataRegs.GPADAT.bit.GPIO17==1) && (down1 == 1))
+			{
+				down1 = 0;
+				SendKeyReport();   
+			}
+		}	
+   }
+}
+

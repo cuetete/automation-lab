@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ShowViewDialog">
+	</section>
+	<section name="StartAddressDecoration">
+		<section name="Texas Instruments XDS100v2 USB Emulator_0/C28xx">
+			<item key="StartAddressDecoration.MEM_PAGE_ID" value="0"/>
+			<list key="StartAddressDecoration.ADDRESS_LIST_ID">
+				<item value="0x003F9206"/>
+			</list>
+			<list key="StartAddressDecoration.ADDRESS_TEXT_ID">
+				<item value="0x003F9206"/>
+				<item value=""/>
+				<item value=""/>
+			</list>
+		</section>
+	</section>
+</section>

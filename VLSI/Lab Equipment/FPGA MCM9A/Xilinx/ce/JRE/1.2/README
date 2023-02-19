@@ -1,0 +1,334 @@
+                                README
+
+           Java(TM) 2 Runtime Environment, Standard Edition
+                             Version 1.2.2
+                          
+
+The Java(TM) 2 Runtime Environment contains the Java virtual machine, 
+runtime class libraries, and Java application launcher that are 
+necessary to run programs written in the Java progamming language. 
+It is not a development environment and does not contain development 
+tools such as compilers or debuggers. For development tools, use the 
+Java 2 SDK, Standard Edition.  The Java 2 SDK version 1.2.2 is available 
+for free download from the Java Software web site:
+
+   http://java.sun.com/products/jdk/1.2/
+
+The Win32 version of the Java 2 Runtime Environment includes the Java 
+Plug-in product which enables support for the Java 2 platform on 
+recent releases of Netscape Navigator and Microsoft Internet Explorer. 
+When you install the Java 2 Runtime Environment, you can install the 
+Plug-in as well. For more information, including information about the 
+Java Plug-in for Solaris, see the Plug-in web page at 
+http://java.sun.com/products/plugin/.
+
+The Win32 version of the Java 2 Runtime Environemnt includes a 
+Symantec JIT compiler, Copyright (c) 1996-1999 by Symantec Corporation.
+All rights reserved.
+
+=======================================================================
+     Deploying Applications with the Java 2 Runtime Environment
+=======================================================================
+
+A Java-technology application, unlike an applet, cannot rely on a web 
+browser for installation and runtime services. When you deploy an  
+application written in the Java programming language, your software 
+bundle will probably consist of the following parts: 
+
+            Your own class, resource, and data files. 
+            A runtime environment. 
+            An installation procedure or program. 
+
+You already have the first part, of course. The remainder of this
+document covers the other two parts. See also the Notes for Developers 
+page on the Java Software web site:
+
+     http://java.sun.com/products/jdk/1.2/runtime.html
+
+-----------------------------------------------------------------------
+Runtime Environment
+-----------------------------------------------------------------------
+
+To run your application, a user needs a Java virtual machine, the Java 
+platform core classes, and various support programs and files. This 
+collection of software is known as a runtime environment. 
+
+The Java 2 SDK software can serve as a runtime environment. However, 
+you probably cannot assume your users have the Java 2 SDK software 
+installed, and your Java 2 SDK software license doesn't allow you to 
+redistribute SDK software files. 
+
+To solve this problem, Sun provides the Java 2 Runtime Environment 
+as a free, redistributable runtime environment, available for Win32 and 
+Solaris systems. (The Java 2 runtime environment should not be confused 
+with the Java 2 SDK's own internal, non-redistributable version of the 
+runtime environment housed in the jdk1.2.2/jre directory.)  
+
+The Win32 version of the Java 2 Runtime Environment comes with a 
+built-in installation program suitable for end-users. Solaris versions 
+require the developer to provide installation support. 
+
+The Java 2 Runtime Environment for Win32 is available both with and 
+without international support. The non-international version is much 
+smaller, but is suitable only for English-speaking users. 
+
+The final step in the deployment process occurs when the software is 
+installed on individual user system. Installation consists of copying 
+software onto the user's system, then configuring the user's system to 
+support that software. 
+
+This step includes installing and configuring the runtime environment. 
+If you use the Java 2 Runtime Environment, you must make sure that your 
+installation procedure never overwrites an existing installation, unless 
+the existing runtime environment is an older version. 
+
+The Win32 version of the Java 2 Runtime Environment is distributed as a 
+self-installing executable. A simple way to redistribute the Java 2 
+Runtime Environment is to include this executable in your software 
+bundle. You can then have your installation program run the executable, 
+or simply instruct the user to install the Java 2 Runtime Environment 
+before installing the rest of your bundle. 
+
+The Win32 installation program records program information in the 
+Windows Registry. This registry information includes the software 
+version, which you should compare with the Java 2 Runtime Environment 
+version in your software bundle. For more information, refer to the 
+Notes for Developers on the Java Software web site:
+
+     http://java.sun.com/products/jdk/1.2/runtime.html 
+
+A more sophisticated approach is to install the Java 2 Runtime
+Environment on your own system, then copy the files you need into your 
+own installation set for redistribution. If you choose this approach, 
+you must include all files except those described as "optional" in the 
+"Redistrubition of the Java 2 runtime environment" section of this 
+README. The Java 2 Runtime Environment software can only be 
+redistributed if all "required" files are included. See the LICENSE 
+file for specifics. 
+
+If you use this approach, your installation program should copy the 
+Java 2Runtime Environment files into the same directory where your 
+application is installed. In effect, then, your application will have 
+its own "private" copy of the Java 2 Runtime Environment. 
+
+The Win32 Java 2 Runtime Environment now includes Java Plug-in software, 
+which enables Netscape Navigator and Microsoft Internet Explorer to 
+support the Java 2 platform. To develop applets that use Java Plug-in 
+software, see the Java Plug-in product page on the Java Software web 
+site:
+
+     http://java.sun.com/products/plugin/
+
+You can also find information about the Java Plug-in for Solaris on 
+this web page.
+
+-----------------------------------------------------------------------
+Winsock Deployment
+-----------------------------------------------------------------------
+
+If your application uses the networking classes, it may not run 
+reliably under Winsock 1.1. If your networking application must support 
+Windows 95, which includes Winsock 1.1, you will want to include a 
+Winsock 2.0 install in your installation procedure. (Windows NT 4.0 and 
+Windows 98 include Winsock 2.0.) You can download the Winsock 2.0 
+from this address: 
+
+http://www.microsoft.com/windows95/downloads/contents/wuadmintools/s_wunetworkingtools/w95sockets2/
+
+The following URL contains information about how to determine if 
+the Winsock 2.0 components are installed on a Windows 95 platform:
+
+http://support.microsoft.com/support/kb/articles/Q177/7/19.asp
+
+
+=======================================================================
+         Redistribution of the Java 2 Runtime Environment
+=======================================================================
+
+The term "vendors" used here refers to licensees, developers, and 
+independent software vendors (ISVs) who license and distribute the 
+Java 2 Runtime Environment with their programs.
+
+Vendors may not redistribute this Java 2 Runtime Environment except in 
+the limited circumstances described in the accompanying Binary Code 
+License agreement, contained in the LICENSE file in the download 
+bundle. 
+
+Vendors must follow the terms of the Binary Code License agreement  
+which include, among others:
+
+ - Arbitrary subsetting of the Java 2 Runtime Environment is not 
+   allowed. See the section below entitled "Required vs. Optional Files" 
+   for those files that may be optionally omitted from redistributions 
+   of the runtime environment. 
+
+ - Vendors must include in your product's license the provisions called 
+   out in the Binary Code license.
+
+Vendors may also optionally include some specific files from the Win32 
+version of the Java 2 SDK in their redistributions of the Win32 version 
+of the Java 2 Runtime Environment. The SDK files that may be 
+redistributed with the Runtime Environment are listed below in the 
+subsection "Redistribution of Java 2 SDK Files".
+
+Vendors may also optionally choose to include the Java HotSpot 
+Performance Engine with their redistributions of the Java 2 Runtime 
+Environment.  See subsection "Redistributing the Java HotSpot 
+Performance Engine" below.
+
+-----------------------------------------------------------------------
+Required vs. Optional Files
+-----------------------------------------------------------------------
+Licensees must follow the terms of the accompanying LICENSE.  
+
+The files that make up the Java 2 Runtime Environment are divided into 
+two categories: required and optional.  Files that are marked 
+"optional" here do not need to be included in redistributions of the 
+Java 2 Runtime Environment.  
+
+The following sections contain lists of the files, for both Win32 
+and Solaris platforms, that optionally may be omitted from 
+redistributions with the Java 2 Runtime Environment.  All files not 
+in these lists of optional files must be included in redistributions 
+of the runtime environment.
+
+The Java 2 Runtime Environment includes the bin and lib directories 
+which both must reside beneath the same top-level directory. All paths 
+given in the file lists below are relative to this top-level directory.
+
+Note that in the case of the Win32 Java 2 Runtime Environment, the 
+native code C runtime library, msvcrt.dll, is located in the Windows 
+system directory. The location of this directory varies on different 
+operating systems, but is usually
+
+   - winnt\system32 on Windows NT
+   - windows98\system on Windows 98
+   - windows\system on Windows 95
+
+This file should be included in redistributions of the Win32 version 
+of the Java 2 Runtime Environment.
+
+-----------------------------------------------------------------------
+Win32 Optional Files and Directories
+-----------------------------------------------------------------------
+All font properties files in the lib directory other than the default 
+lib\font.properties file are optional, and vendors may choose not to 
+include them in redistributions of the Java 2 Runtime Environment. In 
+addition, the following may be optionally excluded from 
+redistributions:
+
+bin\beans.ocx		      
+   Plugin ActiveX control
+lib\jaws.jar		      
+   Plugin classes
+lib\i18n.jar                  
+   Character conversion classes and all other locale support
+lib\ext\                      
+   Directory containing extension jar files
+bin\symcjit.dll               
+   JIT compiler
+bin\rmid.exe
+   Java RMI Activation System Daemon
+bin\rmiregistry.exe
+   Java Remote Object Registry
+bin\tnameserv.exe
+   Java IDL Name Server
+bin\keytool.exe
+   Key and Certificate Management Tool
+bin\policytool.exe
+   Policy File Creation and Management Tool
+
+
+-----------------------------------------------------------------------
+Solaris Optional Files and Directories
+-----------------------------------------------------------------------
+The directory referred to as <sys> in the list below varies depending 
+on the hardware architecture implementation.  It will be either sparc 
+or i386. The Solaris version of the Java 2 Runtime Environment ships 
+with support for both green threads and native threads. (For 
+information on these two threading options, see 
+http://java.sun.com/products/jdk/1.2/docs/tooldocs/solaris/threads.html)  
+Files providing this threading support are in the directories 
+lib/<sys>/green_threads and lib/<sys>/native_threads respectively.  
+Although at least one of these directories and its contents must be 
+included in redistributions of the Java 2 Runtime Environment, vendors 
+do not have to include both. 
+
+All font properties files in the lib directory other than the default 
+lib/font.properties file for Solaris 2.6 and the default 
+lib/font.properties.5.5.1 file for Solaris 2.5.1 are optional, and 
+vendors may choose not to include them in redistributions of the 
+Java 2 Runtime Environment. In addition, the following may be 
+optionally excluded from redistributions:
+
+lib/i18n.jar                  
+   Character conversion classes and all other locale support
+lib/<sys>/libsunwjit.so       
+   JIT compiler
+lib/ext/                      
+   Directory containing extension jar files
+bin/rmid
+   Java RMI Activation System Daemon
+bin/rmiregistry
+   Java Remote Object Registry
+bin/tnameserv
+   Java IDL Name Server
+bin/keytool
+   Key and Certificate Management Tool
+bin/policytool
+   Policy File Creation and Management Tool
+
+
+-----------------------------------------------------------------------
+Redistribution of Java 2 SDK Files
+-----------------------------------------------------------------------
+The Java 2 SDK, Standard Edition, may not be redistributed. However, 
+the limited set of files from the Win32 version of the SDK listed below 
+may be included in vendor redistributions of the Win32 version of the 
+Java 2 Runtime Environment.  All paths are relative to the top-level 
+directory of the SDK.
+
+ - jre/lib/cmm/PYCC.pf
+      Color-management profile. This file is required only if the 
+      Java 2D API is used to perform color map conversions.
+
+ - All .ttf font files in the jre/lib/fonts directory. Note that the 
+   LucidaSansRegular.ttf font is already contained in the Java 2 
+   Runtime Environment, so there is no need to bring that file over 
+   from the SDK. 
+
+-----------------------------------------------------------------------
+Redistributing the Java(TM) HotSpot Performance Engine
+-----------------------------------------------------------------------
+Version 1.0 of the Java HotSpot Performance Engine is available for 
+use with the Java 2 Runtime Environment.  The Java HotSpot Performance 
+Engine and related documentation can be obtained from 
+
+   http://java.sun.com/products/hotspot/
+
+Vendors may include the Java HotSpot Performance Engine in their 
+redistributions of the Java 2 Runtime Environment in accordance with 
+the binary code license of the Java HotSpot Performance Engine. The 
+license is available at
+
+   http://java.sun.com/products/hotspot/launch/LICENSE.txt
+
+Installation instructions are contained in the Java HotSpot 
+Performance Engine web site.
+
+After the Performance Engine is placed in the Runtime Environment, the 
+Runtime Environment will use it by default. The Performance Engine acts 
+as a replacement for the virtual machine that ships with the 
+Java 2 Runtime Environment.  
+
+For Win32 systems:
+The JIT compiler (bin\symcjit.dll) works only in conjunction with the 
+standard virtual machine (the bin\classic\jvm.dll library). Therefore 
+if the bin\classic\jvm.dll is excluded from a redistribution of the 
+Runtime Environment, it would normally make sense to also exclude the 
+bin\symcjit.dll file. 
+
+-----------------------------------------------------------------------
+Copyright (c) 1998, 1999 Sun Microsystems(tm), Inc. http://www.sun.com
+All rights reserved.
+

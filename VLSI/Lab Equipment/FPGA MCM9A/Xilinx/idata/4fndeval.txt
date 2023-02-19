@@ -1,0 +1,8 @@
+Virtex|V50|Virtex V50 Devices|Virtex_V50
+Virtex|V100-V600|Virtex V100-V600 Devices|Virtex_V100
+Virtex|V800,V1000|Virtex V100-V600 Devices|Virtex_V800
+VirtexE|V50E|VirtexE V50E Devices|VirtexE_V50
+VirtexE|V100E-V1000E|VirtexE V100E-V1000E Devices|VirtexE_V100
+VirtexE|V1600E,V2000E|VirtexE V1600E,V2000E Devices|VirtexE_V1600
+VirtexE|V2600E,V3200E|VirtexE V2600E,V3200E Devices|VirtexE_V2600
+XC9500|XC9500|XC9500 Devices|XC9500

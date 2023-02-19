@@ -1,0 +1,18 @@
+Virtex|V50|The XCV50 is the smallest part in the Virtex family. It supports designs with up to 50,000 system gates. |Virtex_V50
+Virtex|V100-V600|This option installs the files needed to design to the following parts of the Virtex family, allowing for designs with up to 600,000 system gates: XCV100, XCV150, XCV200, XCV300, XCV400, XCV600 Virtex V100-V600 Devices|Virtex_V100
+Virtex|V800,V1000|This option installs the files needed to design to the following parts of the Virtex family, allowing for designs with up to one million system gates: XCV800, XCV1000 |Virtex_V800
+VirtexE|V50E|The XCV50E is the smallest part in the VirtexE family. It supports designs with up to 50,000 system gates. |VirtexE_V50
+VirtexE|V100E-V1000E|This option installs the files needed to design to the following parts of the VirtexE family, allowing for designs with up to one million system gates: XCV100E XCV405E XCV200E XCV600E XCV300E XCV812E XCV400E XCV1000E|VirtexE_V100
+Spartan|Spartan|This option installs the files needed to design to the following parts in the Spartan family, allowing for designs with up to 40,000 system gates: XCS05 XCS10 XCS20 XCS30 XCS40 |Spartan
+SpartanXL|SpartanXL|This option installs the files needed to design to the following parts in the SpartanXL family, allowing for designs with up to 40,000 system gates: XCS05XL XCS10XL XCS20XL XCS30XL XCS40XL |SpartanXL
+Spartan2|Spartan2|This option installs the files needed to design to the following parts in the Spartan2 family, allowing for designs with up to 150,000 system gates: XC2S15 XC2S30 XC2S50 XC2S100 XC2S150 |Spartan2
+XC4000|XC4000E/L|This option installs the files needed to design to the following parts from the XC4000E and XC4000L families. XC4003E XC4020E XC4005E XC4025E XC4006E XC4005L XC4008E XC4010L XC4010E XC4013L XC4013E |XC4000EL
+XC4000|XC4000EX|This option installs the files needed to design to the following parts of the XC4000EX family: XC4028EX XC4036EX |XC4000EX
+XC4000|XC4000XL|This option installs the files needed to design to the following parts in the XC4000XL family. XC4002XL XC4036XL XC4005XL XC4044XL XC4010XL XC4052XL XC4013XL XC4062XL XC4020XL XC4085XL XC4028XL|XC4000XL
+XC4000|XC4000XV|This option installs the files needed to design to the following parts in the XC4000XV family: XC40110XV XC40150XV XC40200XV XC40250XV|XC4000XV
+XC4000|XC4000XLA|This option installs the files needed to design to the following parts in the XC4000XLA family. XC4013XLA XC4044XLA XC4020XLA XC4052XLA XC4028XLA XC4062XLA XC4036XLA XC4085XLA|XC4000XLA
+XC3000A/L|XC3000A/L|Use the following four parts from the 3000A/L families for existing designs. These parts are intended for existing designs and not intended for new designs. XC3000A XC3000L  |XC3000
+XC3000A/L|XC3100A/L|Use the following four parts from the 3100A/L families for existing designs. These parts are intended for existing designs and not intended for new designs. XC3100A XC3100L |XC3100
+XC5200|XC5200|Use the following parts from the XC5200 family for existing designs. These parts are intended for existing designs and not intended for new designs. XC5202 XC5204 XC5206 XC5210 XC5215 |XC5200
+XC9500|XC9500|This option installs the files needed to design to all of the parts of the XC9500/XL/XV CPLD families. |XC9500
+

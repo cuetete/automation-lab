@@ -1,0 +1,101 @@
+// DESCRIPTION:
+//
+//		DA converter output DACA,DACB,DACC,DACD 
+//		Check whether the value A:0.4 B:0.8 C:1.2 D:1.6 is right
+//		
+////###########################################################################	
+
+#include "DSP2833x_Device.h"     // DSP2833x Headerfile Include File
+#include "DSP2833x_Examples.h"   // DSP2833x Examples Include File
+
+#define SetLOAD GpioDataRegs.GPBDAT.bit.GPIO49=1;	//Set TLV5620-LOAD high
+#define ClrLOAD GpioDataRegs.GPBDAT.bit.GPIO49=0;	//Set TLV5620-LOAD low
+
+void WriteDAC(unsigned char add,unsigned char rng,unsigned char vol);
+void delay(unsigned int t);
+void spi_xmit(Uint16 a);
+void spi_fifo_init(void);
+void spi_init(void);
+
+
+void main(void)
+{   
+	int temp;   
+	InitSysCtrl();
+	InitSpiaGpio();
+
+	
+	EALLOW;
+	GpioCtrlRegs.GPBMUX2.bit.GPIO49 = 0;     // set GPIO49 as GPIO
+	GpioCtrlRegs.GPBDIR.bit.GPIO49 = 1;      // set as output
+	GpioCtrlRegs.GPBPUD.bit.GPIO49 = 0;      // disable PULLUP
+	EDIS;
+	
+	DINT;
+	IER = 0x0000;
+	IFR = 0x0000;
+	InitPieCtrl();
+	InitPieVectTable();	
+    spi_init();
+	EINT;   	// Enable Global interrupt INTM
+	ERTM;		// Enable Global realtime interrupt DBGM
+    SetLOAD;
+            
+    temp=46;	//REF=2.2V;   VO(DACA|B|C|D) =REF* CODE/256
+ 
+    while(1)
+    {
+	        
+	        WriteDAC(0,0,temp);		//0.4V
+	   
+	        WriteDAC(1,0,temp*2);	//0.8V
+
+	        WriteDAC(2,0,temp*3);	//1.2V
+
+	        WriteDAC(3,0,temp*4);	//1.6V
+
+	        delay(1500);
+	}
+
+} 	
+
+	
+void WriteDAC(unsigned char add,unsigned char rng,unsigned char vol)
+{   
+	unsigned short int data;
+    data=0x0000;
+    data = ((add<<14) | (rng<<13) | (vol<<5));
+    while(SpiaRegs.SPISTS.bit.BUFFULL_FLAG ==1);    
+    	SpiaRegs.SPITXBUF = data;	
+    while( SpiaRegs.SPISTS.bit.BUFFULL_FLAG==1);	 
+	delay(1500);
+    ClrLOAD;   
+	delay(150);
+    SetLOAD; 
+    delay(1500);	
+}
+
+void delay(unsigned int t)
+{
+ 
+ 	while(t>0)
+    	t--;
+}
+
+void spi_init()
+{    
+	SpiaRegs.SPICCR.all =0x0a;		//11bit                            
+	SpiaRegs.SPICTL.all =0x0006;                               
+	SpiaRegs.SPIBRR =0x0031;	//SPI BD=37.5M/50	=0.75MHZ£»							
+    SpiaRegs.SPICCR.all =0x8a;  
+    SpiaRegs.SPIPRI.bit.FREE = 1;   
+}
+
+
+
+
+
+
+//===========================================================================
+// No more.
+//===========================================================================

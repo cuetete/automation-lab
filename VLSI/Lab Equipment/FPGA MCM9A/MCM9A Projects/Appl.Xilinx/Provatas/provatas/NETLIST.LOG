@@ -1,0 +1,12 @@
+Loading - C:\XILINX\ACTIVE\PROJECTS\PROVA\prova.alb
+   Loading library default timing values
+Info 9239: The following node is loadless:
+   NODE: $Net00002_, $I2.O.
+===============================
+Memory usage statistics:
+    Total number of allocated memory blocks: 17 (0)
+    Total number of memory reallocations: 1
+    Total length of memory used to load the netlist: 256 kB (0)
+    Number of system memory blocks (total/long): 1/0
+Netlist loaded in: 0 seconds
+===============================

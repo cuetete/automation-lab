@@ -1,0 +1,402 @@
+ngdbuild -p xc3020a-7-pc68 -uc ev05.ucf -dd .. c:\xilinx\active\projects\ev05\ev05.edn ev05.ngd
+Release 3.3.06i_V2_SE2 - ngdbuild D.19
+Copyright (c) 1995-2000 Xilinx, Inc.  All rights reserved.
+
+Command Line: ngdbuild -p xc3020a-7-pc68 -uc ev05.ucf -dd ..
+c:\xilinx\active\projects\ev05\ev05.edn ev05.ngd 
+
+Launcher: Executing edif2ngd "c:\xilinx\active\projects\ev05\ev05.edn"
+"C:\Xilinx\active\projects\ev05\xproj\ver1\ev05.ngo"
+Release 3.3.06i_V2_SE2 - edif2ngd D.19
+Copyright (c) 1995-2000 Xilinx, Inc.  All rights reserved.
+Writing the design to "C:/Xilinx/active/projects/ev05/xproj/ver1/ev05.ngo"...
+Reading NGO file "C:/Xilinx/active/projects/ev05/xproj/ver1/ev05.ngo" ...
+Reading component libraries for design expansion...
+
+Annotating constraints to design from file "ev05.ucf" ...
+
+Checking timing specifications ...
+
+Checking expanded design ...
+WARNING:NgdBuild:454 - logical net '$I114/RCO' has no load
+WARNING:NgdBuild:479 - The input pad net '$Net00074_' driving one or more clock
+   loads should only use a dedicated clock buffer. This could result in large
+   clock skews on this net.
+
+NGDBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:   2
+
+Writing NGD file "ev05.ngd" ...
+
+Writing NGDBUILD log file "ev05.bld"...
+
+NGDBUILD done.
+
+==================================================
+
+map -p xc3020a-7-pc68 -o map.ncd ev05.ngd ev05.pcf
+Release 3.3.06i_V2_SE2 - Map D.19
+Copyright (c) 1995-2000 Xilinx, Inc.  All rights reserved.
+Reading NGD file "ev05.ngd"...
+Using target part "3020apc68-7".
+MAP XC3000A command-line options:
+   Partname = "xc3020a-7-pc68".
+   Covermode = "area".
+   Register Ordering: ENABLED
+   Pack Unrelated Logic into CLBs targeting 97% of CLB resources.
+   Process the file:  ev05.ngd.
+Processing logical timing constraints...
+Processing global clock buffers...
+Verifying CLBMAPs...
+Removing unused logic...
+Processing CLBMAPs...
+Optimizing...
+Running physical design DRC...
+
+Design Summary:
+   Number of errors:        0
+   Number of warnings:      0
+   Number of CLBs:             58 out of    64   90%
+      CLB Flip Flops:      35
+   Number of bonded IOBs:      25 out of    58   43%
+      IOB Flip Flops:       0
+      IOB Latches:          0
+Writing design file "map.ncd"...
+
+Removed Logic Summary:
+   5 block(s) removed
+  48 block(s) optimized away
+   5 signal(s) removed
+
+Mapping completed.
+See MAP report file "map.mrp" for details.
+
+==================================================
+
+par  -w -ol 3 -d 0 map.ncd ev05.ncd ev05.pcf
+Release 3.3.06i_V2_SE2 - Par D.19
+Copyright (c) 1995-2000 Xilinx, Inc.  All rights reserved.
+
+
+
+
+Constraints file: ev05.pcf
+
+Loading device database for application par from file "map.ncd".
+   "ev05" is an NCD, version 2.32, device xc3020a, package pc68, speed -7
+Loading device for application par from file '3020a.nph' in environment
+C:/Xilinx.
+Device speed data version:  C  .
+
+
+Resolving physical constraints.
+Finished resolving physical constraints.
+
+Device utilization summary:
+
+   Number of External IOBs            25 out of 58     43%
+
+   Number of CLBs                     58 out of 64     90%
+
+
+
+
+Overall effort level (-ol):   3 (set by user)
+Placer effort level (-pl):    4 (set by user)
+Placer cost table entry (-t): 1
+Router effort level (-rl):    3 (set by user)
+
+Starting initial Placement phase.  REAL time: 0 secs 
+Finished initial Placement phase.  REAL time: 0 secs 
+
+Starting Constructive Placer.  REAL time: 0 secs 
+Placer score = 57666
+Placer score = 57180
+Placer score = 56469
+Placer score = 54460
+Placer score = 50418
+Placer score = 42674
+Placer score = 30319
+Placer score = 27383
+Placer score = 21775
+Placer score = 19458
+Placer score = 16084
+Placer score = 13289
+Placer score = 9653
+Placer score = 8822
+Placer score = 8636
+Placer score = 8592
+Finished Constructive Placer.  REAL time: 1 mins 6 secs 
+
+Writing design to file "ev05.ncd".
+
+Starting Optimizing Placer.  REAL time: 1 mins 6 secs 
+Optimizing  
+Swapped 1 comps.
+Xilinx Placer [1]   8554   REAL time: 1 mins 7 secs 
+Finished Optimizing Placer.  REAL time: 1 mins 7 secs 
+
+Writing design to file "ev05.ncd".
+
+Total REAL time to Placer completion: 1 mins 7 secs 
+Total CPU time to Placer completion: 1 mins 7 secs 
+
+0 connection(s) routed; 261 unrouted active, 1 unrouted PWR/GND.
+Starting router resource preassignment
+Completed router resource preassignment. REAL time: 1 mins 12 secs 
+Starting iterative routing. 
+Routing active signals.
+End of iteration 1 
+261 successful; 0 unrouted active,
+   1 unrouted PWR/GND; (0) REAL time: 1 mins 12 secs 
+End of iteration 2 
+261 successful; 0 unrouted active,
+   1 unrouted PWR/GND; (0) REAL time: 1 mins 12 secs 
+Constraints are met. 
+Routing PWR/GND nets.
+Power and ground nets completely routed. 
+Writing design to file "ev05.ncd".
+Starting cleanup 
+Improving routing.
+End of cleanup iteration 1 
+262 successful; 0 unrouted; (0) REAL time: 1 mins 13 secs 
+Writing design to file "ev05.ncd".
+Total REAL time: 1 mins 14 secs 
+Total CPU  time: 1 mins 13 secs 
+End of route.  262 routed (100.00%); 0 unrouted.
+No errors found. 
+Completely routed. 
+
+This design was run without timing constraints.  It is likely that much better
+circuit performance can be obtained by trying either or both of the following:
+
+  - Enabling the Delay Based Cleanup router pass, if not already enabled
+  - Supplying timing constraints in the input design
+
+
+Total REAL time to Router completion: 1 mins 14 secs 
+Total CPU time to Router completion: 1 mins 13 secs 
+
+Generating PAR statistics.
+Writing design to file "ev05.ncd".
+
+
+All signals are completely routed.
+
+Total REAL time to PAR completion: 1 mins 14 secs 
+Total CPU time to PAR completion: 1 mins 14 secs 
+
+Placement: Completed - No errors found.
+Routing: Completed - No errors found.
+
+PAR done.
+
+==================================================
+
+trce ev05.ncd ev05.pcf -e 3  -o ev05.twr 
+Release 3.3.06i_V2_SE2 - Trace D.19
+Copyright (c) 1995-2000 Xilinx, Inc.  All rights reserved.
+
+
+
+Loading device database for application trce from file "ev05.ncd".
+   "ev05" is an NCD, version 2.32, device xc3020a, package pc68, speed -7
+Loading device for application trce from file '3020a.nph' in environment
+C:/Xilinx.
+--------------------------------------------------------------------------------
+Xilinx TRACE, Version D.19
+Copyright (c) 1995-2000 Xilinx, Inc.  All rights reserved.
+
+trce ev05.ncd ev05.pcf -e 3 -o ev05.twr
+
+Design file:              ev05.ncd
+Physical constraint file: ev05.pcf
+Device,speed:             xc3020a,-7 (C  )
+Report level:             error report
+--------------------------------------------------------------------------------
+
+WARNING:Timing:2491 - No timing constraints found, doing default enumeration.
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0
+
+Constraints cover 1145 paths, 89 nets, and 261 connections (100.0% coverage)
+
+Design statistics:
+   Minimum period:  80.927ns (Maximum frequency:  12.357MHz)
+   Maximum net delay:  14.067ns
+
+
+Analysis completed Fri Mar 30 13:29:40 2001
+--------------------------------------------------------------------------------
+
+Total time: 0 secs 
+
+==================================================
+
+ngdanno ev05.ncd map.ngm 
+Release 3.3.06i_V2_SE2 - ngdanno D.19
+Copyright (c) 1995-2000 Xilinx, Inc.  All rights reserved.
+
+Loading device database for application ngdanno from file "ev05.ncd".
+   "ev05" is an NCD, version 2.32, device xc3020a, package pc68, speed -7
+Loading device for application ngdanno from file '3020a.nph' in environment
+C:/Xilinx.
+Reading .ngm file "map.ngm"...
+Building NGA image...
+Annotating NGA image...
+Distributing delays...
+WARNING:Anno:152 - default voltage/temp values not available in speed file. 
+   Using ngdanno defaults of 4.75V and  85C.
+Resolving logical and physical hierarchies...
+Running NGD DRC...
+Writing .nga file "ev05.nga"...
+   83 logical models annotated
+
+==================================================
+
+ngd2edif -w -v fndtn ev05.nga time_sim.edn
+Release 3.3.06i_V2_SE2 - ngd2edif D.19
+Copyright (c) 1995-2000 Xilinx, Inc.  All rights reserved.
+   writing only delay properties to EDIF file
+   dedicated signals will be given global scope
+   writing  EDIF file to 'time_sim.edn' ...
+
+==================================================
+
+xcpy time_sim.edn c:\xilinx\active\projects\ev05\time_sim.edn
+
+==================================================
+
+bitgen ev05.ncd -t -a -u  -l -w -f bitgen.ut
+Release 3.3.06i_V2_SE2 - Bitgen D.19
+Copyright (c) 1995-2000 Xilinx, Inc.  All rights reserved.
+
+Loading device database for application Bitgen from file "ev05.ncd".
+   "ev05" is an NCD, version 2.32, device xc3020a, package pc68, speed -7
+Loading device for application Bitgen from file '3020a.nph' in environment
+C:/Xilinx.
+Opened constraints file ev05.pcf.
+
+Fri Mar 30 13:30:04 2001
+
+Running DRC.
+DRC detected 0 errors and 0 warnings.
+Saving ll file in "ev05.ll".
+
+Tying down design ev05.ncd.
+Creating tie sources.
+   Original design signals: 149
+   Original signals added to source list: 89
+   New signals created: 77
+   New signals added to source list: 77
+   Total signals in source list: 166
+Creating tie targets.
+   Total nodes: 2474
+   Unused nodes: 1639
+   Nodes in target list: 967
+Tying down target nodes.
+   Tied 190 nodes to signal $TIE_DA_X.
+   Tied 14 nodes to signal $TIE_DA_Y.
+   Tied 22 nodes to signal $TIE_CA_X.
+   Tied 11 nodes to signal $TIE_CA_Y.
+   Tied 29 nodes to signal $TIE_HE_X.
+   Tied 33 nodes to signal $TIE_HE_Y.
+   Tied 20 nodes to signal $TIE_HF_X.
+   Tied 6 nodes to signal $TIE_HF_Y.
+   Tied 198 nodes to signal $TIE_EH_Y.
+   Tied 1 nodes to signal $TIE_BH_X.
+   Tied 18 nodes to signal $TIE_BH_Y.
+   Tied 5 nodes to signal $TIE_UNB61_Q.
+   Tied 6 nodes to signal $TIE_P13_Q.
+   Tied 3 nodes to signal $TIE_P12_Q.
+   Tied 39 nodes to signal $TIE_P11_Q.
+   Tied 1 nodes to signal $TIE_P9_Q.
+   Tied 4 nodes to signal $TIE_P8_Q.
+   Tied 1 nodes to signal $TIE_P29_Q.
+   Tied 18 nodes to signal $TIE_P7_Q.
+   Tied 2 nodes to signal $TIE_P30_Q.
+   Tied 2 nodes to signal $TIE_P6_Q.
+   Tied 1 nodes to signal $TIE_P5_Q.
+   Tied 2 nodes to signal $TIE_P4_Q.
+   Tied 3 nodes to signal $TIE_P3_Q.
+   Tied 9 nodes to signal $TIE_P2_Q.
+   Tied 51 nodes to signal $TIE_P68_Q.
+   Tied 1 nodes to signal $TIE_P37_Q.
+   Tied 1 nodes to signal $TIE_P67_Q.
+   Tied 15 nodes to signal $TIE_P66_Q.
+   Tied 4 nodes to signal $TIE_P65_Q.
+   Tied 4 nodes to signal $TIE_P64_Q.
+   Tied 4 nodes to signal $TIE_P63_Q.
+   Tied 2 nodes to signal $TIE_P42_Q.
+   Tied 75 nodes to signal $TIE_P62_Q.
+   Tied 4 nodes to signal $TIE_P61_Q.
+   Tied 2 nodes to signal $TIE_P55_Q.
+   Tied 1 nodes to signal $TIE_UNB21_Q.
+   Tied 1 nodes to signal $TIE_P58_Q.
+   Tied 1 nodes to signal $TIE_P59_Q.
+   Tied 20 nodes to signal $TIE_GCLK_O.
+   Tied 5 nodes to signal $I110/QA.
+   Tied 1 nodes to signal $I110/T2.
+   Tied 7 nodes to signal $I110/QC.
+   Tied 5 nodes to signal $Net00033_.
+   Tied 3 nodes to signal $I111/QB.
+   Tied 1 nodes to signal $I111/QC.
+   Tied 5 nodes to signal CK2.
+   Tied 2 nodes to signal $I112/QA.
+   Tied 1 nodes to signal $I112/QB.
+   Tied 1 nodes to signal $I112/QC.
+   Tied 9 nodes to signal $Net00060_.
+   Tied 2 nodes to signal $Net00059_.
+   Tied 1 nodes to signal $I113/QA.
+   Tied 7 nodes to signal $I113/T2.
+   Tied 2 nodes to signal $I113/QD.
+   Tied 2 nodes to signal CK4.
+   Tied 5 nodes to signal $Net00017_.
+   Tied 11 nodes to signal $I114/CLRB.
+   Tied 5 nodes to signal $Net00014_.
+   Tied 9 nodes to signal $Net00018_.
+   Tied 4 nodes to signal $Net00025_.
+   Tied 3 nodes to signal $Net00016_.
+   Tied 3 nodes to signal $Net00001_.
+   Tied 7 nodes to signal $Net00015_.
+   Tied 2 nodes to signal $I115/T2.
+   Tied 2 nodes to signal $Net00022_.
+   Tied 1 nodes to signal $Net00026_.
+   Tied 9 nodes to signal $Net00003_.
+   Tied 2 nodes to signal $Net00002_.
+   Tied 2 nodes to signal $Net00013_.
+   Tied 1 nodes to signal $Net00021_.
+   Tied 2 nodes to signal $I117/T2.
+   Tied 1 nodes to signal $Net00024_.
+   Tied 1 nodes to signal $Net00028_.
+   Tied 3 nodes to signal $Net00061_.
+   Tied 2 nodes to signal $Net00058_.
+   Tied 2 nodes to signal $Net00055_.
+   Tied 1 nodes to signal $Net00034_.
+   Tied 1 nodes to signal GLOBAL_LOGIC1.
+   Tied 2 nodes to signal $Net00085_.
+   Tied 1 nodes to signal $TIE_DA_X.
+   Tied 1 nodes to signal $TIE_DA_X.
+   Tied 1 nodes to signal $TIE_CA_Y.
+   Tied 1 nodes to signal $TIE_DA_Y.
+   Tied 1 nodes to signal CK.
+   Tied 1 nodes to signal $TIE_HF_X.
+   Tied 1 nodes to signal $TIE_EH_Y.
+   Tied 1 nodes to signal $TIE_BH_Y.
+Tiedown complete. 0 untied nodes.
+Fixing up iob clocks...Done.
+Creating bit map...
+Saving bit stream in "ev05.bit".
+
+==================================================
+
+xcpy ev05.bit c:\xilinx\active\projects\ev05\ev05.bit
+
+==================================================
+
+xcpy ev05.ll c:\xilinx\active\projects\ev05\ev05.ll

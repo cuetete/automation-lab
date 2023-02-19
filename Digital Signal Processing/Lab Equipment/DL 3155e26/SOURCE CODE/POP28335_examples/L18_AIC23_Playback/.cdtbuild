@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?fileVersion 3.1.0?>
+
+<ManagedProjectBuildInfo>
+<project id="POP28335_AIC23_Playback.com.ti.ccstudio.buildDefinitions.C2000.ProjectType.1548062264" name="C2000" projectType="com.ti.ccstudio.buildDefinitions.C2000.ProjectType">
+<configuration artifactExtension="out" artifactName="POP28335_AIC23_Playback" description="" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1658626948" name="Debug" parent="com.ti.ccstudio.buildDefinitions.C2000.Debug">
+<toolChain id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.DebugToolchain.611584317" name="TI Code Generation Tools" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.DebugToolchain" targetTool="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627">
+<option id="com.ti.ccstudio.buildDefinitions.core.OPT_TAGS.1849768365" superClass="com.ti.ccstudio.buildDefinitions.core.OPT_TAGS" valueType="stringList">
+<listOptionValue builtIn="false" value="DEVICE_CONFIGURATION_ID=TMS320C28XX"/>
+<listOptionValue builtIn="false" value="DEVICE_ENDIANNESS=none"/>
+<listOptionValue builtIn="false" value="OUTPUT_FORMAT=COFF"/>
+<listOptionValue builtIn="false" value="CCS_MBS_VERSION=4.2.4"/>
+<listOptionValue builtIn="false" value="LINKER_COMMAND_FILE="/>
+<listOptionValue builtIn="false" value="RUNTIME_SUPPORT_LIBRARY="/>
+<listOptionValue builtIn="false" value="OUTPUT_TYPE=executable"/>
+<listOptionValue builtIn="false" value="RTSC_PRODUCTS=com.ti.rtsc.XDAIS:latest;"/>
+<listOptionValue builtIn="false" value="LINK_ORDER="/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.core.OPT_CODEGEN_VERSION.1755892776" superClass="com.ti.ccstudio.buildDefinitions.core.OPT_CODEGEN_VERSION" value="6.0.1" valueType="string"/>
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.1924799252" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug">
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIAG_WARNING.552428256" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIAG_WARNING" valueType="stringList">
+<listOptionValue builtIn="false" value="225"/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.INCLUDE_PATH.1217508890" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.INCLUDE_PATH" valueType="includePath">
+<listOptionValue builtIn="false" value="&quot;${CG_TOOL_ROOT}/include&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${XDAIS_CG_ROOT}/packages/ti/xdais&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${EXT_ROOT__POP28335_AIC23_Playback}/DSP2833x_headers/include&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${EXT_ROOT__POP28335_AIC23_Playback}/DSP2833x_common/include&quot;"/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.QUIET_LEVEL.1784362587" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.QUIET_LEVEL" value="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.QUIET_LEVEL.QUIET" valueType="enumerated"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.ISSUE_REMARKS.1041421953" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.ISSUE_REMARKS" value="true" valueType="boolean"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIRECTORY_MODE.741712852" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIRECTORY_MODE" value="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIRECTORY_MODE.manual" valueType="enumerated"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.OBJ_DIRECTORY.1196621295" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.OBJ_DIRECTORY" value="&quot;D:/POP28335_CODE/POP28335_examples/Ex26_POP28335_AIC23_Playback/Debug&quot;" valueType="string"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.ASM_DIRECTORY.1542920713" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.ASM_DIRECTORY" value="&quot;D:/POP28335_CODE/POP28335_examples/Ex26_POP28335_AIC23_Playback/Debug&quot;" valueType="string"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DEFINE.1895240298" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DEFINE" valueType="definedSymbols">
+<listOptionValue builtIn="false" value="&quot;_DEBUG&quot;"/>
+<listOptionValue builtIn="false" value="&quot;LARGE_MODEL&quot;"/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.LARGE_MEMORY_MODEL.293575779" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.LARGE_MEMORY_MODEL" value="true" valueType="boolean"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.UNIFIED_MEMORY.1292576479" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.UNIFIED_MEMORY" value="true" valueType="boolean"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.SILICON_VERSION.929191301" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.SILICON_VERSION" value="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.SILICON_VERSION.28" valueType="enumerated"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.FLOAT_SUPPORT.1624672661" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.FLOAT_SUPPORT" value="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.FLOAT_SUPPORT.fpu32" valueType="enumerated"/>
+</tool>
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug">
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.OUTPUT_FILE.1529171978" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.OUTPUT_FILE" value="&quot;POP28335_AIC23_Playback.out&quot;" valueType="string"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.MAP_FILE.1206876231" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.MAP_FILE" value="&quot;POP28335_AIC23_Playback.map&quot;" valueType="string"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.SEARCH_PATH.1721078844" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.SEARCH_PATH" valueType="stringList">
+<listOptionValue builtIn="false" value="&quot;${CG_TOOL_ROOT}/lib&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${CG_TOOL_ROOT}/include&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${PROJECT_ROOT}&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${EXT_ROOT__POP28335_AIC23_Playback}/DSP2833x_headers/include&quot;"/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.STACK_SIZE.1545696506" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.STACK_SIZE" value="0x380" valueType="string"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.LIBRARY.651661308" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.LIBRARY" valueType="libs">
+<listOptionValue builtIn="false" value="&quot;rts2800_fpu32.lib&quot;"/>
+</option>
+</tool>
+<macros/>
+</toolChain>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1658626948./POP28335_AIC23_Playback/POP28335_AIC23_Playback/Debug/ccsSrcs.opt" name="ccsSrcs.opt" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/POP28335_AIC23_Playback/Debug/ccsSrcs.opt" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.1924799252./POP28335_AIC23_Playback/POP28335_AIC23_Playback/Debug/ccsSrcs.opt">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.1924799252./POP28335_AIC23_Playback/POP28335_AIC23_Playback/Debug/ccsSrcs.opt" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.1924799252"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1658626948./POP28335_AIC23_Playback/POP28335_AIC23_Playback/Debug/ccsObjs.opt" name="ccsObjs.opt" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/POP28335_AIC23_Playback/Debug/ccsObjs.opt" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.1924799252./POP28335_AIC23_Playback/POP28335_AIC23_Playback/Debug/ccsObjs.opt">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.1924799252./POP28335_AIC23_Playback/POP28335_AIC23_Playback/Debug/ccsObjs.opt" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.1924799252"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1658626948./POP28335_AIC23_Playback/POP28335_AIC23_Playback/Debug/ccsLinker.opt" name="ccsLinker.opt" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/POP28335_AIC23_Playback/Debug/ccsLinker.opt" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.1924799252./POP28335_AIC23_Playback/POP28335_AIC23_Playback/Debug/ccsLinker.opt">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.1924799252./POP28335_AIC23_Playback/POP28335_AIC23_Playback/Debug/ccsLinker.opt" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.1924799252"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1658626948./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/POP28335_EEPROM/Debug/ccsSrcs.opt" name="ccsSrcs.opt" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/POP28335_EEPROM/Debug/ccsSrcs.opt" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.1924799252./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/POP28335_EEPROM/Debug/ccsSrcs.opt">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.1924799252./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/POP28335_EEPROM/Debug/ccsSrcs.opt" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.1924799252"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1658626948./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/POP28335_EEPROM/Debug/ccsObjs.opt" name="ccsObjs.opt" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/POP28335_EEPROM/Debug/ccsObjs.opt" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.1924799252./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/POP28335_EEPROM/Debug/ccsObjs.opt">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.1924799252./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/POP28335_EEPROM/Debug/ccsObjs.opt" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.1924799252"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1658626948./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/POP28335_EEPROM/Debug/ccsLinker.opt" name="ccsLinker.opt" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/POP28335_EEPROM/Debug/ccsLinker.opt" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.1924799252./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/POP28335_EEPROM/Debug/ccsLinker.opt">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.1924799252./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/POP28335_EEPROM/Debug/ccsLinker.opt" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.1924799252"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1658626948./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/I2cEeprom.c" name="I2cEeprom.c" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/I2cEeprom.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.1924799252./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/I2cEeprom.c">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.1924799252./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/I2cEeprom.c" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.1924799252"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1658626948./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/I2cEeprom.obj" name="I2cEeprom.obj" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/I2cEeprom.obj" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/I2cEeprom.obj">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/I2cEeprom.obj" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1658626948./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_usDelay.obj" name="DSP2833x_usDelay.obj" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_usDelay.obj" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_usDelay.obj">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_usDelay.obj" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1658626948./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_SysCtrl.obj" name="DSP2833x_SysCtrl.obj" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_SysCtrl.obj" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_SysCtrl.obj">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_SysCtrl.obj" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1658626948./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_PieVect.obj" name="DSP2833x_PieVect.obj" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_PieVect.obj" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_PieVect.obj">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_PieVect.obj" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1658626948./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_PieCtrl.obj" name="DSP2833x_PieCtrl.obj" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_PieCtrl.obj" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_PieCtrl.obj">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_PieCtrl.obj" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1658626948./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_I2C.obj" name="DSP2833x_I2C.obj" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_I2C.obj" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_I2C.obj">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_I2C.obj" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1658626948./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_GlobalVariableDefs.obj" name="DSP2833x_GlobalVariableDefs.obj" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_GlobalVariableDefs.obj" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_GlobalVariableDefs.obj">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_GlobalVariableDefs.obj" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1658626948./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_DefaultIsr.obj" name="DSP2833x_DefaultIsr.obj" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_DefaultIsr.obj" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_DefaultIsr.obj">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_DefaultIsr.obj" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1658626948./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_CpuTimers.obj" name="DSP2833x_CpuTimers.obj" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_CpuTimers.obj" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_CpuTimers.obj">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_CpuTimers.obj" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1658626948./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_CodeStartBranch.obj" name="DSP2833x_CodeStartBranch.obj" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_CodeStartBranch.obj" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_CodeStartBranch.obj">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_CodeStartBranch.obj" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1658626948./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_ADC_cal.obj" name="DSP2833x_ADC_cal.obj" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_ADC_cal.obj" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_ADC_cal.obj">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_ADC_cal.obj" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1658626948./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/00ic_Main.obj" name="00ic_Main.obj" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/00ic_Main.obj" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/00ic_Main.obj">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/00ic_Main.obj" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1658626948./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/00ic_I2cEeprom.obj" name="00ic_I2cEeprom.obj" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/00ic_I2cEeprom.obj" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/00ic_I2cEeprom.obj">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/00ic_I2cEeprom.obj" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerDebug.1964086627"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1658626948./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/00ic_Main.c" name="00ic_Main.c" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/00ic_Main.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.1924799252./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/00ic_Main.c">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.1924799252./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/00ic_Main.c" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.1924799252"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Debug.1658626948./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/00ic_I2cEeprom.c" name="00ic_I2cEeprom.c" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/00ic_I2cEeprom.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.1924799252./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/00ic_I2cEeprom.c">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.1924799252./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/00ic_I2cEeprom.c" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerDebug.1924799252"/>
+</resourceConfiguration>
+</configuration>
+<configuration artifactExtension="out" artifactName="Lab0701-Echo" description="" id="com.ti.ccstudio.buildDefinitions.C2000.Release.489692658" name="Release" parent="com.ti.ccstudio.buildDefinitions.C2000.Release">
+<toolChain id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.ReleaseToolchain.2029828135" name="TI Code Generation Tools" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.ReleaseToolchain" targetTool="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650">
+<option id="com.ti.ccstudio.buildDefinitions.core.OPT_TAGS.1818774956" superClass="com.ti.ccstudio.buildDefinitions.core.OPT_TAGS" valueType="stringList">
+<listOptionValue builtIn="false" value="DEVICE_CONFIGURATION_ID=TMS320C28XX"/>
+<listOptionValue builtIn="false" value="DEVICE_ENDIANNESS=none"/>
+<listOptionValue builtIn="false" value="OUTPUT_FORMAT=COFF"/>
+<listOptionValue builtIn="false" value="CCS_MBS_VERSION=4.2.4"/>
+<listOptionValue builtIn="false" value="LINKER_COMMAND_FILE="/>
+<listOptionValue builtIn="false" value="RUNTIME_SUPPORT_LIBRARY="/>
+<listOptionValue builtIn="false" value="OUTPUT_TYPE=executable"/>
+<listOptionValue builtIn="false" value="RTSC_PRODUCTS=com.ti.rtsc.XDAIS:latest;"/>
+<listOptionValue builtIn="false" value="LINK_ORDER="/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.core.OPT_CODEGEN_VERSION.463593101" superClass="com.ti.ccstudio.buildDefinitions.core.OPT_CODEGEN_VERSION" value="6.0.1" valueType="string"/>
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1139469837" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease">
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIAG_WARNING.505298078" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIAG_WARNING" valueType="stringList">
+<listOptionValue builtIn="false" value="225"/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.INCLUDE_PATH.1293458352" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.INCLUDE_PATH" valueType="includePath">
+<listOptionValue builtIn="false" value="&quot;${CG_TOOL_ROOT}/include&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${XDAIS_CG_ROOT}/packages/ti/xdais&quot;"/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.QUIET_LEVEL.548159405" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.QUIET_LEVEL" value="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.QUIET_LEVEL.QUIET" valueType="enumerated"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.OPT_LEVEL.release.1365097739" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.OPT_LEVEL.release" value="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.OPT_LEVEL.3" valueType="enumerated"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIRECTORY_MODE.2094496903" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIRECTORY_MODE" value="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DIRECTORY_MODE.manual" valueType="enumerated"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.OBJ_DIRECTORY.1278347404" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.OBJ_DIRECTORY" value="&quot;D:/POP28335_CODE/POP28335_examples/Ex26_POP28335_AIC23_Playback/Release&quot;" valueType="string"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DEFINE.1424541675" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DEFINE" valueType="definedSymbols">
+<listOptionValue builtIn="false" value="&quot;LARGE_MODEL&quot;"/>
+</option>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.LARGE_MEMORY_MODEL.1677135997" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.LARGE_MEMORY_MODEL" value="true" valueType="boolean"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.SILICON_VERSION.126600864" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.SILICON_VERSION" value="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.SILICON_VERSION.28" valueType="enumerated"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DEBUGGING_MODEL.231502939" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DEBUGGING_MODEL" value="com.ti.ccstudio.buildDefinitions.C2000_6.0.compilerID.DEBUGGING_MODEL._none" valueType="enumerated"/>
+</tool>
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease">
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.OUTPUT_FILE.596829754" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.OUTPUT_FILE" value="&quot;Lab0701-Echo.out&quot;" valueType="string"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.MAP_FILE.747164540" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.MAP_FILE" value="&quot;POP28335_AIC23_Playback.map&quot;" valueType="string"/>
+<option id="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.SEARCH_PATH.1461440829" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.linkerID.SEARCH_PATH" valueType="stringList">
+<listOptionValue builtIn="false" value="&quot;${CG_TOOL_ROOT}/lib&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${CG_TOOL_ROOT}/include&quot;"/>
+<listOptionValue builtIn="false" value="&quot;${PROJECT_ROOT}&quot;"/>
+</option>
+</tool>
+</toolChain>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.489692658./POP28335_AIC23_Playback/POP28335_AIC23_Playback/Debug/ccsSrcs.opt" name="ccsSrcs.opt" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/POP28335_AIC23_Playback/Debug/ccsSrcs.opt" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1139469837./POP28335_AIC23_Playback/POP28335_AIC23_Playback/Debug/ccsSrcs.opt">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1139469837./POP28335_AIC23_Playback/POP28335_AIC23_Playback/Debug/ccsSrcs.opt" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1139469837"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.489692658./POP28335_AIC23_Playback/POP28335_AIC23_Playback/Debug/ccsObjs.opt" name="ccsObjs.opt" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/POP28335_AIC23_Playback/Debug/ccsObjs.opt" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1139469837./POP28335_AIC23_Playback/POP28335_AIC23_Playback/Debug/ccsObjs.opt">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1139469837./POP28335_AIC23_Playback/POP28335_AIC23_Playback/Debug/ccsObjs.opt" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1139469837"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.489692658./POP28335_AIC23_Playback/POP28335_AIC23_Playback/Debug/ccsLinker.opt" name="ccsLinker.opt" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/POP28335_AIC23_Playback/Debug/ccsLinker.opt" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1139469837./POP28335_AIC23_Playback/POP28335_AIC23_Playback/Debug/ccsLinker.opt">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1139469837./POP28335_AIC23_Playback/POP28335_AIC23_Playback/Debug/ccsLinker.opt" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1139469837"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.489692658./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/POP28335_EEPROM/Debug/ccsSrcs.opt" name="ccsSrcs.opt" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/POP28335_EEPROM/Debug/ccsSrcs.opt" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1139469837./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/POP28335_EEPROM/Debug/ccsSrcs.opt">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1139469837./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/POP28335_EEPROM/Debug/ccsSrcs.opt" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1139469837"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.489692658./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/POP28335_EEPROM/Debug/ccsObjs.opt" name="ccsObjs.opt" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/POP28335_EEPROM/Debug/ccsObjs.opt" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1139469837./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/POP28335_EEPROM/Debug/ccsObjs.opt">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1139469837./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/POP28335_EEPROM/Debug/ccsObjs.opt" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1139469837"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.489692658./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/POP28335_EEPROM/Debug/ccsLinker.opt" name="ccsLinker.opt" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/POP28335_EEPROM/Debug/ccsLinker.opt" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1139469837./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/POP28335_EEPROM/Debug/ccsLinker.opt">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1139469837./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/POP28335_EEPROM/Debug/ccsLinker.opt" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1139469837"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.489692658./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/I2cEeprom.c" name="I2cEeprom.c" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/I2cEeprom.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1139469837./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/I2cEeprom.c">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1139469837./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/I2cEeprom.c" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1139469837"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.489692658./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/I2cEeprom.obj" name="I2cEeprom.obj" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/I2cEeprom.obj" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/I2cEeprom.obj">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/I2cEeprom.obj" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.489692658./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_usDelay.obj" name="DSP2833x_usDelay.obj" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_usDelay.obj" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_usDelay.obj">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_usDelay.obj" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.489692658./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_SysCtrl.obj" name="DSP2833x_SysCtrl.obj" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_SysCtrl.obj" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_SysCtrl.obj">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_SysCtrl.obj" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.489692658./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_PieVect.obj" name="DSP2833x_PieVect.obj" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_PieVect.obj" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_PieVect.obj">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_PieVect.obj" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.489692658./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_PieCtrl.obj" name="DSP2833x_PieCtrl.obj" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_PieCtrl.obj" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_PieCtrl.obj">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_PieCtrl.obj" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.489692658./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_I2C.obj" name="DSP2833x_I2C.obj" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_I2C.obj" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_I2C.obj">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_I2C.obj" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.489692658./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_GlobalVariableDefs.obj" name="DSP2833x_GlobalVariableDefs.obj" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_GlobalVariableDefs.obj" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_GlobalVariableDefs.obj">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_GlobalVariableDefs.obj" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.489692658./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_DefaultIsr.obj" name="DSP2833x_DefaultIsr.obj" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_DefaultIsr.obj" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_DefaultIsr.obj">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_DefaultIsr.obj" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.489692658./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_CpuTimers.obj" name="DSP2833x_CpuTimers.obj" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_CpuTimers.obj" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_CpuTimers.obj">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_CpuTimers.obj" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.489692658./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_CodeStartBranch.obj" name="DSP2833x_CodeStartBranch.obj" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_CodeStartBranch.obj" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_CodeStartBranch.obj">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_CodeStartBranch.obj" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.489692658./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_ADC_cal.obj" name="DSP2833x_ADC_cal.obj" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_ADC_cal.obj" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_ADC_cal.obj">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/DSP2833x_ADC_cal.obj" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.489692658./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/00ic_Main.obj" name="00ic_Main.obj" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/00ic_Main.obj" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/00ic_Main.obj">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/00ic_Main.obj" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.489692658./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/00ic_I2cEeprom.obj" name="00ic_I2cEeprom.obj" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/00ic_I2cEeprom.obj" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/00ic_I2cEeprom.obj">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/Debug/00ic_I2cEeprom.obj" name="C2000 Linker" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.linkerRelease.1757649650"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.489692658./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/00ic_Main.c" name="00ic_Main.c" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/00ic_Main.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1139469837./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/00ic_Main.c">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1139469837./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/00ic_Main.c" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1139469837"/>
+</resourceConfiguration>
+<resourceConfiguration exclude="true" id="com.ti.ccstudio.buildDefinitions.C2000.Release.489692658./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/00ic_I2cEeprom.c" name="00ic_I2cEeprom.c" rcbsApplicability="disable" resourcePath="/POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/00ic_I2cEeprom.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1139469837./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/00ic_I2cEeprom.c">
+<tool id="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1139469837./POP28335_AIC23_Playback/Ex20_POP28335_EEPROM/00ic_I2cEeprom.c" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.0.exe.compilerRelease.1139469837"/>
+</resourceConfiguration>
+</configuration>
+<macros/>
+</project>
+</ManagedProjectBuildInfo>

@@ -1,0 +1,6 @@
+-g Input:CMOS
+-g DonePin:PULLUP
+-g Oscillator:DISABLE
+-g ReadBack:COMMAND
+-g RESETTIME:AFTER
+-g DONETIME:AFTER

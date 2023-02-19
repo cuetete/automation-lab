@@ -1,0 +1,176 @@
+
+Xilinx Mapping Report File for Design 'ev02'
+Copyright (c) 1995-2000 Xilinx, Inc.  All rights reserved.
+
+Design Information
+------------------
+Command Line   : m1map -p xc3020a-7-pc68 -o map.ncd ev02.ngd ev02.pcf 
+Target Device  : x3020a
+Target Package : pc68
+Target Speed   : -7
+Mapper Version : xc3000a -- D.19
+
+Design Summary
+--------------
+   Number of errors:        0
+   Number of warnings:      0
+   Number of CLBs:             51 out of    64   79%
+      CLB Flip Flops:      34
+   Number of bonded IOBs:      16 out of    58   27%
+      IOB Flip Flops:       0
+      IOB Latches:          0
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Design Attributes
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - Added Logic
+Section 7 - Expanded Logic
+Section 8 - Signal Cross-Reference
+Section 9 - Symbol Cross-Reference
+Section 10 - IOB Properties
+Section 11 - RPMs
+Section 12 - Guide Report
+Section 13 - Area Group Summary
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+
+Section 3 - Design Attributes
+-----------------------------
+ Attribute LOC
+   "P7" for signal(s) $Net00004_ on symbol "$I10"
+   "P65" for signal(s) $Net00072_ on symbol "$I105"
+   "P50" for signal(s) $Net00012_ on symbol "$I118"
+   "P54" for signal(s) $Net00075_ on symbol "$I120"
+   "P46" on symbol "$I126"
+   "P9" for signal(s) $Net00005_ on symbol "$I18"
+   "P8" for signal(s) $Net00009_ on symbol "$I19"
+   "P67" for signal(s) $Net00010_ on symbol "$I20"
+   "P2" for signal(s) $Net00008_ on symbol "$I21"
+   "P30" for signal(s) $Net00011_ on symbol "$I22"
+   "P4" for signal(s) $Net00007_ on symbol "$I23"
+   "P6" for signal(s) $Net00006_ on symbol "$I24"
+   "P11" on symbol "$I26"
+   "P28" for signal(s) $Net00067_ on symbol "$I66"
+   "P57" for signal(s) $Net00066_ on symbol "$I67"
+   "P59" for signal(s) $Net00065_ on symbol "$I68"
+
+Section 4 - Removed Logic Summary
+---------------------------------
+   3 block(s) removed
+  50 block(s) optimized away
+   3 signal(s) removed
+
+Section 5 - Removed Logic
+-------------------------
+
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+The signal "$I114/RCO" is loadless and has been removed.
+ Loadless block "$I114/$1I111" (AND5B2) removed.
+
+The trimmed logic reported below is either:
+   1. part of a cycle
+   2. part of disabled logic
+   3. a side-effect of other trimmed logic
+
+The signal "$I29/$Net00031_" is unused and has been removed.
+ Unused block "$I29/$1I37" (VCC) removed.
+The signal "$I28/$Net00031_" is unused and has been removed.
+ Unused block "$I28/$1I37" (VCC) removed.
+
+Optimized Block(s):
+TYPE 		BLOCK
+VCC 		$I124
+AND2 		$I110/$1I67
+OR2 		$I110/QA/$1I71
+OR2 		$I110/QB/$1I71
+OR2 		$I110/QC/$1I71
+OR2 		$I110/QD/$1I71
+INV 		$I110/$1I79
+AND2 		$I110/QA/$1I30/$1I9
+AND2 		$I110/QB/$1I30/$1I9
+AND2 		$I110/QC/$1I30/$1I9
+AND2 		$I110/QD/$1I30/$1I9
+INV 		$I111/$1I79
+AND2 		$I111/QA/$1I30/$1I9
+AND2 		$I111/QB/$1I30/$1I9
+AND2 		$I111/QC/$1I30/$1I9
+AND2 		$I111/QD/$1I30/$1I9
+INV 		$I112/$1I79
+AND2 		$I112/QA/$1I30/$1I9
+AND2 		$I112/QB/$1I30/$1I9
+AND2 		$I112/QC/$1I30/$1I9
+AND2 		$I112/QD/$1I30/$1I9
+INV 		$I113/$1I79
+AND2 		$I113/QA/$1I30/$1I9
+AND2 		$I113/QB/$1I30/$1I9
+AND2 		$I113/QC/$1I30/$1I9
+AND2 		$I113/QD/$1I30/$1I9
+INV 		$I114/$1I79
+AND2 		$I114/QA/$1I30/$1I9
+AND2 		$I114/QB/$1I30/$1I9
+AND2 		$I114/QC/$1I30/$1I9
+AND2 		$I114/QD/$1I30/$1I9
+INV 		$I115/$1I79
+AND2 		$I115/QA/$1I30/$1I9
+AND2 		$I115/QB/$1I30/$1I9
+AND2 		$I115/QC/$1I30/$1I9
+AND2 		$I115/QD/$1I30/$1I9
+INV 		$I116/$1I79
+AND2 		$I116/QA/$1I30/$1I9
+AND2 		$I116/QB/$1I30/$1I9
+AND2 		$I116/QC/$1I30/$1I9
+AND2 		$I116/QD/$1I30/$1I9
+INV 		$I117/$1I79
+AND2 		$I117/QA/$1I30/$1I9
+AND2 		$I117/QB/$1I30/$1I9
+AND2 		$I117/QC/$1I30/$1I9
+AND2 		$I117/QD/$1I30/$1I9
+GND 		$I125
+GND 		$I137
+VCC 		$I138
+VCC 		I_from_net_VCC
+
+To enable printing of redundant blocks removed and signals merged, set the
+detailed map report option and rerun map.
+
+Section 6 - Added Logic
+-----------------------
+
+Section 7 - Expanded Logic
+--------------------------
+To enable this section, set the detailed map report option and rerun map.
+
+Section 8 - Signal Cross-Reference
+----------------------------------
+To enable this section, set the detailed map report option and rerun map.
+
+Section 9 - Symbol Cross-Reference
+----------------------------------
+To enable this section, set the detailed map report option and rerun map.
+
+Section 10 - IOB Properties
+---------------------------
+
+Section 11 - RPMs
+-----------------
+
+Section 12 - Guide Report
+-------------------------
+Guide not run on this design.

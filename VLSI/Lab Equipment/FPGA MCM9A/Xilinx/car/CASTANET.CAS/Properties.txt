@@ -1,0 +1,3 @@
+channel.URL=Dolomite/D_xc9500Core_Sol
+segment=any/any
+transmitter.URL=http://localhost:5282/

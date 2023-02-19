@@ -1,0 +1,15 @@
+# Created 2001/04/20 14:46:13
+BeginProm
+  Type   ByteWide
+  Format TEKHEX
+  FillValue FF
+  Info MaxAddress 0x0000073D
+  Device 64K
+  BeginChain
+    StartAddress    0x00000000
+    Direction       UP
+    Info EndAddress 0x0000073D
+    Info Size       0x0000073E
+    File "C:\Xilinx\active\projects\provaxil\xproj\ver1\rev1\provaxil.bit"
+  EndChain
+EndProm

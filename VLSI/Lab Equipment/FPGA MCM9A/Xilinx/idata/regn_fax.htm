@@ -1,0 +1,837 @@
+<html>
+<head>
+   <title>Xilinx Software Registration FAX Form</title>
+<script language="javascript">
+<!--
+window.moveTo(100,100);
+
+	var faxNumber='';
+	var firstName='';
+	var lastName='';
+	var title='';
+	var company='';
+	var address='';
+	var city='';
+	var state='';
+	var zip='';
+	var country='';
+	var phoneNumber='';
+	var fax='';
+	var email='';
+	var prodID='';
+	var custSerialNumber='';
+	var OS='';
+	var vendor='';
+	
+	msg1 = "You have left a required field blank.\n" + 
+		"\nPlease review your answers" + 
+		"\nand fill in all the necessary fields.";
+
+
+function startPage(){
+	parent.focus();
+	parent.close();
+}
+
+function getFormInfo(form){
+	for( var i=0; i<form.faxnumber.options.length; i++ )
+		if( form.faxnumber.options[i].selected )
+			faxNumber = form.faxnumber.options[i].value;
+
+	firstName = form.firstname.value; 
+	lastName = form.lastname.value;
+	title = form.title.value;
+	company = form.company.value;
+	address = form.address1.value + form.address2.value + form.address3.value;
+	city = form.city.value;
+	state = form.state.value;
+	zip = form.zip.value;
+	
+	for( var j=0; j<form.xlnxcountry.options.length; j++ )
+		if( form.xlnxcountry.options[j].selected )
+			country = form.xlnxcountry.options[j].value;
+	
+	phoneNumber = form.phone.value;
+	fax = form.fax.value;
+	email = form.email.value;
+	prodID = form.ProductID.value;
+	custSerialNumber = form.SerialNo.value;
+	
+	for( var k=0; k<form.platform.length; k++ )
+		if( form.platform[k].checked )
+			OS = form.platform[k].value;
+		 
+	vendor = '';
+
+	if( form.PLDVendor1.checked )
+		vendor += " Cadence";
+
+	if( form.PLDVendor3.checked )
+		vendor += " Mentor"; 
+
+	if( form.PLDVendor5.checked )
+		vendor +=  " Synopsys";		
+
+	if( form.PLDVendor7.checked )
+		vendor += " ViewLogic/Innoveda";
+	if( form.PLDVendor9.checked ){
+		vendor = '';
+		vendor += " none";
+	}
+}
+
+function uncheckAll(form){
+	for( var i=0; i<form.PLDVendor.length-1; i++ ){
+		form.PLDVendor[i].checked = false;
+	}
+}
+
+function checkIt(form){
+	var last_element = form.PLDVendor.length-1;
+	if( form.PLDVendor[last_element].checked==true ){
+		for( var i=0; i<form.PLDVendor.length-1; i++ ){
+			form.PLDVendor[i].checked = false;
+		}
+	}
+}
+
+function isBlank(form){
+
+	var blanks = false;
+	var required = ['firstname', 'lastname', 'company', 'city', 'state', 'zip', 'fax', 'phone', 'ProductID']; 
+
+	for( var l=0; l<form.elements.length; l++ )
+		for( var m=0; m<required.length; m++ )
+			if( form.elements[l].name==required[m] )
+				if( (form.elements[l].value=='') || (form.elements[l].value==null) )  	
+					blanks=true;
+
+	if( (country=='')||(address=='')||(faxNumber=='') )
+		blanks=true;
+
+	if( blanks ){
+		alert(msg1);
+		return true;
+	}
+	else return false;
+}
+
+function writePage(){
+
+	var w = window.open("", "faxdocument", "toolbar=1,location=1,menubar=1,scrollbars=1,personalbar=1,status=1,resizable=1,width=800,height=600");		
+	var d = w.document;	
+
+	d.write(
+
+	'<table BORDER=0 WIDTH="596" >'+
+	'<tr>'+
+		'<td><b><center><h2>PRINT AND FAX THIS PAGE</h2></center>'+
+		'</td>'+
+	'</tr>'+
+	
+	'<tr>'+
+		'<td><hr ALIGN=LEFT SIZE=2 NOSHADE WIDTH="596">'+
+		'</td>'+
+	'</tr>'+
+
+	'<tr>'+
+		'<td><br><br>'+
+		'</td>'+
+	'</tr>'+
+
+
+	'<tr>'+
+		'<td>'+
+		'<center><b><font face="Arial,Helvetica"><font color="#000000"><font size=+1>Xilinx '+
+		'Software Registration</font></font></font></b></center>'+
+		'</td>'+
+	'</tr>'+
+	
+	'<tr>'+
+		'<td><hr ALIGN=LEFT SIZE=0 NOSHADE WIDTH="596">'+
+		'</td>'+
+	'</tr>'+
+	'</table>'+
+
+	'<table BORDER=0 COLS=1 WIDTH="596" >'+
+	'<tr>'+
+	'<td>'+
+	'<table border=0 CELLSPACING=0 WIDTH="595" >'+
+		
+		'<tr>'+
+			'<td><b><font face="Arial,Helvetica"><font color="#000099"><font size=-1>'+
+			'Your FAX number:</font></font></font></b></td>'+
+			'<td>'+faxNumber+'</td>'+
+		'</tr>'+
+		'<tr>'+
+			'<td><br><br>'+
+			'</td>'+
+		'</tr>'+
+
+		'<tr>'+
+			'<td><b><font face="Arial,Helvetica"><font color="#000099"><font size=-1>First'+
+			'Name:</font></font></font></b></td>'+
+			'<td>'+firstName+'</td>'+
+		'</tr>'+
+
+		'<tr>'+
+			'<td><b><font face="Arial,Helvetica"><font color="#000099"><font size=-1>Last'+
+			'Name:</font></font></font></b></td>'+
+			'<td>'+lastName+'</td>'+
+		'</tr>'+
+
+		'<tr><td><br><br></td><td></td></tr>'+
+
+		'<tr>'+
+			'<td><b><font face="Arial,Helvetica"><font color="#000099"><font size=-1>Title:</font></font></font></b></td>'+
+			'<td>'+title+'</td>'+
+		'</tr>'+
+
+		'<tr>'+
+			'<td><b><font face="Arial,Helvetica"><font color="#000099"><font size=-1>Company:</font></font></font></b></td>'+
+			'<td>'+company+'</td>'+
+		'</tr>'+
+
+		'<tr>'+
+			'<td><b><font face="Arial,Helvetica"><font color="#000099"><font size=-1>Address:</font></font></font></b></td>'+
+			'<td>'+address+'<td/>'+
+		'</tr>'+
+		'<tr>'+
+			'<td><b><font face="Arial,Helvetica"><font color="#000099"><font size=-1>City:</font></font></font></b></td>'+
+			'<td>'+city+'</td>'+
+		'<tr>'+
+			'<td><b><font face="Arial,Helvetica"><font color="#000099"><font size=-1>State/Province:</font></font></font></b></td>'+
+			'<td>'+state+'</td>'+
+		'</tr>'+
+
+		'<tr>'+
+			'<td><b><font face="Arial,Helvetica"><font color="#000099"><font size=-1>Post/Zip:</font></font></font></b></td>'+
+			'<td>'+zip+'</td>'+
+		'</tr>'+
+
+		'<tr>'+
+			'<td><b><font face="Arial,Helvetica"><font color="#000099"><font size=-1>Country:</font></font></font></b></td>'+
+			'<td>'+country+'</td>'+
+		'</tr>'+
+		
+		'<tr><td><br><br></td><td></td></tr>'+
+		
+		'<tr>'+
+			'<td><b><font face="Arial,Helvetica"><font color="#000099"><font size=-1>Phone:</font></font></font></b></td>'+
+			'<td>'+phoneNumber+'</td>'+
+		'</tr>'+
+		'<tr>'+
+			'<td><b><font face="Arial,Helvetica"><font color="#000099"><font size=-1>Fax:</font></font></font></b></td>'+
+			'<td>'+fax+'</td>'+
+		'</tr>'+
+
+		'<tr>'+
+			'<td><b><font face="Arial,Helvetica"><font color="#000099"><font size=-1>E-mail:</font></font></font></b></td>'+
+			'<td>'+email+'</td>'+
+		'</tr>'+
+
+		'<tr><td><br><br></td><td></td></tr>'+		
+
+		'<tr>'+
+			'<td><b><font face="Arial,Helvetica"><font color="#000099"><font size=-1>Product ID:</font></font></font></b></td>'+
+			'<td>'+prodID+'</td>'+
+		'</tr>'+
+		'<tr>'+
+			'<td><b><font face="Arial,Helvetica"><font color="#000099"><font size=-1>Customer Serial Number:</font></font></font></b></td>'+
+			'<td>'+custSerialNumber+'</td>'+
+		'</tr>'+
+
+		'<tr><td><br><br></td><td></td></tr>'+
+		
+		'<tr>'+
+			'<td><b><font face="Arial,Helvetica"><font color="#000099"><font size=-1>Platform:</font></font></font></b></td>'+
+			'<td>'+OS+'</td>'+
+		'</tr>'+
+		'<tr>'+
+			'<td><b><font face="Arial,Helvetica"><font color="#000099"><font size=-1>EDA Vendor Libraries:</font></font></font></b></td>'+
+			'<td>'+vendor+'</td>'+
+		'</tr>'+
+
+	'</tr>'+
+	'</table>'+
+	'</table>');
+
+	d.close();
+}
+
+function createFax(form){
+
+	getFormInfo(form);		// get info from user input
+	if( !isBlank(form) )		// check for all req'd fields
+		writePage();		// write all the html for the page to print
+	
+}
+
+
+// -->
+</script>
+</head>
+<body>
+<form>
+<br>&nbsp;
+<table BORDER=0 WIDTH="596" >
+<tr>
+<td>
+<center><b><font face="Arial,Helvetica"><font color="#000000"><font size=+1>Xilinx 
+Software Registration</font></font></font></b></center>
+</td>
+</tr>
+</table>
+
+<hr ALIGN=LEFT SIZE=0 NOSHADE WIDTH="596">
+<table BORDER=0 WIDTH="596" >
+<tr VALIGN=TOP>
+<td><font face="Arial,Helvetica">Please complete the following information
+to register your software. Click <b>Submit </b>after you have entered all
+the required information. Upon submitting your registration information,
+all your entered information will display in a printed form that you can fax 
+to the regional Customer Service number that you select below.</font></td>
+</tr>
+
+<tr>
+<td COLSPAN="2">
+<hr ALIGN=LEFT SIZE=1 NOSHADE WIDTH="100%">
+<table BORDER=0 WIDTH="100%" >
+<tr>
+<td VALIGN=TOP><b><font face="Arial,Helvetica"><font color="#CC0000"><font size=-1>Note:</font></font></font></b></td>
+
+<td>
+<ul>
+<li>
+<font face="Arial,Helvetica"><font size=-1>Please provide accurate information.
+Your Xilinx Software Registration ID, which is required for product installation,
+will be sent to the fax number you provide below.</font></font></li>
+
+<li>
+<font face="Arial,Helvetica"><font size=-1>Fields marked with an asterisk
+(*) are required.</font></font></li>
+</ul>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr>
+<td COLSPAN="2">
+<hr ALIGN=LEFT SIZE=1 NOSHADE WIDTH="100%"></td>
+</tr>
+</table>
+<form name="UserData" method="POST" OnSubmit="ProcessForm(this); return false;">
+<table BORDER=0 CELLPADDING=0 WIDTH="595" >
+<tr>
+<td><b><font face="Arial,Helvetica"><font color="#000099"><font size=-1>*Select
+the FAX number that corresponds to your Customer Service region.</font></font></font></b></td>
+</tr>
+
+<tr>
+	<td>
+	<select name=faxnumber>
+	<option value="408-559-0115"><font face="Arial,Helvetica">Canada and USA&nbsp; 408-559-0115
+	<option value="++353.1.4640321">Europe, Middle East, and Africa ++353.1.4640321
+	<option value="852-2494-7159">Southeast Asia, Australia, South &amp; Central America, Mexico 852-2494-7159
+	<option value="03-5321-7761">Japan 03-5321-7761
+	</font></select></td>
+</tr>
+</table>
+
+<table BORDER=0 COLS=1 WIDTH="596" >
+<tr>
+<td>
+<table CELLSPACING=0 WIDTH="595" >
+<tr>
+<td><b><font face="Arial,Helvetica"><font color="#000099"><font size=-1>*First
+Name:</font></font></font></b></td>
+
+<td COLSPAN="3"><input type=text NAME="firstname" VALUE="" SIZE=40></td>
+</tr>
+
+<tr>
+<td><b><font face="Arial,Helvetica"><font color="#000099"><font size=-1>*Last
+Name:</font></font></font></b></td>
+
+<td COLSPAN="3"><input type=text NAME="lastname" VALUE="" SIZE=40></td>
+</tr>
+
+<tr>
+<td><b><font face="Arial,Helvetica"><font color="#000099"><font size=-1>Title:</font></font></font></b></td>
+
+<td COLSPAN="3"><input type=text NAME="title" VALUE="" SIZE=40></td>
+</tr>
+
+<tr>
+<td><b><font face="Arial,Helvetica"><font color="#000099"><font size=-1>*Company:</font></font></font></b></td>
+
+<td COLSPAN="3"><input type=text NAME="company" VALUE="" SIZE=40></td>
+</tr>
+
+<tr>
+<td>
+<center><img SRC="warning.gif" ALT="Warning!" height=32 width=34></center>
+</td>
+
+<td COLSPAN="3"><b><font face="Arial,Helvetica"><font size=-1>Xilinx is
+unable to deliver software updates to a post office box.</font></font></b>
+<br><font face="Arial,Helvetica"><font size=-1>Please specify a delivery
+address that
+<b>does not</b> contain a post office box.&nbsp;</font></font></td>
+</tr>
+
+<tr>
+<td><b><font face="Arial,Helvetica"><font color="#000099"><font size=-1>*Address:</font></font></font></b></td>
+
+<td COLSPAN="3"><input type="text" size="40" name="address1" VALUE=""></td>
+</tr>
+
+<tr>
+<td></td>
+
+<td COLSPAN="3"><input type="text" size="40" name="address2" VALUE=""></td>
+</tr>
+
+<tr>
+<td></td>
+
+<td COLSPAN="3"><input type="text" size="40" name="address3" VALUE=""></td>
+</tr>
+
+<tr>
+<td><b><font face="Arial,Helvetica"><font color="#000099"><font size=-1>*City:</font></font></font></b></td>
+
+<td><input type="text" size="15" name="city" VALUE=""></td>
+
+<td>
+<div align=right><b><font face="Arial,Helvetica"><font color="#000099"><font size=-1>*State/Province:</font></font></font></b></div>
+</td>
+
+<td><input type="text" size="15" name="state" VALUE=""></td>
+</tr>
+
+<tr>
+<td><b><font face="Arial,Helvetica"><font color="#000099"><font size=-1>*Post/Zip:</font></font></font></b></td>
+
+<td><input type="text" size="15" name="zip" VALUE=""></td>
+
+<td></td>
+
+<td></td>
+</tr>
+
+<tr>
+<td><b><font face="Arial,Helvetica"><font color="#000099"><font size=-1>*Country:</font></font></font></b></td>
+
+			<td COLSPAN="3">
+			<select name=xlnxcountry>
+			<option value=""><font face="Arial,Helvetica">Please Choose A Country
+			<option value="United States">United States
+			<option value="Afghanistan">Afghanistan
+			<option value="Albania">Albania
+			<option value="Algeria">Algeria
+			<option value="American Samoa">American Samoa
+			<option value="Andorra">Andorra
+			<option value="Angola">Angola
+			<option value="Anguilla">Anguilla
+			<option value="Antarctica">Antarctica
+			<option value="Antigua And Barbuda">Antigua And Barbuda
+			<option value="Argentina">Argentina
+			<option value="Armenia">Armenia
+			<option value="Aruba">Aruba
+			<option value="Australia">Australia
+			<option value="Austria">Austria
+			<option value="Azerbaijan">Azerbaijan
+			<option value="Bahamas">Bahamas
+			<option value="Bahrain">Bahrain
+			<option value="Bangladesh">Bangladesh
+			<option value="Barbados">Barbados
+			<option value="Belarus">Belarus
+			<option value="Belgium">Belgium
+			<option value="Belize">Belize
+			<option value="Benin">Benin
+			<option value="Bermuda">Bermuda
+			<option value="Bhutan">Bhutan
+			<option value="Bolivia">Bolivia
+			<option value="Bosnia And Herzegovina">Bosnia And Herzegovina
+			<option value="Botswana">Botswana
+			<option value="Bouvet Island">Bouvet Island
+			<option value="Brazil">Brazil
+			<option value="British Indian Ocean Territory">British Indian Ocean Territory
+			<option value="Brunei Darussalam">Brunei Darussalam
+			<option value="Bulgaria">Bulgaria
+			<option value="Burkina Faso">Burkina Faso
+			<option value="Burundi">Burundi
+			<option value="Cambodia">Cambodia
+			<option value="Cameroon">Cameroon
+			<option value="Canada">Canada
+			<option value="Cape Verde">Cape Verde
+			<option value="Cayman Islands">Cayman Islands
+			<option value="Central African Republic">Central African Republic
+			<option value="Chad">Chad
+			<option value="Chile">Chile
+			<option value="China">China
+			<option value="Christmas Island">Christmas Island
+			<option value="Cocos (Keeling) Islands">Cocos (Keeling) Islands
+			<option value="Colombia">Colombia
+			<option value="Congo">Comoros
+			<option value="Congo">Congo
+			<option value="Congo, The Democratic Republic Of The">Congo, The Democratic Republic Of The
+			<option value="Cook Islands">Cook Islands
+			<option value="Costa Rica">Costa Rica
+			<option value="Cote D'ivoire">Cote D'ivoire
+			<option value="Croatia">Croatia
+			<option value="Cuba">Cuba
+			<option value="Cyprus">Cyprus
+			<option value="Czech Republic">Czech Republic
+			<option value="Denmark">Denmark
+			<option value="Djibouti">Djibouti
+			<option value="Dominica">Dominica
+			<option value="Dominican Republic">Dominican Republic
+			<option value="East Timor">East Timor
+			<option value="Ecuador">Ecuador
+			<option value="Egypt">Egypt
+			<option value="El Salvador">El Salvador
+			<option value="Equatorial Guinea">Equatorial Guinea
+			<option value="Eritrea">Eritrea
+			<option value="Estonia">Estonia
+			<option value="Ethiopia">Ethiopia
+			<option value="Falkland Islands (Malvinas)">Falkland Islands (Malvinas)
+			<option value="Faroe Islands">Faroe Islands
+			<option value="Fiji">Fiji
+			<option value="Finland">Finland
+			<option value="France">France
+			<option value="French Guiana">French Guiana
+			<option value="French Polynesia">French Polynesia
+			<option value="French Southern Territories">French Southern Territories
+			<option value="Gabon">Gabon
+			<option value="Gambia">Gambia
+			<option value="Georgia">Georgia
+			<option value="Germany">Germany
+			<option value="Ghana">Ghana
+			<option value="Gibraltar">Gibraltar
+			<option value="Greece">Greece
+			<option value="Greenland">Greenland
+			<option value="Grenada">Grenada
+			<option value="Guadeloupe">Guadeloupe
+			<option value="Guam">Guam
+			<option value="Guatemala">Guatemala
+			<option value="Guinea">Guinea
+			<option value="Guinea-bissau">Guinea-bissau
+			<option value="Guyana">Guyana
+			<option value="Haiti">Haiti
+			<option value="Heard Island And Mcdonald Islands">Heard Island And Mcdonald Islands
+			<option value="Holy See (Vatican City State)">Holy See (Vatican City State)
+			<option value="Hong Kong">Hong Kong
+			<option value="Hungary">Hungary
+			<option value="Iceland">Iceland
+			<option value="India">India
+			<option value="Indonesia">Indonesia
+			<option value="Iran, Islamic Republic Of">Iran, Islamic Republic Of		
+			<option value="Iraq">Iraq
+			<option value="Ireland">Ireland
+			<option value="Israel">Israel
+			<option value="Italy">Italy
+			<option value="Jamaica">Jamaica
+			<option value="Japan">Japan
+			<option value="Jordan">Jordan
+			<option value="Kazakstan">Kazakstan
+			<option value="Kenya">Kenya
+			<option value="Kiribati">Kiribati
+			<option value="Korea, Democratic People's Republic Of">Korea, Democratic People's Republic Of
+			<option value="Korea, Republic Of">Korea, Republic Of
+			<option value="Kuwait">Kuwait
+			<option value="Kyrgyzstan">Kyrgyzstan
+			<option value="Lao People's Democratic Republic">Lao People's Democratic Republic
+			<option value="Latvia">Latvia
+			<option value="Lebanon">Lebanon
+			<option value="Lesotho">Lesotho
+			<option value="Liberia">Liberia
+			<option value="Libyan Arab Jamahiriya">Libyan Arab Jamahiriya
+			<option value="Liechtenstein">Liechtenstein
+			<option value="Lithuania">Lithuania
+			<option value="Luxembourg">Luxembourg
+			<option value="Macau">Macau
+			<option value="Macedonia, The Former Yugoslav Republic Of">Macedonia, The Former Yugoslav Republic Of
+			<option value="Madagascar">Madagascar
+			<option value="Malawi">Malawi
+			<option value="Malaysia">Malaysia
+			<option value="Maldives">Maldives
+			<option value="Mali">Mali
+			<option value="Malta">Malta
+			<option value="Marshall Islands">Marshall Islands
+			<option value="Martinique">Martinique
+			<option value="Mauritania">Mauritania	
+			<option value="Mauritius">Mauritius
+			<option value="Mayotte">Mayotte
+			<option value="Mexico">Mexico
+			<option value="Micronesia, Federated States Of">Micronesia, Federated States Of
+			<option value="Moldova, Republic Of">Moldova, Republic Of
+			<option value="Monaco">Monaco
+			<option value="Mongolia">Mongolia
+			<option value="Montserrat">Montserrat
+			<option value="Morocco">Morocco
+			<option value="Mozambique">Mozambique
+			<option value="Myanmar">Myanmar
+			<option value="Namibia">Namibia
+			<option value="Nauru">Nauru
+			<option value="Nepal">Nepal
+			<option value="Netherlands">Netherlands
+			<option value="Netherlands Antilles">Netherlands Antilles
+			<option value="New Caledonia">New Caledonia
+			<option value="New Zealand">New Zealand
+			<option value="Nicaragua">Nicaragua
+			<option value="Niger">Niger
+			<option value="Nigeria">Nigeria
+			<option value="Niue">Niue
+			<option value="Norfolk Island">Norfolk Island
+			<option value="Northern Mariana Islands">Northern Mariana Islands
+			<option value="Norway">Norway
+			<option value="Oman">Oman
+			<option value="Pakistan">Pakistan
+			<option value="Palau">Palau
+			<option value="Palestinian Territory, Occupied">Palestinian Territory, Occupied
+			<option value="Panama">Panama
+			<option value="Papua New Guinea">Papua New Guinea
+			<option value="Paraguay">Paraguay
+			<option value="Peru">Peru
+			<option value="Philippines">Philippines
+			<option value="Pitcairn">Pitcairn
+			<option value="Poland">Poland
+			<option value="Portugal">Portugal
+			<option value="Puerto Rico">Puerto Rico
+			<option value="Qatar">Qatar
+			<option value="Reunion">Reunion
+			<option value="Romania">Romania
+			<option value="Russian Federation">Russian Federation
+			<option value="Rwanda">Rwanda
+			<option value="Saint Helena">Saint Helena
+			<option value="Saint Kitts And Nevis">Saint Kitts And Nevis
+			<option value="Saint Lucia">Saint Lucia
+			<option value="Saint Pierre And Miquelon">Saint Pierre And Miquelon
+			<option value="Saint Vincent And The Grenadines">Saint Vincent And The Grenadines
+			<option value="Samoa">Samoa
+			<option value="San Marino">San Marino
+			<option value="Sao Tome And Principe">Sao Tome And Principe
+			<option value="Saudi Arabia">Saudi Arabia
+			<option value="Senegal">Senegal
+			<option value="Seychelles">Seychelles
+			<option value="Sierra Leone">Sierra Leone
+			<option value="Singapore">Singapore
+			<option value="Slovakia">Slovakia
+			<option value="Slovenia">Slovenia
+			<option value="Solomon Islands">Solomon Islands
+			<option value="Somalia">Somalia
+			<option value="South Afric">South Africa
+			<option value="South Georgia And The South Sandwich Islands">South Georgia And The South Sandwich Islands
+			<option value="Spain">Spain
+			<option value="Sri Lanka">Sri Lanka
+			<option value="Sudan">Sudan
+			<option value="Suriname">Suriname
+			<option value="Svalbard And Jan Mayen">Svalbard And Jan Mayen
+			<option value="Swaziland">Swaziland
+			<option value="Sweden">Sweden
+			<option value="Switzerland">Switzerland
+			<option value="Syrian Arab Republic">Syrian Arab Republic
+			<option value="Taiwan, Republic Of China">Taiwan, Republic Of China
+			<option value="Tajikistan">Tajikistan
+			<option value="Tanzania, United Republic Of">Tanzania, United Republic Of
+			<option value="Thailand">Thailand
+			<option value="Togo">Togo
+			<option value="Tokelau">Tokelau
+			<option value="Tonga">Tonga
+			<option value="Trinidad And Tobago">Trinidad And Tobago
+			<option value="Tunisia">Tunisia
+			<option value="Turkey">Turkey
+			<option value="Turkmenistan">Turkmenistan
+			<option value="Turks And Caicos Islands">Turks And Caicos Islands
+			<option value="Tuvalu">Tuvalu
+			<option value="Uganda">Uganda
+			<option value="Ukraine">Ukraine
+			<option value="United Arab Emirates">United Arab Emirates
+			<option value="United Kingdom">United Kingdom
+			<option value="United States Minor Outlying Islands">United States Minor Outlying Islands
+			<option value="Uruguay">Uruguay
+			<option value="Uzbekistan">Uzbekistan
+			<option value="Vanuatu">Vanuatu
+			<option value="Venezuela">Venezuela
+			<option value="Vietnam">Vietnam
+			<option value="Virgin Islands, British">Virgin Islands, British
+			<option value="Virgin Islands, U.S.">Virgin Islands, U.S.
+			<option value="Wallis And Futuna">Wallis And Futuna
+			<option value="Western Sahara">Western Sahara
+			<option value="Yemen">Yemen
+			<option value="Yugoslavia">Yugoslavia
+			<option value="Zambia">Zambia
+			<option value="Zimbabwe">Zimbabwe
+	
+</font></select></td>
+</tr>
+
+<tr>
+<td><b><font face="Arial,Helvetica"><font color="#000099"><font size=-1>*Phone:</font></font></font></b></td>
+
+<td><input type=text NAME="phone" VALUE="" SIZE = 15></td>
+
+<td>
+<div align=right><b><font face="Arial,Helvetica"><font color="#000099"><font size=-1>*Fax:</font></font></font></b></div>
+</td>
+
+<td><input type=text NAME="fax" VALUE="" SIZE = 15></td>
+</tr>
+
+<tr>
+<td><b><font face="Arial,Helvetica"><font color="#000099"><font size=-1>E-mail:</font></font></font></b></td>
+
+<td COLSPAN="3"><input type=text NAME="email" VALUE="" SIZE=40></td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr>
+<td></td>
+</tr>
+
+<tr>
+<td>
+<hr ALIGN=LEFT SIZE=1 NOSHADE WIDTH="100%"></td>
+</tr>
+
+<tr>
+<td>
+<table BORDER=0 WIDTH="595" >
+<tr>
+<td><b><font face="Arial,Helvetica"><font color="#000099"><font size=-1>*Product
+ID:</font></font></font></b></td>
+
+<td><input type=text NAME="ProductID" VALUE="" SIZE=40></td>
+</tr>
+
+<tr>
+<td><b><font face="Arial,Helvetica"><font color="#000099"><font size=-1>Customer
+Serial Number:</font></font></font></b></td>
+
+<td VALIGN=BOTTOM><input type=text NAME="SerialNo" VALUE="" SIZE=40></td>
+</tr>
+
+<tr>
+<td COLSPAN="2">
+<ul>
+<li>
+<font face="Arial,Helvetica"><font size=-1>Your Product ID number is located
+on the back of your software CD Pack.&nbsp;</font></font></li>
+
+<li>
+<font face="Arial,Helvetica"><font size=-1>If the product you are registering
+is an update from v2.1i, please enter your Customer Serial Number. Your
+Customer Serial Number was mailed in a letter to the "End User" of this
+product. It is also located on the label of the shipping box for this update.&nbsp;</font></font></li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td COLSPAN="2">
+<table BORDER=0 COLS=1 WIDTH="100%" >
+<tr>
+<td>
+<hr ALIGN=LEFT SIZE=1 NOSHADE WIDTH="100%"><form OnSubmit="return ValidInput(this)" method="post" action="/cgi-bin/goform"><b><font face="Arial,Helvetica"><font color="#000099"><font size=-1>Please
+select the platform/operating system you will be using with Alliance Series:</font></font></font></b>&nbsp;
+<div ALIGN=right><table BORDER=0 WIDTH="98%" >
+<tr>
+<td><input type=radio NAME="platform" value="Windows 98"><b><font face="Arial,Helvetica"><font size=-1>Windows
+98</font></font></b></td>
+
+<td><input type=radio NAME="platform" value="Windows NT"><b><font face="Arial,Helvetica"><font size=-1>Windows
+NT</font></font></b></td>
+
+<td><input type=radio NAME="platform" value="Windows 2000"><b><font face="Arial,Helvetica"><font size=-1>Windows
+2000</font></font></b></td>
+</tr>
+
+<tr>
+<td><input type=radio NAME="platform" value="HP-UX"><b><font face="Arial,Helvetica"><font size=-1>HP-UX</font></font></b></td>
+
+<td><input type=radio NAME="platform" value="Solaris"><b><font face="Arial,Helvetica"><font size=-1>Solaris</font></font></b></td>
+
+<td><input type=radio NAME="platform" value="Other"><b><font face="Arial,Helvetica"><font size=-1>Other</font></font></b></td>
+</tr>
+</table></div>
+</td>
+</tr>
+
+<tr>
+<td><font face="Arial,Helvetica">&nbsp;</font></td>
+</tr>
+
+<tr>
+<td><b><font face="Arial,Helvetica"><font color="#000099"><font size=-1>Select
+the Xilinx supplied EDA Vendor libraries you will be installing with Alliance
+Series:</font></font></font></b>&nbsp;
+<div ALIGN=right><table BORDER=0 WIDTH="98%" >
+<tr>
+<td><input type=checkbox NAME="PLDVendor" value="Cadence" onClick="checkIt(this.form)"><b><font face="Arial,Helvetica"><font size=-1>Cadence</font></font></b></td>
+
+<td><input type=checkbox NAME="PLDVendor" value="Mentor" onClick="checkIt(this.form)"><b><font face="Arial,Helvetica"><font size=-1>Mentor</font></font></b></td>
+
+<td><input type=checkbox NAME="PLDVendor" value="Synopsys" onClick="checkIt(this.form)"><b><font face="Arial,Helvetica"><font size=-1>Synopsys</font></font></b></td>
+
+<td><input type=checkbox NAME="PLDVendor" value="ViewLogic/Innoveda" onClick="checkIt(this.form)"><b><font face="Arial,Helvetica"><font size=-1>ViewLogic/Innoveda</font></font></b></td>
+
+<td><input type=checkbox NAME="PLDVendor" value="None" onClick="uncheckAll(this.form)"><b><font face="Arial,Helvetica"><font size=-1>None</font></font></b></td>
+</tr>
+
+<tr>
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+</tr>
+</table></div>
+</td>
+</tr>
+</table>
+<font face="Arial,Helvetica"><font size=-1>You will receive an e-mail from
+Xilinx with your software registration information within 48 hours of submitting
+this FAX if you have provided an e-mail address. If you have not provided
+an e-mail address, you will receive a FAX from Xilinx with your software
+registration information. For further assistance, please contact your regional
+Xilinx Software Customer Service at the above FAX address.&nbsp;</font></font></td>
+</tr>
+</table>
+
+<table BORDER=0 COLS=2 WIDTH="595" >
+<tr>
+<td>
+	<div align=right>
+	<input type=button value="Submit" onClick="createFax(this.form)">
+	</div>
+</td>
+
+<td><input type='reset' value='Clear Form'></td>
+</tr>
+
+<!-- <tr>
+	<td colspan=2 align=center>
+	<br>
+	<a href="#" onClick="startPage()">
+	<img src="images/prev1.gif" alt="Previous" hspace=5 border=0 height=32 width=32></a>
+	</td>
+	<td></td>
+</tr> -->
+</table>
+&nbsp;</td>
+</tr>
+</table>
+</form>
+<br>&nbsp;
+</body>
+</html>
